@@ -76,7 +76,7 @@ public class LoginFORM {
 		panel.setBackground(Color.RED);
 		
 		JButton loginBtn = new JButton("Login");
-		loginBtn.setBounds(287, 224, 71, 37);
+		loginBtn.setBounds(266, 224, 102, 37);
 		loginBtn.setForeground(Color.BLACK);
 		loginBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
 		loginBtn.setBackground(new Color(255, 204, 204));
@@ -89,7 +89,7 @@ public class LoginFORM {
 		passWord.setBounds(256, 179, 133, 27);
 		
 		JButton facultyBtn = new JButton("New Faculty?");
-		facultyBtn.setBounds(131, 330, 125, 29);
+		facultyBtn.setBounds(131, 330, 145, 29);
 		facultyBtn.setForeground(Color.BLACK);
 		facultyBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -99,7 +99,7 @@ public class LoginFORM {
 		facultyBtn.setBackground(new Color(255, 204, 204));
 		
 		JButton studentBtn = new JButton("Student?");
-		studentBtn.setBounds(401, 330, 95, 29);
+		studentBtn.setBounds(401, 330, 117, 29);
 		studentBtn.setForeground(Color.BLACK);
 		studentBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
 		studentBtn.setBackground(new Color(255, 204, 204));
