@@ -18,12 +18,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JSpinner;
 import javax.swing.JPasswordField;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormSpecs;
+import com.jgoodies.forms.layout.RowSpec;
 
 public class LoginFORM {
 
 	private JFrame frame;
-	private JTextField textField_1;
-	private JPasswordField passwordField;
+	private JTextField userID;
+	private JPasswordField passWord;
 
 	/**
 	 * Launch the application.
@@ -56,101 +60,76 @@ public class LoginFORM {
 		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		frame.setBounds(100, 100, 640, 540);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(true);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
+		userID = new JTextField();
+		userID.setColumns(10);
 		
 		JLabel lblUserid = new JLabel("UserID");
 		lblUserid.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblPassword.setFont(new Font("Comic Sans", Font.PLAIN, 12));
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.RED);
 		
-		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setForeground(Color.BLACK);
-		btnNewButton.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
-		btnNewButton.setBackground(new Color(255, 204, 204));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton loginBtn = new JButton("Login");
+		loginBtn.setForeground(Color.BLACK);
+		loginBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
+		loginBtn.setBackground(new Color(255, 204, 204));
+		loginBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		
-		passwordField = new JPasswordField();
+		passWord = new JPasswordField();
 		
-		JButton btnNewFaculty = new JButton("New Faculty?");
-		btnNewFaculty.setForeground(Color.BLACK);
-		btnNewFaculty.addActionListener(new ActionListener() {
+		JButton facultyBtn = new JButton("New Faculty?");
+		facultyBtn.setForeground(Color.BLACK);
+		facultyBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnNewFaculty.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
-		btnNewFaculty.setBackground(new Color(255, 204, 204));
+		facultyBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
+		facultyBtn.setBackground(new Color(255, 204, 204));
 		
-		JButton btnStudent = new JButton("Student?");
-		btnStudent.setForeground(Color.BLACK);
-		btnStudent.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
-		btnStudent.setBackground(new Color(255, 204, 204));
+		JButton studentBtn = new JButton("Student?");
+		studentBtn.setForeground(Color.BLACK);
+		studentBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
+		studentBtn.setBackground(new Color(255, 204, 204));
 		
 		JLabel lblPleaseEnterYour = new JLabel("Please Enter your UserID and Password");
 		lblPleaseEnterYour.setFont(new Font("Segoe UI Black", Font.PLAIN, 13));
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addComponent(panel, GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(151)
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-						.addComponent(lblUserid, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblPassword, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE))
-					.addGap(44)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE)
-						.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 133, GroupLayout.PREFERRED_SIZE))
-					.addGap(235))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addContainerGap(266, Short.MAX_VALUE)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-					.addGap(263))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(131)
-					.addComponent(btnNewFaculty)
-					.addPreferredGap(ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
-					.addComponent(btnStudent, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-					.addGap(122))
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(197, Short.MAX_VALUE)
-					.addComponent(lblPleaseEnterYour)
-					.addGap(177))
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-					.addComponent(lblPleaseEnterYour)
-					.addGap(29)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 27, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblUserid, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE))
-					.addGap(27)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblPassword, GroupLayout.PREFERRED_SIZE, 22, GroupLayout.PREFERRED_SIZE)
-						.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
-					.addGap(21)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)
-					.addGap(69)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(btnNewFaculty)
-						.addComponent(btnStudent))
-					.addGap(97))
-		);
+		frame.getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
+				ColumnSpec.decode("256px"),
+				ColumnSpec.decode("133px"),
+				FormSpecs.RELATED_GAP_COLSPEC,
+				ColumnSpec.decode("222px"),},
+			new RowSpec[] {
+				RowSpec.decode("61px"),
+				FormSpecs.PARAGRAPH_GAP_ROWSPEC,
+				RowSpec.decode("18px"),
+				FormSpecs.PARAGRAPH_GAP_ROWSPEC,
+				RowSpec.decode("28px"),
+				FormSpecs.PARAGRAPH_GAP_ROWSPEC,
+				RowSpec.decode("27px"),
+				FormSpecs.UNRELATED_GAP_ROWSPEC,
+				RowSpec.decode("37px"),
+				RowSpec.decode("69px"),
+				RowSpec.decode("29px"),}));
 		
 		JLabel lblNewLabel = new JLabel("University Of Winnipeg");
 		panel.add(lblNewLabel);
-		lblNewLabel.setFont(new Font("Monotype Corsiva", Font.PLAIN, 36));
-		frame.getContentPane().setLayout(groupLayout);
+		lblNewLabel.setFont(new Font("Gabriola", Font.PLAIN, 42));
+		frame.getContentPane().add(panel, "1, 1, 4, 1, fill, fill");
+		frame.getContentPane().add(lblUserid, "1, 5, center, fill");
+		frame.getContentPane().add(lblPassword, "1, 7, center, fill");
+		frame.getContentPane().add(userID, "2, 5, fill, fill");
+		frame.getContentPane().add(passWord, "2, 7, fill, fill");
+		frame.getContentPane().add(loginBtn, "2, 9, center, fill");
+		frame.getContentPane().add(facultyBtn, "1, 11, right, top");
+		frame.getContentPane().add(studentBtn, "4, 11, left, top");
+		frame.getContentPane().add(lblPleaseEnterYour, "1, 3, 4, 1, center, top");
 	}
 }
