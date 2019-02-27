@@ -18,10 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JSpinner;
 import javax.swing.JPasswordField;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.FormSpecs;
-import com.jgoodies.forms.layout.RowSpec;
+
 
 public class LoginFORM {
 
@@ -63,18 +60,23 @@ public class LoginFORM {
 		frame.setResizable(true);
 		
 		userID = new JTextField();
+		userID.setBounds(256, 127, 133, 28);
 		userID.setColumns(10);
 		
 		JLabel lblUserid = new JLabel("UserID");
+		lblUserid.setBounds(110, 127, 36, 28);
 		lblUserid.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
 		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setBounds(102, 183, 56, 27);
 		lblPassword.setFont(new Font("Comic Sans", Font.PLAIN, 12));
 		
 		JPanel panel = new JPanel();
+		panel.setBounds(0, 0, 623, 61);
 		panel.setBackground(Color.RED);
 		
 		JButton loginBtn = new JButton("Login");
+		loginBtn.setBounds(287, 224, 71, 37);
 		loginBtn.setForeground(Color.BLACK);
 		loginBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
 		loginBtn.setBackground(new Color(255, 204, 204));
@@ -84,8 +86,10 @@ public class LoginFORM {
 		});
 		
 		passWord = new JPasswordField();
+		passWord.setBounds(256, 179, 133, 27);
 		
 		JButton facultyBtn = new JButton("New Faculty?");
+		facultyBtn.setBounds(131, 330, 125, 29);
 		facultyBtn.setForeground(Color.BLACK);
 		facultyBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -95,41 +99,27 @@ public class LoginFORM {
 		facultyBtn.setBackground(new Color(255, 204, 204));
 		
 		JButton studentBtn = new JButton("Student?");
+		studentBtn.setBounds(401, 330, 95, 29);
 		studentBtn.setForeground(Color.BLACK);
 		studentBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
 		studentBtn.setBackground(new Color(255, 204, 204));
 		
 		JLabel lblPleaseEnterYour = new JLabel("Please Enter your UserID and Password");
+		lblPleaseEnterYour.setBounds(186, 85, 250, 18);
 		lblPleaseEnterYour.setFont(new Font("Segoe UI Black", Font.PLAIN, 13));
-		frame.getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
-				ColumnSpec.decode("256px"),
-				ColumnSpec.decode("133px"),
-				FormSpecs.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("222px"),},
-			new RowSpec[] {
-				RowSpec.decode("61px"),
-				FormSpecs.PARAGRAPH_GAP_ROWSPEC,
-				RowSpec.decode("18px"),
-				FormSpecs.PARAGRAPH_GAP_ROWSPEC,
-				RowSpec.decode("28px"),
-				FormSpecs.PARAGRAPH_GAP_ROWSPEC,
-				RowSpec.decode("27px"),
-				FormSpecs.UNRELATED_GAP_ROWSPEC,
-				RowSpec.decode("37px"),
-				RowSpec.decode("69px"),
-				RowSpec.decode("29px"),}));
+		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("University Of Winnipeg");
 		panel.add(lblNewLabel);
 		lblNewLabel.setFont(new Font("Gabriola", Font.PLAIN, 42));
-		frame.getContentPane().add(panel, "1, 1, 4, 1, fill, fill");
-		frame.getContentPane().add(lblUserid, "1, 5, center, fill");
-		frame.getContentPane().add(lblPassword, "1, 7, center, fill");
-		frame.getContentPane().add(userID, "2, 5, fill, fill");
-		frame.getContentPane().add(passWord, "2, 7, fill, fill");
-		frame.getContentPane().add(loginBtn, "2, 9, center, fill");
-		frame.getContentPane().add(facultyBtn, "1, 11, right, top");
-		frame.getContentPane().add(studentBtn, "4, 11, left, top");
-		frame.getContentPane().add(lblPleaseEnterYour, "1, 3, 4, 1, center, top");
+		frame.getContentPane().add(panel);
+		frame.getContentPane().add(lblUserid);
+		frame.getContentPane().add(lblPassword);
+		frame.getContentPane().add(userID);
+		frame.getContentPane().add(passWord);
+		frame.getContentPane().add(loginBtn);
+		frame.getContentPane().add(facultyBtn);
+		frame.getContentPane().add(studentBtn);
+		frame.getContentPane().add(lblPleaseEnterYour);
 	}
 }
