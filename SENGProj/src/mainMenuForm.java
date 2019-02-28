@@ -83,19 +83,19 @@ public class mainMenuForm {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnEditCourse.setBounds(217, 197, 141, 35);
+		btnEditCourse.setBounds(217, 183, 141, 35);
 		frame.getContentPane().add(btnEditCourse);
 		
 		JButton btnViewDepartment = new JButton("View Department");
 		btnViewDepartment.setBackground(Color.MAGENTA);
 		btnViewDepartment.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnViewDepartment.setBounds(217, 342, 147, 35);
+		btnViewDepartment.setBounds(395, 246, 161, 32);
 		frame.getContentPane().add(btnViewDepartment);
 		
 		JButton btnViewProgram = new JButton("View Program");
-		btnViewProgram.setBackground(Color.ORANGE);
+		btnViewProgram.setBackground(Color.MAGENTA);
 		btnViewProgram.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnViewProgram.setBounds(217, 271, 141, 35);
+		btnViewProgram.setBounds(35, 244, 141, 35);
 		frame.getContentPane().add(btnViewProgram);
 		
 		JButton btnLogout = new JButton("Logout");
@@ -107,7 +107,31 @@ public class mainMenuForm {
 		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
 		img = img.getScaledInstance(150, 100, 0);
 		lblNewLabel_1.setIcon(new ImageIcon(img));
-		lblNewLabel_1.setBounds(21, 145, 175, 119);
+		lblNewLabel_1.setBounds(21, 391, 175, 119);
 		frame.getContentPane().add(lblNewLabel_1);
+		
+		JButton btnNewButton = new JButton("Add Program");
+		btnNewButton.setBackground(Color.GREEN);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btnNewButton.setBounds(35, 121, 141, 35);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Add Department");
+		btnNewButton_1.setBackground(Color.GREEN);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnNewButton_1.setBounds(395, 122, 161, 32);
+		frame.getContentPane().add(btnNewButton_1);
+		
+		JButton btnEditProgram = new JButton("Edit Program");
+		btnEditProgram.setBackground(Color.YELLOW);
+		btnEditProgram.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btnEditProgram.setBounds(35, 183, 141, 35);
+		frame.getContentPane().add(btnEditProgram);
+		
+		JButton btnEditDepartment = new JButton("Edit Department");
+		btnEditDepartment.setBackground(Color.YELLOW);
+		btnEditDepartment.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnEditDepartment.setBounds(395, 181, 161, 32);
+		frame.getContentPane().add(btnEditDepartment);
 	}
 }
