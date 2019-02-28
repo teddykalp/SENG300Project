@@ -64,6 +64,13 @@ public class mainMenuForm {
 		frame.getContentPane().add(lblWhichActionWould);
 		
 		JButton btnAddCourse = new JButton("Add Course");
+		btnAddCourse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.setVisible(false);
+				AddCourse add = new AddCourse();
+				add.setVisible(true);
+			}
+		});
 		btnAddCourse.setBackground(Color.GREEN);
 		btnAddCourse.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnAddCourse.setBounds(217, 119, 141, 35);
