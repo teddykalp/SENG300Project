@@ -131,6 +131,14 @@ public class mainMenuForm extends JFrame {
 		btnEditDepartment.setBackground(Color.YELLOW);
 		btnEditDepartment.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnEditDepartment.setBounds(395, 181, 161, 32);
+<<<<<<< Upstream, based on origin/master
 		getContentPane().add(btnEditDepartment);
+=======
+		frame.getContentPane().add(btnEditDepartment);
+		
+		
+>>>>>>> d3adc1c changes
 	}
+
+	
 }
