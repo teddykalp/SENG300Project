@@ -20,7 +20,7 @@ import javax.swing.JSpinner;
 import javax.swing.JPasswordField;
 
 
-public class LoginFORM {
+public class LoginForm extends JFrame{
 
 	private JFrame frame;
 	private JTextField userID;
@@ -33,8 +33,8 @@ public class LoginFORM {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginFORM window = new LoginFORM();
-					window.frame.setVisible(true);
+					LoginForm form = new LoginForm();
+					form.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -45,19 +45,18 @@ public class LoginFORM {
 	/**
 	 * Create the application.
 	 */
-	public LoginFORM() {
+	public LoginForm() {
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialize the contents of the 
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
-		frame.setBounds(100, 100, 640, 540);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(true);
+		setBackground(Color.LIGHT_GRAY);
+		setBounds(100, 100, 640, 540);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(true);
 		
 		userID = new JTextField();
 		userID.setBounds(256, 127, 133, 28);
@@ -107,19 +106,19 @@ public class LoginFORM {
 		JLabel lblPleaseEnterYour = new JLabel("Please Enter your UserID and Password");
 		lblPleaseEnterYour.setBounds(186, 85, 250, 18);
 		lblPleaseEnterYour.setFont(new Font("Segoe UI Black", Font.PLAIN, 13));
-		frame.getContentPane().setLayout(null);
+		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("University Of Winnipeg");
 		panel.add(lblNewLabel);
 		lblNewLabel.setFont(new Font("Gabriola", Font.PLAIN, 42));
-		frame.getContentPane().add(panel);
-		frame.getContentPane().add(lblUserid);
-		frame.getContentPane().add(lblPassword);
-		frame.getContentPane().add(userID);
-		frame.getContentPane().add(passWord);
-		frame.getContentPane().add(loginBtn);
-		frame.getContentPane().add(facultyBtn);
-		frame.getContentPane().add(studentBtn);
-		frame.getContentPane().add(lblPleaseEnterYour);
+		getContentPane().add(panel);
+		getContentPane().add(lblUserid);
+		getContentPane().add(lblPassword);
+		getContentPane().add(userID);
+		getContentPane().add(passWord);
+		getContentPane().add(loginBtn);
+		getContentPane().add(facultyBtn);
+		getContentPane().add(studentBtn);
+		getContentPane().add(lblPleaseEnterYour);
 	}
 }
