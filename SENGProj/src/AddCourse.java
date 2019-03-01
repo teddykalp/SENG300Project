@@ -14,14 +14,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.JTextArea;
 
 public class AddCourse extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField courseDes;
 	private JTextField courseName;
 	private JTextField courseID;
-	private JTextField preReq;
 	private JTextField startTime;
 	private JTextField finishTime;
 	private mainMenuForm menu = new mainMenuForm();
@@ -76,7 +75,7 @@ public class AddCourse extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Course Level");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(21, 159, 92, 26);
+		lblNewLabel.setBounds(21, 109, 92, 26);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblCourseName = new JLabel("Course Name");
@@ -86,39 +85,28 @@ public class AddCourse extends JFrame {
 		
 		JLabel lblCourseDescription = new JLabel("Course Description ");
 		lblCourseDescription.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCourseDescription.setBounds(21, 109, 119, 26);
+		lblCourseDescription.setBounds(21, 548, 119, 26);
 		getContentPane().add(lblCourseDescription);
 		
 		JLabel lblCourseId = new JLabel("Course ID (00-99)");
 		lblCourseId.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCourseId.setBounds(21, 206, 119, 26);
+		lblCourseId.setBounds(21, 147, 119, 26);
 		getContentPane().add(lblCourseId);
-		
-		JLabel lblProgram = new JLabel("Program");
-		lblProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblProgram.setBounds(21, 247, 92, 26);
-		getContentPane().add(lblProgram);
 		
 		JLabel lblInstructor = new JLabel("<html><p>Prerequisite \r\nCourses (Seperate courses with a comma)<p><html>");
 		lblInstructor.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblInstructor.setBounds(21, 414, 157, 51);
+		lblInstructor.setBounds(21, 223, 157, 51);
 		getContentPane().add(lblInstructor);
 		
 		JLabel label = new JLabel("Instructor");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		label.setBounds(21, 351, 92, 26);
+		label.setBounds(21, 185, 92, 26);
 		getContentPane().add(label);
 		
 		JLabel lblDaysThisCourse = new JLabel("<html><p>Days this Course will be offered<p><html>");
 		lblDaysThisCourse.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblDaysThisCourse.setBounds(21, 484, 102, 51);
+		lblDaysThisCourse.setBounds(21, 295, 102, 51);
 		getContentPane().add(lblDaysThisCourse);
-		
-		courseDes = new JTextField();
-		courseDes.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		courseDes.setBounds(211, 110, 186, 26);
-		getContentPane().add(courseDes);
-		courseDes.setColumns(10);
 		
 		courseName = new JTextField();
 		courseName.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -127,116 +115,110 @@ public class AddCourse extends JFrame {
 		getContentPane().add(courseName);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
 		comboBox.setSelectedIndex(0);
-		comboBox.setBounds(267, 157, 48, 27);
+		comboBox.setBounds(263, 107, 48, 27);
 		getContentPane().add(comboBox);
 		
 		courseID = new JTextField();
-		courseID.setBounds(211, 207, 186, 26);
+		courseID.setBounds(211, 147, 186, 26);
 		getContentPane().add(courseID);
 		courseID.setColumns(10);
 		
-		JLabel lblDepartment = new JLabel("Department");
-		lblDepartment.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblDepartment.setBounds(21, 298, 92, 26);
-		getContentPane().add(lblDepartment);
-		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(211, 300, 186, 26);
-		getContentPane().add(comboBox_1);
-		
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setBounds(211, 247, 186, 27);
-		getContentPane().add(comboBox_2);
-		
 		JComboBox comboBox_3 = new JComboBox();
-		comboBox_3.setBounds(211, 351, 186, 26);
+		comboBox_3.setBounds(211, 183, 186, 26);
 		getContentPane().add(comboBox_3);
-		
-		preReq = new JTextField();
-		preReq.setBounds(211, 404, 186, 61);
-		getContentPane().add(preReq);
-		preReq.setColumns(10);
 		
 		JRadioButton rdbtnMonday = new JRadioButton("Monday");
 		rdbtnMonday.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		rdbtnMonday.setBounds(211, 482, 149, 29);
+		rdbtnMonday.setBounds(211, 307, 149, 29);
 		getContentPane().add(rdbtnMonday);
 		
 		JRadioButton rdbtnTuesday = new JRadioButton("Tuesday");
 		rdbtnTuesday.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		rdbtnTuesday.setBounds(211, 524, 149, 29);
+		rdbtnTuesday.setBounds(211, 349, 149, 29);
 		getContentPane().add(rdbtnTuesday);
 		
 		JRadioButton rdbtnWednesday = new JRadioButton("Wednesday");
 		rdbtnWednesday.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		rdbtnWednesday.setBounds(211, 566, 149, 29);
+		rdbtnWednesday.setBounds(211, 391, 149, 29);
 		getContentPane().add(rdbtnWednesday);
 		
 		JRadioButton rdbtnThursday = new JRadioButton("Thursday");
 		rdbtnThursday.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		rdbtnThursday.setBounds(363, 480, 172, 29);
+		rdbtnThursday.setBounds(363, 307, 172, 29);
 		getContentPane().add(rdbtnThursday);
 		
 		JRadioButton rdbtnFriday = new JRadioButton("Friday");
 		rdbtnFriday.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		rdbtnFriday.setBounds(363, 524, 130, 29);
+		rdbtnFriday.setBounds(363, 349, 130, 29);
 		getContentPane().add(rdbtnFriday);
 		
 		JRadioButton rdbtnSaturday = new JRadioButton("Saturday");
 		rdbtnSaturday.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		rdbtnSaturday.setBounds(363, 566, 130, 29);
+		rdbtnSaturday.setBounds(363, 391, 130, 29);
 		getContentPane().add(rdbtnSaturday);
 		
 		JLabel lblTimeslot = new JLabel("Time Slot");
 		lblTimeslot.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblTimeslot.setBounds(21, 607, 92, 26);
+		lblTimeslot.setBounds(21, 440, 92, 26);
 		getContentPane().add(lblTimeslot);
 		
 		startTime = new JTextField();
-		startTime.setBounds(211, 602, 80, 32);
+		startTime.setBounds(195, 437, 80, 32);
 		getContentPane().add(startTime);
 		startTime.setColumns(10);
 		
 		finishTime = new JTextField();
 		finishTime.setColumns(10);
-		finishTime.setBounds(373, 602, 80, 32);
+		finishTime.setBounds(347, 437, 80, 32);
 		getContentPane().add(finishTime);
 		
 		JLabel lblStartTime = new JLabel("Start Time");
 		lblStartTime.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblStartTime.setBounds(134, 607, 69, 26);
+		lblStartTime.setBounds(120, 440, 69, 26);
 		getContentPane().add(lblStartTime);
 		
 		JLabel lblFinishTime = new JLabel("Finish Time");
 		lblFinishTime.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblFinishTime.setBounds(297, 605, 69, 26);
+		lblFinishTime.setBounds(276, 440, 69, 26);
 		getContentPane().add(lblFinishTime);
 		
 		JLabel lblCourseCredits = new JLabel("Course Credits");
 		lblCourseCredits.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCourseCredits.setBounds(21, 668, 92, 26);
+		lblCourseCredits.setBounds(21, 487, 92, 26);
 		getContentPane().add(lblCourseCredits);
 		
 		JComboBox comboBox_4 = new JComboBox();
+		comboBox_4.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4"}));
-		comboBox_4.setBounds(271, 663, 57, 32);
+		comboBox_4.setBounds(272, 490, 57, 26);
 		getContentPane().add(comboBox_4);
 		
-		JButton btnRegisterCourse = new JButton("Register Course");
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(211, 221, 216, 65);
+		getContentPane().add(textArea);
+		
+		JTextArea courseDesc = new JTextArea();
+		courseDesc.setBounds(209, 551, 244, 113);
+		getContentPane().add(courseDesc);
+		
+		JButton btnRegisterCourse = new JButton("Submit");
 		btnRegisterCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (courseName.getText().isEmpty()){
 					nameError.setText("Please enter valid name");
+				}else{
+					nameError.setText("");
 				}
-				if (courseDes.getText().isEmpty()){
+				if (courseDesc.getText().isEmpty()){
 					descError.setText("Please enter description");
 				}
 			}
 		});
 		btnRegisterCourse.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnRegisterCourse.setBounds(227, 742, 157, 35);
+		btnRegisterCourse.setBounds(226, 715, 157, 35);
 		getContentPane().add(btnRegisterCourse);
 		
 		JButton btnGoBack = new JButton("Go Back");
@@ -249,6 +231,8 @@ public class AddCourse extends JFrame {
 		btnGoBack.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnGoBack.setBounds(438, 21, 157, 35);
 		getContentPane().add(btnGoBack);
+		
+		
 		
 		
 	}

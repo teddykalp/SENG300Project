@@ -34,7 +34,7 @@ public class mainMenuForm extends JFrame {
 	 * Create the application.
 	 */
 	public mainMenuForm() {
-		getContentPane().setBackground(new Color(105, 105, 105));
+		getContentPane().setBackground(new Color(102, 102, 102));
 		initialize();
 	}
 
@@ -42,7 +42,8 @@ public class mainMenuForm extends JFrame {
 	 * Initialize the contents of the 
 	 */
 	private void initialize() {
-		setBounds(100, 100, 613, 617);
+		setTitle("Program");
+		setBounds(100, 100, 637, 646);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
@@ -51,12 +52,6 @@ public class mainMenuForm extends JFrame {
 		Welcome.setFont(new Font("Tahoma", Font.BOLD, 18));
 		Welcome.setBounds(10, 0, 147, 26);
 		getContentPane().add(Welcome);
-		
-		JLabel lblNewLabel = new JLabel("University of Winnipeg");
-		lblNewLabel.setForeground(Color.RED);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 19));
-		lblNewLabel.setBounds(366, -1, 239, 26);
-		getContentPane().add(lblNewLabel);
 		
 		JLabel lblWhichActionWould = new JLabel("Which Action Would you like to preform?");
 		lblWhichActionWould.setBackground(Color.RED);
@@ -114,19 +109,22 @@ public class mainMenuForm extends JFrame {
 		});
 		btnLogout.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 		btnLogout.setBackground(Color.PINK);
-		btnLogout.setBounds(217, 448, 141, 35);
+		btnLogout.setBounds(217, 375, 141, 35);
 		getContentPane().add(btnLogout);
 		
 		JLabel lblNewLabel_1 = new JLabel(" ");
 		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
 		img = img.getScaledInstance(180, 170, 0);
 		lblNewLabel_1.setIcon(new ImageIcon(img));
-		lblNewLabel_1.setBounds(395, 436, 192, 131);
+		lblNewLabel_1.setBounds(395, 415, 192, 131);
 		getContentPane().add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("Add Program");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				AddProgram add = new AddProgram();
+				add.setVisible(true);
 			}
 		});
 		btnNewButton.setForeground(Color.WHITE);
@@ -158,14 +156,9 @@ public class mainMenuForm extends JFrame {
 		
 		JLabel label_1 = new JLabel(" ");
 		Image img1 = new ImageIcon(this.getClass().getResource("/UW_logo.png")).getImage();
-		img1 = img1.getScaledInstance(250, 120, 0);
+		img1 = img1.getScaledInstance(210, 80, 0);
 		label_1.setIcon(new ImageIcon(img1));
-		label_1.setBounds(171, 289, 239, 148);
+		label_1.setBounds(10, 428, 268, 126);
 		getContentPane().add(label_1);
-
-		
-		
-		
-
 	}
 }
