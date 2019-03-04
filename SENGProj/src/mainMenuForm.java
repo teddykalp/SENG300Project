@@ -10,10 +10,15 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Color;
 
+
+
 public class mainMenuForm extends JFrame {
 
+	private LoginForm login;
+	private AddProgram programAdd;
+	private AddCourse courseAdd;
 	
-
+	
 	/**
 	 * Launch the application.
 	 */
@@ -65,8 +70,8 @@ public class mainMenuForm extends JFrame {
 		btnAddCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
-				AddCourse add = new AddCourse();
-				add.setVisible(true);
+				courseAdd = new AddCourse();
+				courseAdd.setVisible(true);
 			}
 		});
 		btnAddCourse.setBackground(Color.WHITE);
@@ -103,7 +108,7 @@ public class mainMenuForm extends JFrame {
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				LoginForm login = new LoginForm();
+				login = new LoginForm();
 				login.setVisible(true);
 			}
 		});
@@ -123,8 +128,8 @@ public class mainMenuForm extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
-				AddProgram add = new AddProgram();
-				add.setVisible(true);
+				programAdd = new AddProgram();
+				programAdd.setVisible(true);
 			}
 		});
 		btnNewButton.setForeground(Color.WHITE);

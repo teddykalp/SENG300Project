@@ -27,6 +27,7 @@ public class AddProgram extends JFrame {
 	private JLabel lblDepartment;
 	private JComboBox comboBox;
 	private JLabel lblProgramAbbreviation;
+	private mainMenuForm menu;
 
 	/**
 	 * Launch the application.
@@ -140,7 +141,7 @@ public class AddProgram extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				mainMenuForm menu = new mainMenuForm();
+				menu = new mainMenuForm();
 				menu.setVisible(true);
 			}
 		});

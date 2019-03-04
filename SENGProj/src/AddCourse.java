@@ -23,7 +23,7 @@ public class AddCourse extends JFrame {
 	private JTextField courseID;
 	private JTextField startTime;
 	private JTextField finishTime;
-	private mainMenuForm menu = new mainMenuForm();
+	private mainMenuForm menu;
 
 	/**
 	 * Launch the application.
@@ -225,6 +225,7 @@ public class AddCourse extends JFrame {
 		btnGoBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
+				menu = new mainMenuForm();
 				menu.setVisible(true);
 			}
 		});
