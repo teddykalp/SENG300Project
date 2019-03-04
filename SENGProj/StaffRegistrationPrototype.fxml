@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="658.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="647.0" prefWidth="622.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" layoutX="210.0" layoutY="157.0" style="&#10;" text="User Registration Form" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+            <ImageView fitHeight="131.0" fitWidth="197.0" layoutX="208.0" layoutY="14.0" pickOnBounds="true" smooth="false">
+               <image>
+                  <Image url="@Desktop/UofW-Logo.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="44.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
+            <Text layoutX="43.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" />
+            <Text layoutX="44.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" />
+            <TextField fx:id="firstname" layoutX="168.0" layoutY="194.0" prefHeight="27.0" prefWidth="114.0" />
+            <TextField fx:id="phonenumber" layoutX="168.0" layoutY="264.0" />
+            <TextField fx:id="lastname" layoutX="168.0" layoutY="232.0" prefHeight="27.0" prefWidth="133.0" />
+            <Text layoutX="45.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address:" />
+            <TextField fx:id="email" layoutX="168.0" layoutY="301.0" prefHeight="27.0" prefWidth="209.0" />
+            <Text layoutX="46.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mailing Address: " />
+            <Text layoutX="43.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Staff Type: " />
+            <RadioButton layoutX="168.0" layoutY="436.0" mnemonicParsing="false" text="Department Head" />
+            <RadioButton layoutX="317.0" layoutY="436.0" mnemonicParsing="false" text="Instructor/Teaching Assistant " />
+            <RadioButton layoutX="532.0" layoutY="436.0" mnemonicParsing="false" text="Staff" />
+            <Text layoutX="43.0" layoutY="410.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department:" />
+            <TextField fx:id="department" layoutX="166.0" layoutY="392.0" prefHeight="27.0" prefWidth="393.0" />
+            <Text layoutX="46.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User ID: " />
+            <Text layoutX="45.0" layoutY="537.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password: " />
+            <TextField fx:id="userID" layoutX="168.0" layoutY="476.0" />
+            <Text layoutX="46.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password:" />
+            <PasswordField fx:id="password" layoutX="168.0" layoutY="519.0" />
+            <PasswordField fx:id="confirmpass" layoutX="168.0" layoutY="554.0" />
+            <Button layoutX="286.0" layoutY="594.0" mnemonicParsing="false" text="Submit" />
+            <TextField fx:id="address" layoutX="170.0" layoutY="338.0" prefHeight="27.0" prefWidth="386.0" />
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
