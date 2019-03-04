@@ -113,7 +113,7 @@ public class mainMenuForm extends JFrame {
 		getContentPane().add(btnLogout);
 		
 		JLabel lblNewLabel_1 = new JLabel(" ");
-		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.png")).getImage();
 		img = img.getScaledInstance(180, 170, 0);
 		lblNewLabel_1.setIcon(new ImageIcon(img));
 		lblNewLabel_1.setBounds(395, 415, 192, 131);
