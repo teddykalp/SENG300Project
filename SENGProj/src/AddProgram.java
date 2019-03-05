@@ -28,27 +28,18 @@ public class AddProgram extends JFrame {
 	private JComboBox comboBox;
 	private JLabel lblProgramAbbreviation;
 	private mainMenuForm menu;
+	
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddProgram frame = new AddProgram();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public AddProgram() {
+	public AddProgram(String user) {
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 621, 632);
 		contentPane = new JPanel();
@@ -141,7 +132,7 @@ public class AddProgram extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				menu = new mainMenuForm();
+				menu = new mainMenuForm(user);
 				menu.setVisible(true);
 			}
 		});

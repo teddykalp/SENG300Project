@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.Panel;
+import javax.swing.JPanel;
 
 
 
@@ -17,46 +20,40 @@ public class mainMenuForm extends JFrame {
 	private LoginForm login;
 	private AddProgram programAdd;
 	private AddCourse courseAdd;
+	private String user;
 	
 	
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					mainMenuForm menu = new mainMenuForm();
-					menu.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the application.
 	 */
-	public mainMenuForm() {
+	public mainMenuForm(String user) {
+		getContentPane().setForeground(Color.GRAY);
 		getContentPane().setBackground(new Color(102, 102, 102));
+		setUser(user);
 		initialize();
+		
 	}
 
 	/**
 	 * Initialize the contents of the 
 	 */
+	public void setUser(String user){
+		this.user = user;
+	}
+	
+	
 	private void initialize() {
 		setTitle("Program");
 		setBounds(100, 100, 637, 646);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
-		JLabel Welcome = new JLabel("Welcome User");
-		Welcome.setForeground(new Color(255, 51, 51));
-		Welcome.setFont(new Font("Tahoma", Font.BOLD, 18));
-		Welcome.setBounds(10, 0, 147, 26);
-		getContentPane().add(Welcome);
+		
 		
 		JLabel lblWhichActionWould = new JLabel("Which Action Would you like to preform?");
 		lblWhichActionWould.setBackground(Color.RED);
@@ -70,7 +67,7 @@ public class mainMenuForm extends JFrame {
 		btnAddCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
-				courseAdd = new AddCourse();
+				courseAdd = new AddCourse(user);
 				courseAdd.setVisible(true);
 			}
 		});
@@ -128,7 +125,7 @@ public class mainMenuForm extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
-				programAdd = new AddProgram();
+				programAdd = new AddProgram(user);
 				programAdd.setVisible(true);
 			}
 		});
@@ -165,5 +162,16 @@ public class mainMenuForm extends JFrame {
 		label_1.setIcon(new ImageIcon(img1));
 		label_1.setBounds(10, 428, 268, 126);
 		getContentPane().add(label_1);
+		
+		JLabel lblNewLabel = new JLabel("Welcome " + this.user);
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel.setBounds(10, 0, 141, 26);
+		getContentPane().add(lblNewLabel);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.RED);
+		panel.setBounds(0, 54, 611, 44);
+		getContentPane().add(panel);
 	}
 }

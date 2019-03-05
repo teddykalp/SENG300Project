@@ -25,6 +25,10 @@ public class LoginForm extends JFrame{
 	private JFrame frame;
 	private JTextField userID;
 	private JPasswordField passWord;
+	private JLabel loginError = new JLabel("");
+	private String user = "Bob";
+	private String pass = "password";
+	
 
 	/**
 	 * Launch the application.
@@ -53,10 +57,16 @@ public class LoginForm extends JFrame{
 	 * Initialize the contents of the 
 	 */
 	private void initialize() {
+		
+		loginError.setForeground(Color.RED);
+		loginError.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		loginError.setBounds(220, 217, 250, 32);
+		getContentPane().add(loginError);
+		
 		setBackground(Color.LIGHT_GRAY);
 		setBounds(100, 100, 640, 540);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setResizable(true);
+		setResizable(false);
 		
 		userID = new JTextField();
 		userID.setBounds(256, 127, 133, 28);
@@ -75,12 +85,24 @@ public class LoginForm extends JFrame{
 		panel.setBackground(Color.RED);
 		
 		JButton loginBtn = new JButton("Login");
-		loginBtn.setBounds(266, 224, 102, 37);
+		loginBtn.setBounds(272, 260, 102, 37);
 		loginBtn.setForeground(Color.BLACK);
 		loginBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
 		loginBtn.setBackground(new Color(255, 204, 204));
 		loginBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String entry = new String(passWord.getPassword());
+				if (userID.getText().isEmpty()){
+					loginError.setText("Please enter valid username/password");
+				}
+				if (entry.isEmpty()){
+					loginError.setText("Please enter valid username/password");
+				}
+				if ((userID.getText().equals(user))&& (entry.equals(pass))){
+					setVisible(false);
+					mainMenuForm menu = new mainMenuForm(userID.getText());
+					menu.setVisible(true);
+				}
 			}
 		});
 		
@@ -120,5 +142,6 @@ public class LoginForm extends JFrame{
 		getContentPane().add(facultyBtn);
 		getContentPane().add(studentBtn);
 		getContentPane().add(lblPleaseEnterYour);
+		
 	}
 }
