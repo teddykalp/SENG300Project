@@ -26,7 +26,18 @@ public class mainMenuForm extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					mainMenuForm menu = new mainMenuForm("Teddy");
+					menu.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the application.
@@ -55,7 +66,7 @@ public class mainMenuForm extends JFrame {
 		
 		
 		
-		JLabel lblWhichActionWould = new JLabel("Which Action Would you like to preform?");
+		JLabel lblWhichActionWould = new JLabel("Which Action Would you like to perform?");
 		lblWhichActionWould.setBackground(Color.RED);
 		lblWhichActionWould.setForeground(Color.PINK);
 		lblWhichActionWould.setFont(new Font("DejaVu Math TeX Gyre", Font.BOLD, 18));
