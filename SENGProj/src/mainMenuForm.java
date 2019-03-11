@@ -126,7 +126,7 @@ public class mainMenuForm extends JFrame {
 		getContentPane().add(btnLogout);
 		
 		JLabel lblNewLabel_1 = new JLabel(" ");
-		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.png")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
 		img = img.getScaledInstance(180, 170, 0);
 		lblNewLabel_1.setIcon(new ImageIcon(img));
 		lblNewLabel_1.setBounds(395, 415, 192, 131);
@@ -168,7 +168,7 @@ public class mainMenuForm extends JFrame {
 		getContentPane().add(btnEditDepartment);
 		
 		JLabel label_1 = new JLabel(" ");
-		Image img1 = new ImageIcon(this.getClass().getResource("/UW_logo.png")).getImage();
+		Image img1 = new ImageIcon(this.getClass().getResource("/UW-logo.png")).getImage();
 		img1 = img1.getScaledInstance(210, 80, 0);
 		label_1.setIcon(new ImageIcon(img1));
 		label_1.setBounds(10, 428, 268, 126);

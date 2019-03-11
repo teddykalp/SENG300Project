@@ -2,8 +2,10 @@ import java.awt.BorderLayout;
 import java.io.*;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Image;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -76,9 +78,9 @@ public class AddCourse extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
-		JLabel lblAddCourse = new JLabel("Register a Course");
-		lblAddCourse.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		lblAddCourse.setBounds(211, 16, 165, 26);
+		JLabel lblAddCourse = new JLabel("Register Course");
+		lblAddCourse.setFont(new Font("Times New Roman", Font.BOLD, 19));
+		lblAddCourse.setBounds(221, 16, 165, 26);
 		getContentPane().add(lblAddCourse);
 		
 		JLabel lblNewLabel = new JLabel("Course Level");
@@ -213,6 +215,8 @@ public class AddCourse extends JFrame {
 		getContentPane().add(courseDesc);
 		
 		JButton btnRegisterCourse = new JButton("Submit");
+		btnRegisterCourse.setBackground(Color.DARK_GRAY);
+		btnRegisterCourse.setForeground(Color.GREEN);
 		btnRegisterCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (courseName.getText().isEmpty()){
@@ -236,6 +240,8 @@ public class AddCourse extends JFrame {
 		getContentPane().add(btnRegisterCourse);
 		
 		JButton btnGoBack = new JButton("Go Back");
+		btnGoBack.setBackground(Color.DARK_GRAY);
+		btnGoBack.setForeground(Color.RED);
 		btnGoBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -255,6 +261,13 @@ public class AddCourse extends JFrame {
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(211, 177, 186, 26);
 		getContentPane().add(comboBox);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(422, 77, 194, 135);
+		Image img1 = new ImageIcon(this.getClass().getResource("/UW-logo.png")).getImage();
+		img1 = img1.getScaledInstance(160, 50, 0);
+		lblNewLabel_1.setIcon(new ImageIcon(img1));
+		getContentPane().add(lblNewLabel_1);
 		
 		
 		

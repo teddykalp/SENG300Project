@@ -28,6 +28,7 @@ public class LoginForm extends JFrame{
 	private JLabel loginError = new JLabel("");
 	private String user = "Bob";
 	private String pass = "password";
+	private staffRegister staff;
 	
 
 	/**
@@ -114,6 +115,9 @@ public class LoginForm extends JFrame{
 		facultyBtn.setForeground(Color.BLACK);
 		facultyBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				staff = new staffRegister();
+				staff.setVisible(true);
 			}
 		});
 		facultyBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
