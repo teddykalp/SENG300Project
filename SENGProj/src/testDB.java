@@ -11,35 +11,20 @@ public class testDB {
 	public static void main(String [] args){
 		
 		 try {
-			 	String driver = "sun.jdbc.odbc.JdbcOdbcDriver";
-	            Class.forName(driver);
-	            
-	            String db = "jdbc:odbc:test";
-	            
-	            con = DriverManager.getConnection(db);
-	            st = con.createStatement();
-	            String sql = "select * from courseDB";
-	            rs = st.executeQuery(sql);
-	            
-	            while(rs.next())
-	            {
-	            	String cname = rs.getString("courseName");
-	            	String cID = rs.getString("courseID");
-	            	
-	            	System.out.println(cname + " " + cID);
-	            }
-
-	           
-
-	        } catch (Exception e) {
-
-	            System.out.println(e.getMessage());
-
-	        }
-		
-		
-		
-		
-	}
+			 String url = "jdbc:odbc:staffDB";
+			 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+			 
+			  con = DriverManager.getConnection(url);
+			  st = con.createStatement();
+			  
+			  rs = st.executeQuery("SELECT * FROM staff");
+			  
+			  while(rs.next()) {
+				  System.out.println(rs.getString(1));
+			  }
+		 }catch(Exception e) {
+			 System.out.print("does not work");
+		 }
 	
+}
 }

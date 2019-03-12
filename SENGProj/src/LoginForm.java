@@ -2,11 +2,14 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.GroupLayout;
+import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.SystemColor;
@@ -111,7 +114,7 @@ public class LoginForm extends JFrame{
 		passWord.setBounds(256, 179, 133, 27);
 		
 		JButton facultyBtn = new JButton("New Faculty?");
-		facultyBtn.setBounds(131, 330, 145, 29);
+		facultyBtn.setBounds(110, 312, 145, 29);
 		facultyBtn.setForeground(Color.BLACK);
 		facultyBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -124,7 +127,7 @@ public class LoginForm extends JFrame{
 		facultyBtn.setBackground(new Color(255, 204, 204));
 		
 		JButton studentBtn = new JButton("Student?");
-		studentBtn.setBounds(401, 330, 117, 29);
+		studentBtn.setBounds(409, 312, 117, 29);
 		studentBtn.setForeground(Color.BLACK);
 		studentBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
 		studentBtn.setBackground(new Color(255, 204, 204));
@@ -146,6 +149,13 @@ public class LoginForm extends JFrame{
 		getContentPane().add(facultyBtn);
 		getContentPane().add(studentBtn);
 		getContentPane().add(lblPleaseEnterYour);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(252, 343, 175, 168);
+		Image img1 = new ImageIcon(this.getClass().getResource("/coat-of-arms-man.png")).getImage();
+		img1 = img1.getScaledInstance(160, 150, 0);
+		lblNewLabel_1.setIcon(new ImageIcon(img1));
+		getContentPane().add(lblNewLabel_1);
 		
 	}
 }

@@ -14,6 +14,9 @@ import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class staffRegister extends JFrame {
 
@@ -27,6 +30,7 @@ public class staffRegister extends JFrame {
 	private JTextField textField_7;
 	private JTextField textField_8;
 	private JTextField textField_9;
+	private LoginForm form;
 
 	/**
 	 * Launch the application.
@@ -177,5 +181,26 @@ public class staffRegister extends JFrame {
 		rdbtnInstructor.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		rdbtnInstructor.setBounds(443, 368, 157, 29);
 		contentPane.add(rdbtnInstructor);
+		
+		JButton button = new JButton("Go Back");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				form = new LoginForm();
+				form.setVisible(true);
+				}
+		});
+		button.setForeground(Color.RED);
+		button.setFont(new Font("Tahoma", Font.BOLD, 15));
+		button.setBackground(Color.DARK_GRAY);
+		button.setBounds(416, 23, 157, 35);
+		contentPane.add(button);
+		
+		JButton btnNewButton = new JButton("Add Staff");
+		btnNewButton.setForeground(Color.GREEN);
+		btnNewButton.setBackground(Color.DARK_GRAY);
+		btnNewButton.setFont(new Font("Yu Gothic", Font.PLAIN, 16));
+		btnNewButton.setBounds(404, 536, 157, 39);
+		contentPane.add(btnNewButton);
 	}
 }

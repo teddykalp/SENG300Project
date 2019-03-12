@@ -7,8 +7,12 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.DropMode;
+import javax.swing.ImageIcon;
+
 import java.awt.TextField;
 import javax.swing.JTextPane;
 import javax.swing.JScrollBar;
@@ -138,5 +142,12 @@ public class AddProgram extends JFrame {
 		});
 		btnNewButton.setBounds(433, 10, 141, 35);
 		contentPane.add(btnNewButton);
+		
+		JLabel imgLbl = new JLabel("");
+		imgLbl.setBounds(433, 66, 162, 100);
+		Image img1 = new ImageIcon(this.getClass().getResource("/UW-logo.png")).getImage();
+		img1 = img1.getScaledInstance(160, 50, 0);
+		imgLbl.setIcon(new ImageIcon(img1));
+		contentPane.add(imgLbl);
 	}
 }

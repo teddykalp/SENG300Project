@@ -207,10 +207,12 @@ public class AddCourse extends JFrame {
 		getContentPane().add(comboBox_4);
 		
 		JTextArea textArea = new JTextArea();
+		textArea.setLineWrap(true);
 		textArea.setBounds(211, 263, 216, 65);
 		getContentPane().add(textArea);
 		
 		JTextArea courseDesc = new JTextArea();
+		courseDesc.setLineWrap(true);
 		courseDesc.setBounds(183, 600, 244, 113);
 		getContentPane().add(courseDesc);
 		

@@ -147,6 +147,14 @@ public class mainMenuForm extends JFrame {
 		getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Add Department");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				departForm depart = new departForm(user);
+				depart.setVisible(true);
+				
+			}
+		});
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setBackground(Color.RED);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 14));
