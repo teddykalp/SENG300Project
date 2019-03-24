@@ -143,11 +143,6 @@ public class AddProgram extends JFrame {
 		btnNewButton.setBounds(433, 10, 141, 35);
 		contentPane.add(btnNewButton);
 		
-		JLabel imgLbl = new JLabel("");
-		imgLbl.setBounds(433, 66, 162, 100);
-		Image img1 = new ImageIcon(this.getClass().getResource("/UW-logo.png")).getImage();
-		img1 = img1.getScaledInstance(160, 50, 0);
-		imgLbl.setIcon(new ImageIcon(img1));
-		contentPane.add(imgLbl);
+		
 	}
 }

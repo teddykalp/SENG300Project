@@ -53,18 +53,13 @@ public class staffRegister extends JFrame {
 	 */
 	public staffRegister() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 599, 625);
+		setBounds(100, 100, 599, 648);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel label = new JLabel(" ");
-		label.setBounds(163, 10, 258, 103);
-		Image img1 = new ImageIcon(this.getClass().getResource("/UW-logo.png")).getImage();
-		img1 = img1.getScaledInstance(210, 80, 0);
-		label.setIcon(new ImageIcon(img1));
-		contentPane.add(label);
+		
 		
 		JLabel lblNewLabel = new JLabel("Staff Registration Form");
 		lblNewLabel.setForeground(Color.GRAY);

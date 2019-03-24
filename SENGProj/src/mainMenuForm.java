@@ -175,12 +175,6 @@ public class mainMenuForm extends JFrame {
 		btnEditDepartment.setBounds(395, 181, 161, 32);
 		getContentPane().add(btnEditDepartment);
 		
-		JLabel label_1 = new JLabel(" ");
-		Image img1 = new ImageIcon(this.getClass().getResource("/UW-logo.png")).getImage();
-		img1 = img1.getScaledInstance(210, 80, 0);
-		label_1.setIcon(new ImageIcon(img1));
-		label_1.setBounds(10, 428, 268, 126);
-		getContentPane().add(label_1);
 		
 		JLabel lblNewLabel = new JLabel("Welcome " + this.user);
 		lblNewLabel.setForeground(Color.RED);

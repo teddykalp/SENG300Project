@@ -35,18 +35,13 @@ public class departForm extends JFrame {
 		
 		this.name = user;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 641, 489);
+		setBounds(100, 100, 641, 532);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblL = new JLabel("l");
-		lblL.setBounds(0, 11, 181, 115);
-		Image img1 = new ImageIcon(this.getClass().getResource("/UW-logo.png")).getImage();
-		img1 = img1.getScaledInstance(160, 50, 0);
-		lblL.setIcon(new ImageIcon(img1));
-		contentPane.add(lblL);
+		
 		
 		JLabel lblNewLabel = new JLabel("Register Department");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 19));

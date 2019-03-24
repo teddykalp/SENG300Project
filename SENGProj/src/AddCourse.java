@@ -264,12 +264,7 @@ public class AddCourse extends JFrame {
 		comboBox.setBounds(211, 177, 186, 26);
 		getContentPane().add(comboBox);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(422, 77, 194, 135);
-		Image img1 = new ImageIcon(this.getClass().getResource("/UW-logo.png")).getImage();
-		img1 = img1.getScaledInstance(160, 50, 0);
-		lblNewLabel_1.setIcon(new ImageIcon(img1));
-		getContentPane().add(lblNewLabel_1);
+		
 		
 		
 		

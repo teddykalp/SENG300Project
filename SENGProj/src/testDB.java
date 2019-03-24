@@ -4,27 +4,22 @@ import java.sql.*;
 
 public class testDB {
 	
-	static Connection con;
-	static Statement st;
-	static ResultSet rs;
 	
-	public static void main(String [] args){
+	
+	public static void main(String [] args) throws ClassNotFoundException, SQLException{
 		
-		 try {
-			 String url = "jdbc:odbc:staffDB";
-			 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-			 
-			  con = DriverManager.getConnection(url);
-			  st = con.createStatement();
-			  
-			  rs = st.executeQuery("SELECT * FROM staff");
-			  
-			  while(rs.next()) {
-				  System.out.println(rs.getString(1));
-			  }
-		 }catch(Exception e) {
-			 System.out.print("does not work");
+		 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+		 String url = "jdbc:odbc:studentDSN";
+		 Connection con = DriverManager.getConnection(url);
+		 Statement st = con.createStatement();
+		 String sql = "SELECT * FROM studentDB";
+		 ResultSet rs = st.executeQuery(sql);
+		 while(rs.next()){
+			 String name = rs.getString("studentName");
+			 String lname = rs.getString("studentLast");
+			 System.out.println(name + " " + lname);
 		 }
+		 con.close();
+		
 	
-}
-}
+	}}

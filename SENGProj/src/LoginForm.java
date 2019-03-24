@@ -68,7 +68,7 @@ public class LoginForm extends JFrame{
 		getContentPane().add(loginError);
 		
 		setBackground(Color.LIGHT_GRAY);
-		setBounds(100, 100, 640, 540);
+		setBounds(100, 100, 663, 560);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		
@@ -150,12 +150,7 @@ public class LoginForm extends JFrame{
 		getContentPane().add(studentBtn);
 		getContentPane().add(lblPleaseEnterYour);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(252, 343, 175, 168);
-		Image img1 = new ImageIcon(this.getClass().getResource("/coat-of-arms-man.png")).getImage();
-		img1 = img1.getScaledInstance(160, 150, 0);
-		lblNewLabel_1.setIcon(new ImageIcon(img1));
-		getContentPane().add(lblNewLabel_1);
+		
 		
 	}
 }
