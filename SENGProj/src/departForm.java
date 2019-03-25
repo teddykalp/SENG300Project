@@ -13,6 +13,10 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class departForm extends JFrame {
@@ -22,6 +26,7 @@ public class departForm extends JFrame {
 	private JTextField departCode;
 	private mainMenuForm menu;
 	private String name;
+	File file = new File("departDB.txt");
 
 	/**
 	 * Launch the application.
@@ -41,7 +46,7 @@ public class departForm extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		
+
 		
 		JLabel lblNewLabel = new JLabel("Register Department");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 19));
@@ -77,15 +82,50 @@ public class departForm extends JFrame {
 		departName.setBounds(192, 147, 271, 20);
 		contentPane.add(departName);
 		departName.setColumns(10);
-		
+	
 		departCode = new JTextField();
 		departCode.setBounds(196, 348, 267, 20);
 		contentPane.add(departCode);
 		departCode.setColumns(10);
+
+		JLabel dError = new JLabel("");
+		dError.setForeground(Color.RED);
+		dError.setBounds(196, 405, 180, 15);
+		dError.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		contentPane.add(dError);
 		
 		JButton btnNewButton = new JButton("Add Department");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.setBounds(439, 408, 156, 31);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (departName.getText().isEmpty() || departDescription.getText().isEmpty() 
+						|| departCode.getText().isEmpty()){
+					dError.setText("Please fill in any empty fields");
+				}
+				else{
+					try{
+						FileWriter fw = new FileWriter(file,true);
+						BufferedWriter br = new BufferedWriter(fw);
+						br.write("\nDEPARTMENT NAME\n");
+						br.write(departName.getText() + "\n");
+						br.write("DEPARTMENT DESCRIPTION\n");
+						br.write(departDescription.getText() + "\n");
+						br.write("DEPARTMENT CODE\n");
+						br.write(departCode.getText() + "\n");
+						setVisible(false);
+						menu = new mainMenuForm(user);
+						menu.setVisible(true);
+						br.close();
+						fw.close();
+						
+					}catch (IOException f){
+						System.out.println("File Not found");
+					}
+				}
+				
+			}
+		});
 		contentPane.add(btnNewButton);
 		
 		JButton button = new JButton("Go Back");
@@ -101,5 +141,9 @@ public class departForm extends JFrame {
 		button.setBackground(Color.DARK_GRAY);
 		button.setBounds(458, 21, 157, 35);
 		contentPane.add(button);
+		
+		
+		
+		
 	}
 }
