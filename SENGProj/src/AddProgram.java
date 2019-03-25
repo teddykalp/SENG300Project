@@ -126,6 +126,24 @@ public class AddProgram extends JFrame {
 		lblRequiredGpa.setBounds(21, 424, 146, 26);
 		contentPane.add(lblRequiredGpa);
 		
+		JCheckBox chckDiplomaProgram = new JCheckBox("Diploma Program");
+		chckDiplomaProgram.setBounds(185, 482, 179, 35);
+		chckDiplomaProgram.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chckDiplomaProgram.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (chckDiplomaProgram.isSelected()) {
+					comboBox_1.setEnabled(false);
+					comboBox_2.setEnabled(false);
+				}
+				else
+				{
+					comboBox_1.setEnabled(true);
+					comboBox_2.setEnabled(true);
+				}
+			}
+		});
+		contentPane.add(chckDiplomaProgram);
+		
 		Button button = new Button("Next");
 		button.setBounds(436, 518, 118, 33);
 		contentPane.add(button);
@@ -145,23 +163,6 @@ public class AddProgram extends JFrame {
 		btnNewButton.setBounds(433, 10, 141, 35);
 		contentPane.add(btnNewButton);
 		
-		JCheckBox chckDiplomaProgram = new JCheckBox("Diploma Program");
-		chckDiplomaProgram.setBounds(185, 482, 179, 35);
-		chckDiplomaProgram.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckDiplomaProgram.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (chckDiplomaProgram.isSelected()) {
-					comboBox_1.setEnabled(false);
-					comboBox_2.setEnabled(false);
-				}
-				else
-				{
-					comboBox_1.setEnabled(true);
-					comboBox_2.setEnabled(true);
-				}
-			}
-		});
-		contentPane.add(chckDiplomaProgram);
 		
 		
 	}

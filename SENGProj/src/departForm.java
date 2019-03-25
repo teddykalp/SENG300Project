@@ -26,7 +26,7 @@ public class departForm extends JFrame {
 	private JTextField departCode;
 	private mainMenuForm menu;
 	private String name;
-	File file = new File("departDB.txt");
+	File file = new File("departmentDB.txt");
 
 	/**
 	 * Launch the application.
