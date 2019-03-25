@@ -20,6 +20,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Button;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -142,6 +144,24 @@ public class AddProgram extends JFrame {
 		});
 		btnNewButton.setBounds(433, 10, 141, 35);
 		contentPane.add(btnNewButton);
+		
+		JCheckBox chckDiplomaProgram = new JCheckBox("Diploma Program");
+		chckDiplomaProgram.setBounds(185, 482, 179, 35);
+		chckDiplomaProgram.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chckDiplomaProgram.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (chckDiplomaProgram.isSelected()) {
+					comboBox_1.setEnabled(false);
+					comboBox_2.setEnabled(false);
+				}
+				else
+				{
+					comboBox_1.setEnabled(true);
+					comboBox_2.setEnabled(true);
+				}
+			}
+		});
+		contentPane.add(chckDiplomaProgram);
 		
 		
 	}
