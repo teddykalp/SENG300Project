@@ -108,6 +108,7 @@ public class AddProgram extends JFrame {
 		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"None", "Bachelor's", "Master's", "PhD"}));
 		comboBox_1.setBounds(185, 325, 186, 26);
+		comboBox_1.setEnabled(false);
 		contentPane.add(comboBox_1);
 		
 		JLabel lblTypeOfProgram = new JLabel("Type of Program");
@@ -119,6 +120,7 @@ public class AddProgram extends JFrame {
 		comboBox_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"None", "Science", "Arts", "Other"}));
 		comboBox_2.setBounds(185, 372, 186, 26);
+		comboBox_2.setEnabled(false);
 		contentPane.add(comboBox_2);
 		
 		JLabel lblRequiredGpa = new JLabel("Required GPA (If Any)");
@@ -132,21 +134,17 @@ public class AddProgram extends JFrame {
 		chckDiplomaProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (chckDiplomaProgram.isSelected()) {
-					comboBox_1.setEnabled(false);
-					comboBox_2.setEnabled(false);
+					comboBox_1.setEnabled(true);
+					comboBox_2.setEnabled(true);
 				}
 				else
 				{
-					comboBox_1.setEnabled(true);
-					comboBox_2.setEnabled(true);
+					comboBox_1.setEnabled(false);
+					comboBox_2.setEnabled(false);
 				}
 			}
 		});
 		contentPane.add(chckDiplomaProgram);
-		
-		Button button = new Button("Next");
-		button.setBounds(436, 518, 118, 33);
-		contentPane.add(button);
 		
 		JTextArea reqGPA = new JTextArea();
 		reqGPA.setBounds(185, 423, 186, 26);
@@ -162,6 +160,10 @@ public class AddProgram extends JFrame {
 		});
 		btnNewButton.setBounds(433, 10, 141, 35);
 		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Submit");
+		btnNewButton_1.setBounds(422, 505, 141, 35);
+		contentPane.add(btnNewButton_1);
 		
 		
 		
