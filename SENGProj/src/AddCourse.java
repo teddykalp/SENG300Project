@@ -236,15 +236,11 @@ public class AddCourse extends JFrame {
 					try{
 						FileWriter fw = new FileWriter(file,true);
 						BufferedWriter br = new BufferedWriter(fw);
-						br.write("\nCOURSE NAME\n");
-						br.write(courseName.getText() + "\n");
-						br.write("COURSE COURSE ID\n");
-						br.write(courseProgram.getText() + courseLvl.getSelectedItem() + courseID.getText() + "\n");
-						br.write("INSTRUCTOR\n");
-						br.write(courseInstructor.getText() + "\n");
-						br.write("PREQUISITE COURSES\n");
-						br.write(coursePreReq.getText() + "\n");
-						br.write("DAYS OFFERED\n");
+						br.write(String.format("\nCOURSE NAME: %s", courseName.getText()));
+						br.write(String.format("\nCOURSE COURSE ID: %s", courseProgram.getText() + courseLvl.getSelectedItem() + courseID.getText()));
+						br.write(String.format("\nINSTRUCTOR: %s", courseInstructor.getText()));
+						br.write(String.format("\nPREQUISITE COURSES: %s", coursePreReq.getText()));
+						br.write("\nDAYS OFFERED\n");
 						if (monDay.isSelected()){
 							br.write("Monday\n");
 						}
@@ -263,12 +259,9 @@ public class AddCourse extends JFrame {
 						if (saturDay.isSelected()){
 							br.write("Saturday\n");
 						}
-						br.write("START TIME\n");
-						br.write(startTime.getText() + "\n");
-						br.write("FINISH TIME\n");
-						br.write(finishTime.getText() + "\n");
-						br.write("COURSE CREDITS\n");
-						br.write(courseCredit.getSelectedItem() +"\n");
+						br.write(String.format("\nSTART TIME: %s", startTime.getText()));
+						br.write(String.format("\nFINISH TIME: %s" , finishTime.getText()));
+						br.write(String.format("\nCOURSE CREDITS: %s", courseCredit.getSelectedItem()));
 						setVisible(false);
 						menu = new mainMenuForm(user);
 						menu.setVisible(true);

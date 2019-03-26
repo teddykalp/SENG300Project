@@ -68,7 +68,7 @@ public class LoginForm extends JFrame{
 		getContentPane().add(loginError);
 		
 		setBackground(Color.LIGHT_GRAY);
-		setBounds(100, 100, 663, 560);
+		setBounds(100, 100, 628, 560);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		
