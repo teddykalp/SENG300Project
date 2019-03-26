@@ -26,7 +26,18 @@ public class mainMenuForm extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					mainMenuForm menu = new mainMenuForm("Teddy");
+					menu.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	/**
 	 * Create the application.
@@ -55,7 +66,7 @@ public class mainMenuForm extends JFrame {
 		
 		
 		
-		JLabel lblWhichActionWould = new JLabel("Which Action Would you like to preform?");
+		JLabel lblWhichActionWould = new JLabel("Which Action Would you like to perform?");
 		lblWhichActionWould.setBackground(Color.RED);
 		lblWhichActionWould.setForeground(Color.PINK);
 		lblWhichActionWould.setFont(new Font("DejaVu Math TeX Gyre", Font.BOLD, 18));
@@ -115,7 +126,7 @@ public class mainMenuForm extends JFrame {
 		getContentPane().add(btnLogout);
 		
 		JLabel lblNewLabel_1 = new JLabel(" ");
-		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.png")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
 		img = img.getScaledInstance(180, 170, 0);
 		lblNewLabel_1.setIcon(new ImageIcon(img));
 		lblNewLabel_1.setBounds(395, 415, 192, 131);
@@ -136,6 +147,14 @@ public class mainMenuForm extends JFrame {
 		getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Add Department");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				departForm depart = new departForm(user);
+				depart.setVisible(true);
+				
+			}
+		});
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setBackground(Color.RED);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -156,12 +175,6 @@ public class mainMenuForm extends JFrame {
 		btnEditDepartment.setBounds(395, 181, 161, 32);
 		getContentPane().add(btnEditDepartment);
 		
-		JLabel label_1 = new JLabel(" ");
-		Image img1 = new ImageIcon(this.getClass().getResource("/UW_logo.png")).getImage();
-		img1 = img1.getScaledInstance(210, 80, 0);
-		label_1.setIcon(new ImageIcon(img1));
-		label_1.setBounds(10, 428, 268, 126);
-		getContentPane().add(label_1);
 		
 		JLabel lblNewLabel = new JLabel("Welcome " + this.user);
 		lblNewLabel.setForeground(Color.RED);

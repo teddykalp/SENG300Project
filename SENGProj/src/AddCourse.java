@@ -2,8 +2,10 @@ import java.awt.BorderLayout;
 import java.io.*;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Image;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,6 +27,9 @@ public class AddCourse extends JFrame {
 	private JTextField startTime;
 	private JTextField finishTime;
 	private mainMenuForm menu;
+	File file = new File("courseDB.txt");
+	private JTextField courseProgram;
+	private JTextField courseInstructor;
 	//private File file = new File("courseDB.txt");
 	
 	
@@ -76,9 +81,9 @@ public class AddCourse extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
-		JLabel lblAddCourse = new JLabel("Register a Course");
-		lblAddCourse.setFont(new Font("Tahoma", Font.PLAIN, 19));
-		lblAddCourse.setBounds(211, 16, 165, 26);
+		JLabel lblAddCourse = new JLabel("Register Course");
+		lblAddCourse.setFont(new Font("Times New Roman", Font.BOLD, 19));
+		lblAddCourse.setBounds(221, 16, 165, 26);
 		getContentPane().add(lblAddCourse);
 		
 		JLabel lblNewLabel = new JLabel("Course Level");
@@ -134,39 +139,35 @@ public class AddCourse extends JFrame {
 		getContentPane().add(courseID);
 		courseID.setColumns(10);
 		
-		JComboBox comboBox_3 = new JComboBox();
-		comboBox_3.setBounds(211, 216, 186, 26);
-		getContentPane().add(comboBox_3);
+		JRadioButton monDay = new JRadioButton("Monday");
+		monDay.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		monDay.setBounds(211, 335, 149, 29);
+		getContentPane().add(monDay);
 		
-		JRadioButton rdbtnMonday = new JRadioButton("Monday");
-		rdbtnMonday.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		rdbtnMonday.setBounds(211, 335, 149, 29);
-		getContentPane().add(rdbtnMonday);
+		JRadioButton tuesDay = new JRadioButton("Tuesday");
+		tuesDay.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		tuesDay.setBounds(211, 377, 149, 29);
+		getContentPane().add(tuesDay);
 		
-		JRadioButton rdbtnTuesday = new JRadioButton("Tuesday");
-		rdbtnTuesday.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		rdbtnTuesday.setBounds(211, 377, 149, 29);
-		getContentPane().add(rdbtnTuesday);
+		JRadioButton wednesDay = new JRadioButton("Wednesday");
+		wednesDay.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		wednesDay.setBounds(211, 418, 149, 29);
+		getContentPane().add(wednesDay);
 		
-		JRadioButton rdbtnWednesday = new JRadioButton("Wednesday");
-		rdbtnWednesday.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		rdbtnWednesday.setBounds(211, 418, 149, 29);
-		getContentPane().add(rdbtnWednesday);
+		JRadioButton thursDay = new JRadioButton("Thursday");
+		thursDay.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		thursDay.setBounds(371, 335, 172, 29);
+		getContentPane().add(thursDay);
 		
-		JRadioButton rdbtnThursday = new JRadioButton("Thursday");
-		rdbtnThursday.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		rdbtnThursday.setBounds(371, 335, 172, 29);
-		getContentPane().add(rdbtnThursday);
+		JRadioButton friDay = new JRadioButton("Friday");
+		friDay.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		friDay.setBounds(371, 377, 130, 29);
+		getContentPane().add(friDay);
 		
-		JRadioButton rdbtnFriday = new JRadioButton("Friday");
-		rdbtnFriday.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		rdbtnFriday.setBounds(371, 377, 130, 29);
-		getContentPane().add(rdbtnFriday);
-		
-		JRadioButton rdbtnSaturday = new JRadioButton("Saturday");
-		rdbtnSaturday.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		rdbtnSaturday.setBounds(371, 418, 130, 29);
-		getContentPane().add(rdbtnSaturday);
+		JRadioButton saturDay = new JRadioButton("Saturday");
+		saturDay.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		saturDay.setBounds(371, 418, 130, 29);
+		getContentPane().add(saturDay);
 		
 		JLabel lblTimeslot = new JLabel("Time Slot");
 		lblTimeslot.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -198,36 +199,86 @@ public class AddCourse extends JFrame {
 		lblCourseCredits.setBounds(21, 533, 92, 26);
 		getContentPane().add(lblCourseCredits);
 		
-		JComboBox comboBox_4 = new JComboBox();
-		comboBox_4.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4"}));
-		comboBox_4.setBounds(272, 532, 57, 26);
-		getContentPane().add(comboBox_4);
+		JComboBox courseCredit = new JComboBox();
+		courseCredit.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		courseCredit.setModel(new DefaultComboBoxModel(new String[] {"0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4"}));
+		courseCredit.setBounds(272, 532, 57, 26);
+		getContentPane().add(courseCredit);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(211, 263, 216, 65);
-		getContentPane().add(textArea);
+		JTextArea coursePreReq = new JTextArea();
+		coursePreReq.setLineWrap(true);
+		coursePreReq.setBounds(211, 263, 216, 65);
+		getContentPane().add(coursePreReq);
 		
 		JTextArea courseDesc = new JTextArea();
+		courseDesc.setLineWrap(true);
 		courseDesc.setBounds(183, 600, 244, 113);
 		getContentPane().add(courseDesc);
 		
+		courseProgram = new JTextField();
+		courseProgram.setBounds(211, 180, 186, 26);
+		getContentPane().add(courseProgram);
+		courseProgram.setColumns(10);
+		
+		courseInstructor = new JTextField();
+		courseInstructor.setBounds(211, 218, 186, 27);
+		getContentPane().add(courseInstructor);
+		courseInstructor.setColumns(10);
+		
 		JButton btnRegisterCourse = new JButton("Submit");
+		btnRegisterCourse.setBackground(Color.DARK_GRAY);
+		btnRegisterCourse.setForeground(Color.GREEN);
 		btnRegisterCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (courseName.getText().isEmpty()){
 					nameError.setText("Please enter valid name");
-				}/*else{
+				}else{
 					try{
 						FileWriter fw = new FileWriter(file,true);
 						BufferedWriter br = new BufferedWriter(fw);
-						br.write(courseName.getText());                    // this is just testing writing to files
+						br.write("\nCOURSE NAME\n");
+						br.write(courseName.getText() + "\n");
+						br.write("COURSE COURSE ID\n");
+						br.write(courseProgram.getText() + courseLvl.getSelectedItem() + courseID.getText() + "\n");
+						br.write("INSTRUCTOR\n");
+						br.write(courseInstructor.getText() + "\n");
+						br.write("PREQUISITE COURSES\n");
+						br.write(coursePreReq.getText() + "\n");
+						br.write("DAYS OFFERED\n");
+						if (monDay.isSelected()){
+							br.write("Monday\n");
+						}
+						if (tuesDay.isSelected()){
+							br.write("Tuesday\n");
+						}
+						if (wednesDay.isSelected()){
+							br.write("Wednesday\n");
+						}
+						if (thursDay.isSelected()){
+							br.write("Thursday\n");
+						}
+						if (friDay.isSelected()){
+							br.write("Friday\n");
+						}
+						if (saturDay.isSelected()){
+							br.write("Saturday\n");
+						}
+						br.write("START TIME\n");
+						br.write(startTime.getText() + "\n");
+						br.write("FINISH TIME\n");
+						br.write(finishTime.getText() + "\n");
+						br.write("COURSE CREDITS\n");
+						br.write(courseCredit.getSelectedItem() +"\n");
+						setVisible(false);
+						menu = new mainMenuForm(user);
+						menu.setVisible(true);
 						br.close();
 						fw.close();
+						
 					}catch (IOException f){
 						System.out.println("File Not found");
 					}
-				}*/
+				}
 				
 			}
 		});
@@ -236,6 +287,8 @@ public class AddCourse extends JFrame {
 		getContentPane().add(btnRegisterCourse);
 		
 		JButton btnGoBack = new JButton("Go Back");
+		btnGoBack.setBackground(Color.DARK_GRAY);
+		btnGoBack.setForeground(Color.RED);
 		btnGoBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -252,9 +305,11 @@ public class AddCourse extends JFrame {
 		lblProgram.setBounds(21, 179, 119, 26);
 		getContentPane().add(lblProgram);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(211, 177, 186, 26);
-		getContentPane().add(comboBox);
+		
+		
+		
+		
+		
 		
 		
 		

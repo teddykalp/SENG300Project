@@ -7,8 +7,12 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.DropMode;
+import javax.swing.ImageIcon;
+
 import java.awt.TextField;
 import javax.swing.JTextPane;
 import javax.swing.JScrollBar;
@@ -16,6 +20,8 @@ import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Button;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -102,6 +108,7 @@ public class AddProgram extends JFrame {
 		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"None", "Bachelor's", "Master's", "PhD"}));
 		comboBox_1.setBounds(185, 325, 186, 26);
+		comboBox_1.setEnabled(false);
 		contentPane.add(comboBox_1);
 		
 		JLabel lblTypeOfProgram = new JLabel("Type of Program");
@@ -113,6 +120,7 @@ public class AddProgram extends JFrame {
 		comboBox_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"None", "Science", "Arts", "Other"}));
 		comboBox_2.setBounds(185, 372, 186, 26);
+		comboBox_2.setEnabled(false);
 		contentPane.add(comboBox_2);
 		
 		JLabel lblRequiredGpa = new JLabel("Required GPA (If Any)");
@@ -120,9 +128,23 @@ public class AddProgram extends JFrame {
 		lblRequiredGpa.setBounds(21, 424, 146, 26);
 		contentPane.add(lblRequiredGpa);
 		
-		Button button = new Button("Next");
-		button.setBounds(436, 518, 118, 33);
-		contentPane.add(button);
+		JCheckBox chckDiplomaProgram = new JCheckBox("Diploma Program");
+		chckDiplomaProgram.setBounds(185, 482, 179, 35);
+		chckDiplomaProgram.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chckDiplomaProgram.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (chckDiplomaProgram.isSelected()) {
+					comboBox_1.setEnabled(true);
+					comboBox_2.setEnabled(true);
+				}
+				else
+				{
+					comboBox_1.setEnabled(false);
+					comboBox_2.setEnabled(false);
+				}
+			}
+		});
+		contentPane.add(chckDiplomaProgram);
 		
 		JTextArea reqGPA = new JTextArea();
 		reqGPA.setBounds(185, 423, 186, 26);
@@ -138,5 +160,12 @@ public class AddProgram extends JFrame {
 		});
 		btnNewButton.setBounds(433, 10, 141, 35);
 		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Submit");
+		btnNewButton_1.setBounds(422, 505, 141, 35);
+		contentPane.add(btnNewButton_1);
+		
+		
+		
 	}
 }
