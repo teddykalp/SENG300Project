@@ -24,6 +24,7 @@ import javax.swing.JCheckBox;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class AddProgram extends JFrame {
 
@@ -49,13 +50,14 @@ public class AddProgram extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 621, 632);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 222, 173));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Program Registration");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel.setBounds(209, 0, 214, 26);
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
+		lblNewLabel.setBounds(185, 19, 214, 26);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblProgramName = new JLabel("Program Name");
@@ -125,6 +127,7 @@ public class AddProgram extends JFrame {
 		contentPane.add(lblRequiredGpa);
 		
 		JCheckBox chckDiplomaProgram = new JCheckBox("Diploma Program");
+		chckDiplomaProgram.setBackground(new Color(255, 222, 173));
 		chckDiplomaProgram.setBounds(185, 482, 179, 35);
 		chckDiplomaProgram.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		chckDiplomaProgram.addActionListener(new ActionListener() {
@@ -152,6 +155,8 @@ public class AddProgram extends JFrame {
 		contentPane.add(programDepart);
 		
 		JButton btnNewButton = new JButton("Go Back");
+		btnNewButton.setFont(new Font("Calibri", Font.BOLD, 21));
+		btnNewButton.setBackground(new Color(176, 196, 222));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -162,8 +167,10 @@ public class AddProgram extends JFrame {
 		btnNewButton.setBounds(433, 10, 141, 35);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Submit");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton submitBtn = new JButton("Submit");
+		submitBtn.setBackground(new Color(176, 196, 222));
+		submitBtn.setFont(new Font("Candara", Font.BOLD, 21));
+		submitBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(chckDiplomaProgram.isSelected())
 				{
@@ -182,8 +189,8 @@ public class AddProgram extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBounds(422, 505, 141, 35);
-		contentPane.add(btnNewButton_1);
+		submitBtn.setBounds(422, 505, 141, 35);
+		contentPane.add(submitBtn);
 		
 		
 		
