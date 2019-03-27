@@ -56,4 +56,23 @@ public class RWTools {
 			System.out.println("File Not found");
 		}
 	}
+	
+	public void writeToDepartment(String departName, String departDescription, String departCode)
+	{
+		File file = new File("departmentDB.txt");
+		try{
+		FileWriter fw = new FileWriter(file,true);
+		BufferedWriter br = new BufferedWriter(fw);
+		br.write(String.format("\n\nDEPARTMENT NAME: %s %s", departName, departCode));
+		br.write(String.format("\nDEPARTMENT DESCRIPTION: %s", departDescription));
+		
+		br.close();
+		fw.close();
+		
+		}
+		catch(IOException f){
+			System.out.println("File Not found");
+		}
+	}
+	
 }

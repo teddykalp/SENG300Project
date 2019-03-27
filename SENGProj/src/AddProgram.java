@@ -165,9 +165,16 @@ public class AddProgram extends JFrame {
 		JButton btnNewButton_1 = new JButton("Submit");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(chckDiplomaProgram.isSelected())
+				{
+					tool.writeToProgram(programName.getText(), programDesc.getText(), programDepart.getText(), 
+							"None", "Diploma", reqGPA.getText());
+				}
+				else {
 				
-				tool.writeToProgram(programName.getText(), programDesc.getText(), programDepart.getText(),
+					tool.writeToProgram(programName.getText(), programDesc.getText(), programDepart.getText(),
 						            programLvl.getSelectedItem(), programType.getSelectedItem(), reqGPA.getText());
+				}
 				
 				menu = new mainMenuForm(user);
 				setVisible(false);
@@ -177,8 +184,6 @@ public class AddProgram extends JFrame {
 		});
 		btnNewButton_1.setBounds(422, 505, 141, 35);
 		contentPane.add(btnNewButton_1);
-		
-		
 		
 		
 		
