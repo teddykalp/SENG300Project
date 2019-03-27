@@ -1,8 +1,10 @@
 import java.awt.BorderLayout;
 import java.io.*;
+import java.util.ArrayList;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
@@ -233,47 +235,33 @@ public class AddCourse extends JFrame {
 				if (courseName.getText().isEmpty()){
 					nameError.setText("Please enter valid name");
 				}else{
-					try{
-						FileWriter fw = new FileWriter(file,true);
-						BufferedWriter br = new BufferedWriter(fw);
-						br.write(String.format("\nCOURSE NAME: %s", courseName.getText()));
-						br.write(String.format("\nCOURSE COURSE ID: %s", courseProgram.getText() + courseLvl.getSelectedItem() + courseID.getText()));
-						br.write(String.format("\nINSTRUCTOR: %s", courseInstructor.getText()));
-						br.write(String.format("\nPREQUISITE COURSES: %s", coursePreReq.getText()));
-						br.write("\nDAYS OFFERED\n");
+						ArrayList<String> list = new ArrayList<String>();
 						if (monDay.isSelected()){
-							br.write("Monday\n");
+							list.add("Monday");
 						}
 						if (tuesDay.isSelected()){
-							br.write("Tuesday\n");
+							list.add("Tuesday");
 						}
 						if (wednesDay.isSelected()){
-							br.write("Wednesday\n");
+							list.add("Wednesday");
 						}
 						if (thursDay.isSelected()){
-							br.write("Thursday\n");
+							list.add("Thursday");
 						}
 						if (friDay.isSelected()){
-							br.write("Friday\n");
+							list.add("Friday");
 						}
 						if (saturDay.isSelected()){
-							br.write("Saturday\n");
+							list.add("Saturday");
 						}
-						br.write(String.format("\nSTART TIME: %s", startTime.getText()));
-						br.write(String.format("\nFINISH TIME: %s" , finishTime.getText()));
-						br.write(String.format("\nCOURSE CREDITS: %s", courseCredit.getSelectedItem()));
+						RWTools tool = new RWTools();
+						tool.writeToCourse(file, courseName.getText(), courseID.getText(), courseProgram.getText(), courseLvl.getSelectedItem(),
+								          courseInstructor.getText(), coursePreReq.getText(), list, startTime.getText(), finishTime.getText(), courseCredit.getSelectedItem());
 						setVisible(false);
 						menu = new mainMenuForm(user);
 						menu.setVisible(true);
-						br.close();
-						fw.close();
-						
-					}catch (IOException f){
-						System.out.println("File Not found");
 					}
 				}
-				
-			}
 		});
 		btnRegisterCourse.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnRegisterCourse.setBounds(221, 731, 157, 35);
@@ -297,15 +285,5 @@ public class AddCourse extends JFrame {
 		lblProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblProgram.setBounds(21, 179, 119, 26);
 		getContentPane().add(lblProgram);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 }
