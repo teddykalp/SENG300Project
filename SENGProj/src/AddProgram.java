@@ -31,9 +31,9 @@ public class AddProgram extends JFrame {
 	private JTextArea programName;
 	private JTextArea programDesc;
 	private JLabel lblDepartment;
-	private JComboBox comboBox;
 	private JLabel lblProgramAbbreviation;
 	private mainMenuForm menu;
+	private RWTools tool = new RWTools();
 	
 
 	/**
@@ -85,10 +85,6 @@ public class AddProgram extends JFrame {
 		lblDepartment.setBounds(21, 275, 131, 26);
 		contentPane.add(lblDepartment);
 		
-		comboBox = new JComboBox();
-		comboBox.setBounds(185, 275, 186, 26);
-		contentPane.add(comboBox);
-		
 		lblProgramAbbreviation = new JLabel("Program Abbreviation");
 		lblProgramAbbreviation.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblProgramAbbreviation.setBounds(21, 228, 146, 26);
@@ -104,24 +100,24 @@ public class AddProgram extends JFrame {
 		lblLevelOfProgram.setBounds(21, 330, 131, 26);
 		contentPane.add(lblLevelOfProgram);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"None", "Bachelor's", "Master's", "PhD"}));
-		comboBox_1.setBounds(185, 325, 186, 26);
-		comboBox_1.setEnabled(false);
-		contentPane.add(comboBox_1);
+		JComboBox programLvl = new JComboBox();
+		programLvl.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		programLvl.setModel(new DefaultComboBoxModel(new String[] {"None", "Bachelor's", "Master's", "PhD"}));
+		programLvl.setBounds(185, 325, 186, 26);
+		programLvl.setEnabled(false);
+		contentPane.add(programLvl);
 		
 		JLabel lblTypeOfProgram = new JLabel("Type of Program");
 		lblTypeOfProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblTypeOfProgram.setBounds(21, 377, 131, 26);
 		contentPane.add(lblTypeOfProgram);
 		
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"None", "Science", "Arts", "Other"}));
-		comboBox_2.setBounds(185, 372, 186, 26);
-		comboBox_2.setEnabled(false);
-		contentPane.add(comboBox_2);
+		JComboBox programType = new JComboBox();
+		programType.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		programType.setModel(new DefaultComboBoxModel(new String[] {"None", "Science", "Arts", "Other"}));
+		programType.setBounds(185, 372, 186, 26);
+		programType.setEnabled(false);
+		contentPane.add(programType);
 		
 		JLabel lblRequiredGpa = new JLabel("Required GPA (If Any)");
 		lblRequiredGpa.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -134,13 +130,13 @@ public class AddProgram extends JFrame {
 		chckDiplomaProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (chckDiplomaProgram.isSelected()) {
-					comboBox_1.setEnabled(true);
-					comboBox_2.setEnabled(true);
+					programLvl.setEnabled(true);
+					programType.setEnabled(true);
 				}
 				else
 				{
-					comboBox_1.setEnabled(false);
-					comboBox_2.setEnabled(false);
+					programLvl.setEnabled(false);
+					programType.setEnabled(false);
 				}
 			}
 		});
@@ -149,6 +145,11 @@ public class AddProgram extends JFrame {
 		JTextArea reqGPA = new JTextArea();
 		reqGPA.setBounds(185, 423, 186, 26);
 		contentPane.add(reqGPA);
+		
+		JTextArea programDepart = new JTextArea();
+		programDepart.setColumns(10);
+		programDepart.setBounds(185, 275, 186, 27);
+		contentPane.add(programDepart);
 		
 		JButton btnNewButton = new JButton("Go Back");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -162,8 +163,22 @@ public class AddProgram extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Submit");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				tool.writeToProgram(programName.getText(), programDesc.getText(), programDepart.getText(),
+						            programLvl.getSelectedItem(), programType.getSelectedItem(), reqGPA.getText());
+				
+				menu = new mainMenuForm(user);
+				setVisible(false);
+				menu.setVisible(true);
+				
+			}
+		});
 		btnNewButton_1.setBounds(422, 505, 141, 35);
 		contentPane.add(btnNewButton_1);
+		
+		
 		
 		
 		

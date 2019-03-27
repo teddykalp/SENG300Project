@@ -6,10 +6,11 @@ import java.util.ArrayList;
 
 public class RWTools {
 
-	public void writeToCourse(File file, String courseName, String courseID,
+	public void writeToCourse(String courseName, String courseID,
 			String courseProgram, Object courseLvl, String courseInstructor, String coursePreReq,
 			ArrayList courseDays, String startTime, String finishTime, Object courseCredit)
 	{
+		File file = new File("courseDB.txt");
 		try{
 		FileWriter fw = new FileWriter(file,true);
 		BufferedWriter br = new BufferedWriter(fw);
@@ -27,6 +28,29 @@ public class RWTools {
 		
 		br.close();
 		fw.close();
+		}
+		catch(IOException f){
+			System.out.println("File Not found");
+		}
+	}
+	
+	public void writeToProgram(String programName, String programDescription, String programDepart,
+			Object programLvl, Object programType, String reqGPA)
+	{
+		File file = new File("programDB.txt");
+		try{
+		FileWriter fw = new FileWriter(file,true);
+		BufferedWriter br = new BufferedWriter(fw);
+		br.write(String.format("\n\nPROGRAM NAME: %s", programName));
+		br.write(String.format("\nPROGRAM DESCRIPTION: %s", programDescription));
+		br.write(String.format("\nDEPARTMENT: %s", programDepart));
+		br.write(String.format("\nPROGRAM LEVEL %s", programLvl));
+		br.write(String.format("\nPROGRAM TYPE: %s", programType));
+		br.write(String.format("\nRequired GPA: %s", reqGPA));
+		
+		br.close();
+		fw.close();
+		
 		}
 		catch(IOException f){
 			System.out.println("File Not found");

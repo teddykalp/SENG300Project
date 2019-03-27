@@ -255,7 +255,7 @@ public class AddCourse extends JFrame {
 							list.add("Saturday");
 						}
 						RWTools tool = new RWTools();
-						tool.writeToCourse(file, courseName.getText(), courseID.getText(), courseProgram.getText(), courseLvl.getSelectedItem(),
+						tool.writeToCourse(courseName.getText(), courseID.getText(), courseProgram.getText(), courseLvl.getSelectedItem(),
 								          courseInstructor.getText(), coursePreReq.getText(), list, startTime.getText(), finishTime.getText(), courseCredit.getSelectedItem());
 						setVisible(false);
 						menu = new mainMenuForm(user);
