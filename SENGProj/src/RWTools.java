@@ -94,7 +94,7 @@ public class RWTools {
 		}
 	}
 	
-	public ArrayList getCourseName(){
+	public ArrayList getCourseName(String program){
 		ArrayList courses = new ArrayList<String>();
 		File file = new File("courseDB.txt");
 		try{
@@ -102,9 +102,9 @@ public class RWTools {
 		BufferedReader br = new BufferedReader(fr);
 		String text;
 		while ((text = br.readLine()) != null){
-			if (text.contains("COURSE NAME")){
+			if (text.contains(program)){
 				int index = text.indexOf(":");
-				text = text.substring(index + 2);
+				text = text.substring(index + 1);
 				courses.add(text);
 			}
 		}

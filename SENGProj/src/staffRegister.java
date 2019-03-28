@@ -29,7 +29,7 @@ public class staffRegister extends JFrame {
 	private JTextField textField_5;
 	private JTextField userID;
 	private JTextField passWord;
-	private JTextField textField_9;
+	private JTextField confirmPass;
 	private LoginForm form;
 	private RWTools tool = new RWTools();
 
@@ -158,10 +158,10 @@ public class staffRegister extends JFrame {
 		passWord.setBounds(180, 442, 186, 26);
 		contentPane.add(passWord);
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(180, 486, 186, 26);
-		contentPane.add(textField_9);
+		confirmPass = new JTextField();
+		confirmPass.setColumns(10);
+		confirmPass.setBounds(180, 486, 186, 26);
+		contentPane.add(confirmPass);
 		
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Department Head");
 		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -177,6 +177,20 @@ public class staffRegister extends JFrame {
 		rdbtnInstructor.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		rdbtnInstructor.setBounds(443, 368, 157, 29);
 		contentPane.add(rdbtnInstructor);
+		
+		JLabel passError = new JLabel("");
+		passError.setForeground(new Color(255, 0, 0));
+		passError.setBackground(new Color(255, 0, 0));
+		passError.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		passError.setBounds(387, 442, 174, 26);
+		contentPane.add(passError);
+		
+		JLabel confirmError = new JLabel("");
+		confirmError.setForeground(new Color(255, 0, 0));
+		confirmError.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		confirmError.setBackground(Color.RED);
+		confirmError.setBounds(387, 486, 186, 26);
+		contentPane.add(confirmError);
 		
 		JButton button = new JButton("Go Back");
 		button.addActionListener(new ActionListener() {
@@ -195,10 +209,19 @@ public class staffRegister extends JFrame {
 		JButton btnNewButton = new JButton("Add Staff");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				if(!passWord.getText().equals(confirmPass.getText())){
+					passError.setText("Passwords do not match");
+					confirmError.setText("Passwords do not match");
+				}
+				if(passWord.getText().isEmpty()){
+					passError.setText("Please enter valid password");
+				}
+				else{
 				tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText());
 				setVisible(false);
 				form = new LoginForm();
 				form.setVisible(true);
+				}
 			}
 		});
 		btnNewButton.setForeground(Color.GREEN);
@@ -206,5 +229,7 @@ public class staffRegister extends JFrame {
 		btnNewButton.setFont(new Font("Yu Gothic", Font.PLAIN, 16));
 		btnNewButton.setBounds(404, 536, 157, 39);
 		contentPane.add(btnNewButton);
+		
+		
 	}
 }

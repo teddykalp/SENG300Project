@@ -53,25 +53,8 @@ public class courseDisplay extends JFrame {
 		courseDisplay.setEditable(false);
 		courseDisplay.setBounds(21, 82, 324, 269);
 	    contentPane.add(courseDisplay);
-		
-		
-		
-		JButton btnNewButton = new JButton("View");
-		btnNewButton.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(courseDisplay.getText() != (null)){
-				ArrayList course = tool.getCourseName();
-				for (int x = 0; x < course.size(); x++){
-					courseDisplay.append((String)course.get(x) + "\n");
-				}
-			}
-			}
-		});
-		btnNewButton.setBounds(362, 21, 141, 35);
-		contentPane.add(btnNewButton);
-		
-		ArrayList proGram = tool.getPrograms();
+	    
+	    ArrayList proGram = tool.getPrograms();
 		String [] programs = new String[proGram.size()];
 		for (int x = 0; x < programs.length; x++){
 			programs[x] = (String)proGram.get(x);
@@ -86,6 +69,24 @@ public class courseDisplay extends JFrame {
 		lblNewLabel.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
 		lblNewLabel.setBounds(83, 10, 182, 26);
 		contentPane.add(lblNewLabel);
+		
+		
+		
+		JButton btnNewButton = new JButton("View");
+		btnNewButton.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				courseDisplay.setText("");
+				ArrayList course = tool.getCourseName((String) programsSelect.getSelectedItem());
+				for (int x = 0; x < course.size(); x++){
+					courseDisplay.append((String)course.get(x) + "\n");
+				}
+			
+			}
+		});
+		btnNewButton.setBounds(362, 21, 141, 35);
+		contentPane.add(btnNewButton);
+		
 		
 		
 	}
