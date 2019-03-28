@@ -45,7 +45,7 @@ public class RWTools {
 		BufferedWriter br = new BufferedWriter(fw);
 		br.write(String.format("\n\nPROGRAM NAME: %s", programName));
 		br.write(String.format("\nPROGRAM DESCRIPTION: %s", programDescription));
-		br.write(String.format("\nDEPARTMENT: %s", programDepart));
+	    br.write(String.format("\nDEPARTMENT: %s", programDepart));
 		br.write(String.format("\nPROGRAM LEVEL %s", programLvl));
 		br.write(String.format("\nPROGRAM TYPE: %s", programType));
 		br.write(String.format("\nRequired GPA: %s", reqGPA));
@@ -82,10 +82,12 @@ public class RWTools {
 		try{
 			FileWriter fw = new FileWriter(file, true);
 			BufferedWriter br = new BufferedWriter(fw);
-			br.write(String.format("\n\n FULL NAME: %s %s", firstName, lastName));
+			br.write(String.format("\n\nFULL NAME: %s %s", firstName, lastName));
 			br.write(String.format("\nUSER ID: %s", userID));
 			br.write(String.format("\nPassword: %s", passWord));
 			
+			br.close();
+			fw.close();
 		}
 		catch(IOException f){
 			System.out.println("File not found");
@@ -102,16 +104,41 @@ public class RWTools {
 		while ((text = br.readLine()) != null){
 			if (text.contains("COURSE NAME")){
 				int index = text.indexOf(":");
-				text = text.substring(index + 1);
+				text = text.substring(index + 2);
 				courses.add(text);
 			}
 		}
+		br.close();
+		fr.close();
 		}
 		catch(IOException f){
 			System.out.println("File not found");
 		}
 		
 		return courses;
+	}
+	
+	public ArrayList getPrograms(){
+		ArrayList programs = new ArrayList<String>();
+		File file = new File("programDB.txt");
+		try{
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String text;
+			while((text = br.readLine()) != null){
+				if (text.contains("PROGRAM NAME")){
+					int index = text.indexOf(":");
+					programs.add(text.substring(index + 2));
+				}
+			}
+			br.close();
+			fr.close();
+		}
+		
+		catch(IOException f){
+			System.out.println("File not found");
+		}
+		return programs;
 	}
 	
 	public boolean verifyUser(String userID, String passWord){
@@ -135,6 +162,8 @@ public class RWTools {
 					}
 				}
 			}
+			br.close();
+			fr.close();
 		}catch(IOException f){
 			System.out.println("File not found");
 		}

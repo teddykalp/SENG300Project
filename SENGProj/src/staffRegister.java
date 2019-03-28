@@ -31,6 +31,7 @@ public class staffRegister extends JFrame {
 	private JTextField passWord;
 	private JTextField textField_9;
 	private LoginForm form;
+	private RWTools tool = new RWTools();
 
 	/**
 	 * Launch the application.
@@ -192,6 +193,14 @@ public class staffRegister extends JFrame {
 		contentPane.add(button);
 		
 		JButton btnNewButton = new JButton("Add Staff");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText());
+				setVisible(false);
+				form = new LoginForm();
+				form.setVisible(true);
+			}
+		});
 		btnNewButton.setForeground(Color.GREEN);
 		btnNewButton.setBackground(Color.DARK_GRAY);
 		btnNewButton.setFont(new Font("Yu Gothic", Font.PLAIN, 16));
