@@ -21,6 +21,7 @@ public class mainMenuForm extends JFrame {
 	private AddProgram programAdd;
 	private AddCourse courseAdd;
 	private String user;
+	private courseDisplay courseMenu;
 	
 	
 	/**
@@ -66,12 +67,12 @@ public class mainMenuForm extends JFrame {
 		
 		
 		
-		JLabel lblWhichActionWould = new JLabel("Which Action Would you like to perform?");
-		lblWhichActionWould.setBackground(Color.RED);
-		lblWhichActionWould.setForeground(new Color(255, 0, 0));
-		lblWhichActionWould.setFont(new Font("DejaVu Math TeX Gyre", Font.BOLD, 18));
-		lblWhichActionWould.setBounds(87, 64, 446, 26);
-		getContentPane().add(lblWhichActionWould);
+		JLabel lblMessage = new JLabel("Which Action Would you like to perform?");
+		lblMessage.setBackground(Color.RED);
+		lblMessage.setForeground(new Color(255, 0, 0));
+		lblMessage.setFont(new Font("DejaVu Math TeX Gyre", Font.BOLD, 18));
+		lblMessage.setBounds(87, 64, 446, 26);
+		getContentPane().add(lblMessage);
 		
 		JButton btnAddCourse = new JButton("Add Course");
 		btnAddCourse.setForeground(new Color(0, 0, 0));
@@ -106,6 +107,14 @@ public class mainMenuForm extends JFrame {
 		getContentPane().add(btnViewDepartment);
 		
 		JButton btnViewProgram = new JButton("View Program");
+		btnViewProgram.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				courseMenu = new courseDisplay(user);
+				courseMenu.setVisible(true);
+				
+			}
+		});
 		btnViewProgram.setForeground(Color.WHITE);
 		btnViewProgram.setBackground(new Color(0, 0, 0));
 		btnViewProgram.setFont(new Font("Tahoma", Font.BOLD, 14));

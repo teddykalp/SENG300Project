@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
 public class RWTools {
 
+	/* this method writes to the course database using
+	 * the required arguments 
+	 */
 	public void writeToCourse(String courseName, String courseID,
 			String courseProgram, Object courseLvl, String courseInstructor, String coursePreReq,
 			ArrayList courseDays, String startTime, String finishTime, Object courseCredit)
@@ -16,8 +19,7 @@ public class RWTools {
 		try{
 		FileWriter fw = new FileWriter(file,true);
 		BufferedWriter br = new BufferedWriter(fw);
-		br.write(String.format("\n\nCOURSE NAME: %s", courseName));
-		br.write(String.format("\nCOURSE COURSE ID: %s", courseProgram+ courseLvl + courseID));
+		br.write(String.format("\n\nCOURSE NAME: %s%s", courseName, courseProgram+ courseLvl + courseID));
 		br.write(String.format("\nINSTRUCTOR: %s", courseInstructor));
 		br.write(String.format("\nPREQUISITE COURSES: %s", coursePreReq));
 		br.write("\nDAYS OFFERED\n");
@@ -35,7 +37,9 @@ public class RWTools {
 			System.out.println("File Not found");
 		}
 	}
-	
+	/*this method writes to the 
+	 * program database using the required arguments
+	 */
 	public void writeToProgram(String programName, String programDescription, String programDepart,
 			Object programLvl, Object programType, String reqGPA)
 	{
@@ -58,7 +62,10 @@ public class RWTools {
 			System.out.println("File Not found");
 		}
 	}
-	
+	/*method to write to the department database
+	 * using the required arguments and writing them into
+	 the text file
+	 */
 	public void writeToDepartment(String departName, String departDescription, String departCode)
 	{
 		File file = new File("departmentDB.txt");
@@ -77,6 +84,8 @@ public class RWTools {
 		}
 	}
 	
+	/*method to write to the user database*/
+	
 	public void writeToUser(String userID, String passWord, String firstName, String lastName){
 		File file = new File("staffDB.txt");
 		try{
@@ -93,6 +102,10 @@ public class RWTools {
 			System.out.println("File not found");
 		}
 	}
+	/*this method is used to retrieve courses with a specific 
+	 * course program, will return courses with the under the 
+	 * program specified in the argument
+	 */
 	
 	public ArrayList getCourseName(String program){
 		ArrayList courses = new ArrayList<String>();
@@ -118,6 +131,10 @@ public class RWTools {
 		return courses;
 	}
 	
+	/*this method is used to retrieve
+	 * all programs in the database when called
+	 */
+	
 	public ArrayList getPrograms(){
 		ArrayList programs = new ArrayList<String>();
 		File file = new File("programDB.txt");
@@ -140,6 +157,11 @@ public class RWTools {
 		}
 		return programs;
 	}
+	
+	/*verification process to make
+	 * sure the user has logged in with the correct
+	 * information
+	 */
 	
 	public boolean verifyUser(String userID, String passWord){
 		File file = new File("staffDB.txt");

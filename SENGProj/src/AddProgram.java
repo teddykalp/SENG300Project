@@ -34,7 +34,6 @@ public class AddProgram extends JFrame {
 	private JTextArea programName;
 	private JTextArea programDesc;
 	private JLabel lblDepartment;
-	private JLabel lblProgramAbbreviation;
 	private mainMenuForm menu;
 	private RWTools tool = new RWTools();
 	
@@ -88,16 +87,6 @@ public class AddProgram extends JFrame {
 		lblDepartment.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblDepartment.setBounds(21, 275, 131, 26);
 		contentPane.add(lblDepartment);
-		
-		lblProgramAbbreviation = new JLabel("Program Abbreviation");
-		lblProgramAbbreviation.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblProgramAbbreviation.setBounds(21, 228, 146, 26);
-		contentPane.add(lblProgramAbbreviation);
-		
-		JTextArea programAbb = new JTextArea();
-		programAbb.setColumns(10);
-		programAbb.setBounds(185, 219, 186, 27);
-		contentPane.add(programAbb);
 		
 		JLabel lblLevelOfProgram = new JLabel("Level of Program");
 		lblLevelOfProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));

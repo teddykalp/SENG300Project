@@ -20,6 +20,7 @@ import javax.swing.DefaultComboBoxModel;
 public class courseDisplay extends JFrame {
 
 	private JPanel contentPane;
+	private mainMenuForm menu;
 	private RWTools tool = new RWTools();
 
 	/**
@@ -29,7 +30,7 @@ public class courseDisplay extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					courseDisplay frame = new courseDisplay();
+					courseDisplay frame = new courseDisplay("Test");
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +42,7 @@ public class courseDisplay extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public courseDisplay() {
+	public courseDisplay(String user) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 550, 443);
 		contentPane = new JPanel();
@@ -86,6 +87,18 @@ public class courseDisplay extends JFrame {
 		});
 		btnNewButton.setBounds(362, 21, 141, 35);
 		contentPane.add(btnNewButton);
+		
+		JButton btnReturn = new JButton("Go Back");
+		btnReturn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				menu = new mainMenuForm(user);
+				menu.setVisible(true);
+			}
+		});
+		btnReturn.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
+		btnReturn.setBounds(366, 316, 141, 35);
+		contentPane.add(btnReturn);
 		
 		
 		
