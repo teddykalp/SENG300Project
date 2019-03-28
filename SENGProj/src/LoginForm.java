@@ -32,6 +32,7 @@ public class LoginForm extends JFrame{
 	private String user = "Bob";
 	private String pass = "password";
 	private staffRegister staff;
+	private RWTools tool = new RWTools();
 	
 
 	/**
@@ -102,7 +103,7 @@ public class LoginForm extends JFrame{
 				if (entry.isEmpty()){
 					loginError.setText("Please enter valid username/password");
 				}
-				if ((userID.getText().equals(user))&& (entry.equals(pass))){
+				if (tool.verifyUser(userID.getText(), entry)){
 					setVisible(false);
 					mainMenuForm menu = new mainMenuForm(userID.getText());
 					menu.setVisible(true);

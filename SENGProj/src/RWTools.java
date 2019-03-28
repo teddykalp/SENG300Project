@@ -1,5 +1,7 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -73,6 +75,72 @@ public class RWTools {
 		catch(IOException f){
 			System.out.println("File Not found");
 		}
+	}
+	
+	public void writeToUser(String userID, String passWord, String firstName, String lastName){
+		File file = new File("staffDB.txt");
+		try{
+			FileWriter fw = new FileWriter(file, true);
+			BufferedWriter br = new BufferedWriter(fw);
+			br.write(String.format("\n\n FULL NAME: %s %s", firstName, lastName));
+			br.write(String.format("\nUSER ID: %s", userID));
+			br.write(String.format("\nPassword: %s", passWord));
+			
+		}
+		catch(IOException f){
+			System.out.println("File not found");
+		}
+	}
+	
+	public ArrayList getCourseName(){
+		ArrayList courses = new ArrayList<String>();
+		File file = new File("courseDB.txt");
+		try{
+		FileReader fr = new FileReader(file);
+		BufferedReader br = new BufferedReader(fr);
+		String text;
+		while ((text = br.readLine()) != null){
+			if (text.contains("COURSE NAME")){
+				int index = text.indexOf(":");
+				text = text.substring(index + 1);
+				courses.add(text);
+			}
+		}
+		}
+		catch(IOException f){
+			System.out.println("File not found");
+		}
+		
+		return courses;
+	}
+	
+	public boolean verifyUser(String userID, String passWord){
+		File file = new File("staffDB.txt");
+		
+		try{
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String line;
+			while ((line = br.readLine()) != null){
+				if (line.contains("USER ID")){
+					int index = line.indexOf(":");
+					if (line.substring(index + 2).equals(userID)){
+						String pass = br.readLine();
+						int passDex = pass.indexOf(":");
+						pass = pass.substring(passDex + 2);
+						if (pass.equals(passWord)){
+							return true;
+						}
+						
+					}
+				}
+			}
+		}catch(IOException f){
+			System.out.println("File not found");
+		}
+		
+		
+		return false;
 	}
 	
 }

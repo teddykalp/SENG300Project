@@ -21,14 +21,14 @@ import java.awt.event.ActionEvent;
 public class staffRegister extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField firstName;
+	private JTextField lastName;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-	private JTextField textField_7;
-	private JTextField textField_8;
+	private JTextField userID;
+	private JTextField passWord;
 	private JTextField textField_9;
 	private LoginForm form;
 
@@ -117,15 +117,15 @@ public class staffRegister extends JFrame {
 		lblConfirmPassword.setBounds(21, 493, 149, 26);
 		contentPane.add(lblConfirmPassword);
 		
-		textField = new JTextField();
-		textField.setBounds(180, 134, 186, 26);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		firstName = new JTextField();
+		firstName.setBounds(180, 134, 186, 26);
+		contentPane.add(firstName);
+		firstName.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(180, 176, 186, 26);
-		contentPane.add(textField_1);
+		lastName = new JTextField();
+		lastName.setColumns(10);
+		lastName.setBounds(180, 176, 186, 26);
+		contentPane.add(lastName);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
@@ -147,15 +147,15 @@ public class staffRegister extends JFrame {
 		textField_5.setBounds(180, 325, 356, 26);
 		contentPane.add(textField_5);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(180, 403, 186, 26);
-		contentPane.add(textField_7);
+		userID = new JTextField();
+		userID.setColumns(10);
+		userID.setBounds(180, 403, 186, 26);
+		contentPane.add(userID);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(180, 442, 186, 26);
-		contentPane.add(textField_8);
+		passWord = new JTextField();
+		passWord.setColumns(10);
+		passWord.setBounds(180, 442, 186, 26);
+		contentPane.add(passWord);
 		
 		textField_9 = new JTextField();
 		textField_9.setColumns(10);
