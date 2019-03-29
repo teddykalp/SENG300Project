@@ -22,7 +22,7 @@ public class mainMenuForm extends JFrame {
 	private AddCourse courseAdd;
 	private String user;
 	private courseDisplay courseMenu;
-	
+	private departmentDisplay viewDepartment;
 	
 	/**
 	 * Launch the application.
@@ -100,6 +100,13 @@ public class mainMenuForm extends JFrame {
 		getContentPane().add(btnEditCourse);
 		
 		JButton btnViewDepartment = new JButton("View Department");
+		btnViewDepartment.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				viewDepartment = new departmentDisplay(user);
+				viewDepartment.setVisible(true);
+			}
+		});
 		btnViewDepartment.setForeground(Color.WHITE);
 		btnViewDepartment.setBackground(new Color(0, 0, 0));
 		btnViewDepartment.setFont(new Font("Tahoma", Font.BOLD, 13));

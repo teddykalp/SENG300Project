@@ -19,7 +19,7 @@ public class RWTools {
 		try{
 		FileWriter fw = new FileWriter(file,true);
 		BufferedWriter br = new BufferedWriter(fw);
-		br.write(String.format("\n\nCOURSE NAME: %s%s", courseName, courseProgram+ courseLvl + courseID));
+		br.write(String.format("\n\nCOURSE NAME: %s%s", courseName, courseLvl + courseID));
 		br.write(String.format("\nINSTRUCTOR: %s", courseInstructor));
 		br.write(String.format("\nPREQUISITE COURSES: %s", coursePreReq));
 		br.write("\nDAYS OFFERED\n");
@@ -72,8 +72,10 @@ public class RWTools {
 		try{
 		FileWriter fw = new FileWriter(file,true);
 		BufferedWriter br = new BufferedWriter(fw);
-		br.write(String.format("\n\nDEPARTMENT NAME: %s %s", departName, departCode));
+		br.write(String.format("\n\nDEPARTMENT NAME: %s", departName));
 		br.write(String.format("\nDEPARTMENT DESCRIPTION: %s", departDescription));
+		br.write(String.format("\nDEPARTMENT CODE: %s", departCode));
+		
 		
 		br.close();
 		fw.close();
@@ -157,6 +159,68 @@ public class RWTools {
 		}
 		return programs;
 	}
+	
+	
+	/*getting department names that are 
+	 * added to the system
+	 */
+	
+	public ArrayList getDepartment()
+	{
+		ArrayList departments = new ArrayList<String>();
+		File file = new File("departmentDB.txt");
+		try{
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String line;
+			while((line = br.readLine()) != null){
+				if (line.contains("DEPARTMENT NAME")){
+					int index = line.indexOf(":");
+					departments.add(line.substring(index + 2));
+					}
+			}
+			br.close();
+			fr.close();
+		}
+		catch(IOException f)
+		{
+			System.out.println("File not found");
+		}
+		
+		return departments;
+	}
+	
+	/* getting department information
+	 * to display to users in the GUI
+	 */
+	
+	
+	public ArrayList getDepartmentInfo(String department)
+	{
+		ArrayList departInfo = new ArrayList<String>();
+		File file = new File("departmentDB.txt");
+		try{
+		FileReader fr = new FileReader(file);
+		BufferedReader br = new BufferedReader(fr);
+		String line;
+		while ((line = br.readLine()) != null){
+			if (line.contains("DEPARTMENT NAME: " + department)){
+				String departmentDesc = br.readLine();
+				int index = departmentDesc.indexOf(":");
+				departInfo.add(departmentDesc.substring(index + 2));
+				String departmentCode = br.readLine();
+				int index1 = departmentCode.indexOf(":");
+				departInfo.add(departmentCode.substring(index1 + 2));
+				return departInfo;
+			}
+		}
+		}
+		catch(IOException f){
+			System.out.print("File not found");
+		}
+		return null;
+	}
+	
 	
 	/*verification process to make
 	 * sure the user has logged in with the correct

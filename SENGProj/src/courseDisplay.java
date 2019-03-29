@@ -16,6 +16,7 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
 
 public class courseDisplay extends JFrame {
 
@@ -44,15 +45,16 @@ public class courseDisplay extends JFrame {
 	 */
 	public courseDisplay(String user) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 550, 443);
+		setBounds(100, 100, 550, 485);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(175, 238, 238));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JTextArea courseDisplay = new JTextArea();
 		courseDisplay.setEditable(false);
-		courseDisplay.setBounds(21, 82, 324, 269);
+		courseDisplay.setBounds(44, 157, 279, 236);
 	    contentPane.add(courseDisplay);
 	    
 	    ArrayList proGram = tool.getPrograms();
@@ -63,18 +65,19 @@ public class courseDisplay extends JFrame {
 		
 		JComboBox programsSelect = new JComboBox();
 		programsSelect.setModel(new DefaultComboBoxModel(programs));
-		programsSelect.setBounds(59, 40, 216, 32);
+		programsSelect.setBounds(44, 81, 216, 32);
 		contentPane.add(programsSelect);
 		
 		JLabel lblchooseProgram = new JLabel("Choose Program");
 		lblchooseProgram.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
-		lblchooseProgram.setBounds(83, 10, 182, 26);
+		lblchooseProgram.setBounds(44, 46, 182, 26);
 		contentPane.add(lblchooseProgram);
 		
 		
 		
 		JButton btnView = new JButton("View");
-		btnView.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
+		btnView.setBackground(new Color(173, 255, 47));
+		btnView.setFont(new Font("Source Sans Pro", Font.BOLD, 21));
 		btnView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				courseDisplay.setText("");
@@ -85,10 +88,11 @@ public class courseDisplay extends JFrame {
 			
 			}
 		});
-		btnView.setBounds(362, 21, 141, 35);
+		btnView.setBounds(366, 217, 141, 35);
 		contentPane.add(btnView);
 		
 		JButton btnReturn = new JButton("Go Back");
+		btnReturn.setBackground(new Color(255, 105, 180));
 		btnReturn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -96,9 +100,19 @@ public class courseDisplay extends JFrame {
 				menu.setVisible(true);
 			}
 		});
-		btnReturn.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
-		btnReturn.setBounds(366, 316, 141, 35);
+		btnReturn.setFont(new Font("Source Sans Pro", Font.BOLD, 21));
+		btnReturn.setBounds(366, 42, 141, 35);
 		contentPane.add(btnReturn);
+		
+		JLabel programCourses = new JLabel("Courses Offered");
+		programCourses.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
+		programCourses.setBounds(44, 120, 182, 26);
+		contentPane.add(programCourses);
+		
+		JLabel lblNewLabel = new JLabel("View Courses by Program");
+		lblNewLabel.setFont(new Font("Sitka Banner", Font.BOLD, 21));
+		lblNewLabel.setBounds(116, -1, 254, 26);
+		contentPane.add(lblNewLabel);
 		
 		
 		
