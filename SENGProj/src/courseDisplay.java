@@ -66,16 +66,16 @@ public class courseDisplay extends JFrame {
 		programsSelect.setBounds(59, 40, 216, 32);
 		contentPane.add(programsSelect);
 		
-		JLabel lblNewLabel = new JLabel("Choose Program");
-		lblNewLabel.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
-		lblNewLabel.setBounds(83, 10, 182, 26);
-		contentPane.add(lblNewLabel);
+		JLabel lblchooseProgram = new JLabel("Choose Program");
+		lblchooseProgram.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
+		lblchooseProgram.setBounds(83, 10, 182, 26);
+		contentPane.add(lblchooseProgram);
 		
 		
 		
-		JButton btnNewButton = new JButton("View");
-		btnNewButton.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnView = new JButton("View");
+		btnView.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
+		btnView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				courseDisplay.setText("");
 				ArrayList course = tool.getCourseName((String) programsSelect.getSelectedItem());
@@ -85,8 +85,8 @@ public class courseDisplay extends JFrame {
 			
 			}
 		});
-		btnNewButton.setBounds(362, 21, 141, 35);
-		contentPane.add(btnNewButton);
+		btnView.setBounds(362, 21, 141, 35);
+		contentPane.add(btnView);
 		
 		JButton btnReturn = new JButton("Go Back");
 		btnReturn.addActionListener(new ActionListener() {
