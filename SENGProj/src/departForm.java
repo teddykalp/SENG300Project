@@ -26,7 +26,7 @@ public class departForm extends JFrame {
 	private JTextField departCode;
 	private mainMenuForm menu;
 	private String name;
-	File file = new File("departmentDB.txt");
+	private RWTools tool = new RWTools();
 
 	/**
 	 * Launch the application.
@@ -104,24 +104,13 @@ public class departForm extends JFrame {
 					dError.setText("Please fill in any empty fields");
 				}
 				else{
-					try{
-						FileWriter fw = new FileWriter(file,true);
-						BufferedWriter br = new BufferedWriter(fw);
-						br.write("\nDEPARTMENT NAME\n");
-						br.write(departName.getText() + "\n");
-						br.write("DEPARTMENT DESCRIPTION\n");
-						br.write(departDescription.getText() + "\n");
-						br.write("DEPARTMENT CODE\n");
-						br.write(departCode.getText() + "\n");
-						setVisible(false);
-						menu = new mainMenuForm(user);
-						menu.setVisible(true);
-						br.close();
-						fw.close();
-						
-					}catch (IOException f){
-						System.out.println("File Not found");
-					}
+					
+					tool.writeToDepartment(departName.getText(), departDescription.getText(), 
+							departCode.getText());
+					
+					setVisible(false);
+					menu = new mainMenuForm(user);
+					menu.setVisible(true);
 				}
 				
 			}
@@ -141,7 +130,6 @@ public class departForm extends JFrame {
 		button.setBackground(Color.DARK_GRAY);
 		button.setBounds(458, 21, 157, 35);
 		contentPane.add(button);
-		
 		
 		
 		

@@ -32,6 +32,7 @@ public class LoginForm extends JFrame{
 	private String user = "Bob";
 	private String pass = "password";
 	private staffRegister staff;
+	private RWTools tool = new RWTools();
 	
 
 	/**
@@ -68,7 +69,7 @@ public class LoginForm extends JFrame{
 		getContentPane().add(loginError);
 		
 		setBackground(Color.LIGHT_GRAY);
-		setBounds(100, 100, 663, 560);
+		setBounds(100, 100, 628, 560);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		
@@ -102,7 +103,7 @@ public class LoginForm extends JFrame{
 				if (entry.isEmpty()){
 					loginError.setText("Please enter valid username/password");
 				}
-				if ((userID.getText().equals(user))&& (entry.equals(pass))){
+				if (tool.verifyUser(userID.getText(), entry)){
 					setVisible(false);
 					mainMenuForm menu = new mainMenuForm(userID.getText());
 					menu.setVisible(true);

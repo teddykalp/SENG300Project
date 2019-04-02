@@ -21,7 +21,8 @@ public class mainMenuForm extends JFrame {
 	private AddProgram programAdd;
 	private AddCourse courseAdd;
 	private String user;
-	
+	private courseDisplay courseMenu;
+	private departmentDisplay viewDepartment;
 	
 	/**
 	 * Launch the application.
@@ -44,7 +45,7 @@ public class mainMenuForm extends JFrame {
 	 */
 	public mainMenuForm(String user) {
 		getContentPane().setForeground(Color.GRAY);
-		getContentPane().setBackground(new Color(102, 102, 102));
+		getContentPane().setBackground(new Color(224, 255, 255));
 		setUser(user);
 		initialize();
 		
@@ -66,15 +67,15 @@ public class mainMenuForm extends JFrame {
 		
 		
 		
-		JLabel lblWhichActionWould = new JLabel("Which Action Would you like to perform?");
-		lblWhichActionWould.setBackground(Color.RED);
-		lblWhichActionWould.setForeground(Color.PINK);
-		lblWhichActionWould.setFont(new Font("DejaVu Math TeX Gyre", Font.BOLD, 18));
-		lblWhichActionWould.setBounds(87, 64, 446, 26);
-		getContentPane().add(lblWhichActionWould);
+		JLabel lblMessage = new JLabel("Which Action Would you like to perform?");
+		lblMessage.setBackground(Color.RED);
+		lblMessage.setForeground(new Color(255, 0, 0));
+		lblMessage.setFont(new Font("DejaVu Math TeX Gyre", Font.BOLD, 18));
+		lblMessage.setBounds(87, 64, 446, 26);
+		getContentPane().add(lblMessage);
 		
 		JButton btnAddCourse = new JButton("Add Course");
-		btnAddCourse.setForeground(Color.RED);
+		btnAddCourse.setForeground(new Color(0, 0, 0));
 		btnAddCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				setVisible(false);
@@ -89,7 +90,7 @@ public class mainMenuForm extends JFrame {
 		
 		JButton btnEditCourse = new JButton("Edit Course");
 		btnEditCourse.setForeground(Color.WHITE);
-		btnEditCourse.setBackground(Color.RED);
+		btnEditCourse.setBackground(new Color(0, 0, 0));
 		btnEditCourse.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnEditCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -99,15 +100,30 @@ public class mainMenuForm extends JFrame {
 		getContentPane().add(btnEditCourse);
 		
 		JButton btnViewDepartment = new JButton("View Department");
+		btnViewDepartment.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				viewDepartment = new departmentDisplay(user);
+				viewDepartment.setVisible(true);
+			}
+		});
 		btnViewDepartment.setForeground(Color.WHITE);
-		btnViewDepartment.setBackground(Color.RED);
+		btnViewDepartment.setBackground(new Color(0, 0, 0));
 		btnViewDepartment.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnViewDepartment.setBounds(395, 246, 161, 32);
 		getContentPane().add(btnViewDepartment);
 		
 		JButton btnViewProgram = new JButton("View Program");
+		btnViewProgram.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				courseMenu = new courseDisplay(user);
+				courseMenu.setVisible(true);
+				
+			}
+		});
 		btnViewProgram.setForeground(Color.WHITE);
-		btnViewProgram.setBackground(Color.RED);
+		btnViewProgram.setBackground(new Color(0, 0, 0));
 		btnViewProgram.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnViewProgram.setBounds(35, 244, 141, 35);
 		getContentPane().add(btnViewProgram);
@@ -121,8 +137,8 @@ public class mainMenuForm extends JFrame {
 			}
 		});
 		btnLogout.setFont(new Font("Comic Sans MS", Font.BOLD, 18));
-		btnLogout.setBackground(Color.PINK);
-		btnLogout.setBounds(217, 375, 141, 35);
+		btnLogout.setBackground(new Color(255, 255, 255));
+		btnLogout.setBounds(217, 310, 141, 35);
 		getContentPane().add(btnLogout);
 		
 		JLabel lblNewLabel_1 = new JLabel(" ");
@@ -141,7 +157,7 @@ public class mainMenuForm extends JFrame {
 			}
 		});
 		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBackground(Color.RED);
+		btnNewButton.setBackground(new Color(0, 0, 0));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnNewButton.setBounds(35, 119, 141, 35);
 		getContentPane().add(btnNewButton);
@@ -156,21 +172,21 @@ public class mainMenuForm extends JFrame {
 			}
 		});
 		btnNewButton_1.setForeground(Color.WHITE);
-		btnNewButton_1.setBackground(Color.RED);
+		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton_1.setBounds(395, 122, 161, 32);
 		getContentPane().add(btnNewButton_1);
 		
 		JButton btnEditProgram = new JButton("Edit Program");
-		btnEditProgram.setForeground(Color.RED);
+		btnEditProgram.setForeground(new Color(0, 0, 0));
 		btnEditProgram.setBackground(Color.WHITE);
 		btnEditProgram.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnEditProgram.setBounds(35, 183, 141, 35);
 		getContentPane().add(btnEditProgram);
 		
 		JButton btnEditDepartment = new JButton("Edit Department");
-		btnEditDepartment.setForeground(Color.RED);
-		btnEditDepartment.setBackground(Color.WHITE);
+		btnEditDepartment.setForeground(new Color(0, 0, 0));
+		btnEditDepartment.setBackground(new Color(255, 250, 250));
 		btnEditDepartment.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnEditDepartment.setBounds(395, 181, 161, 32);
 		getContentPane().add(btnEditDepartment);
@@ -183,7 +199,7 @@ public class mainMenuForm extends JFrame {
 		getContentPane().add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.RED);
+		panel.setBackground(new Color(255, 228, 225));
 		panel.setBounds(0, 54, 611, 44);
 		getContentPane().add(panel);
 	}
