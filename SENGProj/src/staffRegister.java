@@ -38,6 +38,7 @@ public class staffRegister extends JFrame {
 	 * main function: launch the application.
 	 */
 	public static void main(String[] args) {
+		// event handler that will set the frame to visible to the user
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
