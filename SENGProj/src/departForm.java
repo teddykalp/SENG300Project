@@ -19,6 +19,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
+/**
+* departForm to show add department form to UI
+* @author	Teddy Kalp, Angeli Manipon
+* @version	1.0
+*/
+
 public class departForm extends JFrame {
 
 	private JPanel contentPane;
@@ -34,8 +40,10 @@ public class departForm extends JFrame {
 	
 
 	/**
-	 * Create the frame.
-	 */
+	* departForm to that reads input for department info
+	* @param	user
+	* @return	N/A
+	*/
 	public departForm(String user) {
 		
 		this.name = user;
@@ -46,7 +54,6 @@ public class departForm extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-
 		
 		JLabel lblNewLabel = new JLabel("Register Department");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 19));
@@ -99,10 +106,12 @@ public class departForm extends JFrame {
 		btnNewButton.setBounds(439, 408, 156, 31);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// Error handling for empty input
 				if (departName.getText().isEmpty() || departDescription.getText().isEmpty() 
 						|| departCode.getText().isEmpty()){
 					dError.setText("Please fill in any empty fields");
 				}
+				// Writes department to departmentDB.txt
 				else{
 					
 					tool.writeToDepartment(departName.getText(), departDescription.getText(), 
@@ -117,6 +126,7 @@ public class departForm extends JFrame {
 		});
 		contentPane.add(btnNewButton);
 		
+		// Returns user back to main menu
 		JButton button = new JButton("Go Back");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
