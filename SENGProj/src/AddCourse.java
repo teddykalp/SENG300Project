@@ -21,6 +21,12 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JTextArea;
 
+/**
+* AddCourse form that for staff users to add a course to the program system
+* @author	TeddyKalp
+* @version 	1.0
+*/
+
 public class AddCourse extends JFrame {
 
 	private JPanel contentPane;
@@ -44,8 +50,10 @@ public class AddCourse extends JFrame {
 
 
 	/**
-	 * Create the frame.
-	 */
+	* AddCourse function that contains form created from WindowsBuilder
+	* @param	user - Staff user that is adding the course
+	* @return 	N/A
+	*/
 	public AddCourse(String user) {
 		
 		
@@ -231,10 +239,17 @@ public class AddCourse extends JFrame {
 		btnRegisterCourse.setBackground(Color.DARK_GRAY);
 		btnRegisterCourse.setForeground(Color.GREEN);
 		btnRegisterCourse.addActionListener(new ActionListener() {
+			/**
+			* actionPerformed handles user input in AddCourse form
+			* @param	ActionEvent - when submit button is clicked
+			* @return 	void
+			*/
 			public void actionPerformed(ActionEvent e) {
+				// Error handling when courseName input is empty
 				if (courseName.getText().isEmpty()){
 					nameError.setText("Please enter valid name");
 				}else{
+						// Creates array for selection of days that class occurs
 						ArrayList<String> list = new ArrayList<String>();
 						if (monDay.isSelected()){
 							list.add("Monday");
@@ -255,6 +270,7 @@ public class AddCourse extends JFrame {
 							list.add("Saturday");
 						}
 						RWTools tool = new RWTools();
+						// Writes course information to courseDB.txt using RWTools
 						tool.writeToCourse(courseName.getText(), courseID.getText(), courseProgram.getText(), courseLvl.getSelectedItem(),
 								          courseInstructor.getText(), coursePreReq.getText(), list, startTime.getText(), finishTime.getText(), courseCredit.getSelectedItem());
 						setVisible(false);
