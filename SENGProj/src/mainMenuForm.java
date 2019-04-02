@@ -23,6 +23,7 @@ public class mainMenuForm extends JFrame {
 	private String user;
 	private courseDisplay courseMenu;
 	private departmentDisplay viewDepartment;
+	private CourseCalendar courseCalendar;
 	
 	/**
 	 * Launch the application.
@@ -66,7 +67,7 @@ public class mainMenuForm extends JFrame {
 		getContentPane().setLayout(null);
 		
 		
-		
+		// main header display
 		JLabel lblMessage = new JLabel("Which Action Would you like to perform?");
 		lblMessage.setBackground(Color.RED);
 		lblMessage.setForeground(new Color(255, 0, 0));
@@ -74,6 +75,7 @@ public class mainMenuForm extends JFrame {
 		lblMessage.setBounds(87, 64, 446, 26);
 		getContentPane().add(lblMessage);
 		
+		// add course button and functionality
 		JButton btnAddCourse = new JButton("Add Course");
 		btnAddCourse.setForeground(new Color(0, 0, 0));
 		btnAddCourse.addActionListener(new ActionListener() {
@@ -88,6 +90,7 @@ public class mainMenuForm extends JFrame {
 		btnAddCourse.setBounds(217, 119, 141, 35);
 		getContentPane().add(btnAddCourse);
 		
+		// edit course button and functionality
 		JButton btnEditCourse = new JButton("Edit Course");
 		btnEditCourse.setForeground(Color.WHITE);
 		btnEditCourse.setBackground(new Color(0, 0, 0));
@@ -98,7 +101,24 @@ public class mainMenuForm extends JFrame {
 		});
 		btnEditCourse.setBounds(217, 183, 141, 35);
 		getContentPane().add(btnEditCourse);
+
+		// view course button and functionality
+		JButton bttnViewCourse = new JButton("View Course");
+		bttnViewCourse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				courseCalendar = new CourseCalendar();
+				courseCalendar.setVisible(true);
+			}
+		});
+		bttnViewCourse.setForeground(Color.WHITE);
+		bttnViewCourse.setBackground(new Color(0, 0, 0));
+		bttnViewCourse.setFont(new Font("Tahoma", Font.BOLD, 13));
+		bttnViewCourse.setBounds(217, 244, 141, 35);
+		getContentPane().add(bttnViewCourse);		
 		
+		
+		// view department button and functionality
 		JButton btnViewDepartment = new JButton("View Department");
 		btnViewDepartment.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -113,6 +133,7 @@ public class mainMenuForm extends JFrame {
 		btnViewDepartment.setBounds(395, 246, 161, 32);
 		getContentPane().add(btnViewDepartment);
 		
+		// view program button and functionality
 		JButton btnViewProgram = new JButton("View Program");
 		btnViewProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -128,6 +149,7 @@ public class mainMenuForm extends JFrame {
 		btnViewProgram.setBounds(35, 244, 141, 35);
 		getContentPane().add(btnViewProgram);
 		
+		// logout button and functionality
 		JButton btnLogout = new JButton("Logout");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -141,6 +163,7 @@ public class mainMenuForm extends JFrame {
 		btnLogout.setBounds(217, 310, 141, 35);
 		getContentPane().add(btnLogout);
 		
+		// add graphic
 		JLabel lblNewLabel_1 = new JLabel(" ");
 		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
 		img = img.getScaledInstance(180, 170, 0);
@@ -148,6 +171,7 @@ public class mainMenuForm extends JFrame {
 		lblNewLabel_1.setBounds(395, 415, 192, 131);
 		getContentPane().add(lblNewLabel_1);
 		
+		// add program button and functionality
 		JButton btnNewButton = new JButton("Add Program");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -162,6 +186,7 @@ public class mainMenuForm extends JFrame {
 		btnNewButton.setBounds(35, 119, 141, 35);
 		getContentPane().add(btnNewButton);
 		
+		// add department button and functionality
 		JButton btnNewButton_1 = new JButton("Add Department");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -177,6 +202,7 @@ public class mainMenuForm extends JFrame {
 		btnNewButton_1.setBounds(395, 122, 161, 32);
 		getContentPane().add(btnNewButton_1);
 		
+		// edit program button and functionality
 		JButton btnEditProgram = new JButton("Edit Program");
 		btnEditProgram.setForeground(new Color(0, 0, 0));
 		btnEditProgram.setBackground(Color.WHITE);
@@ -184,20 +210,23 @@ public class mainMenuForm extends JFrame {
 		btnEditProgram.setBounds(35, 183, 141, 35);
 		getContentPane().add(btnEditProgram);
 		
-		JButton btnEditDepartment = new JButton("Edit Department");
+		
+		// edit department button and functionality
+		JButton btnEditDepartment = new JButton("Edit Department!");
 		btnEditDepartment.setForeground(new Color(0, 0, 0));
 		btnEditDepartment.setBackground(new Color(255, 250, 250));
 		btnEditDepartment.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnEditDepartment.setBounds(395, 181, 161, 32);
 		getContentPane().add(btnEditDepartment);
 		
-		
+		// welcome banner with logged in user 
 		JLabel lblNewLabel = new JLabel("Welcome " + this.user);
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(10, 0, 141, 26);
 		getContentPane().add(lblNewLabel);
 		
+		// create panel 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 228, 225));
 		panel.setBounds(0, 54, 611, 44);
