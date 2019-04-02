@@ -57,7 +57,7 @@ public class AddCourse extends JFrame {
 	public AddCourse(String user) {
 		
 		
-		
+		// Window and Label settings for WindowBuilder
 		JLabel nameError = new JLabel("");
 		nameError.setForeground(Color.RED);
 		nameError.setFont(new Font("Tahoma", Font.PLAIN, 10));
@@ -91,52 +91,62 @@ public class AddCourse extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
+		// Label for Register Course
 		JLabel lblAddCourse = new JLabel("Register Course");
 		lblAddCourse.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblAddCourse.setBounds(221, 16, 165, 26);
 		getContentPane().add(lblAddCourse);
 		
+		// Label for Course Level
 		JLabel lblNewLabel = new JLabel("Course Level");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel.setBounds(21, 100, 92, 26);
 		getContentPane().add(lblNewLabel);
 		
+		// Label for Course Name
 		JLabel lblCourseName = new JLabel("Course Name");
 		lblCourseName.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCourseName.setBounds(21, 62, 92, 26);
 		getContentPane().add(lblCourseName);
 		
+		// Label for Course Description
 		JLabel lblCourseDescription = new JLabel("Course Description ");
 		lblCourseDescription.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCourseDescription.setBounds(21, 603, 119, 26);
 		getContentPane().add(lblCourseDescription);
 		
+		// Label for Course ID
 		JLabel lblCourseId = new JLabel("Course ID (00-99)");
 		lblCourseId.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCourseId.setBounds(21, 135, 119, 26);
 		getContentPane().add(lblCourseId);
 		
+		// Label for Prerequisite Courses
 		JLabel lblInstructor = new JLabel("<html><p>Prerequisite \r\nCourses (Seperate courses with a comma)<p><html>");
 		lblInstructor.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblInstructor.setBounds(21, 265, 157, 51);
 		getContentPane().add(lblInstructor);
 		
+		// Label for Instructor
 		JLabel label = new JLabel("Instructor");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		label.setBounds(21, 218, 92, 26);
 		getContentPane().add(label);
 		
+		// Label for course dates selections
 		JLabel lblDaysThisCourse = new JLabel("<html><p>Days this Course will be offered<p><html>");
 		lblDaysThisCourse.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblDaysThisCourse.setBounds(21, 381, 102, 51);
 		getContentPane().add(lblDaysThisCourse);
 		
+		// User input for course name
 		courseName = new JTextField();
 		courseName.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		courseName.setColumns(10);
 		courseName.setBounds(211, 63, 186, 26);
 		getContentPane().add(courseName);
 		
+		// Takes user input for course level 
 		JComboBox courseLvl = new JComboBox();
 		courseLvl.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		courseLvl.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4"}));
@@ -144,11 +154,13 @@ public class AddCourse extends JFrame {
 		courseLvl.setBounds(258, 99, 48, 27);
 		getContentPane().add(courseLvl);
 		
+		// Takes course ID from user input
 		courseID = new JTextField();
 		courseID.setBounds(211, 133, 186, 26);
 		getContentPane().add(courseID);
 		courseID.setColumns(10);
 		
+		// Takes course dates from radio button selection input
 		JRadioButton monDay = new JRadioButton("Monday");
 		monDay.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		monDay.setBounds(211, 335, 149, 29);
@@ -179,62 +191,74 @@ public class AddCourse extends JFrame {
 		saturDay.setBounds(371, 418, 130, 29);
 		getContentPane().add(saturDay);
 		
+		// Label for time slot
 		JLabel lblTimeslot = new JLabel("Time Slot");
 		lblTimeslot.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblTimeslot.setBounds(21, 486, 92, 26);
 		getContentPane().add(lblTimeslot);
 		
+		// Takes start time from user input
 		startTime = new JTextField();
 		startTime.setBounds(196, 481, 80, 32);
 		getContentPane().add(startTime);
 		startTime.setColumns(10);
 		
+		// Takes finish time from user input
 		finishTime = new JTextField();
 		finishTime.setColumns(10);
 		finishTime.setBounds(371, 481, 80, 32);
 		getContentPane().add(finishTime);
 		
+		// Label for start time
 		JLabel lblStartTime = new JLabel("Start Time");
 		lblStartTime.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblStartTime.setBounds(116, 486, 69, 26);
 		getContentPane().add(lblStartTime);
 		
+		// Label for finish time
 		JLabel lblFinishTime = new JLabel("Finish Time");
 		lblFinishTime.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblFinishTime.setBounds(291, 486, 69, 26);
 		getContentPane().add(lblFinishTime);
 		
+		// Label for course credits
 		JLabel lblCourseCredits = new JLabel("Course Credits");
 		lblCourseCredits.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCourseCredits.setBounds(21, 533, 92, 26);
 		getContentPane().add(lblCourseCredits);
 		
+		// Dropbox selection for course credits
 		JComboBox courseCredit = new JComboBox();
 		courseCredit.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		courseCredit.setModel(new DefaultComboBoxModel(new String[] {"0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4"}));
 		courseCredit.setBounds(272, 532, 57, 26);
 		getContentPane().add(courseCredit);
 		
+		// Takes course prerequisites form user input
 		JTextArea coursePreReq = new JTextArea();
 		coursePreReq.setLineWrap(true);
 		coursePreReq.setBounds(211, 263, 216, 65);
 		getContentPane().add(coursePreReq);
 		
+		// Takes course description from user input
 		JTextArea courseDesc = new JTextArea();
 		courseDesc.setLineWrap(true);
 		courseDesc.setBounds(183, 600, 244, 113);
 		getContentPane().add(courseDesc);
 		
+		// Takes program from user input
 		courseProgram = new JTextField();
 		courseProgram.setBounds(211, 180, 186, 26);
 		getContentPane().add(courseProgram);
 		courseProgram.setColumns(10);
 		
+		// Takes instructor from user input
 		courseInstructor = new JTextField();
 		courseInstructor.setBounds(211, 218, 186, 27);
 		getContentPane().add(courseInstructor);
 		courseInstructor.setColumns(10);
 		
+		// Submit button
 		JButton btnRegisterCourse = new JButton("Submit");
 		btnRegisterCourse.setBackground(Color.DARK_GRAY);
 		btnRegisterCourse.setForeground(Color.GREEN);
@@ -283,6 +307,7 @@ public class AddCourse extends JFrame {
 		btnRegisterCourse.setBounds(221, 731, 157, 35);
 		getContentPane().add(btnRegisterCourse);
 		
+		// GoBack button returns user to main menu
 		JButton btnGoBack = new JButton("Go Back");
 		btnGoBack.setBackground(Color.DARK_GRAY);
 		btnGoBack.setForeground(Color.RED);
