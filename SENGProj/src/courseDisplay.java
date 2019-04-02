@@ -18,6 +18,12 @@ import java.awt.Font;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
 
+/**
+* courseDisplay class handles UI for course display
+* @author	Teddy Kalp
+* @version	1.0
+*/
+
 public class courseDisplay extends JFrame {
 
 	private JPanel contentPane;
@@ -52,6 +58,7 @@ public class courseDisplay extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		
 		JTextArea courseDisplay = new JTextArea();
 		courseDisplay.setEditable(false);
 		courseDisplay.setBounds(44, 157, 279, 236);
@@ -63,18 +70,20 @@ public class courseDisplay extends JFrame {
 			programs[x] = (String)proGram.get(x);
 		}
 		
+		// List of programs to be selected from
 		JComboBox programsSelect = new JComboBox();
 		programsSelect.setModel(new DefaultComboBoxModel(programs));
 		programsSelect.setBounds(44, 81, 216, 32);
 		contentPane.add(programsSelect);
 		
+		// Choose program from list of programs
 		JLabel lblchooseProgram = new JLabel("Choose Program");
 		lblchooseProgram.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
 		lblchooseProgram.setBounds(44, 46, 182, 26);
 		contentPane.add(lblchooseProgram);
 		
 		
-		
+		// Shows list of courses to UI
 		JButton btnView = new JButton("View");
 		btnView.setBackground(new Color(173, 255, 47));
 		btnView.setFont(new Font("Source Sans Pro", Font.BOLD, 21));
@@ -91,6 +100,7 @@ public class courseDisplay extends JFrame {
 		btnView.setBounds(366, 217, 141, 35);
 		contentPane.add(btnView);
 		
+		// Returns user to main menu
 		JButton btnReturn = new JButton("Go Back");
 		btnReturn.setBackground(new Color(255, 105, 180));
 		btnReturn.addActionListener(new ActionListener() {
