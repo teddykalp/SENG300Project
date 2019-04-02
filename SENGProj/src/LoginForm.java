@@ -105,7 +105,8 @@ public class LoginForm extends JFrame{
 				}
 				if (tool.verifyUser(userID.getText(), entry)){
 					setVisible(false);
-					mainMenuForm menu = new mainMenuForm(userID.getText());
+					MainMenu menu = new MainMenu (userID.getText());
+//					mainMenuForm menu = new mainMenuForm(userID.getText());
 					menu.setVisible(true);
 				}
 			}

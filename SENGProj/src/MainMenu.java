@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 
 
-public class mainMenuForm extends JFrame {
+public class MainMenu extends JFrame {
 
 	private LoginForm login;
 	private AddProgram programAdd;
@@ -44,7 +44,7 @@ public class mainMenuForm extends JFrame {
 	/**
 	 * Create the application.
 	 */
-	public mainMenuForm(String user) {
+	public MainMenu(String user) {
 		getContentPane().setForeground(Color.GRAY);
 		getContentPane().setBackground(new Color(224, 255, 255));
 		setUser(user);
