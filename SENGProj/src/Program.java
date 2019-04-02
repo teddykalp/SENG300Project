@@ -1,3 +1,9 @@
+/**
+* Program class for user input from AddCourse form
+* @author	Teddy Kalp
+* @version 	1.0
+*/
+
 
 public class Program {
 	
@@ -9,6 +15,18 @@ public class Program {
 	private String level;
 	private float gpa;
 	private String[] required;
+	
+	/**
+	* Course function that sets course info created from AddCourse form
+	* @param	name		course name
+	* @param	description	course description
+	* @param	department	course dept
+	* @param	level		course level
+	* @param	type		course type
+	* @param	gpa		required GPA
+	* @param	abbr		course abbreviation
+	* @return 	N/A
+	*/
 	
 	public Program(String name, String description, String department, String level , String type, float gpa, String abbr){
 		this.setName(name);
