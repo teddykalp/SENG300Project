@@ -6,11 +6,28 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+* RWTools class handles read and write to software databases
+* @author	Teddy Kalp
+* @version	1.0
+*/
+
 public class RWTools {
 
-	/* this method writes to the course database using
-	 * the required arguments 
-	 */
+	/**
+	* writeToCourse writes course info to courseDB.txt 
+	* @param	courseName
+	* @param	courseID
+	* @param	courseProgram
+	* @param	courseInstructor
+	* @param	coursePrereq
+	* @param	courseDays
+	* @param	startTime
+	* @param	finishTtime
+	* @param	courseCredit
+	* @exception	IOException for file handling
+	* @return	N/A
+	*/
 	public void writeToCourse(String courseName, String courseID,
 			String courseProgram, Object courseLvl, String courseInstructor, String coursePreReq,
 			ArrayList courseDays, String startTime, String finishTime, Object courseCredit)
@@ -37,9 +54,17 @@ public class RWTools {
 			System.out.println("File Not found");
 		}
 	}
-	/*this method writes to the 
-	 * program database using the required arguments
-	 */
+	/**
+	* writetoProgram writes program info to programDB.txt 
+	* @param	programName
+	* @param	programID
+	* @param	programDepart
+	* @param	progLvl
+	* @param	programType
+	* @param	reqGPA
+	* @exception	IOException for file handling
+	* @return	N/A
+	*/
 	public void writeToProgram(String programName, String programDescription, String programDepart,
 			Object programLvl, Object programType, String reqGPA)
 	{
@@ -49,7 +74,7 @@ public class RWTools {
 		BufferedWriter br = new BufferedWriter(fw);
 		br.write(String.format("\n\nPROGRAM NAME: %s", programName));
 		br.write(String.format("\nPROGRAM DESCRIPTION: %s", programDescription));
-	    br.write(String.format("\nDEPARTMENT: %s", programDepart));
+	    	br.write(String.format("\nDEPARTMENT: %s", programDepart));
 		br.write(String.format("\nPROGRAM LEVEL %s", programLvl));
 		br.write(String.format("\nPROGRAM TYPE: %s", programType));
 		br.write(String.format("\nRequired GPA: %s", reqGPA));
@@ -62,10 +87,14 @@ public class RWTools {
 			System.out.println("File Not found");
 		}
 	}
-	/*method to write to the department database
-	 * using the required arguments and writing them into
-	 the text file
-	 */
+	/**
+	* writeToDepartment writes department info to departmentDB.txt 
+	* @param	departName
+	* @param	departDescription
+	* @param	departCode
+	* @exception	IOException for file handling
+	* @return	N/A
+	*/
 	public void writeToDepartment(String departName, String departDescription, String departCode)
 	{
 		File file = new File("departmentDB.txt");
@@ -104,9 +133,13 @@ public class RWTools {
 			System.out.println("File not found");
 		}
 	}
-	/*this method is used to retrieve courses with a specific 
-	 * course program, will return courses with the under the 
-	 * program specified in the argument
+	
+	
+	/* getCourseName method is used to retrieve courses with a specific 
+	 * course program, will return courses with the under the program specified in the argument
+	 * @param	program
+	 * @exception	IOException for file handling
+	 * @return	courses
 	 */
 	
 	public ArrayList getCourseName(String program){
@@ -133,8 +166,10 @@ public class RWTools {
 		return courses;
 	}
 	
-	/*this method is used to retrieve
-	 * all programs in the database when called
+	/* getPrograms method is used to retrieve all programs in the database when called
+	 * @param	None
+	 * @exception	IOException for file handling
+	 * @return	programs
 	 */
 	
 	public ArrayList getPrograms(){
@@ -160,9 +195,10 @@ public class RWTools {
 		return programs;
 	}
 	
-	
-	/*getting department names that are 
-	 * added to the system
+	/* getDepartment method is used to retrieve all departments in the database when called
+	 * @param	None
+	 * @exception	IOException for file handling
+	 * @return	departments
 	 */
 	
 	public ArrayList getDepartment()
@@ -190,11 +226,11 @@ public class RWTools {
 		return departments;
 	}
 	
-	/* getting department information
-	 * to display to users in the GUI
+	/* getDepartmentInfo method is used to retrieve department info to display in GUI
+	 * @param	department
+	 * @exception	IOException for file handling
+	 * @return	null
 	 */
-	
-	
 	public ArrayList getDepartmentInfo(String department)
 	{
 		ArrayList departInfo = new ArrayList<String>();
@@ -227,6 +263,12 @@ public class RWTools {
 	 * information
 	 */
 	
+	/* verifyUser to verify that user login is correct in staffDB.txt
+	 * @param	userID
+	 * @param	password
+	 * @exception	IOException for file handling
+	 * @return	null
+	 */
 	public boolean verifyUser(String userID, String passWord){
 		File file = new File("staffDB.txt");
 		
