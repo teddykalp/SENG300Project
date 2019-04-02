@@ -13,10 +13,15 @@ import javax.swing.SwingConstants;
 import java.awt.Panel;
 import javax.swing.JPanel;
 
-
+/**
+* mainMenuForm class for UI of main menu
+* @author	Teddy Kalp
+* @version	1.0
+*/
 
 public class mainMenuForm extends JFrame {
-
+	
+	// Initialize variables
 	private LoginForm login;
 	private AddProgram programAdd;
 	private AddCourse courseAdd;
@@ -52,7 +57,7 @@ public class mainMenuForm extends JFrame {
 	}
 
 	/**
-	 * Initialize the contents of the 
+	 * get User to display to UI
 	 */
 	public void setUser(String user){
 		this.user = user;
