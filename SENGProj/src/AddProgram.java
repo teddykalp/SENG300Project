@@ -28,8 +28,8 @@ import java.awt.Color;
 
 /**
 * AddProgram form for staff users to add a program to the system
-* @author	TeddyKalp
-* @version 	1.0
+* @author	Teddy Kalp, Angeli Manipon
+* @version 	2.0
 */
 
 
