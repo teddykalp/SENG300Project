@@ -19,6 +19,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+
 public class staffRegister extends JFrame {
 	// class attributes
 	private JPanel contentPane;
@@ -51,6 +52,8 @@ public class staffRegister extends JFrame {
 		});
 	}
 
+	
+	
 	/**
 	 * staffRegister constructor that creates the frame and adds all components to it
 	 */
@@ -192,6 +195,8 @@ public class staffRegister extends JFrame {
 		rdbtnNewRadioButton.setBounds(128, 368, 136, 30);
 		contentPane.add(rdbtnNewRadioButton);
 		
+		
+		// implementation of all fields that will be written into the staffDB.txt
 		// teaching assistant implementation
 		JRadioButton rdbtnTeachingAssistant = new JRadioButton("Teaching Assistant");
 		rdbtnTeachingAssistant.setFont(new Font("Tahoma", Font.PLAIN, 12));
