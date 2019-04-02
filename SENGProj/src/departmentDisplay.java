@@ -16,6 +16,12 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+* departmentDisplay UI for showing departments
+* @author	Teddy Kalp
+* @version	1.0
+*/
+
 public class departmentDisplay extends JFrame {
 
 	private JPanel contentPane;
@@ -94,6 +100,7 @@ public class departmentDisplay extends JFrame {
 		
 		JButton btnView = new JButton("View");
 		btnView.addActionListener(new ActionListener() {
+			// Sets department info and list of departments
 			public void actionPerformed(ActionEvent e) {
 				departmentD.setText("");
 				ArrayList departmentInfo = tool.getDepartmentInfo((String)departmentBox.getSelectedItem());
@@ -107,6 +114,7 @@ public class departmentDisplay extends JFrame {
 		btnView.setBounds(397, 241, 141, 35);
 		contentPane.add(btnView);
 		
+		// Returns user to main menu
 		JButton btnReturn = new JButton("Go Back");
 		btnReturn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
