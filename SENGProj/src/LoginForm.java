@@ -22,6 +22,12 @@ import javax.swing.JTable;
 import javax.swing.JSpinner;
 import javax.swing.JPasswordField;
 
+/**
+* Login Form to authenticate staff users to access software
+* @author	Teddy Kalp
+* @version	1.0
+*/
+
 
 public class LoginForm extends JFrame{
 
@@ -77,10 +83,12 @@ public class LoginForm extends JFrame{
 		userID.setBounds(256, 127, 133, 28);
 		userID.setColumns(10);
 		
+		// User ID Label
 		JLabel lblUserid = new JLabel("UserID");
 		lblUserid.setBounds(110, 127, 36, 28);
 		lblUserid.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
+		// Password Label
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setBounds(102, 183, 56, 27);
 		lblPassword.setFont(new Font("Comic Sans", Font.PLAIN, 12));
@@ -89,20 +97,29 @@ public class LoginForm extends JFrame{
 		panel.setBounds(0, 0, 623, 61);
 		panel.setBackground(Color.RED);
 		
+		// Login Button
 		JButton loginBtn = new JButton("Login");
 		loginBtn.setBounds(272, 260, 102, 37);
 		loginBtn.setForeground(Color.BLACK);
 		loginBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
 		loginBtn.setBackground(new Color(255, 204, 204));
 		loginBtn.addActionListener(new ActionListener() {
+			/**
+			* actionPerformed for when Login button is clicked
+			* @param	ActionEvent when login button is clicked
+			* @return	N/A
+			*/
 			public void actionPerformed(ActionEvent arg0) {
 				String entry = new String(passWord.getPassword());
+				// Error handling for empty input
 				if (userID.getText().isEmpty()){
 					loginError.setText("Please enter valid username/password");
 				}
+				// Error handling for empty input
 				if (entry.isEmpty()){
 					loginError.setText("Please enter valid username/password");
 				}
+				// When user is authenticated they go to main menu page
 				if (tool.verifyUser(userID.getText(), entry)){
 					setVisible(false);
 					mainMenuForm menu = new mainMenuForm(userID.getText());
@@ -111,9 +128,11 @@ public class LoginForm extends JFrame{
 			}
 		});
 		
+		// Password input
 		passWord = new JPasswordField();
 		passWord.setBounds(256, 179, 133, 27);
 		
+		// When "New Faculty" button is pressed, sends user to staff registration form
 		JButton facultyBtn = new JButton("New Faculty?");
 		facultyBtn.setBounds(110, 312, 145, 29);
 		facultyBtn.setForeground(Color.BLACK);
@@ -127,6 +146,7 @@ public class LoginForm extends JFrame{
 		facultyBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
 		facultyBtn.setBackground(new Color(255, 204, 204));
 		
+		// Button for student users
 		JButton studentBtn = new JButton("Student?");
 		studentBtn.setBounds(409, 312, 117, 29);
 		studentBtn.setForeground(Color.BLACK);
