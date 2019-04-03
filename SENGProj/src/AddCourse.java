@@ -248,10 +248,7 @@ public class AddCourse extends JFrame {
 		getContentPane().add(courseDesc);
 		
 		// Takes user input for course program
-		courseProgram = new JTextField();
-		courseProgram.setBounds(211, 180, 186, 26);
-		getContentPane().add(courseProgram);
-		courseProgram.setColumns(10);
+		
 		
 		// Takes user input for instructor
 		courseInstructor = new JTextField();
@@ -309,12 +306,9 @@ public class AddCourse extends JFrame {
 				else if(finishTime.getText().isEmpty()){
 					inputError.setText("Please enter valid finish time");
 				}
-				else{
-						ArrayList<String> days = new ArrayList<String>();
-					nameError.setText("Please enter valid name");
-				}else{
+			    else{
 						// Creates array for daysOffered
-						ArrayList<String> list = new ArrayList<String>();
+						ArrayList<String> days = new ArrayList<String>();
 						if (monDay.isSelected()){
 							days.add("Monday");
 						}
@@ -336,10 +330,8 @@ public class AddCourse extends JFrame {
 						
 						tool.writeToCourse(courseName.getText(), courseID.getText(), (String)programBox.getSelectedItem(), courseLvl.getSelectedItem(),
 								          courseInstructor.getText(), coursePreReq.getText(), days, startTime.getText(), finishTime.getText(), courseCredit.getSelectedItem());
-						// Writes course information to courseDB.txt using RWTools
-						RWTools tool = new RWTools();
-						tool.writeToCourse(courseName.getText(), courseID.getText(), courseProgram.getText(), courseLvl.getSelectedItem(),
-								          courseInstructor.getText(), coursePreReq.getText(), list, startTime.getText(), finishTime.getText(), courseCredit.getSelectedItem());
+						
+						
 						setVisible(false);
 						// Returns user to main menu
 						menu = new mainMenuForm(user);
