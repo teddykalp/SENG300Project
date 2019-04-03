@@ -1,0 +1,240 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Color;
+import javax.swing.SwingConstants;
+import java.awt.Panel;
+import javax.swing.JPanel;
+
+
+
+public class MainMenu extends JFrame {
+
+	private LoginForm login;
+	private AddProgram programAdd;
+	private AddCourse courseAdd;
+	private String user;
+	private courseDisplay courseMenu;
+	private departmentDisplay viewDepartment;
+	private CourseCalendar courseCalendar;
+	
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainMenu menu = new MainMenu("Teddy");
+					menu.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public MainMenu(String user) {
+		getContentPane().setFont(new Font("Tahoma", Font.BOLD, 13));
+		getContentPane().setForeground(Color.GRAY);
+		getContentPane().setBackground(new Color(224, 255, 255));
+		setUser(user);
+		initialize();
+		
+	}
+
+	/**
+	 * Initialize the contents of the 
+	 */
+	public void setUser(String user){
+		this.user = user;
+	}
+	
+	
+	private void initialize() {
+		setTitle("Program");
+		setBounds(100, 100, 586, 646);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
+		
+		
+		// main header display
+		JLabel lblMessage = new JLabel("Which Action Would you like to perform?");
+		lblMessage.setBackground(Color.RED);
+		lblMessage.setForeground(new Color(255, 0, 0));
+		lblMessage.setFont(new Font("DejaVu Math TeX Gyre", Font.BOLD, 18));
+		lblMessage.setBounds(87, 64, 446, 26);
+		getContentPane().add(lblMessage);
+		
+		// add course button and functionality
+		JButton btnAddCourse = new JButton("Add Course");
+		btnAddCourse.setForeground(new Color(0, 0, 0));
+		btnAddCourse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				courseAdd = new AddCourse(user);
+				courseAdd.setVisible(true);
+			}
+		});
+		btnAddCourse.setBackground(Color.WHITE);
+		btnAddCourse.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnAddCourse.setBounds(217, 119, 141, 35);
+		getContentPane().add(btnAddCourse);
+		
+		// edit course button and functionality
+		JButton btnEditCourse = new JButton("Edit Course");
+		btnEditCourse.setForeground(new Color(0, 0, 0));
+		btnEditCourse.setBackground(new Color(255, 255, 255));
+		btnEditCourse.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnEditCourse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnEditCourse.setBounds(217, 183, 141, 35);
+		getContentPane().add(btnEditCourse);
+
+		// view course button and functionality
+		JButton bttnViewCourse = new JButton("View Course");
+		bttnViewCourse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				courseCalendar = new CourseCalendar();
+				courseCalendar.setVisible(true);
+			}
+		});
+		bttnViewCourse.setForeground(new Color(0, 0, 0));
+		bttnViewCourse.setBackground(new Color(255, 255, 255));
+		bttnViewCourse.setFont(new Font("Tahoma", Font.BOLD, 15));
+		bttnViewCourse.setBounds(217, 244, 141, 35);
+		getContentPane().add(bttnViewCourse);		
+		
+		
+		// view department button and functionality
+		JButton btnViewDepartment = new JButton("View Department");
+		btnViewDepartment.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				viewDepartment = new departmentDisplay(user);
+				viewDepartment.setVisible(true);
+			}
+		});
+		btnViewDepartment.setForeground(new Color(0, 0, 0));
+		btnViewDepartment.setBackground(new Color(255, 255, 255));
+		btnViewDepartment.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnViewDepartment.setBounds(395, 244, 141, 35);
+		getContentPane().add(btnViewDepartment);
+		
+		// view program button and functionality
+		JButton btnViewProgram = new JButton("View Program");
+		btnViewProgram.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				courseMenu = new courseDisplay(user);
+				courseMenu.setVisible(true);
+				
+			}
+		});
+		btnViewProgram.setForeground(new Color(0, 0, 0));
+		btnViewProgram.setBackground(new Color(255, 255, 255));
+		btnViewProgram.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnViewProgram.setBounds(35, 244, 141, 35);
+		getContentPane().add(btnViewProgram);
+		
+		// logout button and functionality
+		JButton btnLogout = new JButton("Logout");
+		btnLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				login = new LoginForm();
+				login.setVisible(true);
+			}
+		});
+		btnLogout.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnLogout.setBackground(new Color(255, 255, 255));
+		btnLogout.setBounds(217, 310, 141, 35);
+		getContentPane().add(btnLogout);
+		
+		// add graphic
+		JLabel lblNewLabel_1 = new JLabel(" ");
+		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
+		img = img.getScaledInstance(180, 170, 0);
+		lblNewLabel_1.setIcon(new ImageIcon(img));
+		lblNewLabel_1.setBounds(395, 415, 192, 131);
+		getContentPane().add(lblNewLabel_1);
+		
+		// add program button and functionality
+		JButton btnNewButton = new JButton("Add Program");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				programAdd = new AddProgram(user);
+				programAdd.setVisible(true);
+			}
+		});
+		btnNewButton.setForeground(new Color(0, 0, 0));
+		btnNewButton.setBackground(new Color(255, 255, 255));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton.setBounds(35, 119, 141, 35);
+		getContentPane().add(btnNewButton);
+		
+		// add department button and functionality
+		JButton btnAddDepartment = new JButton("Add Department");
+		btnAddDepartment.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				departForm depart = new departForm(user);
+				depart.setVisible(true);
+				
+			}
+		});
+		btnAddDepartment.setForeground(new Color(0, 0, 0));
+		btnAddDepartment.setBackground(new Color(255, 255, 255));
+		btnAddDepartment.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnAddDepartment.setBounds(395, 119, 141, 35);
+		getContentPane().add(btnAddDepartment);
+		
+		// edit program button and functionality
+		JButton btnEditProgram = new JButton("Edit Program");
+		btnEditProgram.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnEditProgram.setForeground(new Color(0, 0, 0));
+		btnEditProgram.setBackground(Color.WHITE);
+		btnEditProgram.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnEditProgram.setBounds(35, 183, 141, 35);
+		getContentPane().add(btnEditProgram);
+		
+		
+		// edit department button and functionality
+		JButton btnEditDepartment = new JButton("Edit Department");
+		btnEditDepartment.setForeground(new Color(0, 0, 0));
+		btnEditDepartment.setBackground(new Color(255, 250, 250));
+		btnEditDepartment.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnEditDepartment.setBounds(395, 183, 141, 35);
+		getContentPane().add(btnEditDepartment);
+		
+		// welcome banner with logged in user 
+		JLabel lblNewLabel = new JLabel("Welcome " + this.user);
+		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel.setBounds(10, 0, 141, 26);
+		getContentPane().add(lblNewLabel);
+		
+		// create panel 
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 228, 225));
+		panel.setBounds(0, 54, 611, 44);
+		getContentPane().add(panel);
+	}
+}
