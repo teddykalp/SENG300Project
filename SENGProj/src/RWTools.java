@@ -30,7 +30,7 @@ public class RWTools {
 	*/
 	public void writeToCourse(String courseName, String courseID,
 			String courseProgram, Object courseLvl, String courseInstructor, String coursePreReq,
-			ArrayList courseDays, String startTime, String finishTime, Object courseCredit)
+			ArrayList courseDays, String startTime, String finishTime, Object courseCredit, String courseDescription)
 	{
 		File file = new File("courseDB.txt");
 		try{
@@ -46,6 +46,7 @@ public class RWTools {
 		br.write(String.format("START TIME: %s", startTime));
 		br.write(String.format("\nFINISH TIME: %s" , finishTime));
 		br.write(String.format("\nCOURSE CREDITS: %s", courseCredit));
+		br.write(String.format("\nCOURSE DESCRIPTION: %s", courseDescription))
 		
 		br.close();
 		fw.close();

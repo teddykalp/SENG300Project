@@ -327,9 +327,9 @@ public class AddCourse extends JFrame {
 						if (saturDay.isSelected()){
 							days.add("Saturday");
 						}
-						
 						tool.writeToCourse(courseName.getText(), courseID.getText(), (String)programBox.getSelectedItem(), courseLvl.getSelectedItem(),
-								          courseInstructor.getText(), coursePreReq.getText(), days, startTime.getText(), finishTime.getText(), courseCredit.getSelectedItem());
+								          courseInstructor.getText(), coursePreReq.getText(), days, startTime.getText(), finishTime.getText(), courseCredit.getSelectedItem(),
+								          courseDesc.getText());
 						
 						
 						setVisible(false);
