@@ -396,7 +396,7 @@ public class RWTools {
 	             
 	            //Replacing oldString with newString in the oldContent
 	             
-	            String newContent = oldContent.replaceAll(oldString, newString);
+	            String newContent = oldContent.replace(oldString, newString);
 	             
 	            //Rewriting the input text file with newContent
 	             
