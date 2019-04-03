@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+// Import libraries
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -18,6 +19,12 @@ import java.awt.Font;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
 
+/**
+* courseDisplay class handles UI for course display
+* @author	Teddy Kalp
+* @version	1.0
+*/
+
 public class courseDisplay extends JFrame {
 
 	private JPanel contentPane;
@@ -25,7 +32,7 @@ public class courseDisplay extends JFrame {
 	private RWTools tool = new RWTools();
 
 	/**
-	 * Launch the application.
+	 * main function: Launches the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -39,9 +46,9 @@ public class courseDisplay extends JFrame {
 			}
 		});
 	}
-
 	/**
-	 * Create the frame.
+	 * courseDisplay constructor that creates the frame and adds its components.
+	 * @param	user - staff user that is adding a course
 	 */
 	public courseDisplay(String user) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,14 +62,16 @@ public class courseDisplay extends JFrame {
 		JTextArea courseDisplay = new JTextArea();
 		courseDisplay.setEditable(false);
 		courseDisplay.setBounds(44, 157, 279, 236);
-	    contentPane.add(courseDisplay);
-	    
-	    ArrayList proGram = tool.getPrograms();
+	    	contentPane.add(courseDisplay);
+		
+	    	// List of programs to be selected from
+	   	ArrayList proGram = tool.getPrograms();
 		String [] programs = new String[proGram.size()];
 		for (int x = 0; x < programs.length; x++){
 			programs[x] = (String)proGram.get(x);
 		}
 		
+		// Choose program from list of programs
 		JComboBox programsSelect = new JComboBox();
 		programsSelect.setModel(new DefaultComboBoxModel(programs));
 		programsSelect.setBounds(44, 81, 216, 32);
@@ -73,8 +82,7 @@ public class courseDisplay extends JFrame {
 		lblchooseProgram.setBounds(44, 46, 182, 26);
 		contentPane.add(lblchooseProgram);
 		
-		
-		
+		// Shows list of courses to UI
 		JButton btnView = new JButton("View");
 		btnView.setBackground(new Color(173, 255, 47));
 		btnView.setFont(new Font("Source Sans Pro", Font.BOLD, 21));
