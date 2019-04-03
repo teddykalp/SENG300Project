@@ -1,6 +1,6 @@
+// Import libraries
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,8 +19,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
+/**
+* departForm to show add department form to UI
+* @author	Teddy Kalp, Angeli Manipon
+* @version	1.0
+*/
 public class departForm extends JFrame {
-
+	
+	// Class attributes
 	private JPanel contentPane;
 	private JTextField departName;
 	private JTextField departCode;
@@ -34,7 +40,8 @@ public class departForm extends JFrame {
 	
 
 	/**
-	 * Create the frame.
+	 * departForm constructor that creates the frame and adds its components.
+	 * @param	user - staff user that is adding a course
 	 */
 	public departForm(String user) {
 		
@@ -45,8 +52,6 @@ public class departForm extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-
 		
 		JLabel lblNewLabel = new JLabel("Register Department");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 19));
@@ -98,16 +103,24 @@ public class departForm extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.setBounds(439, 408, 156, 31);
 		btnNewButton.addActionListener(new ActionListener() {
+			/**
+			* actionListener for Add Department button
+			* @param	ActionEvent - when button is clicked
+			* @return 	void
+			*/
 			public void actionPerformed(ActionEvent e) {
+				// Error handling for empty input
 				if (departName.getText().isEmpty() || departDescription.getText().isEmpty() 
 						|| departCode.getText().isEmpty()){
 					dError.setText("Please fill in any empty fields");
 				}
+				// Writes department info to departmentDB.txt
 				else{
 					
 					tool.writeToDepartment(departName.getText(), departDescription.getText(), 
 							departCode.getText());
 					
+					// returns user to main menu
 					setVisible(false);
 					menu = new mainMenuForm(user);
 					menu.setVisible(true);
@@ -117,6 +130,7 @@ public class departForm extends JFrame {
 		});
 		contentPane.add(btnNewButton);
 		
+		// Go back button returns user to main menu
 		JButton button = new JButton("Go Back");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
