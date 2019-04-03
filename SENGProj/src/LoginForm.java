@@ -1,3 +1,4 @@
+// Import libraries 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -22,6 +23,11 @@ import javax.swing.JTable;
 import javax.swing.JSpinner;
 import javax.swing.JPasswordField;
 
+/**
+* Login Form to authenticate staff users to access software
+* @author	Teddy Kalp
+* @version	1.0
+*/
 
 public class LoginForm extends JFrame{
 
@@ -36,7 +42,7 @@ public class LoginForm extends JFrame{
 	
 
 	/**
-	 * Launch the application.
+	 * main function: launches the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -52,35 +58,41 @@ public class LoginForm extends JFrame{
 	}
 
 	/**
-	 * Create the application.
+	 * LoginForm constructor
 	 */
 	public LoginForm() {
 		initialize();
 	}
 
 	/**
-	 * Initialize the contents of the 
+	 * Initializes, creates the frame and adds LoginForm components.
 	 */
 	private void initialize() {
 		
+		// error label attributes
 		loginError.setForeground(Color.RED);
 		loginError.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		loginError.setBounds(237, 218, 227, 32);
 		getContentPane().add(loginError);
 		
+		// window frame attributes
 		setBackground(Color.LIGHT_GRAY);
 		setBounds(100, 100, 628, 560);
+		// Closes window when the user exits the frame
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		
+		// user ID text field for input
 		userID = new JTextField();
 		userID.setBounds(256, 127, 133, 28);
 		userID.setColumns(10);
 		
+		// label attributes for user ID
 		JLabel lblUserid = new JLabel("UserID");
 		lblUserid.setBounds(110, 127, 36, 28);
 		lblUserid.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		
+		// label attributes for password
 		JLabel lblPassword = new JLabel("Password");
 		lblPassword.setBounds(102, 183, 56, 27);
 		lblPassword.setFont(new Font("Comic Sans", Font.PLAIN, 12));
@@ -89,34 +101,46 @@ public class LoginForm extends JFrame{
 		panel.setBounds(0, 0, 623, 61);
 		panel.setBackground(Color.RED);
 		
+		// Login button
 		JButton loginBtn = new JButton("Login");
 		loginBtn.setBounds(272, 260, 102, 37);
 		loginBtn.setForeground(Color.BLACK);
 		loginBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
 		loginBtn.setBackground(new Color(255, 204, 204));
 		loginBtn.addActionListener(new ActionListener() {
+			/**
+			* actionListener for Login button
+			* @param	ActionEvent when login button is clicked
+			* @return	N/A
+			*/
 			public void actionPerformed(ActionEvent arg0) {
 				String pass = new String(passWord.getPassword());
+				// Error handling for empty input user ID
 				if (userID.getText().isEmpty()){
 					loginError.setText("Please enter username/password");
 				}
+				// Error handling for empty input password
 				if (pass.isEmpty()){
 					loginError.setText("Please enter username/password");
 				}
+				// When user is authenticated they get acccess to main menu page
 				if (tool.verifyUser(userID.getText(), pass)){
 					setVisible(false);
 					mainMenuForm menu = new mainMenuForm(userID.getText());
 					menu.setVisible(true);
 				}
+				// Handling for invalid user input
 				else{
 					loginError.setText("Invalid username or password");
 				}
 			}
 		});
 		
+		// Password input field attributes 
 		passWord = new JPasswordField();
 		passWord.setBounds(256, 179, 133, 27);
 		
+		// When "New Faculty" button is pressed, sends user to staff registration form
 		JButton facultyBtn = new JButton("New Faculty?");
 		facultyBtn.setBounds(110, 312, 145, 29);
 		facultyBtn.setForeground(Color.BLACK);
@@ -130,6 +154,7 @@ public class LoginForm extends JFrame{
 		facultyBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
 		facultyBtn.setBackground(new Color(255, 204, 204));
 		
+		// Button for student users
 		JButton studentBtn = new JButton("Student?");
 		studentBtn.setBounds(409, 312, 117, 29);
 		studentBtn.setForeground(Color.BLACK);
