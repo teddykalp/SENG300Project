@@ -166,11 +166,11 @@ public class MainMenu extends JFrame {
 		
 		// add graphic
 		JLabel lblNewLabel_1 = new JLabel(" ");
-		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
-		img = img.getScaledInstance(180, 170, 0);
-		lblNewLabel_1.setIcon(new ImageIcon(img));
-		lblNewLabel_1.setBounds(395, 415, 192, 131);
-		getContentPane().add(lblNewLabel_1);
+//		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
+//		img = img.getScaledInstance(180, 170, 0);
+//		lblNewLabel_1.setIcon(new ImageIcon(img));
+//		lblNewLabel_1.setBounds(395, 415, 192, 131);
+//		getContentPane().add(lblNewLabel_1);
 		
 		// add program button and functionality
 		JButton btnNewButton = new JButton("Add Program");
