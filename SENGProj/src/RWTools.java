@@ -88,7 +88,9 @@ public class RWTools {
 	
 	/*method to write to the user database*/
 	
-	public void writeToUser(String userID, String passWord, String firstName, String lastName){
+	public void writeToUser(String userID, String passWord, String firstName, String lastName, String email,
+			String mailing, String department, String staffType, String phoneNumber)
+	{
 		File file = new File("staffDB.txt");
 		try{
 			FileWriter fw = new FileWriter(file, true);
@@ -96,6 +98,12 @@ public class RWTools {
 			br.write(String.format("\n\nFULL NAME: %s %s", firstName, lastName));
 			br.write(String.format("\nUSER ID: %s", userID));
 			br.write(String.format("\nPassword: %s", passWord));
+			br.write(String.format("\nPHONE NUMBER: %s", phoneNumber));
+			br.write(String.format("\nEMAIL ADDRESS: %s", email));
+			br.write(String.format("\nMAILING ADDRESS: %s", mailing));
+			br.write(String.format("\nDEPARTMENT: %s", department));
+			br.write(String.format("\nSTAFF TYPE: %s", staffType));
+			
 			
 			br.close();
 			fw.close();
@@ -257,5 +265,28 @@ public class RWTools {
 		
 		return false;
 	}
-	
+	/* method that will be used to see if a new user
+	 * is trying to enter a userID that is being used
+	 */
+	public boolean userFound(String user){
+		File file = new File("staffDB.txt");
+		
+		try{
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String line;
+			while((line = br.readLine()) != null){
+				if (line.contains("USER ID: " + user)){
+					return true;
+				}
+			}
+			
+			br.close();
+			fr.close();
+		}
+		catch (IOException e){
+			System.out.println("File not Found");
+		}
+		return false;
+	}
 }

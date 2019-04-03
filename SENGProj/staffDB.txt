@@ -1,5 +1,10 @@
 
 
-FULL NAME:  
-USER ID: teddykalp
-Password: 1234
+
+FULL NAME: Teddy Kalp
+USER ID: tkalp
+Password: 123
+EMAIL ADDRESS: @
+MAILING ADDRESS: teddy.kalp@
+DEPARTMENT: Math
+STAFF TYPE: Instructor

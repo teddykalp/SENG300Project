@@ -23,12 +23,13 @@ import javax.swing.DefaultComboBoxModel;
 
 public class staffRegister extends JFrame {
 
+	
 	private JPanel contentPane;
 	private JTextField firstName;
 	private JTextField lastName;
-	private JTextField textField_2;
+	private JTextField phoneNumber;
 	private JTextField userEmail;
-	private JTextField textField_4;
+	private JTextField mailingAddress;
 	private JTextField userID;
 	private JTextField passWord;
 	private JTextField confirmPass;
@@ -130,20 +131,20 @@ public class staffRegister extends JFrame {
 		lastName.setBounds(180, 176, 186, 26);
 		contentPane.add(lastName);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(178, 212, 186, 26);
-		contentPane.add(textField_2);
+		phoneNumber = new JTextField();
+		phoneNumber.setColumns(10);
+		phoneNumber.setBounds(178, 212, 186, 26);
+		contentPane.add(phoneNumber);
 		
 		userEmail = new JTextField();
 		userEmail.setColumns(10);
 		userEmail.setBounds(180, 248, 186, 26);
 		contentPane.add(userEmail);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(180, 286, 356, 26);
-		contentPane.add(textField_4);
+		mailingAddress = new JTextField();
+		mailingAddress.setColumns(10);
+		mailingAddress.setBounds(180, 286, 356, 26);
+		contentPane.add(mailingAddress);
 		
 		userID = new JTextField();
 		userID.setColumns(10);
@@ -175,19 +176,12 @@ public class staffRegister extends JFrame {
 		rdbtnInstructor.setBounds(443, 368, 157, 29);
 		contentPane.add(rdbtnInstructor);
 		
-		JLabel passError = new JLabel("");
-		passError.setForeground(new Color(255, 0, 0));
-		passError.setBackground(new Color(255, 0, 0));
-		passError.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		passError.setBounds(387, 442, 174, 26);
-		contentPane.add(passError);
-		
-		JLabel confirmError = new JLabel("");
-		confirmError.setForeground(new Color(255, 0, 0));
-		confirmError.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		confirmError.setBackground(Color.RED);
-		confirmError.setBounds(387, 486, 186, 26);
-		contentPane.add(confirmError);
+		JLabel inputError = new JLabel("");
+		inputError.setForeground(new Color(255, 0, 0));
+		inputError.setBackground(new Color(255, 0, 0));
+		inputError.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		inputError.setBounds(179, 533, 187, 26);
+		contentPane.add(inputError);
 		
 		JButton button = new JButton("Go Back");
 		button.addActionListener(new ActionListener() {
@@ -203,18 +197,6 @@ public class staffRegister extends JFrame {
 		button.setBounds(416, 23, 157, 35);
 		contentPane.add(button);
 		
-		JLabel lblNameError = new JLabel("");
-		lblNameError.setForeground(Color.RED);
-		lblNameError.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblNameError.setBounds(416, 148, 145, 26);
-		contentPane.add(lblNameError);
-		
-		JLabel labelEmailError = new JLabel("");
-		labelEmailError.setForeground(Color.RED);
-		labelEmailError.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		labelEmailError.setBounds(416, 248, 145, 26);
-		contentPane.add(labelEmailError);
-		
 		ArrayList arr = tool.getDepartment();
 		String [] departments = new String[arr.size()];
 		for (int x = 0; x < departments.length; x++){
@@ -229,24 +211,61 @@ public class staffRegister extends JFrame {
 		JButton btnNewButton = new JButton("Add Staff");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// Error Handlers 
+				// If the user does not enter a first or last name
 				if((firstName.getText().isEmpty()) || (lastName.getText().isEmpty())){
-					lblNameError.setText("Please Enter Your Full Name");
+					inputError.setText("Please Enter Your Full Name");
 				}
+				//If the email address is not valid
 				else if(userEmail.getText().isEmpty() || (!userEmail.getText().contains("@"))){
-					labelEmailError.setText("Please enter Valid Email");
+					inputError.setText("Please enter Valid Email");
 				}
+				//if the user does not select a type of staff
+				else if((!rdbtnDH.isSelected()) && (!rdbtnInstructor.isSelected()) && (!rdbtnTeachingAssistant.isSelected())){
+					inputError.setText("Please select the type of staff");
+				}
+				//if the user enters a blank user name
+				else if(userID.getText().isEmpty()){
+					inputError.setText("Please enter a valid username");
+				}
+				//if the user enters a user name that is already taken
+				else if(tool.userFound(userID.getText())){
+					inputError.setText("User name is already taken");
+				}
+				// if the password entered is empty
 				else if(passWord.getText().isEmpty()){
-					passError.setText("Please enter valid password");
+					inputError.setText("Please enter valid password");
 				}
+				//if the passwords don't match
 				else if(!passWord.getText().equals(confirmPass.getText())){
-					passError.setText("Passwords do not match");
-					confirmError.setText("Passwords do not match");
+					inputError.setText("Passwords do not match");
 				}
+				//write to the database if no errors
 				else{
-				tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText());
-				setVisible(false);
-				form = new LoginForm();
-				form.setVisible(true);
+					// if the user is a department head
+					if(rdbtnDH.isSelected()){
+						tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), userEmail.getText(), 
+								mailingAddress.getText(), (String)comboDepartment.getSelectedItem(), "Department Head", phoneNumber.getText());
+						setVisible(false);
+						form = new LoginForm();
+						form.setVisible(true);
+					}
+					// if the user is an instructor
+					else if(rdbtnInstructor.isSelected()){
+						tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), userEmail.getText(), 
+								mailingAddress.getText(), (String)comboDepartment.getSelectedItem(), "Instructor", phoneNumber.getText());
+						setVisible(false);
+						form = new LoginForm();
+						form.setVisible(true);
+					}
+					// if the user is a Teaching Assistant
+					else{
+						tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), userEmail.getText(), 
+								mailingAddress.getText(), (String)comboDepartment.getSelectedItem(), "Teaching Assistant", phoneNumber.getText());
+						setVisible(false);
+						form = new LoginForm();
+						form.setVisible(true);
+					}
 				}
 			}
 		});
