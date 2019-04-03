@@ -37,8 +37,9 @@ public class AddCourse extends JFrame {
 	private JTextField finishTime;
 	private mainMenuForm menu;
 	File file = new File("courseDB.txt");
-	private JTextField courseProgram;
 	private JTextField courseInstructor;
+	private RWTools tool = new RWTools();
+	private JComboBox programBox;
 	//private File file = new File("courseDB.txt");
 
 	/**
@@ -258,6 +259,23 @@ public class AddCourse extends JFrame {
 		getContentPane().add(courseInstructor);
 		courseInstructor.setColumns(10);
 		
+		JLabel inputError = new JLabel("");
+		inputError.setForeground(Color.RED);
+		inputError.setFont(new Font("Sylfaen", Font.PLAIN, 14));
+		inputError.setBounds(183, 734, 165, 26);
+		getContentPane().add(inputError);
+		
+		ArrayList proGram = tool.getPrograms();
+		String [] programs = new String[proGram.size()];
+		for (int x = 0; x < programs.length; x++){
+			programs[x] = (String)proGram.get(x);
+		}
+			
+		programBox = new JComboBox();
+		programBox.setModel(new DefaultComboBoxModel(programs));
+		programBox.setBounds(211, 177, 180, 26);
+		getContentPane().add(programBox);
+		
 		// Submit button and its attributes
 		JButton btnRegisterCourse = new JButton("Submit");
 		btnRegisterCourse.setBackground(Color.DARK_GRAY);
@@ -270,30 +288,54 @@ public class AddCourse extends JFrame {
 			*/
 
 			public void actionPerformed(ActionEvent e) {
+				// Error handling
+				// if the course entered by the user is empty
 				// Error handling when courseName input is empty
 				if (courseName.getText().isEmpty()){
+					inputError.setText("Please enter valid name");
+				}
+				// if the id is empty
+				else if (courseID.getText().isEmpty()){
+					inputError.setText("Please enter valid ID");
+				}
+				// if the user did not enter a valid instructor
+				else if(courseInstructor.getText().isEmpty()){
+					inputError.setText("Please enter an Instructor");
+				}
+				// if the user did not enter proper start/end times
+				else if(startTime.getText().isEmpty()){
+					inputError.setText("Please enter valid start time");
+				}
+				else if(finishTime.getText().isEmpty()){
+					inputError.setText("Please enter valid finish time");
+				}
+				else{
+						ArrayList<String> days = new ArrayList<String>();
 					nameError.setText("Please enter valid name");
 				}else{
 						// Creates array for daysOffered
 						ArrayList<String> list = new ArrayList<String>();
 						if (monDay.isSelected()){
-							list.add("Monday");
+							days.add("Monday");
 						}
 						if (tuesDay.isSelected()){
-							list.add("Tuesday");
+							days.add("Tuesday");
 						}
 						if (wednesDay.isSelected()){
-							list.add("Wednesday");
+							days.add("Wednesday");
 						}
 						if (thursDay.isSelected()){
-							list.add("Thursday");
+							days.add("Thursday");
 						}
 						if (friDay.isSelected()){
-							list.add("Friday");
+							days.add("Friday");
 						}
 						if (saturDay.isSelected()){
-							list.add("Saturday");
+							days.add("Saturday");
 						}
+						
+						tool.writeToCourse(courseName.getText(), courseID.getText(), (String)programBox.getSelectedItem(), courseLvl.getSelectedItem(),
+								          courseInstructor.getText(), coursePreReq.getText(), days, startTime.getText(), finishTime.getText(), courseCredit.getSelectedItem());
 						// Writes course information to courseDB.txt using RWTools
 						RWTools tool = new RWTools();
 						tool.writeToCourse(courseName.getText(), courseID.getText(), courseProgram.getText(), courseLvl.getSelectedItem(),
@@ -306,7 +348,7 @@ public class AddCourse extends JFrame {
 				}
 		});
 		btnRegisterCourse.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnRegisterCourse.setBounds(221, 731, 157, 35);
+		btnRegisterCourse.setBounds(438, 731, 157, 35);
 		getContentPane().add(btnRegisterCourse);
 		
 		// GoBack button returns user to main menu
@@ -328,5 +370,8 @@ public class AddCourse extends JFrame {
 		lblProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblProgram.setBounds(21, 179, 119, 26);
 		getContentPane().add(lblProgram);
+		
+		
+		
 	}
 }
