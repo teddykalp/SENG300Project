@@ -126,9 +126,7 @@ public class courseDisplay extends JFrame {
 		lblNewLabel.setBounds(116, -1, 254, 26);
 		contentPane.add(lblNewLabel);
 		
-		
-		
-		
-		
-	}
+		}
+	
+	
 }
