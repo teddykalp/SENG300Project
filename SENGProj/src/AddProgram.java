@@ -24,6 +24,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -171,12 +172,6 @@ public class AddProgram extends JFrame {
 		reqGPA.setBounds(185, 423, 186, 26);
 		contentPane.add(reqGPA);
 		
-		// Takes user input for programDepartment
-		JTextArea programDepart = new JTextArea();
-		programDepart.setColumns(10);
-		programDepart.setBounds(185, 275, 186, 27);
-		contentPane.add(programDepart);
-		
 		// Go Back button returns user to main menu
 		JButton btnNewButton = new JButton("Go Back");
 		btnNewButton.setFont(new Font("Calibri", Font.BOLD, 21));
@@ -191,6 +186,34 @@ public class AddProgram extends JFrame {
 		btnNewButton.setBounds(433, 10, 141, 35);
 		contentPane.add(btnNewButton);
 		
+		ArrayList arr = tool.getDepartment();
+		String [] departments = new String[arr.size()];
+		for (int x = 0; x < departments.length; x++){
+			departments[x] = (String) arr.get(x);
+		}
+		
+		JComboBox comboDepartment = new JComboBox();
+		comboDepartment.setModel(new DefaultComboBoxModel(departments));
+		comboDepartment.setBounds(185, 275, 193, 27);
+		contentPane.add(comboDepartment);
+		
+		JLabel inputError = new JLabel("");
+		inputError.setForeground(Color.RED);
+		inputError.setBackground(Color.RED);
+		inputError.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		inputError.setBounds(155, 534, 223, 26);
+		contentPane.add(inputError);
+		
+		JLabel lblProgramCode = new JLabel("Program Code (XXXX)");
+		lblProgramCode.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblProgramCode.setBounds(21, 216, 146, 26);
+		contentPane.add(lblProgramCode);
+		
+		JTextArea programCode = new JTextArea();
+		programCode.setColumns(10);
+		programCode.setBounds(185, 219, 186, 27);
+		contentPane.add(programCode);
+		
 		// Submit button
 		JButton submitBtn = new JButton("Submit");
 		submitBtn.setBackground(new Color(176, 196, 222));
@@ -202,29 +225,40 @@ public class AddProgram extends JFrame {
 			* @return 	void
 			*/
 			public void actionPerformed(ActionEvent arg0) {
-				// If diploma program - writes diploma info to programDB.txt
-				if(chckDiplomaProgram.isSelected())
+				if(programName.getText().isEmpty()){
+					inputError.setText("Please Enter Valid Name");
+				}
+				else if(programDesc.getText().isEmpty()){
+					inputError.setText("Please Enter Valid Description");
+				}
+				else if(reqGPA.getText().isEmpty())
 				{
-					tool.writeToProgram(programName.getText(), programDesc.getText(), programDepart.getText(), 
-							"None", "Diploma", reqGPA.getText());
+					inputError.setText("Please enter \"None\" or a required GPA");
 				}
-				// For non-diploma programs writes program info to programDB.txt
-				else {
-				
-					tool.writeToProgram(programName.getText(), programDesc.getText(), programDepart.getText(),
-						            programLvl.getSelectedItem(), programType.getSelectedItem(), reqGPA.getText());
+				// If diploma program - writes diploma info to programDB.txt
+				else
+				{	
+					if(chckDiplomaProgram.isSelected())
+					{
+						tool.writeToProgram(programName.getText(), programDesc.getText(), (String)comboDepartment.getSelectedItem(), 
+								"None", "Diploma", reqGPA.getText(), programCode.getText());
+					}
+					// For non-diploma programs writes program info to programDB.txt
+					else {
+					
+						tool.writeToProgram(programName.getText(), programDesc.getText(), (String)comboDepartment.getSelectedItem(),
+							            programLvl.getSelectedItem(), programType.getSelectedItem(), reqGPA.getText(), programCode.getText());
+					}
+					
+					// Returns user to main menu
+					menu = new mainMenuForm(user);
+					setVisible(false);
+					menu.setVisible(true);
 				}
-				
-				// Returns user to main menu
-				menu = new mainMenuForm(user);
-				setVisible(false);
-				menu.setVisible(true);
-				
 			}
 		});
 		submitBtn.setBounds(422, 505, 141, 35);
 		contentPane.add(submitBtn);
-		
 		
 		
 	}

@@ -25,18 +25,20 @@ public class RWTools {
 	* @param	startTime
 	* @param	finishTtime
 	* @param	courseCredit
+	* @param    courseDescription
 	* @exception	IOException for file handling
 	* @return	N/A
 	*/
 	public void writeToCourse(String courseName, String courseID,
 			String courseProgram, Object courseLvl, String courseInstructor, String coursePreReq,
-			ArrayList courseDays, String startTime, String finishTime, Object courseCredit, String courseDescription)
+			ArrayList courseDays, String startTime, String finishTime, Object courseCredit, String courseDescription, String programCode)
 	{
 		File file = new File("courseDB.txt");
 		try{
 		FileWriter fw = new FileWriter(file,true);
 		BufferedWriter br = new BufferedWriter(fw);
-		br.write(String.format("\n\nCOURSE NAME: %s%s", courseName, courseLvl + courseID));
+		br.write(String.format("\n\nCOURSE NAME: %s", courseName));
+		br.write(String.format("\nCOURSE CODE: %s", programCode + courseLvl + courseID));
 		br.write(String.format("\nINSTRUCTOR: %s", courseInstructor));
 		br.write(String.format("\nPREQUISITE COURSES: %s", coursePreReq));
 		br.write("\nDAYS OFFERED\n");
@@ -46,7 +48,7 @@ public class RWTools {
 		br.write(String.format("START TIME: %s", startTime));
 		br.write(String.format("\nFINISH TIME: %s" , finishTime));
 		br.write(String.format("\nCOURSE CREDITS: %s", courseCredit));
-		br.write(String.format("\nCOURSE DESCRIPTION: %s", courseDescription))
+		br.write(String.format("\nCOURSE DESCRIPTION: %s", courseDescription));
 		
 		br.close();
 		fw.close();
@@ -67,13 +69,14 @@ public class RWTools {
 	* @return	N/A
 	*/
 	public void writeToProgram(String programName, String programDescription, String programDepart,
-			Object programLvl, Object programType, String reqGPA)
+			Object programLvl, Object programType, String reqGPA, String programCode)
 	{
 		File file = new File("programDB.txt");
 		try{
 		FileWriter fw = new FileWriter(file,true);
 		BufferedWriter br = new BufferedWriter(fw);
 		br.write(String.format("\n\nPROGRAM NAME: %s", programName));
+		br.write(String.format("\nPROGRAM CODE: %s", programCode));
 		br.write(String.format("\nPROGRAM DESCRIPTION: %s", programDescription));
 	    br.write(String.format("\nDEPARTMENT: %s", programDepart));
 		br.write(String.format("\nPROGRAM LEVEL %s", programLvl));
@@ -163,7 +166,7 @@ public class RWTools {
 	 * @return	courses
 	 */
 	
-	public ArrayList getCourseName(String program){
+	public ArrayList getCourseName(String programCode){
 		ArrayList courses = new ArrayList<String>();
 		File file = new File("courseDB.txt");
 		try{
@@ -171,7 +174,7 @@ public class RWTools {
 		BufferedReader br = new BufferedReader(fr);
 		String text;
 		while ((text = br.readLine()) != null){
-			if (text.contains(program)){
+			if (text.contains(programCode)){
 				int index = text.indexOf(":");
 				text = text.substring(index + 1);
 				courses.add(text);
@@ -317,6 +320,7 @@ public class RWTools {
 		
 		return false;
 	}
+	
 	/* method that will be used to see if a new user
 	 * is trying to enter a userID that is being used
 	 */
@@ -340,5 +344,30 @@ public class RWTools {
 			System.out.println("File not Found");
 		}
 		return false;
+	}
+	
+	/*
+	 * method to obtain the program code using the program name as argument
+	 */
+	
+	public String getProgramCode(String programName){
+		File file = new File("programDB.txt");
+		try{
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String line;
+			while((line = br.readLine()) != null){
+				if (line.equals("PROGRAM NAME: " + programName)){
+					String code = br.readLine();
+					int index = code.indexOf(":");
+					return code.substring(index + 2);
+				}
+			}
+		}catch(IOException E){
+			System.out.println("FIle not found");
+		}
+		
+		
+		return null;
 	}
 }

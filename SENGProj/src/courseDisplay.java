@@ -89,7 +89,8 @@ public class courseDisplay extends JFrame {
 		btnView.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				courseDisplay.setText("");
-				ArrayList course = tool.getCourseName((String) programsSelect.getSelectedItem());
+				String programCode = tool.getProgramCode((String)programsSelect.getSelectedItem());
+				ArrayList course = tool.getCourseName(programCode);
 				for (int x = 0; x < course.size(); x++){
 					courseDisplay.append((String)course.get(x) + "\n");
 				}
