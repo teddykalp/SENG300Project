@@ -1,3 +1,4 @@
+// Import libraries 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -16,14 +17,21 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class departmentDisplay extends JFrame {
+/**
+* departmentDisplay class UI for showing departments
+* @author	Teddy Kalp
+* @version	1.0
+*/
 
+public class departmentDisplay extends JFrame {
+	
+	// Class attributes 
 	private JPanel contentPane;
 	private RWTools tool = new RWTools();
 	private mainMenuForm menu;
 
 	/**
-	 * Launch the application.
+	 * main function: launches the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -37,9 +45,9 @@ public class departmentDisplay extends JFrame {
 			}
 		});
 	}
-
 	/**
-	 * Create the frame.
+	 * departmentDisplay constructor that creates the frame and adds its components.
+	 * @param	user - staff user that is adding a department
 	 */
 	public departmentDisplay(String user) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,11 +58,13 @@ public class departmentDisplay extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		// View department label and attributes
 		JLabel lblViewDepartment = new JLabel("View Department");
 		lblViewDepartment.setFont(new Font("Sylfaen", Font.BOLD, 21));
 		lblViewDepartment.setBounds(211, 0, 187, 26);
 		contentPane.add(lblViewDepartment);
 		
+		// Gets list of departments available
 		ArrayList arr = tool.getDepartment();
 		String [] departments = new String[arr.size()];
 		for (int x = 0; x < departments.length; x++){
@@ -62,26 +72,31 @@ public class departmentDisplay extends JFrame {
 		}
 		
 		
+		// Shows list of departments available to be selected from
 		JComboBox departmentBox = new JComboBox();
 		departmentBox.setModel(new DefaultComboBoxModel(departments));
 		departmentBox.setBounds(51, 74, 235, 32);
 		contentPane.add(departmentBox);
 		
+		// Department text area and attributes
 		JTextArea departmentD = new JTextArea();
 		departmentD.setEditable(false);
 		departmentD.setBounds(51, 146, 245, 86);
 		contentPane.add(departmentD);
 		
+		// Choose department label and attributes
 		JLabel lblChooseDepartment = new JLabel("Choose Department");
 		lblChooseDepartment.setFont(new Font("Sylfaen", Font.PLAIN, 18));
 		lblChooseDepartment.setBounds(51, 47, 201, 26);
 		contentPane.add(lblChooseDepartment);
 		
+		// Department description label and attributes
 		JLabel lblDescription = new JLabel("Description");
 		lblDescription.setFont(new Font("Sylfaen", Font.PLAIN, 18));
 		lblDescription.setBounds(51, 118, 201, 26);
 		contentPane.add(lblDescription);
 		
+		// Department code label and attributes
 		JLabel lblCode = new JLabel("Code");
 		lblCode.setFont(new Font("Sylfaen", Font.PLAIN, 18));
 		lblCode.setBounds(51, 241, 201, 26);
@@ -94,7 +109,13 @@ public class departmentDisplay extends JFrame {
 		
 		JButton btnView = new JButton("View");
 		btnView.addActionListener(new ActionListener() {
+			/**
+			* actionPerformed for view button
+			* @param	ActionEvent - when view button is clicked
+			* @return 	void
+			*/
 			public void actionPerformed(ActionEvent e) {
+				// Displays department info to UI
 				departmentD.setText("");
 				ArrayList departmentInfo = tool.getDepartmentInfo((String)departmentBox.getSelectedItem());
 				departmentD.setText((String)departmentInfo.get(0));
@@ -107,6 +128,7 @@ public class departmentDisplay extends JFrame {
 		btnView.setBounds(397, 241, 141, 35);
 		contentPane.add(btnView);
 		
+		// Go Back button returns user to main menu
 		JButton btnReturn = new JButton("Go Back");
 		btnReturn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
