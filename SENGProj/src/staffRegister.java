@@ -16,7 +16,10 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class staffRegister extends JFrame {
 
@@ -24,9 +27,8 @@ public class staffRegister extends JFrame {
 	private JTextField firstName;
 	private JTextField lastName;
 	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField userEmail;
 	private JTextField textField_4;
-	private JTextField textField_5;
 	private JTextField userID;
 	private JTextField passWord;
 	private JTextField confirmPass;
@@ -62,11 +64,11 @@ public class staffRegister extends JFrame {
 		
 		
 		
-		JLabel lblNewLabel = new JLabel("Staff Registration Form");
-		lblNewLabel.setForeground(Color.GRAY);
-		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		lblNewLabel.setBounds(204, 101, 230, 26);
-		contentPane.add(lblNewLabel);
+		JLabel lblWelcome = new JLabel("Staff Registration Form");
+		lblWelcome.setForeground(Color.GRAY);
+		lblWelcome.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		lblWelcome.setBounds(204, 101, 230, 26);
+		contentPane.add(lblWelcome);
 		
 		JLabel fNamelbl = new JLabel("First Name");
 		fNamelbl.setFont(new Font("Sylfaen", Font.BOLD, 14));
@@ -133,20 +135,15 @@ public class staffRegister extends JFrame {
 		textField_2.setBounds(178, 212, 186, 26);
 		contentPane.add(textField_2);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(180, 248, 186, 26);
-		contentPane.add(textField_3);
+		userEmail = new JTextField();
+		userEmail.setColumns(10);
+		userEmail.setBounds(180, 248, 186, 26);
+		contentPane.add(userEmail);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
 		textField_4.setBounds(180, 286, 356, 26);
 		contentPane.add(textField_4);
-		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(180, 325, 356, 26);
-		contentPane.add(textField_5);
 		
 		userID = new JTextField();
 		userID.setColumns(10);
@@ -163,10 +160,10 @@ public class staffRegister extends JFrame {
 		confirmPass.setBounds(180, 486, 186, 26);
 		contentPane.add(confirmPass);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Department Head");
-		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		rdbtnNewRadioButton.setBounds(128, 368, 136, 30);
-		contentPane.add(rdbtnNewRadioButton);
+		JRadioButton rdbtnDH = new JRadioButton("Department Head");
+		rdbtnDH.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		rdbtnDH.setBounds(128, 368, 136, 30);
+		contentPane.add(rdbtnDH);
 		
 		JRadioButton rdbtnTeachingAssistant = new JRadioButton("Teaching Assistant");
 		rdbtnTeachingAssistant.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -206,15 +203,44 @@ public class staffRegister extends JFrame {
 		button.setBounds(416, 23, 157, 35);
 		contentPane.add(button);
 		
+		JLabel lblNameError = new JLabel("");
+		lblNameError.setForeground(Color.RED);
+		lblNameError.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNameError.setBounds(416, 148, 145, 26);
+		contentPane.add(lblNameError);
+		
+		JLabel labelEmailError = new JLabel("");
+		labelEmailError.setForeground(Color.RED);
+		labelEmailError.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		labelEmailError.setBounds(416, 248, 145, 26);
+		contentPane.add(labelEmailError);
+		
+		ArrayList arr = tool.getDepartment();
+		String [] departments = new String[arr.size()];
+		for (int x = 0; x < departments.length; x++){
+			departments[x] = (String) arr.get(x);
+		}
+		
+		JComboBox comboDepartment = new JComboBox();
+		comboDepartment.setModel(new DefaultComboBoxModel(departments));
+		comboDepartment.setBounds(180, 331, 186, 26);
+		contentPane.add(comboDepartment);
+		
 		JButton btnNewButton = new JButton("Add Staff");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(!passWord.getText().equals(confirmPass.getText())){
+				if((firstName.getText().isEmpty()) || (lastName.getText().isEmpty())){
+					lblNameError.setText("Please Enter Your Full Name");
+				}
+				else if(userEmail.getText().isEmpty() || (!userEmail.getText().contains("@"))){
+					labelEmailError.setText("Please enter Valid Email");
+				}
+				else if(passWord.getText().isEmpty()){
+					passError.setText("Please enter valid password");
+				}
+				else if(!passWord.getText().equals(confirmPass.getText())){
 					passError.setText("Passwords do not match");
 					confirmError.setText("Passwords do not match");
-				}
-				if(passWord.getText().isEmpty()){
-					passError.setText("Please enter valid password");
 				}
 				else{
 				tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText());
@@ -229,6 +255,12 @@ public class staffRegister extends JFrame {
 		btnNewButton.setFont(new Font("Yu Gothic", Font.PLAIN, 16));
 		btnNewButton.setBounds(404, 536, 157, 39);
 		contentPane.add(btnNewButton);
+		
+		
+		
+		
+		
+		
 		
 		
 	}

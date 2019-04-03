@@ -65,7 +65,7 @@ public class LoginForm extends JFrame{
 		
 		loginError.setForeground(Color.RED);
 		loginError.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		loginError.setBounds(220, 217, 250, 32);
+		loginError.setBounds(237, 218, 227, 32);
 		getContentPane().add(loginError);
 		
 		setBackground(Color.LIGHT_GRAY);
@@ -96,17 +96,20 @@ public class LoginForm extends JFrame{
 		loginBtn.setBackground(new Color(255, 204, 204));
 		loginBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String entry = new String(passWord.getPassword());
+				String pass = new String(passWord.getPassword());
 				if (userID.getText().isEmpty()){
-					loginError.setText("Please enter valid username/password");
+					loginError.setText("Please enter username/password");
 				}
-				if (entry.isEmpty()){
-					loginError.setText("Please enter valid username/password");
+				if (pass.isEmpty()){
+					loginError.setText("Please enter username/password");
 				}
-				if (tool.verifyUser(userID.getText(), entry)){
+				if (tool.verifyUser(userID.getText(), pass)){
 					setVisible(false);
 					mainMenuForm menu = new mainMenuForm(userID.getText());
 					menu.setVisible(true);
+				}
+				else{
+					loginError.setText("Invalid username or password");
 				}
 			}
 		});
