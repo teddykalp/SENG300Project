@@ -13,16 +13,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
-import java.awt.Dimension;
-
 import javax.swing.JTextArea;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 
 /**
 * AddCourse form that allows staff users to add a course to system
@@ -244,17 +243,15 @@ public class AddCourse extends JFrame {
 		coursePreReq.setBounds(211, 263, 216, 65);
 		getContentPane().add(coursePreReq);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(183, 590, 244, 113);
+		getContentPane().add(scrollPane);
+		
 		
 		// Takes user input for course description
 		JTextArea courseDesc = new JTextArea();
+		scrollPane.setViewportView(courseDesc);
 		courseDesc.setLineWrap(true);
-		courseDesc.setBounds(183, 600, 244, 113);
-		getContentPane().add(courseDesc);
-		
-		JScrollPane areaScrollPane = new JScrollPane(courseDesc);
-		areaScrollPane.setVerticalScrollBarPolicy(
-		                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-		areaScrollPane.setPreferredSize(new Dimension(400, 400));
 		
 		
 		// Takes user input for instructor
@@ -369,6 +366,8 @@ public class AddCourse extends JFrame {
 		lblProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblProgram.setBounds(21, 179, 119, 26);
 		getContentPane().add(lblProgram);
+		
+		
 		
 		
 		

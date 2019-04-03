@@ -59,11 +59,6 @@ public class courseDisplay extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JTextArea courseDisplay = new JTextArea();
-		courseDisplay.setEditable(false);
-		courseDisplay.setBounds(44, 157, 279, 236);
-	    	contentPane.add(courseDisplay);
-		
 	    	// List of programs to be selected from
 	   	ArrayList proGram = tool.getPrograms();
 		String [] programs = new String[proGram.size()];
@@ -81,6 +76,14 @@ public class courseDisplay extends JFrame {
 		lblchooseProgram.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
 		lblchooseProgram.setBounds(44, 46, 182, 26);
 		contentPane.add(lblchooseProgram);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(21, 156, 279, 237);
+		contentPane.add(scrollPane);
+		
+		JTextArea courseDisplay = new JTextArea();
+		scrollPane.setViewportView(courseDisplay);
+		courseDisplay.setEditable(false);
 		
 		// Shows list of courses to UI
 		JButton btnView = new JButton("View");
@@ -122,6 +125,8 @@ public class courseDisplay extends JFrame {
 		lblNewLabel.setFont(new Font("Sitka Banner", Font.BOLD, 21));
 		lblNewLabel.setBounds(116, -1, 254, 26);
 		contentPane.add(lblNewLabel);
+		
+		
 		
 		
 		
