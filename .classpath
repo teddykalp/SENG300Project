@@ -3,7 +3,11 @@
 	<classpathentry kind="src" path="SENGProj/src"/>
 	<classpathentry exported="true" kind="lib" path="SENGProj/jgoodies-forms-1.8.0-sources.jar"/>
 	<classpathentry exported="true" kind="lib" path="SENGProj/jgoodies-forms-1.8.0.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="output" path="SENGProj/bin"/>
 </classpath>
