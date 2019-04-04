@@ -106,31 +106,31 @@ public class CourseCalendar extends JFrame {
 		txtrEnterYear1.setWrapStyleWord(true);
 		txtrEnterYear1.setText("Enter first year courses here...");
 		txtrEnterYear1.setLineWrap(true);
-		txtrEnterYear1.setFont(new Font("Helvetica", Font.PLAIN, 13));
+		txtrEnterYear1.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
 		
 		JTextArea txtrEnterYear2 = new JTextArea();
 		txtrEnterYear2.setBounds(240, 387, 172, 480);
 		txtrEnterYear2.setBackground(new Color(245, 245, 245));
 		txtrEnterYear2.setWrapStyleWord(true);
 		txtrEnterYear2.setLineWrap(true);
-		txtrEnterYear2.setText("Enter first year courses here...");
-		txtrEnterYear2.setFont(new Font("Helvetica", Font.PLAIN, 13));
+		txtrEnterYear2.setText("Enter second year courses here...");
+		txtrEnterYear2.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
 		
 		JTextArea txtrEnterYear3 = new JTextArea();
 		txtrEnterYear3.setBounds(466, 387, 172, 480);
 		txtrEnterYear3.setBackground(new Color(245, 245, 245));
 		txtrEnterYear3.setWrapStyleWord(true);
 		txtrEnterYear3.setLineWrap(true);
-		txtrEnterYear3.setText("Enter first year courses here...");
-		txtrEnterYear3.setFont(new Font("Helvetica", Font.PLAIN, 13));
+		txtrEnterYear3.setText("Enter third year courses here...");
+		txtrEnterYear3.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
 		
 		JTextArea txtrEnterYear4 = new JTextArea();
 		txtrEnterYear4.setBounds(700, 387, 172, 480);
 		txtrEnterYear4.setBackground(new Color(245, 245, 245));
 		txtrEnterYear4.setWrapStyleWord(true);
 		txtrEnterYear4.setLineWrap(true);
-		txtrEnterYear4.setText("Enter first year courses here...");
-		txtrEnterYear4.setFont(new Font("Helvetica", Font.PLAIN, 13));
+		txtrEnterYear4.setText("Enter fourth year courses here...");
+		txtrEnterYear4.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
 		
 		ArrayList progList = tool.getPrograms();
 		String [] programs = new String[progList.size()];
