@@ -333,7 +333,7 @@ public class AddCourse extends JFrame {
 						}
 						tool.writeToCourse(courseName.getText(), courseID.getText(), (String)programBox.getSelectedItem(), courseLvl.getSelectedItem(),
 								          courseInstructor.getText(), coursePreReq.getText(), days, startTime.getText(), finishTime.getText(), courseCredit.getSelectedItem(),
-								          courseDesc.getText(), tool.getProgramCode((String)programBox.getSelectedItem()));
+								          courseDesc.getText(), tool.getProgramCode((String)programBox.getSelectedItem()), (String)programBox.getSelectedItem());
 						
 						
 						setVisible(false);
