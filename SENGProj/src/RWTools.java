@@ -190,10 +190,91 @@ public class RWTools {
 		return departments;
 	}
 	
+	
+	public ArrayList getProgramInfo(String program) {
+		ArrayList programInfo = new ArrayList<String>();
+		File file = new File("programDB.txt");
+		try {
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String line;
+			while ((line = br.readLine()) != null){
+				if (line.contains("PROGRAM NAME: " + program)){	
+					String programDesc = br.readLine();					
+					int index0 = programDesc.indexOf(":");
+					programInfo.add(programDesc.substring(index0 + 2));
+
+					String departmentName = br.readLine();
+					int index1 = departmentName.indexOf(":");
+					programInfo.add(departmentName.substring(index1 + 2));
+					
+					String progLevel = br.readLine();
+					int index2 = progLevel.indexOf(":");
+					programInfo.add(progLevel.substring(index2 + 2));
+					
+					String progType = br.readLine();
+					int index3 = progType.indexOf(":");
+					programInfo.add(progType.substring(index3 + 2));
+					
+					String requiredGPA = br.readLine();
+					int index4 = requiredGPA.indexOf(":");
+					programInfo.add(requiredGPA.substring(index4 + 2));					
+					
+					return programInfo;
+				}
+			}
+		} catch(IOException e) {
+			System.out.print("File not found");
+		}
+		return null;
+	}
+	
+	public ArrayList getCourseInfo(String course) {
+		ArrayList courseInfo = new ArrayList<String>();
+		File file = new File("courseDB.txt");
+		try {
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String line;
+			while ((line = br.readLine()) != null){
+				if (line.contains("COURSE NAME: " + course)){	
+					String instructor = br.readLine();					
+					int index0 = instructor.indexOf(":");
+					courseInfo.add(instructor.substring(index0 + 2));
+
+					String prereqs = br.readLine();
+					int index1 = prereqs.indexOf(":");
+					courseInfo.add(prereqs.substring(index1 + 2));
+					
+					String daysOffered = br.readLine();
+					int index2 = daysOffered.indexOf("DAYS OFFERED");
+					courseInfo.add(daysOffered.substring(index2 + 2));
+					
+					String startTime = br.readLine();
+					int index3 = startTime.indexOf(":");
+					courseInfo.add(startTime.substring(index3 + 2));
+					
+					String finishTime = br.readLine();
+					int index4 = finishTime.indexOf(":");
+					courseInfo.add(finishTime.substring(index4 + 2));					
+
+					String credits = br.readLine();
+					int index5 = credits.indexOf(":");
+					courseInfo.add(credits.substring(index5 + 2));	
+					
+					return courseInfo;
+				}
+			}
+		} catch(IOException e) {
+			System.out.print("File not found");
+		}
+		return null;
+	}	
+	
+	
 	/* getting department information
 	 * to display to users in the GUI
 	 */
-	
 	
 	public ArrayList getDepartmentInfo(String department)
 	{
