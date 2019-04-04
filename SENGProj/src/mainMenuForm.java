@@ -94,6 +94,9 @@ public class mainMenuForm extends JFrame {
 		btnEditCourse.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnEditCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				editCourse edit = new editCourse(user);
+				edit.setVisible(true);
 			}
 		});
 		btnEditCourse.setBounds(217, 183, 141, 35);
@@ -116,9 +119,7 @@ public class mainMenuForm extends JFrame {
 		JButton btnViewProgram = new JButton("View Program");
 		btnViewProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				setVisible(false);
-				courseMenu = new courseDisplay(user);
-				courseMenu.setVisible(true);
+				
 				
 			}
 		});
@@ -209,5 +210,19 @@ public class mainMenuForm extends JFrame {
 		panel.setBackground(new Color(255, 228, 225));
 		panel.setBounds(0, 54, 611, 44);
 		getContentPane().add(panel);
+		
+		JButton btnViewCourse = new JButton("View Course");
+		btnViewCourse.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				courseMenu = new courseDisplay(user);
+				courseMenu.setVisible(true);
+			}
+		});
+		btnViewCourse.setForeground(Color.BLACK);
+		btnViewCourse.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btnViewCourse.setBackground(Color.WHITE);
+		btnViewCourse.setBounds(217, 242, 141, 35);
+		getContentPane().add(btnViewCourse);
 	}
 }

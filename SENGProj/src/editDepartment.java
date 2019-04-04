@@ -16,11 +16,11 @@ import javax.swing.JTextArea;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class editDepartment extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField departName;
 	private JTextField departCode;
 	private RWTools tool = new RWTools();
 	private String oldName;
@@ -53,7 +53,7 @@ public class editDepartment extends JFrame {
 	 */
 	public editDepartment(String user) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 546, 560);
+		setBounds(100, 100, 583, 560);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -76,35 +76,27 @@ public class editDepartment extends JFrame {
 		comboDepartment.setBounds(75, 111, 213, 26);
 		contentPane.add(comboDepartment);
 		
-		JLabel lblNewLabel_1 = new JLabel("Department Name");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_1.setBounds(8, 175, 147, 26);
-		contentPane.add(lblNewLabel_1);
-		
-		departName = new JTextField();
-		departName.setBounds(176, 173, 186, 28);
-		contentPane.add(departName);
-		departName.setColumns(10);
-		
 		JLabel lblDepartmentDesc = new JLabel("<html><p>Department Description<p><html>");
 		lblDepartmentDesc.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblDepartmentDesc.setBounds(8, 251, 147, 47);
+		lblDepartmentDesc.setBounds(8, 185, 147, 47);
 		contentPane.add(lblDepartmentDesc);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(176, 228, 193, 131);
+		scrollPane.setBounds(196, 177, 193, 131);
 		contentPane.add(scrollPane);
 		
 		JTextArea departDesc = new JTextArea();
+		departDesc.setEditable(false);
 		scrollPane.setViewportView(departDesc);
 		
 		JLabel lbldepartmentCode = new JLabel("<html><p>Department Code<p><html>");
 		lbldepartmentCode.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lbldepartmentCode.setBounds(8, 372, 147, 47);
+		lbldepartmentCode.setBounds(8, 329, 147, 47);
 		contentPane.add(lbldepartmentCode);
 		
 		departCode = new JTextField();
-		departCode.setBounds(176, 381, 186, 26);
+		departCode.setEditable(false);
+		departCode.setBounds(196, 338, 186, 26);
 		contentPane.add(departCode);
 		departCode.setColumns(10);
 		
@@ -119,14 +111,16 @@ public class editDepartment extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnNewButton.setBounds(370, 21, 129, 24);
+		btnNewButton.setBounds(380, 21, 129, 24);
 		contentPane.add(btnNewButton);
 		
 		JButton editButton = new JButton("Edit");
 		editButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Displays department info to UI
-				departName.setText((String) comboDepartment.getSelectedItem());
+				departDesc.setEditable(true);
+				departCode.setEditable(true);
+				
 				ArrayList departmentInfo = tool.getDepartmentInfo((String)comboDepartment.getSelectedItem());
 				departDesc.setText((String)departmentInfo.get(0));
 				departCode.setText((String)departmentInfo.get(1));
@@ -142,10 +136,8 @@ public class editDepartment extends JFrame {
 		JButton commitChanges = new JButton("Commit Changes");
 		commitChanges.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				newName = departName.getText();
 				newDesc = departDesc.getText();
 				newCode = departCode.getText();
-				tool.editDepartment(oldName, newName);
 				tool.editDepartment(oldDesc, newDesc);
 				tool.editDepartment(oldCode, newCode);
 				
@@ -155,8 +147,14 @@ public class editDepartment extends JFrame {
 			}
 		});
 		commitChanges.setFont(new Font("Tahoma", Font.BOLD, 15));
-		commitChanges.setBounds(331, 442, 168, 26);
+		commitChanges.setBounds(352, 421, 168, 26);
 		contentPane.add(commitChanges);
+		
+		JButton btnRemove = new JButton("Remove Department");
+		btnRemove.setHorizontalAlignment(SwingConstants.LEFT);
+		btnRemove.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnRemove.setBounds(21, 421, 186, 26);
+		contentPane.add(btnRemove);
 		
 		
 	}

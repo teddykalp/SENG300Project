@@ -17,8 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
+
 
 public class editCourse extends JFrame {
 
@@ -111,7 +110,7 @@ public class editCourse extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
-		JLabel lblAddCourse = new JLabel("Register Course");
+		JLabel lblAddCourse = new JLabel("Edit Course");
 		lblAddCourse.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblAddCourse.setBounds(221, 16, 165, 26);
 		getContentPane().add(lblAddCourse);
@@ -152,18 +151,21 @@ public class editCourse extends JFrame {
 		getContentPane().add(lblDaysThisCourse);
 		
 		courseName = new JTextField();
+		courseName.setEditable(false);
 		courseName.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		courseName.setColumns(10);
 		courseName.setBounds(211, 132, 186, 26);
 		getContentPane().add(courseName);
 		
 		courseLvl = new JTextField();
+		courseLvl.setEditable(false);
 		courseLvl.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		courseLvl.setColumns(10);
 		courseLvl.setBounds(265, 170, 72, 26);
 		getContentPane().add(courseLvl);
 		
 		courseID = new JTextField();
+		courseID.setEditable(false);
 		courseID.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		courseID.setColumns(10);
 		courseID.setBounds(211, 210, 186, 26);
@@ -175,11 +177,13 @@ public class editCourse extends JFrame {
 		getContentPane().add(lblTimeslot);
 		
 		startTime = new JTextField();
+		startTime.setEditable(false);
 		startTime.setBounds(196, 503, 80, 32);
 		getContentPane().add(startTime);
 		startTime.setColumns(10);
 		
 		finishTime = new JTextField();
+		finishTime.setEditable(false);
 		finishTime.setColumns(10);
 		finishTime.setBounds(371, 503, 80, 32);
 		getContentPane().add(finishTime);
@@ -200,16 +204,19 @@ public class editCourse extends JFrame {
 		getContentPane().add(lblCourseCredits);
 		
 		courseCredit = new JTextArea();
+		courseCredit.setEditable(false);
 		courseCredit.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		courseCredit.setBounds(265, 553, 72, 26);
 		getContentPane().add(courseCredit);
 		
 		coursePreReq = new JTextArea();
+		coursePreReq.setEditable(false);
 		coursePreReq.setLineWrap(true);
 		coursePreReq.setBounds(211, 345, 216, 65);
 		getContentPane().add(coursePreReq);
 		
 		courseDesc = new JTextArea();
+		courseDesc.setEditable(false);
 		courseDesc.setLineWrap(true);
 		courseDesc.setBounds(183, 600, 244, 113);
 		getContentPane().add(courseDesc);
@@ -226,11 +233,13 @@ public class editCourse extends JFrame {
 		getContentPane().add(programBox);
 		
 		courseInstructor = new JTextField();
+		courseInstructor.setEditable(false);
 		courseInstructor.setBounds(211, 299, 186, 27);
 		getContentPane().add(courseInstructor);
 		courseInstructor.setColumns(10);
 		
 		daysOffered = new JTextArea();
+		daysOffered.setEditable(false);
 		daysOffered.setBounds(211, 431, 216, 51);
 		contentPane.add(daysOffered);
 		daysOffered.setColumns(10);
