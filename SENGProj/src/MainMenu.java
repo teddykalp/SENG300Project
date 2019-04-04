@@ -12,6 +12,7 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.Panel;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 
 
@@ -47,7 +48,7 @@ public class MainMenu extends JFrame {
 	public MainMenu(String user) {
 		getContentPane().setFont(new Font("Tahoma", Font.BOLD, 13));
 		getContentPane().setForeground(Color.GRAY);
-		getContentPane().setBackground(new Color(224, 255, 255));
+		getContentPane().setBackground(UIManager.getColor("CheckBox.background"));
 		setUser(user);
 		initialize();
 		
@@ -63,17 +64,18 @@ public class MainMenu extends JFrame {
 	
 	private void initialize() {
 		setTitle("Program");
-		setBounds(100, 100, 586, 646);
+		setBounds(100, 100, 586, 405);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
 		
 		// main header display
-		JLabel lblMessage = new JLabel("Which Action Would you like to perform?");
+		JLabel lblMessage = new JLabel("Which action would you like to perform?");
+		lblMessage.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMessage.setBackground(Color.RED);
 		lblMessage.setForeground(new Color(255, 0, 0));
-		lblMessage.setFont(new Font("DejaVu Math TeX Gyre", Font.BOLD, 18));
-		lblMessage.setBounds(87, 64, 446, 26);
+		lblMessage.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblMessage.setBounds(6, 64, 574, 26);
 		getContentPane().add(lblMessage);
 		
 		// add course button and functionality
@@ -87,20 +89,20 @@ public class MainMenu extends JFrame {
 			}
 		});
 		btnAddCourse.setBackground(Color.WHITE);
-		btnAddCourse.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnAddCourse.setBounds(217, 119, 141, 35);
+		btnAddCourse.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAddCourse.setBounds(222, 179, 141, 35);
 		getContentPane().add(btnAddCourse);
 		
 		// edit course button and functionality
 		JButton btnEditCourse = new JButton("Edit Course");
 		btnEditCourse.setForeground(new Color(0, 0, 0));
 		btnEditCourse.setBackground(new Color(255, 255, 255));
-		btnEditCourse.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnEditCourse.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnEditCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnEditCourse.setBounds(217, 183, 141, 35);
+		btnEditCourse.setBounds(222, 243, 141, 35);
 		getContentPane().add(btnEditCourse);
 
 		// view course button and functionality
@@ -114,8 +116,8 @@ public class MainMenu extends JFrame {
 		});
 		bttnViewCourse.setForeground(new Color(0, 0, 0));
 		bttnViewCourse.setBackground(new Color(255, 255, 255));
-		bttnViewCourse.setFont(new Font("Tahoma", Font.BOLD, 15));
-		bttnViewCourse.setBounds(217, 244, 141, 35);
+		bttnViewCourse.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		bttnViewCourse.setBounds(222, 304, 141, 35);
 		getContentPane().add(bttnViewCourse);		
 		
 		
@@ -130,8 +132,8 @@ public class MainMenu extends JFrame {
 		});
 		btnViewDepartment.setForeground(new Color(0, 0, 0));
 		btnViewDepartment.setBackground(new Color(255, 255, 255));
-		btnViewDepartment.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnViewDepartment.setBounds(395, 244, 141, 35);
+		btnViewDepartment.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnViewDepartment.setBounds(403, 304, 141, 35);
 		getContentPane().add(btnViewDepartment);
 		
 		// view program button and functionality
@@ -146,8 +148,8 @@ public class MainMenu extends JFrame {
 		});
 		btnViewProgram.setForeground(new Color(0, 0, 0));
 		btnViewProgram.setBackground(new Color(255, 255, 255));
-		btnViewProgram.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnViewProgram.setBounds(35, 244, 141, 35);
+		btnViewProgram.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnViewProgram.setBounds(37, 304, 141, 35);
 		getContentPane().add(btnViewProgram);
 		
 		// logout button and functionality
@@ -159,9 +161,9 @@ public class MainMenu extends JFrame {
 				login.setVisible(true);
 			}
 		});
-		btnLogout.setFont(new Font("Tahoma", Font.BOLD, 18));
-		btnLogout.setBackground(new Color(255, 255, 255));
-		btnLogout.setBounds(217, 310, 141, 35);
+		btnLogout.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnLogout.setBackground(UIManager.getColor("CheckBox.background"));
+		btnLogout.setBounds(496, 6, 73, 35);
 		getContentPane().add(btnLogout);
 		
 		// add graphic
@@ -183,8 +185,8 @@ public class MainMenu extends JFrame {
 		});
 		btnNewButton.setForeground(new Color(0, 0, 0));
 		btnNewButton.setBackground(new Color(255, 255, 255));
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton.setBounds(35, 119, 141, 35);
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton.setBounds(37, 179, 141, 35);
 		getContentPane().add(btnNewButton);
 		
 		// add department button and functionality
@@ -199,8 +201,8 @@ public class MainMenu extends JFrame {
 		});
 		btnAddDepartment.setForeground(new Color(0, 0, 0));
 		btnAddDepartment.setBackground(new Color(255, 255, 255));
-		btnAddDepartment.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnAddDepartment.setBounds(395, 119, 141, 35);
+		btnAddDepartment.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnAddDepartment.setBounds(403, 179, 141, 35);
 		getContentPane().add(btnAddDepartment);
 		
 		// edit program button and functionality
@@ -211,8 +213,8 @@ public class MainMenu extends JFrame {
 		});
 		btnEditProgram.setForeground(new Color(0, 0, 0));
 		btnEditProgram.setBackground(Color.WHITE);
-		btnEditProgram.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnEditProgram.setBounds(35, 183, 141, 35);
+		btnEditProgram.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnEditProgram.setBounds(37, 243, 141, 35);
 		getContentPane().add(btnEditProgram);
 		
 		
@@ -220,15 +222,15 @@ public class MainMenu extends JFrame {
 		JButton btnEditDepartment = new JButton("Edit Department");
 		btnEditDepartment.setForeground(new Color(0, 0, 0));
 		btnEditDepartment.setBackground(new Color(255, 250, 250));
-		btnEditDepartment.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnEditDepartment.setBounds(395, 183, 141, 35);
+		btnEditDepartment.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnEditDepartment.setBounds(403, 243, 141, 35);
 		getContentPane().add(btnEditDepartment);
 		
 		// welcome banner with logged in user 
 		JLabel lblNewLabel = new JLabel("Welcome " + this.user);
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(10, 0, 141, 26);
+		lblNewLabel.setBounds(6, 9, 141, 26);
 		getContentPane().add(lblNewLabel);
 		
 		// create panel 
@@ -236,5 +238,23 @@ public class MainMenu extends JFrame {
 		panel.setBackground(new Color(255, 228, 225));
 		panel.setBounds(0, 54, 611, 44);
 		getContentPane().add(panel);
+		
+		JLabel lblProgram = new JLabel("PROGRAM");
+		lblProgram.setHorizontalAlignment(SwingConstants.CENTER);
+		lblProgram.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblProgram.setBounds(37, 126, 141, 30);
+		getContentPane().add(lblProgram);
+		
+		JLabel lblCourse = new JLabel("COURSE");
+		lblCourse.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCourse.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblCourse.setBounds(222, 126, 141, 30);
+		getContentPane().add(lblCourse);
+		
+		JLabel lblDepartment = new JLabel("DEPARTMENT");
+		lblDepartment.setHorizontalAlignment(SwingConstants.CENTER);
+		lblDepartment.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblDepartment.setBounds(403, 124, 141, 35);
+		getContentPane().add(lblDepartment);
 	}
 }
