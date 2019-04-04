@@ -424,4 +424,142 @@ public class RWTools {
 	            }
 	        }
 	    }
+	
+	/*
+	 * Get course names to display to 
+	 * users in GUI
+	 */
+	
+	public ArrayList getCourses()
+	{
+		ArrayList courses = new ArrayList<String>();
+		File file = new File("courseDB.txt");
+		try{
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String line;
+			while((line = br.readLine()) != null){
+				if (line.contains("COURSE NAME")){
+					int index = line.indexOf(":");
+					courses.add(line.substring(index + 2));
+					}
+			}
+			br.close();
+			fr.close();
+		}
+		catch(IOException f)
+		{
+			System.out.println("File not found");
+		}
+		
+		return courses;
+	}
+	
+	/*
+	 * Get course info to display
+	 * to users to the GUI
+	 */
+	
+	public ArrayList getCourseInfo(String course)
+	{
+		ArrayList courseInfo = new ArrayList<String>();
+		File file = new File("courseDB.txt");
+		try{
+		FileReader fr = new FileReader(file);
+		BufferedReader br = new BufferedReader(fr);
+		String line;
+		while ((line = br.readLine()) != null){
+			if (line.contains("COURSE NAME: " + course)){
+				String courseCode = br.readLine();
+				int index = courseCode.indexOf(":");
+				courseInfo.add(courseCode.substring(index + 2));
+				String courseInstr = br.readLine();
+				int index1 = courseInstr.indexOf(":");
+				courseInfo.add(courseInstr.substring(index1 + 2));
+				String prereqCourses = br.readLine();
+				int index2 = prereqCourses.indexOf(":");
+				courseInfo.add(prereqCourses.substring(index2 + 2));
+				String offeredDays = br.readLine();
+				String next = br.readLine();
+				ArrayList<String> daysOffered = new ArrayList<String>();
+				while(next.contains("day") )
+				{
+					daysOffered.add(next);
+					next = br.readLine();
+				}
+				StringBuilder days = new StringBuilder();
+				for (String st : daysOffered) {
+					days.append(st);
+					days.append(",");
+				}
+				courseInfo.add(days.toString());
+				int index3 = next.indexOf(":");
+				courseInfo.add(next.substring(index3 + 2));
+				String endTime = br.readLine();
+				int index4 = endTime.indexOf(":");
+				courseInfo.add(endTime.substring(index4 + 2));
+				String courseCreds = br.readLine();
+				int index5 = courseCreds.indexOf(":");
+				courseInfo.add(courseCreds.substring(index5 +2));
+				String courseDescr = br.readLine();
+				int index6 = courseDescr.indexOf(":");
+				courseInfo.add(courseDescr.substring(index6 + 2));
+				return courseInfo;
+			}
+		}
+		}
+		catch(IOException f){
+			System.out.print("File not found");
+		}
+		return null;
+	}
+	
+	/*
+	 * Currently still has bugs, but
+	 * edits info of course
+	 */
+	public void editCourse(String oldString, String newString)
+    {
+        File fileToBeModified = new File("courseDB.txt");
+        String oldContent = "";
+        BufferedReader br = null;
+        FileWriter fw = null;
+         
+        try
+        {
+            br = new BufferedReader(new FileReader(fileToBeModified));
+            //Reading all the lines of input text file into oldContent
+            String line = br.readLine();
+             
+            while (line != null) 
+            {
+                oldContent = oldContent + line + System.lineSeparator();
+                line = br.readLine();
+            }
+             
+            //Replacing oldString with newString in the oldContent
+            String newContent = oldContent.replaceAll(oldString, newString);
+            
+            //Rewriting the input text file with newContent
+            fw = new FileWriter(fileToBeModified);
+            fw.write(newContent);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                br.close();
+                fw.close();
+            } 
+            catch (IOException e) 
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
