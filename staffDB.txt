@@ -7,3 +7,12 @@ Password: 123
 FULL NAME:  
 USER ID: gaby
 Password: 1234
+
+FULL NAME: Bob Marley
+USER ID: bobbo
+Password: 123
+PHONE NUMBER: 1234567
+EMAIL ADDRESS: bob@fu.ca
+MAILING ADDRESS: 15 yemen road yemen
+DEPARTMENT: null
+STAFF TYPE: Department Head

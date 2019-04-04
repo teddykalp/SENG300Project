@@ -16,17 +16,20 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class staffRegister extends JFrame {
 
+	
 	private JPanel contentPane;
 	private JTextField firstName;
 	private JTextField lastName;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField phoneNumber;
+	private JTextField userEmail;
+	private JTextField mailingAddress;
 	private JTextField userID;
 	private JTextField passWord;
 	private JTextField confirmPass;
@@ -62,11 +65,11 @@ public class staffRegister extends JFrame {
 		
 		
 		
-		JLabel lblNewLabel = new JLabel("Staff Registration Form");
-		lblNewLabel.setForeground(Color.GRAY);
-		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		lblNewLabel.setBounds(204, 101, 230, 26);
-		contentPane.add(lblNewLabel);
+		JLabel lblWelcome = new JLabel("Staff Registration Form");
+		lblWelcome.setForeground(Color.GRAY);
+		lblWelcome.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		lblWelcome.setBounds(204, 101, 230, 26);
+		contentPane.add(lblWelcome);
 		
 		JLabel fNamelbl = new JLabel("First Name");
 		fNamelbl.setFont(new Font("Sylfaen", Font.BOLD, 14));
@@ -128,25 +131,20 @@ public class staffRegister extends JFrame {
 		lastName.setBounds(180, 176, 186, 26);
 		contentPane.add(lastName);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(178, 212, 186, 26);
-		contentPane.add(textField_2);
+		phoneNumber = new JTextField();
+		phoneNumber.setColumns(10);
+		phoneNumber.setBounds(178, 212, 186, 26);
+		contentPane.add(phoneNumber);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(180, 248, 186, 26);
-		contentPane.add(textField_3);
+		userEmail = new JTextField();
+		userEmail.setColumns(10);
+		userEmail.setBounds(180, 248, 186, 26);
+		contentPane.add(userEmail);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(180, 286, 356, 26);
-		contentPane.add(textField_4);
-		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(180, 325, 356, 26);
-		contentPane.add(textField_5);
+		mailingAddress = new JTextField();
+		mailingAddress.setColumns(10);
+		mailingAddress.setBounds(180, 286, 356, 26);
+		contentPane.add(mailingAddress);
 		
 		userID = new JTextField();
 		userID.setColumns(10);
@@ -163,10 +161,10 @@ public class staffRegister extends JFrame {
 		confirmPass.setBounds(180, 486, 186, 26);
 		contentPane.add(confirmPass);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Department Head");
-		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		rdbtnNewRadioButton.setBounds(128, 368, 136, 30);
-		contentPane.add(rdbtnNewRadioButton);
+		JRadioButton rdbtnDH = new JRadioButton("Department Head");
+		rdbtnDH.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		rdbtnDH.setBounds(128, 368, 136, 30);
+		contentPane.add(rdbtnDH);
 		
 		JRadioButton rdbtnTeachingAssistant = new JRadioButton("Teaching Assistant");
 		rdbtnTeachingAssistant.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -178,19 +176,12 @@ public class staffRegister extends JFrame {
 		rdbtnInstructor.setBounds(443, 368, 157, 29);
 		contentPane.add(rdbtnInstructor);
 		
-		JLabel passError = new JLabel("");
-		passError.setForeground(new Color(255, 0, 0));
-		passError.setBackground(new Color(255, 0, 0));
-		passError.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		passError.setBounds(387, 442, 174, 26);
-		contentPane.add(passError);
-		
-		JLabel confirmError = new JLabel("");
-		confirmError.setForeground(new Color(255, 0, 0));
-		confirmError.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		confirmError.setBackground(Color.RED);
-		confirmError.setBounds(387, 486, 186, 26);
-		contentPane.add(confirmError);
+		JLabel inputError = new JLabel("");
+		inputError.setForeground(new Color(255, 0, 0));
+		inputError.setBackground(new Color(255, 0, 0));
+		inputError.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		inputError.setBounds(179, 533, 187, 26);
+		contentPane.add(inputError);
 		
 		JButton button = new JButton("Go Back");
 		button.addActionListener(new ActionListener() {
@@ -206,21 +197,75 @@ public class staffRegister extends JFrame {
 		button.setBounds(416, 23, 157, 35);
 		contentPane.add(button);
 		
+		ArrayList arr = tool.getDepartment();
+		String [] departments = new String[arr.size()];
+		for (int x = 0; x < departments.length; x++){
+			departments[x] = (String) arr.get(x);
+		}
+		
+		JComboBox comboDepartment = new JComboBox();
+		comboDepartment.setModel(new DefaultComboBoxModel(departments));
+		comboDepartment.setBounds(180, 331, 186, 26);
+		contentPane.add(comboDepartment);
+		
 		JButton btnNewButton = new JButton("Add Staff");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(!passWord.getText().equals(confirmPass.getText())){
-					passError.setText("Passwords do not match");
-					confirmError.setText("Passwords do not match");
+				// Error Handlers 
+				// If the user does not enter a first or last name
+				if((firstName.getText().isEmpty()) || (lastName.getText().isEmpty())){
+					inputError.setText("Please Enter Your Full Name");
 				}
-				if(passWord.getText().isEmpty()){
-					passError.setText("Please enter valid password");
+				//If the email address is not valid
+				else if(userEmail.getText().isEmpty() || (!userEmail.getText().contains("@"))){
+					inputError.setText("Please enter Valid Email");
 				}
+				//if the user does not select a type of staff
+				else if((!rdbtnDH.isSelected()) && (!rdbtnInstructor.isSelected()) && (!rdbtnTeachingAssistant.isSelected())){
+					inputError.setText("Please select the type of staff");
+				}
+				//if the user enters a blank user name
+				else if(userID.getText().isEmpty()){
+					inputError.setText("Please enter a valid username");
+				}
+				//if the user enters a user name that is already taken
+				else if(tool.userFound(userID.getText())){
+					inputError.setText("User name is already taken");
+				}
+				// if the password entered is empty
+				else if(passWord.getText().isEmpty()){
+					inputError.setText("Please enter valid password");
+				}
+				//if the passwords don't match
+				else if(!passWord.getText().equals(confirmPass.getText())){
+					inputError.setText("Passwords do not match");
+				}
+				//write to the database if no errors
 				else{
-				tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText());
-				setVisible(false);
-				form = new LoginForm();
-				form.setVisible(true);
+					// if the user is a department head
+					if(rdbtnDH.isSelected()){
+						tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), userEmail.getText(), 
+								mailingAddress.getText(), (String)comboDepartment.getSelectedItem(), "Department Head", phoneNumber.getText());
+						setVisible(false);
+						form = new LoginForm();
+						form.setVisible(true);
+					}
+					// if the user is an instructor
+					else if(rdbtnInstructor.isSelected()){
+						tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), userEmail.getText(), 
+								mailingAddress.getText(), (String)comboDepartment.getSelectedItem(), "Instructor", phoneNumber.getText());
+						setVisible(false);
+						form = new LoginForm();
+						form.setVisible(true);
+					}
+					// if the user is a Teaching Assistant
+					else{
+						tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), userEmail.getText(), 
+								mailingAddress.getText(), (String)comboDepartment.getSelectedItem(), "Teaching Assistant", phoneNumber.getText());
+						setVisible(false);
+						form = new LoginForm();
+						form.setVisible(true);
+					}
 				}
 			}
 		});
@@ -229,6 +274,12 @@ public class staffRegister extends JFrame {
 		btnNewButton.setFont(new Font("Yu Gothic", Font.PLAIN, 16));
 		btnNewButton.setBounds(404, 536, 157, 39);
 		contentPane.add(btnNewButton);
+		
+		
+		
+		
+		
+		
 		
 		
 	}

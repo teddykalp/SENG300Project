@@ -222,10 +222,57 @@ public class CourseCalendar extends JFrame {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(22, 297, 850, 16);
 		
+		
+		// display all the info on ui
 		JButton btnGoButton = new JButton("Go");
 		btnGoButton.setBounds(408, 166, 58, 29);
 		btnGoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
+//				
+//				ArrayList courseInfo = tool.getCourseInfo((String)coursesSelect.getSelectedItem());
+//				String courseCode = ((String)courseInfo.get(0));
+//				StringBuilder prgCode = new StringBuilder();
+//				String level = "";
+//				StringBuilder courseNum = new StringBuilder();
+//				for (int i = 0; i < courseCode.length(); i++)
+//				{
+//					if(i < 4) {
+//						prgCode.append(courseCode.charAt(i));
+//					}
+//					else if(i == 4) { level = "" + courseCode.charAt(i); }
+//					else { courseNum.append(courseCode.charAt(i)); }
+//				}
+//				String codes;
+//				int index = -1;
+//				for(int j = 0; j < (tool.getPrograms()).size(); j++) {
+//					codes = (tool.getProgramCode((String)tool.getPrograms().get(j)));
+//					if(codes.equals(prgCode.toString()))
+//					{
+//						index = j;
+//					}
+//				}
+//				
+//				programBox.setSelectedIndex(index);
+//				courseName.setText((String)coursesSelect.getSelectedItem());
+//				courseLvl.setText(level);
+//				courseID.setText(courseNum.toString());
+//				courseInstructor.setText((String)courseInfo.get(1));
+//				coursePreReq.setText((String)courseInfo.get(2));
+//				daysOffered.setText((String)courseInfo.get(3));
+//				startTime.setText((String)courseInfo.get(4));
+//				finishTime.setText((String)courseInfo.get(5));
+//				courseCredit.setText((String)courseInfo.get(6));
+//				courseDesc.setText((String)courseInfo.get(7));		
+				
+				
+				
+				
+				
+				
+				
+				
 				System.out.println("Go button clicked");
 				txtrEnterYear1.setText("1");
 				txtrEnterYear2.setText("2");
