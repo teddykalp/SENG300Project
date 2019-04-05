@@ -7,3 +7,19 @@ DEPARTMENT: Math
 PROGRAM LEVEL None
 PROGRAM TYPE: None
 Required GPA: 3.3
+
+PROGRAM NAME: Visual Studies
+PROGRAM CODE: VSAS
+PROGRAM DESCRIPTION: studying about things you like to draw
+DEPARTMENT: Art
+PROGRAM LEVEL: Bachelor's
+PROGRAM TYPE: Arts
+Required GPA: None
+
+PROGRAM NAME: Chemistry	
+PROGRAM CODE: CHEM
+PROGRAM DESCRIPTION: If you want to go into pharmacy or become a scientist, join this program
+DEPARTMENT: Chemistry
+PROGRAM LEVEL: Bachelor's
+PROGRAM TYPE: Science
+Required GPA: 4.0

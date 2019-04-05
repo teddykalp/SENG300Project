@@ -84,6 +84,7 @@ public class AddProgram extends JFrame {
 		// Takes user input for program name
 		// Attributes for text area
 		programName = new JTextArea();
+		programName.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		programName.setBounds(185, 66, 186, 27);
 		contentPane.add(programName);
 		programName.setColumns(10);
@@ -91,7 +92,7 @@ public class AddProgram extends JFrame {
 		// Takes user input for program description
 		// Attributes for text area
 		programDesc = new JTextArea();
-		programDesc.setFont(new Font("Monospaced", Font.PLAIN, 11));
+		programDesc.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		programDesc.setBounds(185, 114, 238, 84);
 		programDesc.setLineWrap(true);
 		contentPane.add(programDesc);
@@ -169,6 +170,7 @@ public class AddProgram extends JFrame {
 		
 		// Takes user input for requiredGPA
 		JTextArea reqGPA = new JTextArea();
+		reqGPA.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		reqGPA.setBounds(185, 423, 186, 26);
 		contentPane.add(reqGPA);
 		
@@ -210,6 +212,7 @@ public class AddProgram extends JFrame {
 		contentPane.add(lblProgramCode);
 		
 		JTextArea programCode = new JTextArea();
+		programCode.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		programCode.setColumns(10);
 		programCode.setBounds(185, 219, 186, 27);
 		contentPane.add(programCode);

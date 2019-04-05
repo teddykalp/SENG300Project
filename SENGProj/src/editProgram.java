@@ -14,9 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-
 public class editProgram extends JFrame {
 
 	// Class attributes
@@ -89,6 +86,7 @@ public class editProgram extends JFrame {
 		// Takes user input for program name
 		// Attributes for text area
 		programName = new JTextArea();
+		programName.setEditable(false);
 		programName.setBounds(185, 110, 186, 27);
 		contentPane.add(programName);
 		programName.setColumns(10);
@@ -96,7 +94,8 @@ public class editProgram extends JFrame {
 		// Takes user input for program description
 		// Attributes for text area
 		programDesc = new JTextArea();
-		programDesc.setFont(new Font("Monospaced", Font.PLAIN, 11));
+		programDesc.setEditable(false);
+		programDesc.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		programDesc.setBounds(185, 155, 238, 84);
 		programDesc.setLineWrap(true);
 		contentPane.add(programDesc);
@@ -116,7 +115,8 @@ public class editProgram extends JFrame {
 		
 		// Text area attribute for program level
 		programLvl = new JTextArea();
-		programLvl.setFont(new Font("Monospaced", Font.PLAIN, 11));
+		programLvl.setEditable(false);
+		programLvl.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		programLvl.setBounds(185, 350, 186, 26);
 		programLvl.setEnabled(true);
 		contentPane.add(programLvl);
@@ -129,6 +129,7 @@ public class editProgram extends JFrame {
 		
 		// Program type attribute
 		programType = new JTextArea();
+		programType.setEditable(false);
 		programType.setFont(new Font("Monospaced", Font.PLAIN, 11));
 		programType.setBounds(185, 397, 186, 26);
 		programType.setEnabled(true);
@@ -173,6 +174,7 @@ public class editProgram extends JFrame {
 		
 		// Takes user input for requiredGPA
 		reqGPA = new JTextArea();
+		reqGPA.setEditable(false);
 		reqGPA.setBounds(185, 443, 186, 26);
 		contentPane.add(reqGPA);
 		
@@ -203,6 +205,8 @@ public class editProgram extends JFrame {
 		
 		// Takes user input for program code
 		programCode = new JTextArea();
+		programCode.setFont(new Font("Times New Roman", Font.PLAIN, 13));
+		programCode.setEditable(false);
 		programCode.setColumns(10);
 		programCode.setBounds(185, 260, 186, 27);
 		contentPane.add(programCode);
@@ -219,6 +223,17 @@ public class editProgram extends JFrame {
 			*/
 			
 			public void actionPerformed(ActionEvent e) {
+				programName.setEditable(true);
+				programDesc.setEditable(true);
+				programCode.setEditable(true);
+				comboDepartment.setEditable(true);
+				programLvl.setEditable(true);
+				programType.setEditable(true);
+				reqGPA.setEditable(true);
+				
+				
+				
+				
 				ArrayList programInfo = tool.getProgramInfo((String)comboProgramBox.getSelectedItem());
 				programName.setText((String)comboProgramBox.getSelectedItem());
 				programCode.setText((String)programInfo.get(0));

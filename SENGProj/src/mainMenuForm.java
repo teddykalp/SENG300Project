@@ -179,6 +179,13 @@ public class mainMenuForm extends JFrame {
 		getContentPane().add(btnNewButton_1);
 		
 		JButton btnEditProgram = new JButton("Edit Program");
+		btnEditProgram.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				editProgram edit = new editProgram(user);
+				edit.setVisible(true);
+			}
+		});
 		btnEditProgram.setForeground(new Color(0, 0, 0));
 		btnEditProgram.setBackground(Color.WHITE);
 		btnEditProgram.setFont(new Font("Tahoma", Font.BOLD, 16));
