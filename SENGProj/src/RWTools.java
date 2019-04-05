@@ -81,7 +81,7 @@ public class RWTools {
 		br.write(String.format("\nPROGRAM CODE: %s", programCode));
 		br.write(String.format("\nPROGRAM DESCRIPTION: %s", programDescription));
 	    br.write(String.format("\nDEPARTMENT: %s", programDepart));
-		br.write(String.format("\nPROGRAM LEVEL %s", programLvl));
+		br.write(String.format("\nPROGRAM LEVEL: %s", programLvl));
 		br.write(String.format("\nPROGRAM TYPE: %s", programType));
 		br.write(String.format("\nRequired GPA: %s", reqGPA));
 		
@@ -559,6 +559,100 @@ public class RWTools {
             {
                 br.close();
                 fw.close();
+            } 
+            catch (IOException e) 
+            {
+                e.printStackTrace();
+            }
+        }
+    }
+	
+	/* getProgramtInfo method is used to retrieve program info to display in GUI
+	 * @param	program
+	 * @exception	IOException for file handling
+	 * @return	null
+	 */
+	
+	public ArrayList getProgramInfo(String program) {
+		
+		ArrayList programInfo = new ArrayList<String>();
+		File file = new File("programDB.txt");
+		try{
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String line;
+			while ((line = br.readLine()) != null) {
+				if (line.contains("PROGRAM NAME: " + program)) {
+					String programCode = br.readLine();
+					int index = programCode.indexOf(":");
+					programInfo.add(programCode.substring(index + 2));
+					String programDesc = br.readLine();
+					int index1 = programDesc.indexOf(":");
+					programInfo.add(programDesc.substring(index1 + 2));
+					String programDep = br.readLine();
+					int index2 = programDep.indexOf(":");
+					programInfo.add(programDep.substring(index2 + 2));
+					String programLvl = br.readLine();
+					int index3 = programLvl.indexOf(":");
+					programInfo.add(programLvl.substring(index3 + 2));
+					String programType = br.readLine();
+					int index4 = programType.indexOf(":");
+					programInfo.add(programType.substring(index4 + 2));
+					String reqGPA = br.readLine();
+					int index5 = reqGPA.indexOf(":");
+					programInfo.add(reqGPA.substring(index5 +2));
+					return programInfo;
+				}
+			}
+		}
+		catch(IOException f){
+			System.out.print("File not found");
+		}
+		return null;
+	}
+	
+	/*
+	 * Edits program info from user input in GUI
+	 */
+	
+	public void editProgram(String oldString, String newString)
+    {
+        File fileToBeModified = new File("programDB.txt");
+        String oldContent = "";
+        BufferedReader reader = null;
+        FileWriter writer = null;
+        try
+        {
+            reader = new BufferedReader(new FileReader(fileToBeModified));
+             
+            //Reading all the lines of input text file into oldContent
+            String line = reader.readLine();
+             
+            while (line != null) 
+            {
+                oldContent = oldContent + line + System.lineSeparator();
+                line = reader.readLine();
+            }
+             
+            //Replacing oldString with newString in the oldContent
+            String newContent = oldContent.replace(oldString, newString);
+             
+            //Rewriting the input text file with newContent
+            writer = new FileWriter(fileToBeModified);
+            writer.write(newContent);
+            
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            try
+            {
+                //Closing the resources
+                reader.close(); 
+                writer.close();
             } 
             catch (IOException e) 
             {
