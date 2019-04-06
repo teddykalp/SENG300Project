@@ -374,58 +374,7 @@ public class RWTools {
 	}
 	
 
-	public void editDepartment(String oldString, String newString)
-	    {
-	        File fileToBeModified = new File("departmentDB.txt");
-	        String oldContent = "";
-	        BufferedReader reader = null;
-	        FileWriter writer = null;
-	         
-	        try
-	        {
-	            reader = new BufferedReader(new FileReader(fileToBeModified));
-	             
-	            //Reading all the lines of input text file into oldContent
-	             
-	            String line = reader.readLine();
-	             
-	            while (line != null) 
-	            {
-	                oldContent = oldContent + line + System.lineSeparator();
-	                 
-	                line = reader.readLine();
-	            }
-	             
-	            //Replacing oldString with newString in the oldContent
-	             
-	            String newContent = oldContent.replace(oldString, newString);
-	             
-	            //Rewriting the input text file with newContent
-	             
-	            writer = new FileWriter(fileToBeModified);
-	             
-	            writer.write(newContent);
-	        }
-	        catch (IOException e)
-	        {
-	            e.printStackTrace();
-	        }
-	        finally
-	        {
-	            try
-	            {
-	                //Closing the resources
-	                 
-	                reader.close();
-	                 
-	                writer.close();
-	            } 
-	            catch (IOException e) 
-	            {
-	                e.printStackTrace();
-	            }
-	        }
-	    }
+	
 	
 	/*
 	 * Get course names to display to 
@@ -518,55 +467,7 @@ public class RWTools {
 		}
 		return null;
 	}
-	
-	/*
-	 * Currently still has bugs, but
-	 * edits info of course
-	 */
-	public void editCourse(String oldString, String newString)
-    {
-        File fileToBeModified = new File("courseDB.txt");
-        String oldContent = "";
-        BufferedReader br = null;
-        FileWriter fw = null;
-         
-        try
-        {
-            br = new BufferedReader(new FileReader(fileToBeModified));
-            //Reading all the lines of input text file into oldContent
-            String line = br.readLine();
-             
-            while (line != null) 
-            {
-                oldContent = oldContent + line + System.lineSeparator();
-                line = br.readLine();
-            }
-             
-            //Replacing oldString with newString in the oldContent
-            String newContent = oldContent.replaceAll(oldString, newString);
-            
-            //Rewriting the input text file with newContent
-            fw = new FileWriter(fileToBeModified);
-            fw.write(newContent);
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        finally
-        {
-            try
-            {
-                br.close();
-                fw.close();
-            } 
-            catch (IOException e) 
-            {
-                e.printStackTrace();
-            }
-        }
-    }
-	
+		
 	/* getProgramtInfo method is used to retrieve program info to display in GUI
 	 * @param	program
 	 * @exception	IOException for file handling
@@ -615,9 +516,9 @@ public class RWTools {
 	 * Edits program info from user input in GUI
 	 */
 	
-	public void editProgram(String oldString, String newString)
+	public void editDB(String oldString, String newString, String filename)
     {
-        File fileToBeModified = new File("programDB.txt");
+        File fileToBeModified = new File(filename);
         String oldContent = "";
         BufferedReader reader = null;
         FileWriter writer = null;

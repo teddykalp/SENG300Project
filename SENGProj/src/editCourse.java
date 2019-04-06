@@ -373,7 +373,7 @@ public class editCourse extends JFrame {
 							day.append("\n");
 						}
 						newDays = (day.toString()).trim();
-						System.out.println(newDays);
+						
 						
 						String dbName = "COURSE NAME: ";
 						String dbCode = "COURSE CODE: ";
@@ -384,17 +384,18 @@ public class editCourse extends JFrame {
 						String dbCredits = "COURSE CREDITS: ";
 						String dbCourseD = "COURSE DESCRIPTION: ";
 						String dbProgram = "PROGRAM: ";
+						String db = "courseDB.txt";
 						
-						tool.editCourse(dbName + oldName, dbName + newName);
-						tool.editCourse(dbCode + oldCode, dbCode + newCode);
-						tool.editCourse(dbInstructor + oldInstructor, dbInstructor + newInstructor);
-						tool.editCourse(dbPreReq + oldPreReq,dbPreReq + newPreReq);
-						tool.editCourse(oldDaysO, newDays);
-						tool.editCourse(dbStart + oldStart, dbStart + newStart);
-						tool.editCourse(dbFinish + oldFinish, dbFinish + newFinish);
-						tool.editCourse(dbCredits + oldCredit, dbCredits + newCredit);
-						tool.editCourse(dbCourseD + oldDesc, dbCourseD + newDesc);
-						tool.editCourse(dbProgram + oldProgram, dbProgram + newProgram);
+						tool.editDB(dbName + oldName, dbName + newName, db);
+						tool.editDB(dbCode + oldCode, dbCode + newCode, db);
+						tool.editDB(dbInstructor + oldInstructor, dbInstructor + newInstructor, db);
+						tool.editDB(dbPreReq + oldPreReq,dbPreReq + newPreReq, db);
+						tool.editDB(oldDaysO, newDays, db);
+						tool.editDB(dbStart + oldStart, dbStart + newStart, db);
+						tool.editDB(dbFinish + oldFinish, dbFinish + newFinish, db);
+						tool.editDB(dbCredits + oldCredit, dbCredits + newCredit, db);
+						tool.editDB(dbCourseD + oldDesc, dbCourseD + newDesc, db);
+						tool.editDB(dbProgram + oldProgram, dbProgram + newProgram, db);
 
 						setVisible(false);
 						menu = new mainMenuForm(user);
