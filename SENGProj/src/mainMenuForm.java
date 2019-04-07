@@ -119,7 +119,9 @@ public class mainMenuForm extends JFrame {
 		JButton btnViewProgram = new JButton("View Program");
 		btnViewProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				setVisible(false);
+				programDisplay display = new programDisplay(user);
+				display.setVisible(true);
 				
 			}
 		});

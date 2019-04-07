@@ -24,26 +24,12 @@ public class programDisplay extends JFrame {
 	private RWTools tool = new RWTools();
 	private JLabel lblDepartment;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					programDisplay frame = new programDisplay();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
-	public programDisplay() {
+	public programDisplay(String user) {
 		// Closes window when the user exits the frame 
 				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				// Creates the window and set bounds
@@ -199,6 +185,9 @@ public class programDisplay extends JFrame {
 				JButton button = new JButton("Cancel");
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
+						setVisible(false);
+						mainMenuForm menu = new mainMenuForm(user);
+						menu.setVisible(true);
 					}
 				});
 				button.setFont(new Font("Tahoma", Font.PLAIN, 15));
