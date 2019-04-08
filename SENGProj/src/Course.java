@@ -54,7 +54,7 @@ public class Course {
 		setInstructor(instructor);
 		setPrerequisite(prerequisite);
 		setAntirequisite(antirequisite);
-		setCorequisite(prerequisite);
+		setCorequisite(corequisite);
 		setDaysOffered(daysOffered);
 		setTimeSlot(timeSlot);
 		setCredits(credits);
@@ -161,15 +161,15 @@ public class Course {
 	}
 	
 	// sets corequisite
-	public void setAntirequisite(String antirequisite)
+	public void setCorequisite(String corequisite)
 	{
-		this.antirequisite = antirequisite;
+		this.corequisite = corequisite;
 	}
 	
 	// gets corequisite
-	public String getAntirequisite()
+	public String getCorequisite()
 	{
-		return antirequisite;
+		return corequisite;
 	}
 	
 	// sets daysOffered
