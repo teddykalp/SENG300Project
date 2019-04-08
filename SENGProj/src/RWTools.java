@@ -27,7 +27,7 @@ public class RWTools {
 	* @param	startTime
 	* @param	finishTtime
 	* @param	courseCredit
-	* @param    courseDescription
+	* @param	courseDescription
 	* @exception	IOException for file handling
 	* @return	N/A
 	*/
@@ -116,7 +116,7 @@ public class RWTools {
 		br.write(String.format("\nDEPARTMENT DESCRIPTION: %s", departDescription));
 		br.write(String.format("\nDEPARTMENT CODE: %s", departCode));
 		
-		
+
 		br.close();
 		fw.close();
 		
