@@ -21,6 +21,8 @@ public class RWTools {
 	* @param	courseProgram
 	* @param	courseInstructor
 	* @param	coursePrereq
+	* @param	courseAntiReq
+	* @param	courseCoReq
 	* @param	courseDays
 	* @param	startTime
 	* @param	finishTtime
@@ -31,6 +33,7 @@ public class RWTools {
 	*/
 	public void writeToCourse(String courseName, String courseID,
 			String courseProgram, Object courseLvl, String courseInstructor, String coursePreReq,
+			String courseAntiReq, String courseCoReq, 
 			ArrayList courseDays, String startTime, String finishTime, Object courseCredit, 
 			String courseDescription, String programCode, String program)
 	{
@@ -41,7 +44,9 @@ public class RWTools {
 		br.write(String.format("\n\nCOURSE NAME: %s", courseName));
 		br.write(String.format("\nCOURSE CODE: %s", programCode + courseLvl + courseID));
 		br.write(String.format("\nINSTRUCTOR: %s", courseInstructor));
-		br.write(String.format("\nPREQUISITE COURSES: %s", coursePreReq));
+		br.write(String.format("\nPREREQUISITE COURSES: %s", coursePreReq));
+		br.write(String.format("\nANTIREQUISITE COURSES: %s", courseAntiReq));
+		br.write(String.format("\nCOREQUISITE COURSES: %s", courseCoReq));
 		br.write("\nDAYS OFFERED\n");
 		for (int x = 0; x < courseDays.size(); x++){
 			br.write(courseDays.get(x)+ "\n");
@@ -424,12 +429,23 @@ public class RWTools {
 				String courseCode = br.readLine();
 				int index = courseCode.indexOf(":");
 				courseInfo.add(courseCode.substring(index + 2));
+				
 				String courseInstr = br.readLine();
 				int index1 = courseInstr.indexOf(":");
 				courseInfo.add(courseInstr.substring(index1 + 2));
+				
 				String prereqCourses = br.readLine();
 				int index2 = prereqCourses.indexOf(":");
 				courseInfo.add(prereqCourses.substring(index2 + 2));
+				
+				String antireqCourses = br.readLine();
+				int index3 = antireqCourses.indexOf(":");
+				courseInfo.add(antireqCourses.substring(index3 + 2));
+				
+				String coreqCourses = br.readLine();
+				int index4 = coreqCourses.indexOf(":");
+				courseInfo.add(coreqCourses.substring(index4 + 2));
+				
 				String offeredDays = br.readLine();
 				String next = br.readLine();
 				ArrayList<String> daysOffered = new ArrayList<String>();
@@ -444,20 +460,24 @@ public class RWTools {
 					days.append(",");
 				}
 				courseInfo.add(days.toString());
-				int index3 = next.indexOf(":");
-				courseInfo.add(next.substring(index3 + 2));
+				int index5 = next.indexOf(":");
+				courseInfo.add(next.substring(index5 + 2));
+				
 				String endTime = br.readLine();
-				int index4 = endTime.indexOf(":");
-				courseInfo.add(endTime.substring(index4 + 2));
+				int index6 = endTime.indexOf(":");
+				courseInfo.add(endTime.substring(index6 + 2));
+				
 				String courseCreds = br.readLine();
-				int index5 = courseCreds.indexOf(":");
-				courseInfo.add(courseCreds.substring(index5 +2));
+				int index7 = courseCreds.indexOf(":");
+				courseInfo.add(courseCreds.substring(index7 +2));
+				
 				String courseDescr = br.readLine();
-				int index6 = courseDescr.indexOf(":");
-				courseInfo.add(courseDescr.substring(index6 + 2));
+				int index8 = courseDescr.indexOf(":");
+				courseInfo.add(courseDescr.substring(index8 + 2));
+				
 				String courseProgram = br.readLine();
-				int index7 = courseProgram.indexOf(":");
-				courseInfo.add(courseProgram.substring(index7 + 2));
+				int index9 = courseProgram.indexOf(":");
+				courseInfo.add(courseProgram.substring(index9 + 2));
 				return courseInfo;
 			}
 		}
