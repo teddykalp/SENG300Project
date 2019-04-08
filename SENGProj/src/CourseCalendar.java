@@ -31,8 +31,11 @@ import java.awt.Canvas;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
+import java.util.Collections;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.border.LineBorder;
+import javax.swing.JScrollBar;
 
 
 
@@ -104,14 +107,14 @@ public class CourseCalendar extends JFrame {
 		JSeparator separator = new JSeparator();
 		
 		// text areas for all classes for a given program
-		// text area to display all first year classes
 		JTextArea txtrEnterCourses = new JTextArea();
-		txtrEnterCourses.setBounds(22, 351, 631, 481);
+		
+		txtrEnterCourses.setBounds(42, 351, 631, 499);
 		txtrEnterCourses.setBackground(new Color(245, 245, 245));
 		txtrEnterCourses.setWrapStyleWord(true);
 		txtrEnterCourses.setText("Enter courses here...");
 		txtrEnterCourses.setLineWrap(true);
-		txtrEnterCourses.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		txtrEnterCourses.setFont(new Font("Dialog", Font.PLAIN, 11));
 
 		// create an array that gets all the programs in the database
 		ArrayList progList = tool.getPrograms();
@@ -133,7 +136,7 @@ public class CourseCalendar extends JFrame {
 		
 		// program type label
 		JLabel lblDept = new JLabel("Department: ");
-		lblDept.setBounds(22, 239, 90, 18);
+		lblDept.setBounds(22, 241, 90, 18);
 		lblDept.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
 		
 		// program description label
@@ -161,29 +164,34 @@ public class CourseCalendar extends JFrame {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(22, 297, 850, 16);
 		
-		JLabel labelProgDesResult = new JLabel("");
+		// Program description result
+		JLabel labelProgDesResult = new JLabel("program description");
 		labelProgDesResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
-		labelProgDesResult.setBounds(168, 219, 152, 14);
+		labelProgDesResult.setBounds(158, 212, 152, 27);
 		contentPane.add(labelProgDesResult);
 		
-		JLabel labelDesResult = new JLabel("");
-		labelDesResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
-		labelDesResult.setBounds(108, 241, 327, 18);
-		contentPane.add(labelDesResult);
+		// Department result
+		JLabel labelDepResult = new JLabel("");
+		labelDepResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		labelDepResult.setBounds(108, 241, 327, 18);
+		contentPane.add(labelDepResult);
 		
-		JLabel labelProgDescResult = new JLabel("");
+		// Program Description Result
+		JLabel labelProgDescResult = new JLabel("program level");
 		labelProgDescResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
-		labelProgDescResult.setBounds(130, 267, 190, 18);
+		labelProgDescResult.setBounds(129, 266, 190, 18);
 		contentPane.add(labelProgDescResult);
 		
-		JLabel labelDeptResult = new JLabel("");
-		labelDeptResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
-		labelDeptResult.setBounds(570, 221, 170, 18);
-		contentPane.add(labelDeptResult);
+		// Program Type Result
+		JLabel labelProgTypeResult = new JLabel("");
+		labelProgTypeResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		labelProgTypeResult.setBounds(570, 221, 170, 18);
+		contentPane.add(labelProgTypeResult);
 		
+		// GPA Result
 		JLabel labelGPAResult = new JLabel("");
 		labelGPAResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
-		labelGPAResult.setBounds(570, 245, 190, 14);
+		labelGPAResult.setBounds(570, 241, 190, 18);
 		contentPane.add(labelGPAResult);
 		
 		//Program info text area
@@ -200,21 +208,22 @@ public class CourseCalendar extends JFrame {
 				
 				//get info from RW tools class
 				String selectedCourse = (String)selectProgComboBox.getSelectedItem();			
+				System.out.println("Selected course: " + selectedCourse);
 				
 				ArrayList programInfo = tool.getCourseCalProgramInfo(selectedCourse);
 				//System.out.println(programInfo.get(1));
 				
-				
+				// getting program info from the combo box and setting the fields based on selected program
 				for (int i = 0; i < programInfo.size(); i ++) {
-					System.out.println(programInfo.get(i));
+					//System.out.println("getting program info: " + programInfo.get(i));
 					if (i == 0) 
 						labelProgDesResult.setText((String) programInfo.get(i)); 
 					if (i == 1) 
-						labelDesResult.setText((String) programInfo.get(i)); 
+						labelDepResult.setText((String) programInfo.get(i)); 
 					if (i == 2) 
 						labelProgDescResult.setText((String) programInfo.get(i)); 
 					if (i == 3) 
-						labelDeptResult.setText((String) programInfo.get(i)); 
+						labelProgTypeResult.setText((String) programInfo.get(i)); 
 					if (i == 4) 
 						labelGPAResult.setText((String) programInfo.get(i)); 
 					
@@ -222,29 +231,39 @@ public class CourseCalendar extends JFrame {
 				
 				txtrEnterCourses.setText("");
 				String programCode = tool.getProgramCode((String)selectProgComboBox.getSelectedItem());
-				System.out.println("programCode " + programCode);
+				
+				//System.out.println("programCode " + programCode);
 			
 				
-				
+				// create an array list to get all courses based on selected program
 				ArrayList courses = tool.getCourseName(programCode);
+				String[] courseTemplate = {"Instructor: ", "Prequisites: ", "Days Offered: ", "Start Time: ", "Finish Time: ", "Course Credits: ", "Course Description: ", "Program: ", ""};
 				System.out.println("courses ArrayList: " + courses);
 				
-				for(int i = 0; i < courses.size(); i++) {
+				System.out.println("SORTED/FILTERED courses ArrayList: " + courses);
+
+				for(int i = 0; i < courses.size(); i+=2) {
 					txtrEnterCourses.append((String)courses.get(i) + "\n");
 					
 					// now we need to get course information for each course in courses array
-					System.out.println("courses " + courses);
+					System.out.println("1. Courses " + courses);
 					
 					///// NOT WORKING HERE !!!!!!!!!!
 					String courseIndex = (String) courses.get(i);
 					System.out.println("courseIndex " + courseIndex);
+				
 					ArrayList courseInfo = tool.getCalCourseInfo(courseIndex);
 					System.out.println("courseInfo ArrayList " + courseInfo);
 					System.out.println(courseInfo);
+					
+					
+					
 					for(int j = 0; j < courseInfo.size(); j++) {
+						txtrEnterCourses.append(courseTemplate[j] + " ");
+						txtrEnterCourses.append((String)courseInfo.get(j) + " \n");
 						
-						txtrEnterCourses.append((String)courseInfo.get(j) + "\n");
 					}
+					txtrEnterCourses.append("\n\n");
 				}
 				
 				

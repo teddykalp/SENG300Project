@@ -169,6 +169,7 @@ public class RWTools {
 	 */
 	
 	public ArrayList getCourseName(String programCode){
+		System.out.println("Program code: " + programCode);
 		ArrayList courses = new ArrayList<String>();
 		File file = new File("courseDB.txt");
 		try{
@@ -189,6 +190,7 @@ public class RWTools {
 			System.out.println("File not found");
 		}
 		
+		System.out.println("getCourseName courses ArrayList: " + courses);
 		return courses;
 	}
 	
@@ -366,7 +368,7 @@ public class RWTools {
 				}
 			}
 		}catch(IOException E){
-			System.out.println("FIle not found");
+			System.out.println("File not found");
 		}
 		
 		
@@ -497,7 +499,7 @@ public class RWTools {
 	
 	public ArrayList getCourseInfo(String course)
 	{
-		System.out.println(course);
+		System.out.println("course string" + course);
 		
 		ArrayList courseInfo = new ArrayList<String>();
 		File file = new File("courseDB.txt");
@@ -573,10 +575,10 @@ public class RWTools {
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		String line;
+//		br.readLine();
 		while ((line = br.readLine()) != null){
 			System.out.println(line);
-			if (line.contains("COURSE NAME:" + course)){
-				System.out.println("sos");
+			if (line.contains("COURSE CODE:" + course)){
 				String courseCode = br.readLine();
 				int index = courseCode.indexOf(":");
 				courseInfo.add(courseCode.substring(index + 2));
@@ -587,7 +589,9 @@ public class RWTools {
 				int index2 = prereqCourses.indexOf(":");
 				courseInfo.add(prereqCourses.substring(index2 + 2));
 				String offeredDays = br.readLine();
+				System.out.println("offeredDays: " + offeredDays);
 				String next = br.readLine();
+				System.out.println("next String: " + next);
 				ArrayList<String> daysOffered = new ArrayList<String>();
 				while(next.contains("day") )
 				{
@@ -615,7 +619,6 @@ public class RWTools {
 				int index7 = courseProgram.indexOf(":");
 				courseInfo.add(courseProgram.substring(index7 + 2));
 				
-				System.out.println("FUCK ME " + courseInfo);
 				return courseInfo;
 			}
 		}
