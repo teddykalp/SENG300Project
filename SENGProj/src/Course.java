@@ -15,6 +15,8 @@ public class Course {
 	private Program program;
 	private String instructor;
 	private String prerequisite;
+	private String antirequisite;
+	private String corequisite;
 	private String daysOffered;
 	private String timeSlot;
 	private double credits;
@@ -33,6 +35,8 @@ public class Course {
 	* @param	program		sets program
 	* @param	instructor	sets instructor name
 	* @param	prerequisite	sets prerequisite courses
+	* @param	antirequisite	sets antirequisite courses
+	* @param	corequisite	sets corequisite courses
 	* @param	daysOffered	sets daysOffered from user selection (Mon, Tues, Wed, Thur, Fri)
 	* @param	timeslot	gets StartTime and FinishTime for course
 	* @param	credits		gets course credits
@@ -40,8 +44,8 @@ public class Course {
 	* @return 	N/A
 	*/
 	
-	public Course(String name, int level, int id, Program program, String instructor, String prerequisite, String daysOffered,
-			String timeSlot, double credits, String description)
+	public Course(String name, int level, int id, Program program, String instructor, String prerequisite, String antirequisite,
+		      String corequisite, String daysOffered, String timeSlot, double credits, String description)
 	{
 		setName(name);
 		setLevel(level);
@@ -49,6 +53,8 @@ public class Course {
 		setProgram(program);
 		setInstructor(instructor);
 		setPrerequisite(prerequisite);
+		setAntirequisite(antirequisite);
+		setCorequisite(prerequisite);
 		setDaysOffered(daysOffered);
 		setTimeSlot(timeSlot);
 		setCredits(credits);
@@ -62,6 +68,8 @@ public class Course {
 		this.program = c.program;
 		this.instructor = c.instructor;
 		this.prerequisite = c.prerequisite;
+		this.antirequisite = c.antirequisite;
+		this.corequisite = c.corequisite;
 		this.daysOffered = c.daysOffered;
 		this.timeSlot = c.timeSlot;
 		this.credits = c.credits;
@@ -140,6 +148,30 @@ public class Course {
 		return prerequisite;
 	}
 	
+	// sets antirequisite
+	public void setAntirequisite(String antirequisite)
+	{
+		this.antirequisite = antirequisite;
+	}
+	
+	// gets antirequisite
+	public String getAntirequisite()
+	{
+		return antirequisite;
+	}
+	
+	// sets corequisite
+	public void setAntirequisite(String antirequisite)
+	{
+		this.antirequisite = antirequisite;
+	}
+	
+	// gets corequisite
+	public String getAntirequisite()
+	{
+		return antirequisite;
+	}
+	
 	// sets daysOffered
 	public void setDaysOffered(String daysOffered)
 	{
@@ -207,6 +239,7 @@ public class Course {
 		setCourseName(name, id);
 		return "Course: " + coursename + "\n" + "Level: " + level + "\n" + "Program: " + program + "\n" + 
 				"Instructor: " + instructor + "\n" + "Prerequisite(s): " + prerequisite + "\n" + 
+				"Antirequisite(s): " + antirequisite + "\n" + "Corequisite(s): " + corequisite + "\n" + 
 				"Days Offered: " + daysOffered + "\n" + "Time Slot: " + timeSlot + "\n" + "Credits: " + credits +
 				"\n" + "Description:" + description + "\n";
 	}
