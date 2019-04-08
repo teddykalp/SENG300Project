@@ -232,24 +232,67 @@ class StaffRegister extends JPanel{
        
         AddStaff = new JButton("Add Staff");
 	AddStaff.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent arg0) {
-			if(!passWord.getText().equals(confirmPass.getText())){
-				passError.setText("Passwords do not match");
-				confirmError.setText("Passwords do not match");
+			public void actionPerformed(ActionEvent arg0) {
+				// Error Handlers 
+				// If the user does not enter a first or last name
+				if((firstName.getText().isEmpty()) || (lastName.getText().isEmpty())){
+					inputError.setText("Please Enter Your Full Name");
+				}
+				//If the email address is not valid
+				else if(userEmail.getText().isEmpty() || (!userEmail.getText().contains("@"))){
+					inputError.setText("Please enter Valid Email");
+				}
+				//if the user does not select a type of staff
+				else if((!rdbtnDH.isSelected()) && (!rdbtnInstructor.isSelected()) && (!rdbtnTeachingAssistant.isSelected())){
+					inputError.setText("Please select the type of staff");
+				}
+				//if the user enters a blank user name
+				else if(userID.getText().isEmpty()){
+					inputError.setText("Please enter a valid username");
+				}
+				//if the user enters a user name that is already taken
+				else if(tool.userFound(userID.getText())){
+					inputError.setText("User name is already taken");
+				}
+				// if the password entered is empty
+				else if(passWord.getText().isEmpty()){
+					inputError.setText("Please enter valid password");
+				}
+				//if the passwords don't match
+				else if(!passWord.getText().equals(confirmPass.getText())){
+					inputError.setText("Passwords do not match");
+				}
+				//write to the database if no errors
+				else{
+					// if the user is a department head
+					if(rdbtnDH.isSelected()){
+						tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), userEmail.getText(), 
+								mailingAddress.getText(), (String)comboDepartment.getSelectedItem(), "Department Head", phoneNumber.getText());
+						setVisible(false);
+						CardLayout tologin = (CardLayout) contentPane.getLayout();
+						tologin.show(contentPane, "log");
+					}
+					// if the user is an instructor
+					else if(rdbtnInstructor.isSelected()){
+						tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), userEmail.getText(), 
+								mailingAddress.getText(), (String)comboDepartment.getSelectedItem(), "Instructor", phoneNumber.getText());
+						setVisible(false);
+						CardLayout tologin = (CardLayout) contentPane.getLayout();
+						tologin.show(contentPane, "log");
+					}
+					// if the user is a Teaching Assistant
+					else{
+						tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), userEmail.getText(), 
+								mailingAddress.getText(), (String)comboDepartment.getSelectedItem(), "Teaching Assistant", phoneNumber.getText());
+						setVisible(false);
+						CardLayout tologin = (CardLayout) contentPane.getLayout();
+						tologin.show(contentPane, "log");
+					}
+				}
 			}
-			if(passWord.getText().isEmpty()){
-				passError.setText("Please enter valid password");
-			}
-			else{
-			tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText());
-			setVisible(false);
-			CardLayout tologin = (CardLayout) contentPane.getLayout();
-			tologin.show(contentPane, "log");
-			}
-		}
-	});
-        
-	AddStaff.setFont(new Font("Tahoma", Font.BOLD, 15));
+		});
+	
+        AddStaff.setFont(new Font("Tahoma", Font.BOLD, 15));
 	AddStaff.setBounds(600,900,230,50);
 	p1.add(AddStaff);
 	
