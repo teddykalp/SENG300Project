@@ -190,7 +190,7 @@ public class RWTools {
 			System.out.println("File not found");
 		}
 		
-		System.out.println("getCourseName courses ArrayList: " + courses);
+//		System.out.println("getCourseName courses ArrayList: " + courses);
 		return courses;
 	}
 	
@@ -499,7 +499,7 @@ public class RWTools {
 	
 	public ArrayList getCourseInfo(String course)
 	{
-		System.out.println("course string" + course);
+//		System.out.println("course string" + course);
 		
 		ArrayList courseInfo = new ArrayList<String>();
 		File file = new File("courseDB.txt");
@@ -547,7 +547,7 @@ public class RWTools {
 				int index7 = courseProgram.indexOf(":");
 				courseInfo.add(courseProgram.substring(index7 + 2));
 				
-				System.out.println(courseInfo);
+//				System.out.println(courseInfo);
 				return courseInfo;
 			}
 		}
@@ -557,87 +557,6 @@ public class RWTools {
 		}
 		return null;
 	}
-	
-	
-	
-	/*
-	 * Get course info to display
-	 * to users to the GUI
-	 */
-	
-	public ArrayList getCalCourseInfo(String course)
-	{
-		System.out.println("test " + course);
-		
-		ArrayList courseInfo = new ArrayList<String>();
-		File file = new File("courseDB.txt");
-		try{
-		FileReader fr = new FileReader(file);
-		BufferedReader br = new BufferedReader(fr);
-		String line;
-//		br.readLine();
-		while ((line = br.readLine()) != null){
-			System.out.println(line);
-			if (line.contains("COURSE CODE:" + course)){
-				String courseCode = br.readLine();
-				int index = courseCode.indexOf(":");
-				courseInfo.add(courseCode.substring(index + 2));
-				
-				String courseInstr = br.readLine();
-				int index1 = courseInstr.indexOf(":");
-				courseInfo.add(courseInstr.substring(index1 + 2));
-				
-				String prereqCourses = br.readLine();
-				int index2 = prereqCourses.indexOf(":");
-				courseInfo.add(prereqCourses.substring(index2 + 2));
-				
-				String offeredDays = br.readLine();
-				System.out.println("offeredDays: " + offeredDays);
-				
-				String next = br.readLine();
-				System.out.println("next String: " + next);
-				ArrayList<String> daysOffered = new ArrayList<String>();
-				while(next.contains("day") )
-				{
-					daysOffered.add(next);
-					next = br.readLine();
-				}
-				StringBuilder days = new StringBuilder();
-				for (String st : daysOffered) {
-					days.append(st);
-					days.append(",");
-				}
-				courseInfo.add(days.toString());
-				int index3 = next.indexOf(":");
-				courseInfo.add(next.substring(index3 + 2));
-
-				String endTime = br.readLine();
-				int index4 = endTime.indexOf(":");
-				courseInfo.add(endTime.substring(index4 + 2));
-				
-				String courseCreds = br.readLine();
-				int index5 = courseCreds.indexOf(":");
-				
-				courseInfo.add(courseCreds.substring(index5 +2));
-				String courseDescr = br.readLine();
-				int index6 = courseDescr.indexOf(":");
-				courseInfo.add(courseDescr.substring(index6 + 2));
-				
-				String courseProgram = br.readLine();
-				int index7 = courseProgram.indexOf(":");
-				courseInfo.add(courseProgram.substring(index7 + 2));
-				
-				return courseInfo;
-			}
-		}
-		}
-		catch(IOException f){
-			System.out.print("File not found");
-		}
-		return null;
-	}
-	
-	
 	
 	
 	
@@ -698,7 +617,7 @@ public class RWTools {
 	
 	public ArrayList getProgramInfo(String program) {
 		
-		System.out.println(program);
+//		System.out.println(program);
 		
 		ArrayList programInfo = new ArrayList<String>();
 		File file = new File("programDB.txt");
@@ -742,45 +661,7 @@ public class RWTools {
 	}
 	
 	
-public ArrayList getCourseCalProgramInfo(String program) {
-				
-		ArrayList programInfo = new ArrayList<String>();
-		File file = new File("programDB.txt");
-		try{
-			FileReader fr = new FileReader(file);
-			BufferedReader br = new BufferedReader(fr);
-			String line;
-			while ((line = br.readLine()) != null) {
-				if (line.contains("PROGRAM NAME: " + program)) {
-					String programCode = br.readLine();
-					int index = programCode.indexOf(":");
-					programInfo.add(programCode.substring(index + 2));
-					
-					String programDesc = br.readLine();
-					int index1 = programDesc.indexOf(":");
-					programInfo.add(programDesc.substring(index1 + 2));
-					
-					String programDep = br.readLine();
-					int index2 = programDep.indexOf(":");
-					programInfo.add(programDep.substring(index2 + 2));
-					
-					String programLvl = br.readLine();
-					int index3 = programLvl.indexOf(":");
-					programInfo.add(programLvl.substring(index3 + 2));
-					
-					String programType = br.readLine();
-					int index4 = programType.indexOf(":");
-					programInfo.add(programType.substring(index4 + 2));
-									
-					return programInfo;
-				}
-			}
-		}
-		catch(IOException f){
-			System.out.print("File not found");
-		}
-		return null;
-	}
+
 	/*
 	 * Edits program info from user input in GUI
 	 */
