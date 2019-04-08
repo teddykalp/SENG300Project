@@ -142,12 +142,12 @@ public class mainMenuForm extends JFrame {
 		btnLogout.setBounds(217, 310, 141, 35);
 		getContentPane().add(btnLogout);
 		
-		JLabel lblNewLabel_1 = new JLabel(" ");
-		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
-		img = img.getScaledInstance(180, 170, 0);
-		lblNewLabel_1.setIcon(new ImageIcon(img));
-		lblNewLabel_1.setBounds(395, 415, 192, 131);
-		getContentPane().add(lblNewLabel_1);
+//		JLabel lblNewLabel_1 = new JLabel(" ");
+//		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
+//		img = img.getScaledInstance(180, 170, 0);
+//		lblNewLabel_1.setIcon(new ImageIcon(img));
+//		lblNewLabel_1.setBounds(395, 415, 192, 131);
+//		getContentPane().add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("Add Program");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -179,6 +179,13 @@ public class mainMenuForm extends JFrame {
 		getContentPane().add(btnNewButton_1);
 		
 		JButton btnEditProgram = new JButton("Edit Program");
+		btnEditProgram.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				editProgram edit = new editProgram(user);
+				edit.setVisible(true);
+			}
+		});
 		btnEditProgram.setForeground(new Color(0, 0, 0));
 		btnEditProgram.setBackground(Color.WHITE);
 		btnEditProgram.setFont(new Font("Tahoma", Font.BOLD, 16));

@@ -93,7 +93,9 @@ public class courseDisplay extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				courseDisplay.setText("");
 				String programCode = tool.getProgramCode((String)programsSelect.getSelectedItem());
+				System.out.println(programCode);
 				ArrayList course = tool.getCourseName(programCode);
+				System.out.println(course);
 				for (int x = 0; x < course.size(); x++){
 					courseDisplay.append((String)course.get(x) + "\n");
 				}

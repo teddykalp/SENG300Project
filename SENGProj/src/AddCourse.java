@@ -125,7 +125,7 @@ public class AddCourse extends JFrame {
 		getContentPane().add(lblCourseId);
 		
 		// Adds prerequisite label
-		JLabel lblInstructor = new JLabel("<html><p>Prerequisite \r\nCourses (Seperate courses with a comma)<p><html>");
+		JLabel lblInstructor = new JLabel("<html><p>Prerequisite \r\nCourses (Separate courses with a comma)<p><html>");
 		lblInstructor.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblInstructor.setBounds(21, 265, 157, 51);
 		getContentPane().add(lblInstructor);

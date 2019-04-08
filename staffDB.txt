@@ -16,3 +16,12 @@ EMAIL ADDRESS: bob@fu.ca
 MAILING ADDRESS: 15 yemen road yemen
 DEPARTMENT: null
 STAFF TYPE: Department Head
+
+FULL NAME: g g
+USER ID: gg
+Password: 123
+PHONE NUMBER: 
+EMAIL ADDRESS: @
+MAILING ADDRESS: 
+DEPARTMENT: null
+STAFF TYPE: Department Head

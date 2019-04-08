@@ -38,6 +38,7 @@ public class LoginForm extends JFrame{
 	private String user = "Bob";
 	private String pass = "password";
 	private staffRegister staff;
+	private CourseCalendar courseCal;
 	private RWTools tool = new RWTools();
 	
 
@@ -123,7 +124,7 @@ public class LoginForm extends JFrame{
 				if (pass.isEmpty()){
 					loginError.setText("Please enter username/password");
 				}
-				// When user is authenticated they get access to main menu page
+				// When user is authenticated they get acccess to main menu page
 				if (tool.verifyUser(userID.getText(), pass)){
 					setVisible(false);
 					mainMenuForm menu = new mainMenuForm(userID.getText());
@@ -158,8 +159,17 @@ public class LoginForm extends JFrame{
 		JButton studentBtn = new JButton("Student?");
 		studentBtn.setBounds(409, 312, 117, 29);
 		studentBtn.setForeground(Color.BLACK);
+		studentBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				courseCal = new CourseCalendar();
+				courseCal.setVisible(true);
+			}
+		});
 		studentBtn.setFont(new Font("Tekton Pro", Font.PLAIN, 16));
 		studentBtn.setBackground(new Color(255, 204, 204));
+		
+		
 		
 		JLabel lblPleaseEnterYour = new JLabel("Please Enter your UserID and Password");
 		lblPleaseEnterYour.setBounds(186, 85, 250, 18);

@@ -8,6 +8,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="/SENGProj/jgoodies-forms-1.8.0-sources.jar"/>
-	<classpathentry kind="lib" path="/SENGProj/jgoodies-forms-1.8.0.jar" sourcepath="/SENGProj/jgoodies-forms-1.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="/SENGProj/jgoodies-forms-1.8.0.jar"/>
 	<classpathentry kind="output" path="SENGProj/bin"/>
 </classpath>

@@ -84,6 +84,7 @@ public class AddProgram extends JFrame {
 		// Takes user input for program name
 		// Attributes for text area
 		programName = new JTextArea();
+		programName.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		programName.setBounds(185, 66, 186, 27);
 		contentPane.add(programName);
 		programName.setColumns(10);
@@ -91,7 +92,7 @@ public class AddProgram extends JFrame {
 		// Takes user input for program description
 		// Attributes for text area
 		programDesc = new JTextArea();
-		programDesc.setFont(new Font("Monospaced", Font.PLAIN, 11));
+		programDesc.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 		programDesc.setBounds(185, 114, 238, 84);
 		programDesc.setLineWrap(true);
 		contentPane.add(programDesc);
@@ -114,7 +115,7 @@ public class AddProgram extends JFrame {
 		programLvl.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		programLvl.setModel(new DefaultComboBoxModel(new String[] {"None", "Bachelor's", "Master's", "PhD"}));
 		programLvl.setBounds(185, 325, 186, 26);
-		programLvl.setEnabled(false);
+		programLvl.setEnabled(true);
 		contentPane.add(programLvl);
 		
 		// Type of Program label attributes
@@ -128,7 +129,7 @@ public class AddProgram extends JFrame {
 		programType.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		programType.setModel(new DefaultComboBoxModel(new String[] {"None", "Science", "Arts", "Other"}));
 		programType.setBounds(185, 372, 186, 26);
-		programType.setEnabled(false);
+		programType.setEnabled(true);
 		contentPane.add(programType);
 		
 		// Required GPA label attributes
@@ -153,15 +154,15 @@ public class AddProgram extends JFrame {
 				// Checks if program added is a diploma program (checked)
 				if (chckDiplomaProgram.isSelected()) {
 					// Sets program level and type for diploma program
-					programLvl.setEnabled(true);
-					programType.setEnabled(true);
+					programLvl.setEnabled(false);
+					programType.setEnabled(false);
 				}
 				// For non-diploma programs
 				else
 				{
 					// Sets program level and type for program
-					programLvl.setEnabled(false);
-					programType.setEnabled(false);
+					programLvl.setEnabled(true);
+					programType.setEnabled(true);
 				}
 			}
 		});
@@ -169,6 +170,7 @@ public class AddProgram extends JFrame {
 		
 		// Takes user input for requiredGPA
 		JTextArea reqGPA = new JTextArea();
+		reqGPA.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		reqGPA.setBounds(185, 423, 186, 26);
 		contentPane.add(reqGPA);
 		
@@ -210,6 +212,7 @@ public class AddProgram extends JFrame {
 		contentPane.add(lblProgramCode);
 		
 		JTextArea programCode = new JTextArea();
+		programCode.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 		programCode.setColumns(10);
 		programCode.setBounds(185, 219, 186, 27);
 		contentPane.add(programCode);

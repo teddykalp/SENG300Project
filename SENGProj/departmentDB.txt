@@ -1,4 +1,23 @@
 DEPARTMENT NAME: Math
-DEPARTMENT DESCRIPTION: Mathematical studies
-DEPARTMENT CODE: 23231
-	
+DEPARTMENT DESCRIPTION: The study of creating art
+DEPARTMENT CODE: 10101
+
+DEPARTMENT NAME: Art
+DEPARTMENT DESCRIPTION: This department is for artistic design
+DEPARTMENT CODE: 11111
+
+DEPARTMENT NAME: Botany
+DEPARTMENT DESCRIPTION: Anything that has anything to with plants belongs here
+DEPARTMENT CODE: 420420
+
+DEPARTMENT NAME: Chemistry
+DEPARTMENT DESCRIPTION: Atoms and stuff
+DEPARTMENT CODE: 91119
+
+DEPARTMENT NAME: Communication and Media
+DEPARTMENT DESCRIPTION: If you like to talk about movies, this is the department for you	
+DEPARTMENT CODE: 000011
+
+DEPARTMENT NAME: Computer Science
+DEPARTMENT DESCRIPTION: Math and computers, what else is better
+DEPARTMENT CODE: 314151

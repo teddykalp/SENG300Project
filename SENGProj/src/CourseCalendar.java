@@ -32,6 +32,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.border.LineBorder;
 
 
 
@@ -104,40 +105,13 @@ public class CourseCalendar extends JFrame {
 		
 		// text areas for all classes for a given program
 		// text area to display all first year classes
-		JTextArea txtrEnterYear1 = new JTextArea();
-		txtrEnterYear1.setBounds(22, 387, 172, 480);
-		txtrEnterYear1.setBackground(new Color(245, 245, 245));
-		txtrEnterYear1.setWrapStyleWord(true);
-		txtrEnterYear1.setText("Enter first year courses here...");
-		txtrEnterYear1.setLineWrap(true);
-		txtrEnterYear1.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
-
-		// text area to display all second year classes
-		JTextArea txtrEnterYear2 = new JTextArea();
-		txtrEnterYear2.setBounds(240, 387, 172, 480);
-		txtrEnterYear2.setBackground(new Color(245, 245, 245));
-		txtrEnterYear2.setWrapStyleWord(true);
-		txtrEnterYear2.setLineWrap(true);
-		txtrEnterYear2.setText("Enter second year courses here...");
-		txtrEnterYear2.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
-
-		// text area to display all third year classes		
-		JTextArea txtrEnterYear3 = new JTextArea();
-		txtrEnterYear3.setBounds(466, 387, 172, 480);
-		txtrEnterYear3.setBackground(new Color(245, 245, 245));
-		txtrEnterYear3.setWrapStyleWord(true);
-		txtrEnterYear3.setLineWrap(true);
-		txtrEnterYear3.setText("Enter third year courses here...");
-		txtrEnterYear3.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
-
-		// text area to display all fourth year classes		
-		JTextArea txtrEnterYear4 = new JTextArea();
-		txtrEnterYear4.setBounds(700, 387, 172, 480);
-		txtrEnterYear4.setBackground(new Color(245, 245, 245));
-		txtrEnterYear4.setWrapStyleWord(true);
-		txtrEnterYear4.setLineWrap(true);
-		txtrEnterYear4.setText("Enter fourth year courses here...");
-		txtrEnterYear4.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
+		JTextArea txtrEnterCourses = new JTextArea();
+		txtrEnterCourses.setBounds(22, 351, 631, 481);
+		txtrEnterCourses.setBackground(new Color(245, 245, 245));
+		txtrEnterCourses.setWrapStyleWord(true);
+		txtrEnterCourses.setText("Enter courses here...");
+		txtrEnterCourses.setLineWrap(true);
+		txtrEnterCourses.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
 
 		// create an array that gets all the programs in the database
 		ArrayList progList = tool.getPrograms();
@@ -151,65 +125,30 @@ public class CourseCalendar extends JFrame {
 		selectProgComboBox.setModel(new DefaultComboBoxModel(programs));
 		selectProgComboBox.setBounds(148, 167, 255, 27);
 		selectProgComboBox.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
-
-		// label for first year classes
-		JLabel lblFirstYear = new JLabel("First Year");
-		lblFirstYear.setBounds(22, 357, 152, 24);
-		lblFirstYear.setHorizontalAlignment(SwingConstants.LEFT);
-		lblFirstYear.setForeground(new Color(105, 105, 105));
-		lblFirstYear.setFont(new Font("Helvetica Neue", Font.BOLD, 16));
-		
-		// label for second year classes
-		JLabel lblSecondYear = new JLabel("Second Year");
-		lblSecondYear.setBounds(240, 357, 152, 24);
-		lblSecondYear.setHorizontalAlignment(SwingConstants.LEFT);
-		lblSecondYear.setForeground(new Color(105, 105, 105));
-		lblSecondYear.setFont(new Font("Helvetica Neue", Font.BOLD, 16));
-		
-		// label for third year classes
-		JLabel lblThirdYear = new JLabel("Third Year");
-		lblThirdYear.setBounds(466, 357, 152, 24);
-		lblThirdYear.setHorizontalAlignment(SwingConstants.LEFT);
-		lblThirdYear.setForeground(new Color(105, 105, 105));
-		lblThirdYear.setFont(new Font("Helvetica Neue", Font.BOLD, 16));
-		
-		// label for fourth year classes
-		JLabel lblFourthYear = new JLabel("Fourth Year");
-		lblFourthYear.setBounds(700, 357, 152, 24);
-		lblFourthYear.setHorizontalAlignment(SwingConstants.LEFT);
-		lblFourthYear.setForeground(new Color(105, 105, 105));
-		lblFourthYear.setFont(new Font("Helvetica Neue", Font.BOLD, 16));
-
-
-		// labels for given program
-		// program name label
-		JLabel lblProgram = new JLabel("Program Name: ");
-		lblProgram.setBounds(22, 213, 124, 18);
-		lblProgram.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
 		
 		// program level label
-		JLabel lblProgramLevel = new JLabel("Program Level: ");
-		lblProgramLevel.setBounds(22, 237, 124, 18);
-		lblProgramLevel.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		JLabel lblProgramDes = new JLabel("Program Description:");
+		lblProgramDes.setBounds(22, 215, 141, 18);
+		lblProgramDes.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
 		
 		// program type label
-		JLabel lblProgramType = new JLabel("Program Type: ");
-		lblProgramType.setBounds(22, 261, 124, 18);
-		lblProgramType.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		JLabel lblDept = new JLabel("Department: ");
+		lblDept.setBounds(22, 239, 90, 18);
+		lblDept.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
 		
 		// program description label
-		JLabel lblProgramDescription = new JLabel("Program Description: ");
-		lblProgramDescription.setBounds(466, 213, 152, 18);
-		lblProgramDescription.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		JLabel lblProgramLvl = new JLabel("Program Level: ");
+		lblProgramLvl.setBounds(22, 266, 114, 18);
+		lblProgramLvl.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
 		
 		// department label
-		JLabel lblDepartment = new JLabel("Department: ");
-		lblDepartment.setBounds(466, 237, 152, 18);
-		lblDepartment.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		JLabel lblProgType = new JLabel("Program Type: ");
+		lblProgType.setBounds(466, 219, 99, 18);
+		lblProgType.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
 		
 		// required gpa label
 		JLabel lblRequiredGpa = new JLabel("Required GPA: ");
-		lblRequiredGpa.setBounds(466, 261, 152, 18);
+		lblRequiredGpa.setBounds(466, 243, 99, 18);
 		lblRequiredGpa.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
 		
 		// sub-heading label
@@ -222,67 +161,95 @@ public class CourseCalendar extends JFrame {
 		JSeparator separator_1 = new JSeparator();
 		separator_1.setBounds(22, 297, 850, 16);
 		
+		JLabel labelProgDesResult = new JLabel("");
+		labelProgDesResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		labelProgDesResult.setBounds(168, 219, 152, 14);
+		contentPane.add(labelProgDesResult);
 		
-		// display all the info on ui
+		JLabel labelDesResult = new JLabel("");
+		labelDesResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		labelDesResult.setBounds(108, 241, 327, 18);
+		contentPane.add(labelDesResult);
+		
+		JLabel labelProgDescResult = new JLabel("");
+		labelProgDescResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		labelProgDescResult.setBounds(130, 267, 190, 18);
+		contentPane.add(labelProgDescResult);
+		
+		JLabel labelDeptResult = new JLabel("");
+		labelDeptResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		labelDeptResult.setBounds(570, 221, 170, 18);
+		contentPane.add(labelDeptResult);
+		
+		JLabel labelGPAResult = new JLabel("");
+		labelGPAResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		labelGPAResult.setBounds(570, 245, 190, 14);
+		contentPane.add(labelGPAResult);
+		
+		//Program info text area
+//		JTextArea programInfoArea = new JTextArea();
+//		programInfoArea.setBounds(22,213,300,200);
+//		programInfoArea.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
+		
+		
+		// display all the info on user interface
 		JButton btnGoButton = new JButton("Go");
 		btnGoButton.setBounds(408, 166, 58, 29);
 		btnGoButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				//get info from RW tools class
+				String selectedCourse = (String)selectProgComboBox.getSelectedItem();			
 				
-//				
-//				ArrayList courseInfo = tool.getCourseInfo((String)coursesSelect.getSelectedItem());
-//				String courseCode = ((String)courseInfo.get(0));
-//				StringBuilder prgCode = new StringBuilder();
-//				String level = "";
-//				StringBuilder courseNum = new StringBuilder();
-//				for (int i = 0; i < courseCode.length(); i++)
-//				{
-//					if(i < 4) {
-//						prgCode.append(courseCode.charAt(i));
-//					}
-//					else if(i == 4) { level = "" + courseCode.charAt(i); }
-//					else { courseNum.append(courseCode.charAt(i)); }
-//				}
-//				String codes;
-//				int index = -1;
-//				for(int j = 0; j < (tool.getPrograms()).size(); j++) {
-//					codes = (tool.getProgramCode((String)tool.getPrograms().get(j)));
-//					if(codes.equals(prgCode.toString()))
-//					{
-//						index = j;
-//					}
-//				}
-//				
-//				programBox.setSelectedIndex(index);
-//				courseName.setText((String)coursesSelect.getSelectedItem());
-//				courseLvl.setText(level);
-//				courseID.setText(courseNum.toString());
-//				courseInstructor.setText((String)courseInfo.get(1));
-//				coursePreReq.setText((String)courseInfo.get(2));
-//				daysOffered.setText((String)courseInfo.get(3));
-//				startTime.setText((String)courseInfo.get(4));
-//				finishTime.setText((String)courseInfo.get(5));
-//				courseCredit.setText((String)courseInfo.get(6));
-//				courseDesc.setText((String)courseInfo.get(7));		
+				ArrayList programInfo = tool.getCourseCalProgramInfo(selectedCourse);
+				//System.out.println(programInfo.get(1));
 				
 				
-				
-				
-				
-				
-				
-				
-				System.out.println("Go button clicked");
-				txtrEnterYear1.setText("1");
-				txtrEnterYear2.setText("2");
-				txtrEnterYear3.setText("3");
-				txtrEnterYear4.setText("4");
-				ArrayList course = tool.getCourseName((String) selectProgComboBox.getSelectedItem());
-				for (int i = 0; i < course.size(); i++) {
-					txtrEnterYear1.append((String)course.get(i) + "\n");
-				}
+				for (int i = 0; i < programInfo.size(); i ++) {
+					System.out.println(programInfo.get(i));
+					if (i == 0) 
+						labelProgDesResult.setText((String) programInfo.get(i)); 
+					if (i == 1) 
+						labelDesResult.setText((String) programInfo.get(i)); 
+					if (i == 2) 
+						labelProgDescResult.setText((String) programInfo.get(i)); 
+					if (i == 3) 
+						labelDeptResult.setText((String) programInfo.get(i)); 
+					if (i == 4) 
+						labelGPAResult.setText((String) programInfo.get(i)); 
 					
+				}
+				
+				txtrEnterCourses.setText("");
+				String programCode = tool.getProgramCode((String)selectProgComboBox.getSelectedItem());
+				System.out.println("programCode " + programCode);
+			
+				
+				
+				ArrayList courses = tool.getCourseName(programCode);
+				System.out.println("courses ArrayList: " + courses);
+				
+				for(int i = 0; i < courses.size(); i++) {
+					txtrEnterCourses.append((String)courses.get(i) + "\n");
+					
+					// now we need to get course information for each course in courses array
+					System.out.println("courses " + courses);
+					
+					///// NOT WORKING HERE !!!!!!!!!!
+					String courseIndex = (String) courses.get(i);
+					System.out.println("courseIndex " + courseIndex);
+					ArrayList courseInfo = tool.getCalCourseInfo(courseIndex);
+					System.out.println("courseInfo ArrayList " + courseInfo);
+					System.out.println(courseInfo);
+					for(int j = 0; j < courseInfo.size(); j++) {
+						
+						txtrEnterCourses.append((String)courseInfo.get(j) + "\n");
+					}
+				}
+				
+				
+				
+				
 			}
 		});
 		btnGoButton.setFont(new Font("Helvetica Neue", Font.PLAIN, 13));
@@ -294,21 +261,20 @@ public class CourseCalendar extends JFrame {
 		contentPane.add(selectProgLabel);
 		contentPane.add(lblRequiredCourses);
 		contentPane.add(separator_1);
-		contentPane.add(lblFirstYear);
-		contentPane.add(txtrEnterYear1);
-		contentPane.add(lblSecondYear);
-		contentPane.add(txtrEnterYear2);
-		contentPane.add(txtrEnterYear3);
-		contentPane.add(lblThirdYear);
-		contentPane.add(lblFourthYear);
-		contentPane.add(txtrEnterYear4);
-		contentPane.add(lblProgram);
-		contentPane.add(lblProgramLevel);
-		contentPane.add(lblProgramType);
+		contentPane.add(txtrEnterCourses);
+		contentPane.add(lblProgramDes);
+		contentPane.add(lblDept);
 		contentPane.add(lblRequiredGpa);
-		contentPane.add(lblDepartment);
-		contentPane.add(lblProgramDescription);
+		contentPane.add(lblProgType);
+		contentPane.add(lblProgramLvl);
+//		contentPane.add(programInfoArea);
 		contentPane.add(titleLabel);
+		
+		JList list = new JList();
+		list.setBackground(Color.LIGHT_GRAY);
+		list.setBounds(345, 644, -255, -243);
+		contentPane.add(list);
+
 		
 	}
 }

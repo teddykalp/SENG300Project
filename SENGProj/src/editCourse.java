@@ -111,10 +111,10 @@ public class editCourse extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
-		JLabel lblAddCourse = new JLabel("Edit Course");
-		lblAddCourse.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblAddCourse.setBounds(221, 16, 165, 26);
-		getContentPane().add(lblAddCourse);
+		JLabel lblEditCourse = new JLabel("Edit Course");
+		lblEditCourse.setFont(new Font("Times New Roman", Font.BOLD, 19));
+		lblEditCourse.setBounds(221, 16, 165, 26);
+		getContentPane().add(lblEditCourse);
 		
 		JLabel lblNewLabel = new JLabel("Course Level");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -406,18 +406,18 @@ public class editCourse extends JFrame {
 		btnSaveCourse.setBounds(221, 731, 157, 35);
 		getContentPane().add(btnSaveCourse);
 		
-		JButton btnGoBack = new JButton("Cancel");
-		btnGoBack.setForeground(Color.BLACK);
-		btnGoBack.addActionListener(new ActionListener() {
+		JButton btnCancel = new JButton("Cancel");
+		btnCancel.setForeground(Color.BLACK);
+		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				menu = new mainMenuForm(user);
 				menu.setVisible(true);
 			}
 		});
-		btnGoBack.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnGoBack.setBounds(438, 21, 157, 35);
-		getContentPane().add(btnGoBack);
+		btnCancel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnCancel.setBounds(438, 21, 157, 35);
+		getContentPane().add(btnCancel);
 		
 		
 		
