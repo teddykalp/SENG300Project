@@ -144,12 +144,12 @@ public class mainMenuForm extends JFrame {
 		btnLogout.setBounds(217, 310, 141, 35);
 		getContentPane().add(btnLogout);
 		
-		JLabel lblNewLabel_1 = new JLabel(" ");
+/*		JLabel lblNewLabel_1 = new JLabel(" ");
 		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
 		img = img.getScaledInstance(180, 170, 0);
 		lblNewLabel_1.setIcon(new ImageIcon(img));
 		lblNewLabel_1.setBounds(395, 415, 192, 131);
-		getContentPane().add(lblNewLabel_1);
+		getContentPane().add(lblNewLabel_1);*/
 		
 		JButton btnNewButton = new JButton("Add Program");
 		btnNewButton.addActionListener(new ActionListener() {
