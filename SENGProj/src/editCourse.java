@@ -20,7 +20,7 @@ import javax.swing.border.EmptyBorder;
 
 
 
-public class editCourse extends JFrame {
+public class editCourse extends JPanel {
 
 	private JPanel contentPane;
 	private mainMenuForm menu;

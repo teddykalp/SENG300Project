@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -17,52 +18,51 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class editDepartment extends JFrame {
+public class editDepartment extends JPanel {
 
 	private JPanel contentPane;
 	private JTextField departName;
 	private JTextField departCode;
 	private RWTools tool = new RWTools();
+	
+	private JLabel lblNewLabel;
+	private JComboBox comboDepartment;
+	private JLabel lblDepartName;
+	private JLabel lblDepartmentDesc;
+	private JLabel lbldepartmentCode;
+	
+	private JTextArea departDesc;
+	
+	private JScrollPane scrollPane;
+	
+	private JButton btnCancel;
+	private JButton editButton;
+	private JButton commitChanges;
+	
+	// functionality purposes
 	private String oldName;
 	private String oldDesc;
 	private String oldCode;
 	private String newName;
 	private String newDesc;
 	private String newCode;
-	private mainMenuForm menu;
+
 	
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					editDepartment frame = new editDepartment("Teddy");
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
-	public editDepartment(String user) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 546, 560);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+	public editDepartment(JPanel panel) {
+		JPanel p1 = new JPanel(null);
+		p1.setPreferredSize(new Dimension(1000,1000));
+		contentPane = panel;
 		
 		JLabel lblNewLabel = new JLabel("Which Department would you like to edit?");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel.setBounds(21, 64, 315, 26);
-		contentPane.add(lblNewLabel);
+		p1.add(lblNewLabel);
 		
 		ArrayList arr = tool.getDepartment();
 		String [] departments = new String[arr.size()];
@@ -74,53 +74,51 @@ public class editDepartment extends JFrame {
 		JComboBox comboDepartment = new JComboBox();
 		comboDepartment.setModel(new DefaultComboBoxModel(departments));
 		comboDepartment.setBounds(75, 111, 213, 26);
-		contentPane.add(comboDepartment);
+		p1.add(comboDepartment);
 		
-		JLabel lblNewLabel_1 = new JLabel("Department Name");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblNewLabel_1.setBounds(8, 175, 147, 26);
-		contentPane.add(lblNewLabel_1);
+		lblDepartName = new JLabel("Department Name");
+		lblDepartName.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblDepartName.setBounds(8, 175, 147, 26);
+		p1.add(lblDepartName);
 		
 		departName = new JTextField();
 		departName.setBounds(176, 173, 186, 28);
-		contentPane.add(departName);
+		p1.add(departName);
 		departName.setColumns(10);
 		
-		JLabel lblDepartmentDesc = new JLabel("<html><p>Department Description<p><html>");
+		lblDepartmentDesc = new JLabel("<html><p>Department Description<p><html>");
 		lblDepartmentDesc.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblDepartmentDesc.setBounds(8, 251, 147, 47);
-		contentPane.add(lblDepartmentDesc);
+		p1.add(lblDepartmentDesc);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(176, 228, 193, 131);
-		contentPane.add(scrollPane);
+		p1.add(scrollPane);
 		
-		JTextArea departDesc = new JTextArea();
+		departDesc = new JTextArea();
 		scrollPane.setViewportView(departDesc);
 		
-		JLabel lbldepartmentCode = new JLabel("<html><p>Department Code<p><html>");
+		lbldepartmentCode = new JLabel("<html><p>Department Code<p><html>");
 		lbldepartmentCode.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lbldepartmentCode.setBounds(8, 372, 147, 47);
-		contentPane.add(lbldepartmentCode);
+		p1.add(lbldepartmentCode);
 		
 		departCode = new JTextField();
 		departCode.setBounds(176, 381, 186, 26);
-		contentPane.add(departCode);
+		p1.add(departCode);
 		departCode.setColumns(10);
 		
 		
 		
-		JButton btnNewButton = new JButton("Cancel");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnCancel = new JButton("Cancel");
+		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				menu = new mainMenuForm(user);
-				menu.setVisible(true);
+				
 			}
 		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnNewButton.setBounds(370, 21, 129, 24);
-		contentPane.add(btnNewButton);
+		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnCancel.setBounds(370, 21, 129, 24);
+		p1.add(btnCancel);
 		
 		JButton editButton = new JButton("Edit");
 		editButton.addActionListener(new ActionListener() {
@@ -137,7 +135,7 @@ public class editDepartment extends JFrame {
 		});
 		editButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		editButton.setBounds(331, 113, 85, 26);
-		contentPane.add(editButton);
+		p1.add(editButton);
 		
 		JButton commitChanges = new JButton("Commit Changes");
 		commitChanges.addActionListener(new ActionListener() {
@@ -158,8 +156,9 @@ public class editDepartment extends JFrame {
 		});
 		commitChanges.setFont(new Font("Tahoma", Font.BOLD, 15));
 		commitChanges.setBounds(331, 442, 168, 26);
-		contentPane.add(commitChanges);
+		p1.add(commitChanges);
 		
-		
+		contentPane.add(p1);
+		add(p1);
 	}
 }

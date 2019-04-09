@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-public class programDisplay extends JFrame {
+public class programDisplay extends JPanel {
 
 	private JPanel contentPane;
 	private JTextArea programName, programDesc, reqGPA, programLvl, programType;
