@@ -25,11 +25,11 @@ public class editCourse extends JFrame {
 	private mainMenuForm menu;
 	private JTextField courseName, courseLvl, courseID, courseInstructor;
 	private JTextField startTime, finishTime;
-	private JTextArea coursePreReq, daysOffered, courseCredit, courseDesc;
+	private JTextArea coursePreReq, courseAntiReq, courseCoReq, daysOffered, courseCredit, courseDesc;
 	private RWTools tool = new RWTools();
-	private String oldName, oldLvl, oldID, oldProgram, oldInstructor, oldPreReq, oldDaysOffered, oldCode,
+	private String oldName, oldLvl, oldID, oldProgram, oldInstructor, oldPreReq, oldAntiReq, oldCoReq, oldDaysOffered, oldCode,
 		oldStart, oldFinish, oldCredit, oldDesc, oldDaysO;
-	private String newName, newLvl, newID, newProgram, newInstructor, newPreReq, newCode, newDays,
+	private String newName, newLvl, newID, newProgram, newInstructor, newPreReq, newAntiReq, newCoReq, newCode, newDays,
 		newStart, newFinish, newCredit, newDesc;
 	private List newDaysOffered;
 	private String programName;
@@ -54,11 +54,12 @@ public class editCourse extends JFrame {
 	
 	
 	public editCourse(String user) {
+		setBounds(100, 100, 1040, 1050);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 550, 485);
+		getContentPane().setLayout(null);
+		
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(175, 238, 238));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
@@ -73,53 +74,61 @@ public class editCourse extends JFrame {
 		coursesSelect.setBounds(196, 92, 216, 25);
 		contentPane.add(coursesSelect);
 		
-		JLabel lblchooseCourse = new JLabel("Choose Course");
-		lblchooseCourse.setFont(new Font("Source Sans Pro", Font.PLAIN, 14));
-		lblchooseCourse.setBounds(20, 91, 115, 26);
-		contentPane.add(lblchooseCourse);
+		// ERROR LABELS
 		
+		// Error label for course name
 		JLabel nameError = new JLabel("");
 		nameError.setForeground(Color.RED);
 		nameError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		nameError.setBounds(412, 62, 123, 17);
 		getContentPane().add(nameError);
 		
+		// Error label for course description
 		JLabel descError = new JLabel("");
 		descError.setForeground(Color.RED);
 		descError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		descError.setBounds(461, 557, 123, 17);
 		getContentPane().add(descError);
 		
+		// Error label for course ID
 		JLabel idError = new JLabel("");
 		idError.setForeground(Color.RED);
 		idError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		idError.setBounds(412, 206, 123, 17);
 		getContentPane().add(idError);
 		
+		// Error label for start time
 		JLabel stError = new JLabel("");
 		stError.setForeground(Color.RED);
 		stError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		stError.setBounds(474, 612, 121, 17);
 		getContentPane().add(stError);
 		
+		// Error label for finish time
 		JLabel ftError = new JLabel("");
 		ftError.setForeground(Color.RED);
 		ftError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		ftError.setBounds(371, 635, 92, 17);
 		getContentPane().add(ftError);
-		setBounds(100, 100, 642, 869);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(null);
 		
+		// FORM LABELS
+		
+		// Edit course label 
 		JLabel lblEditCourse = new JLabel("Edit Course");
-		lblEditCourse.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblEditCourse.setBounds(221, 16, 165, 26);
+		lblEditCourse.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblEditCourse.setBounds(486, 16, 200, 26);
 		getContentPane().add(lblEditCourse);
 		
-		JLabel lblNewLabel = new JLabel("Course Level");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel.setBounds(20, 206, 92, 26);
-		getContentPane().add(lblNewLabel);
+		// Choose course label
+		JLabel lblchooseCourse = new JLabel("Choose Course");
+		lblchooseCourse.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblchooseCourse.setBounds(250, 53, 225, 51);
+		contentPane.add(lblchooseCourse);
+		
+		JLabel lblCourseLvl = new JLabel("Course Level");
+		lblCourseLvl.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblCourseLvl.setBounds(250, 115, 225, 44);
+		getContentPane().add(lblCourseLvl);
 		
 		JLabel lblCourseName = new JLabel("Course Name");
 		lblCourseName.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -216,6 +225,18 @@ public class editCourse extends JFrame {
 		coursePreReq.setBounds(196, 345, 216, 65);
 		getContentPane().add(coursePreReq);
 		
+		courseAntiReq = new JTextArea();
+		courseAntiReq.setEditable(false);
+		courseAntiReq.setLineWrap(true);
+		courseAntiReq.setBounds(196, 345, 216, 65);
+		getContentPane().add(courseAntiReq);
+		
+		courseCoReq = new JTextArea();
+		courseCoReq.setEditable(false);
+		courseCoReq.setLineWrap(true);
+		courseCoReq.setBounds(196, 345, 216, 65);
+		getContentPane().add(courseCoReq);
+		
 		courseDesc = new JTextArea();
 		courseDesc.setEditable(false);
 		courseDesc.setLineWrap(true);
@@ -264,6 +285,8 @@ public class editCourse extends JFrame {
 				finishTime.setEditable(true);
 				courseCredit.setEditable(true);
 				coursePreReq.setEditable(true);
+				courseAntiReq.setEditable(true);
+				courseCoReq.setEditable(true);
 				courseDesc.setEditable(true);
 				daysOffered.setEditable(true);
 				courseInstructor.setEditable(true);
@@ -300,12 +323,14 @@ public class editCourse extends JFrame {
 				courseID.setText(courseNum.toString());
 				courseInstructor.setText((String)courseInfo.get(1));
 				coursePreReq.setText((String)courseInfo.get(2));
-				daysOffered.setText((String)courseInfo.get(3));
-				startTime.setText((String)courseInfo.get(4));
-				finishTime.setText((String)courseInfo.get(5));
-				courseCredit.setText((String)courseInfo.get(6));
-				courseDesc.setText((String)courseInfo.get(7));
-				programCourse.setText((String)courseInfo.get(8));
+				courseAntiReq.setText((String)courseInfo.get(3));
+				courseCoReq.setText((String)courseInfo.get(4));
+				daysOffered.setText((String)courseInfo.get(5));
+				startTime.setText((String)courseInfo.get(6));
+				finishTime.setText((String)courseInfo.get(7));
+				courseCredit.setText((String)courseInfo.get(8));
+				courseDesc.setText((String)courseInfo.get(9));
+				programCourse.setText((String)courseInfo.get(10));
 				/*
 				 * saving old course information for modification
 				 */
@@ -316,12 +341,14 @@ public class editCourse extends JFrame {
 				oldCode = oldLvl + oldID + oldProgram;
 				oldInstructor = (String)courseInfo.get(1);
 				oldPreReq = (String)courseInfo.get(2);
-				oldDaysOffered = (String)courseInfo.get(3);
-				oldStart = (String)courseInfo.get(4);
-				oldFinish = (String)courseInfo.get(5);
-				oldCredit = (String)courseInfo.get(6);
-				oldDesc = (String)courseInfo.get(7);
-				oldProgram = (String)courseInfo.get(8);
+				oldAntiReq = (String)courseInfo.get(3);
+				oldCoReq = (String)courseInfo.get(4);
+				oldDaysOffered = (String)courseInfo.get(5);
+				oldStart = (String)courseInfo.get(6);
+				oldFinish = (String)courseInfo.get(7);
+				oldCredit = (String)courseInfo.get(8);
+				oldDesc = (String)courseInfo.get(9);
+				oldProgram = (String)courseInfo.get(10);
 				
 				List<String> oldDays = new ArrayList<String>();
 				oldDays = Arrays.asList(oldDaysOffered.split("\\s*,\\s*"));
@@ -356,6 +383,8 @@ public class editCourse extends JFrame {
 						newProgram = programCourse.getText();
 						newInstructor = courseInstructor.getText();
 						newPreReq = coursePreReq.getText();
+						newAntiReq = courseAntiReq.getText();
+						newCoReq = courseCoReq.getText();
 						newDaysOffered = days;
 						newStart = startTime.getText();
 						newFinish = finishTime.getText();
@@ -378,7 +407,9 @@ public class editCourse extends JFrame {
 						String dbName = "COURSE NAME: ";
 						String dbCode = "COURSE CODE: ";
 						String dbInstructor = "COURSE INSTRUCTOR: ";
-						String dbPreReq = "PREQUISITE COURSES: ";
+						String dbPreReq = "PREREQUISITE COURSES: ";
+						String dbAntiReq = "ANTIREQUISITE COURSES: ";
+						String dbCoReq = "COREQUISITE COURSES: ";
 						String dbStart = "START TIME: ";
 						String dbFinish = "FINISH TIME: ";
 						String dbCredits = "COURSE CREDITS: ";

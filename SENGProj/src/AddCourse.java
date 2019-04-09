@@ -25,8 +25,8 @@ import javax.swing.JScrollPane;
 
 /**
 * AddCourse form that allows staff users to add a course to system
-* @author	TeddyKalp
-* @version 	1.0
+* @author	TeddyKalp, SheilaCubid (added antirequisites, corequisites)
+* @version 	2.0
 */
 
 public class AddCourse extends JFrame {
@@ -122,6 +122,7 @@ public class AddCourse extends JFrame {
 		ftError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		ftError.setBounds(738, 816, 92, 20);
 		getContentPane().add(ftError);
+		
 		setBounds(100, 100, 1040, 1050);
 		
 		// Closes window when the user exits the frame

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
 * RWTools class handles read and write to databases
-* @author	Teddy Kalp
+* @author	Teddy Kalp, SheilaCubid (added antireqs and coreqs)
 * @version	1.0
 */
 

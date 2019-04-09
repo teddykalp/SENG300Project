@@ -103,10 +103,11 @@ public class departForm extends JFrame {
 		dError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		contentPane.add(dError);
 		
-		JButton btnNewButton = new JButton("Add Department");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton.setBounds(645, 610, 157, 48);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton addDepartmentBtn = new JButton("Add Department");
+		addDepartmentBtn.setBackground(new Color(176, 196, 222));
+		addDepartmentBtn.setFont(new Font("Tahoma", Font.BOLD, 14));
+		addDepartmentBtn.setBounds(593, 384, 157, 48);
+		addDepartmentBtn.addActionListener(new ActionListener() {
 			/**
 			* actionListener for Add Department button
 			* @param	ActionEvent - when button is clicked
@@ -132,7 +133,7 @@ public class departForm extends JFrame {
 				
 			}
 		});
-		contentPane.add(btnNewButton);
+		contentPane.add(addDepartmentBtn);
 		
 		// Go back button returns user to main menu
 		JButton button = new JButton("Go Back");
@@ -146,7 +147,7 @@ public class departForm extends JFrame {
 		button.setForeground(Color.RED);
 		button.setFont(new Font("Tahoma", Font.BOLD, 15));
 		button.setBackground(Color.DARK_GRAY);
-		button.setBounds(250,609,231,48);
+		button.setBounds(250,384,163,48);
 		contentPane.add(button);
 		
 		
