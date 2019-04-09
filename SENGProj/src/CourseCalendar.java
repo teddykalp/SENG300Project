@@ -271,7 +271,7 @@ public class CourseCalendar extends JFrame {
 				    txtrEnterCourses.setText("");
 				    
 			        JList list = (JList)evt.getSource();
-			        if (evt.getClickCount() == 2 || evt.getClickCount() == 3) {
+			        if (evt.getClickCount() == 1 || evt.getClickCount() == 2) {
 			            // Double-click detected
 			            int index = list.locationToIndex(evt.getPoint());
 //			            System.out.println("index: " + index);
