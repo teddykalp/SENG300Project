@@ -257,27 +257,35 @@ public class AddCourse extends JFrame {
 		
 		// Takes user input for course description
 		JTextArea courseDesc = new JTextArea();
+		JScrollPane courseDescScroll = new JScrollPane (courseDesc, 
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		courseDesc.setLineWrap(true);
-		courseDesc.setBounds(525, 323, 220, 65);
-		getContentPane().add(courseDesc);
+		courseDescScroll.setBounds(525, 323, 220, 65);
+		getContentPane().add(courseDescScroll);
 		
 		// Takes user input for course prerequisites
 		JTextArea preReqs = new JTextArea();
+		JScrollPane preReqsScroll = new JScrollPane (preReqs, 
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		preReqs.setLineWrap(true);
-		preReqs.setBounds(525, 407, 220, 65);
-		getContentPane().add(preReqs);
+		preReqsScroll.setBounds(525, 407, 220, 65);
+		getContentPane().add(preReqsScroll);
 		
 		// Takes user input for course antirequisites
 		JTextArea antiReqs = new JTextArea();
+		JScrollPane antiReqsScroll = new JScrollPane (antiReqs, 
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		antiReqs.setLineWrap(true);
-		antiReqs.setBounds(525, 493, 220, 65);
-		getContentPane().add(antiReqs);
+		antiReqsScroll.setBounds(525, 493, 220, 65);
+		getContentPane().add(antiReqsScroll);
 		
 		// Takes user input for course corequisites
 		JTextArea coReqs = new JTextArea();
+		JScrollPane coReqsScroll = new JScrollPane (coReqs, 
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		coReqs.setLineWrap(true);
-		coReqs.setBounds(525, 591, 220, 65);
-		getContentPane().add(coReqs);
+		coReqsScroll.setBounds(525, 591, 220, 65);
+		getContentPane().add(coReqsScroll);
 		
 		// Radio buttons for daysOffered selection
 		JRadioButton monDay = new JRadioButton("Monday");
