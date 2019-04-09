@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
+import java.awt.Dimension;
 
 /**
 * courseDisplay class handles UI for course display
@@ -25,39 +26,32 @@ import java.awt.Color;
 * @version	1.0
 */
 
-public class courseDisplay extends JFrame {
+public class courseDisplay extends JPanel {
 
 	private JPanel contentPane;
-	private mainMenuForm menu;
+	private JComboBox programsSelect;
+	
+	private JTextArea courseDisplay;
+	private JScrollPane scrollPane;
+	private JButton btnView;
+	private JButton btnReturn;
+	
+	private JLabel programCourses; 
+	private JLabel lblNewLabel;
+	private JLabel lblchooseProgram;
+	
 	private RWTools tool = new RWTools();
 
-	/**
-	 * main function: Launches the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					courseDisplay frame = new courseDisplay("Test");
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 	/**
 	 * courseDisplay constructor that creates the frame and adds its components.
 	 * @param	user - staff user that is adding a course
 	 */
-	public courseDisplay(String user) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 550, 485);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(175, 238, 238));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+	public courseDisplay(JPanel panel) {
+
+		JPanel p1 = new JPanel(null);
+		p1.setPreferredSize(new Dimension(1000,1000));
+		contentPane = panel;
 		
 	    	// List of programs to be selected from
 	   	ArrayList proGram = tool.getPrograms();
@@ -67,26 +61,26 @@ public class courseDisplay extends JFrame {
 		}
 		
 		// Choose program from list of programs
-		JComboBox programsSelect = new JComboBox();
+		programsSelect = new JComboBox();
 		programsSelect.setModel(new DefaultComboBoxModel(programs));
 		programsSelect.setBounds(44, 81, 216, 32);
-		contentPane.add(programsSelect);
+		p1.add(programsSelect);
 		
-		JLabel lblchooseProgram = new JLabel("Choose Program");
+		lblchooseProgram = new JLabel("Choose Program");
 		lblchooseProgram.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
 		lblchooseProgram.setBounds(44, 46, 182, 26);
-		contentPane.add(lblchooseProgram);
+		p1.add(lblchooseProgram);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(21, 156, 279, 237);
-		contentPane.add(scrollPane);
+		p1.add(scrollPane);
 		
-		JTextArea courseDisplay = new JTextArea();
+		courseDisplay = new JTextArea();
 		scrollPane.setViewportView(courseDisplay);
 		courseDisplay.setEditable(false);
 		
 		// Shows list of courses to UI
-		JButton btnView = new JButton("View");
+		btnView = new JButton("View");
 		btnView.setBackground(new Color(173, 255, 47));
 		btnView.setFont(new Font("Source Sans Pro", Font.BOLD, 21));
 		btnView.addActionListener(new ActionListener() {
@@ -101,32 +95,33 @@ public class courseDisplay extends JFrame {
 			}
 		});
 		btnView.setBounds(366, 217, 141, 35);
-		contentPane.add(btnView);
+		p1.add(btnView);
 		
-		JButton btnReturn = new JButton("Go Back");
+		btnReturn = new JButton("Go Back");
 		btnReturn.setBackground(new Color(255, 105, 180));
 		btnReturn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				menu = new mainMenuForm(user);
-				menu.setVisible(true);
+				
 			}
 		});
 		btnReturn.setFont(new Font("Source Sans Pro", Font.BOLD, 21));
 		btnReturn.setBounds(366, 42, 141, 35);
-		contentPane.add(btnReturn);
+		p1.add(btnReturn);
 		
-		JLabel programCourses = new JLabel("Courses Offered");
+		programCourses = new JLabel("Courses Offered");
 		programCourses.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
 		programCourses.setBounds(44, 120, 182, 26);
-		contentPane.add(programCourses);
+		p1.add(programCourses);
 		
-		JLabel lblNewLabel = new JLabel("View Courses by Program");
+		lblNewLabel = new JLabel("View Courses by Program");
 		lblNewLabel.setFont(new Font("Sitka Banner", Font.BOLD, 21));
 		lblNewLabel.setBounds(116, -1, 254, 26);
-		contentPane.add(lblNewLabel);
+		p1.add(lblNewLabel);
+		
+		contentPane.add(p1);
+		add(p1);
 		
 		}
 	
-	
+	  
 }
