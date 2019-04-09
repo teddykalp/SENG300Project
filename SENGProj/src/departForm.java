@@ -12,6 +12,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -24,7 +25,7 @@ import java.awt.event.ActionEvent;
 * @author	Teddy Kalp, Angeli Manipon
 * @version	1.0
 */
-public class departForm extends JFrame {
+public class departForm extends JPanel {
 	
 	// Class attributes
 	private JPanel contentPane;
@@ -33,6 +34,16 @@ public class departForm extends JFrame {
 	private mainMenuForm menu;
 	private String name;
 	private RWTools tool = new RWTools();
+	
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1; 
+	private JLabel lblDepartmentDescription;
+	private JLabel lblDepartmentCode;
+	private JLabel label_2; 
+	private JTextArea departDescription;
+	private JLabel dError;
+	private JButton btnNewButton;
+	private JButton button;
 
 	/**
 	 * Launch the application.
@@ -43,63 +54,59 @@ public class departForm extends JFrame {
 	 * departForm constructor that creates the frame and adds its components.
 	 * @param	user - staff user that is adding a course
 	 */
-	public departForm(String user) {
+	public departForm(JPanel panel) {
 		
-		this.name = user;
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 641, 532);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		JPanel p1 = new JPanel(null);
+		p1.setPreferredSize(new Dimension(1000,1000));
+		contentPane = panel;
 		
-		JLabel lblNewLabel = new JLabel("Register Department");
+		lblNewLabel = new JLabel("Register Department");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblNewLabel.setBounds(209, 66, 190, 31);
-		contentPane.add(lblNewLabel);
+		p1.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Department Name");
+		lblNewLabel_1 = new JLabel("Department Name");
 		lblNewLabel_1.setFont(new Font("Noto Serif", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(10, 145, 131, 22);
-		contentPane.add(lblNewLabel_1);
+		p1.add(lblNewLabel_1);
 		
-		JLabel lblDepartmentDescription = new JLabel("<html><p>Department Description<p><html>");
+		lblDepartmentDescription = new JLabel("<html><p>Department Description<p><html>");
 		lblDepartmentDescription.setFont(new Font("Noto Serif", Font.PLAIN, 14));
 		lblDepartmentDescription.setBounds(10, 219, 131, 39);
-		contentPane.add(lblDepartmentDescription);
+		p1.add(lblDepartmentDescription);
 		
-		JLabel lblDepartmentCode = new JLabel("Department Code");
+		lblDepartmentCode = new JLabel("Department Code");
 		lblDepartmentCode.setFont(new Font("Noto Serif", Font.PLAIN, 14));
 		lblDepartmentCode.setBounds(10, 346, 131, 22);
-		contentPane.add(lblDepartmentCode);
+		p1.add(lblDepartmentCode);
 		
-		JLabel label_2 = new JLabel("");
+		label_2 = new JLabel("");
 		label_2.setFont(new Font("Noto Serif", Font.PLAIN, 14));
 		label_2.setBounds(10, 417, 131, 22);
-		contentPane.add(label_2);
+		p1.add(label_2);
 		
-		JTextArea departDescription = new JTextArea();
+		departDescription = new JTextArea();
 		departDescription.setLineWrap(true);
 		departDescription.setBounds(196, 204, 267, 103);
-		contentPane.add(departDescription);
+		p1.add(departDescription);
 		
 		departName = new JTextField();
 		departName.setBounds(192, 147, 271, 20);
-		contentPane.add(departName);
+		p1.add(departName);
 		departName.setColumns(10);
 	
 		departCode = new JTextField();
 		departCode.setBounds(196, 348, 267, 20);
-		contentPane.add(departCode);
+		p1.add(departCode);
 		departCode.setColumns(10);
 
-		JLabel dError = new JLabel("");
+		dError = new JLabel("");
 		dError.setForeground(Color.RED);
 		dError.setBounds(196, 405, 180, 15);
 		dError.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		contentPane.add(dError);
+		p1.add(dError);
 		
-		JButton btnNewButton = new JButton("Add Department");
+		btnNewButton = new JButton("Add Department");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.setBounds(439, 408, 156, 31);
 		btnNewButton.addActionListener(new ActionListener() {
@@ -121,31 +128,28 @@ public class departForm extends JFrame {
 							departCode.getText());
 					
 					// returns user to main menu
-					setVisible(false);
-					menu = new mainMenuForm(user);
-					menu.setVisible(true);
+					
 				}
 				
 			}
 		});
-		contentPane.add(btnNewButton);
+		p1.add(btnNewButton);
 		
 		// Go back button returns user to main menu
-		JButton button = new JButton("Go Back");
+	    button = new JButton("Go Back");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				setVisible(false);
-				menu = new mainMenuForm(name);
-				menu.setVisible(true);
+				
 				}
 		});
 		button.setForeground(Color.RED);
 		button.setFont(new Font("Tahoma", Font.BOLD, 15));
 		button.setBackground(Color.DARK_GRAY);
 		button.setBounds(458, 21, 157, 35);
-		contentPane.add(button);
+		p1.add(button);
 		
-		
+		contentPane.add(p1);
+		add(p1);
 		
 	}
 }
