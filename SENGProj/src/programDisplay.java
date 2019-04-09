@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.util.ArrayList;
@@ -22,23 +23,34 @@ public class programDisplay extends JFrame {
 	private JTextArea programName, programDesc, reqGPA, programLvl, programType;
 	private JComboBox comboDepartment, comboProgramBox;
 	private RWTools tool = new RWTools();
+	
 	private JLabel lblDepartment;
+	
+	private JLabel lblChooseProgram;
+	private JLabel lblView;
+	private JLabel lblProgramName;
+	private JLabel lblProgramDesc;
+	private JLabel lblLevelOfProgram;
+	private JLabel lblTypeOfProgram;
+	private JLabel lblRequiredGpa;
+	private JLabel lblCode;
+	
+	private JTextArea departDesc;
+	private JTextArea programCode;
+	
+	private JButton btnView;
+	private JButton buttonCancel;
+	
 
 
 
 	/**
 	 * Create the frame.
 	 */
-	public programDisplay(String user) {
-		// Closes window when the user exits the frame 
-				setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				// Creates the window and set bounds
-				setBounds(100, 100, 621, 632);
-				contentPane = new JPanel();
-				contentPane.setBackground(new Color(255, 222, 173));
-				contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-				setContentPane(contentPane);
-				contentPane.setLayout(null);
+	public programDisplay(JPanel panel) {
+		JPanel p1 = new JPanel(null);
+		p1.setPreferredSize(new Dimension(1000,1000));
+		contentPane = panel;
 				
 				//Creates Arraylist of programs to choose to edit
 				ArrayList programsL = tool.getPrograms();
@@ -51,37 +63,37 @@ public class programDisplay extends JFrame {
 				comboProgramBox = new JComboBox();
 				comboProgramBox.setModel(new DefaultComboBoxModel(programs));
 				comboProgramBox.setBounds(185, 64, 193, 26);
-				contentPane.add(comboProgramBox);
+				p1.add(comboProgramBox);
 				
-				JLabel lblChooseProgram = new JLabel("Choose Program");
+				lblChooseProgram = new JLabel("Choose Program");
 				lblChooseProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				lblChooseProgram.setBounds(21, 63, 113, 26);
-				contentPane.add(lblChooseProgram);
+				p1.add(lblChooseProgram);
 					
 				// Program registration label
-				JLabel lblView = new JLabel("View Program");
+				lblView = new JLabel("View Program");
 				lblView.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
 				lblView.setBounds(215, 19, 113, 26);
-				contentPane.add(lblView);
+				p1.add(lblView);
 				
 				// Program name label
-				JLabel lblProgramName = new JLabel("Program Name");
+				lblProgramName = new JLabel("Program Name");
 				lblProgramName.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				lblProgramName.setBounds(21, 110, 92, 26);
-				contentPane.add(lblProgramName);
+				p1.add(lblProgramName);
 				
 				// Program description label
-				JLabel lblProgramDesc = new JLabel("Program Description");
+				lblProgramDesc = new JLabel("Program Description");
 				lblProgramDesc.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				lblProgramDesc.setBounds(21, 152, 131, 26);
-				contentPane.add(lblProgramDesc);
+				p1.add(lblProgramDesc);
 				
 				// Takes user input for program name
 				// Attributes for text area
 				programName = new JTextArea();
 				programName.setEditable(false);
 				programName.setBounds(185, 110, 186, 27);
-				contentPane.add(programName);
+				p1.add(programName);
 				programName.setColumns(10);
 				
 				// Takes user input for program description
@@ -91,20 +103,20 @@ public class programDisplay extends JFrame {
 				programDesc.setFont(new Font("Times New Roman", Font.PLAIN, 13));
 				programDesc.setBounds(185, 155, 238, 84);
 				programDesc.setLineWrap(true);
-				contentPane.add(programDesc);
+				p1.add(programDesc);
 				programDesc.setColumns(10);
 				
 				// Department label
 				lblDepartment = new JLabel("Department");
 				lblDepartment.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				lblDepartment.setBounds(21, 305, 131, 26);
-				contentPane.add(lblDepartment);
+				p1.add(lblDepartment);
 					
 				// Level of Program label Attributes
-				JLabel lblLevelOfProgram = new JLabel("Level of Program");
+				lblLevelOfProgram = new JLabel("Level of Program");
 				lblLevelOfProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				lblLevelOfProgram.setBounds(21, 350, 131, 26);
-				contentPane.add(lblLevelOfProgram);
+				p1.add(lblLevelOfProgram);
 				
 				// Text area attribute for program level
 				programLvl = new JTextArea();
@@ -112,13 +124,13 @@ public class programDisplay extends JFrame {
 				programLvl.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 				programLvl.setBounds(185, 350, 186, 26);
 				programLvl.setEnabled(true);
-				contentPane.add(programLvl);
+				p1.add(programLvl);
 					
 				// Type of Program label attributes
-				JLabel lblTypeOfProgram = new JLabel("Type of Program");
+				lblTypeOfProgram = new JLabel("Type of Program");
 				lblTypeOfProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				lblTypeOfProgram.setBounds(21, 397, 131, 26);
-				contentPane.add(lblTypeOfProgram);
+				p1.add(lblTypeOfProgram);
 				
 				// Program type attribute
 				programType = new JTextArea();
@@ -126,40 +138,40 @@ public class programDisplay extends JFrame {
 				programType.setFont(new Font("Monospaced", Font.PLAIN, 11));
 				programType.setBounds(185, 397, 186, 26);
 				programType.setEnabled(true);
-				contentPane.add(programType);
+				p1.add(programType);
 					
 				// Required GPA label attributes
-				JLabel lblRequiredGpa = new JLabel("Required GPA ");
+				lblRequiredGpa = new JLabel("Required GPA ");
 				lblRequiredGpa.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				lblRequiredGpa.setBounds(21, 443, 146, 26);
-				contentPane.add(lblRequiredGpa);
+				p1.add(lblRequiredGpa);
 				
 				reqGPA = new JTextArea();
 				reqGPA.setEditable(false);
 				reqGPA.setBounds(185, 443, 186, 26);
-				contentPane.add(reqGPA);
+				p1.add(reqGPA);
 				
-				JTextArea departDesc = new JTextArea();
+				departDesc = new JTextArea();
 				departDesc.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 				departDesc.setEnabled(true);
 				departDesc.setEditable(false);
 				departDesc.setBounds(185, 305, 186, 26);
-				contentPane.add(departDesc);
+				p1.add(departDesc);
 				
-				JLabel label = new JLabel("Program Code (XXXX)");
-				label.setFont(new Font("Tahoma", Font.PLAIN, 14));
-				label.setBounds(21, 258, 146, 26);
-				contentPane.add(label);
+				lblCode = new JLabel("Program Code (XXXX)");
+				lblCode.setFont(new Font("Tahoma", Font.PLAIN, 14));
+				lblCode.setBounds(21, 258, 146, 26);
+				p1.add(lblCode);
 				
-				JTextArea programCode = new JTextArea();
+				programCode = new JTextArea();
 				programCode.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 				programCode.setEnabled(true);
 				programCode.setEditable(false);
 				programCode.setBounds(185, 258, 186, 26);
-				contentPane.add(programCode);
+				p1.add(programCode);
 				
-				JButton btnNewButton = new JButton("View");
-				btnNewButton.addActionListener(new ActionListener() {
+				btnView = new JButton("View");
+				btnView.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						ArrayList programInfo = tool.getProgramInfo((String)comboProgramBox.getSelectedItem());
 						programName.setText((String)comboProgramBox.getSelectedItem());
@@ -178,20 +190,21 @@ public class programDisplay extends JFrame {
 						
 					}
 				});
-				btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 18));
-				btnNewButton.setBounds(421, 461, 141, 35);
-				contentPane.add(btnNewButton);
+				btnView.setFont(new Font("Tahoma", Font.BOLD, 18));
+				btnView.setBounds(421, 461, 141, 35);
+				p1.add(btnView);
 				
-				JButton button = new JButton("Cancel");
-				button.addActionListener(new ActionListener() {
+				buttonCancel = new JButton("Cancel");
+				buttonCancel.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
-						setVisible(false);
-						mainMenuForm menu = new mainMenuForm(user);
-						menu.setVisible(true);
+						
 					}
 				});
-				button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-				button.setBounds(433, 13, 141, 35);
-				contentPane.add(button);
+				buttonCancel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+				buttonCancel.setBounds(433, 13, 141, 35);
+				p1.add(buttonCancel);
+				
+				contentPane.add(p1);
+				add(p1);
 	}
 }

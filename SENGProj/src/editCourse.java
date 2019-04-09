@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -27,40 +28,27 @@ public class editCourse extends JFrame {
 	private JTextField startTime, finishTime;
 	private JTextArea coursePreReq, daysOffered, courseCredit, courseDesc;
 	private RWTools tool = new RWTools();
-	private String oldName, oldLvl, oldID, oldProgram, oldInstructor, oldPreReq, oldDaysOffered, oldCode,
-		oldStart, oldFinish, oldCredit, oldDesc, oldDaysO;
-	private String newName, newLvl, newID, newProgram, newInstructor, newPreReq, newCode, newDays,
-		newStart, newFinish, newCredit, newDesc;
+	
+	private JComboBox coursesSelect
+	JLabel lblchooseCourse
+	JLabel nameError
+	
 	private List newDaysOffered;
 	private String programName;
 	private JTextField programCourse;
 
-	/**
-	 * Launch the application.
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					editCourse frame = new editCourse(null);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	// these variables are used for functionality purposes
+	private String oldName, oldLvl, oldID, oldProgram, oldInstructor, oldPreReq, oldDaysOffered, oldCode,
+	oldStart, oldFinish, oldCredit, oldDesc, oldDaysO;
+	private String newName, newLvl, newID, newProgram, newInstructor, newPreReq, newCode, newDays,
+	newStart, newFinish, newCredit, newDesc;
 	
 	
-	public editCourse(String user) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 550, 485);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(175, 238, 238));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+	
+	public editCourse(JPanel panel) {
+		JPanel p1 = new JPanel(null);
+		p1.setPreferredSize(new Dimension(1000,1000));
+		contentPane = panel;
 		
 		ArrayList coursesL = tool.getCourses();
 		String [] courses = new String[coursesL.size()];
@@ -71,156 +59,156 @@ public class editCourse extends JFrame {
 		JComboBox coursesSelect = new JComboBox();
 		coursesSelect.setModel(new DefaultComboBoxModel(courses));
 		coursesSelect.setBounds(196, 92, 216, 25);
-		contentPane.add(coursesSelect);
+		p1.add(coursesSelect);
 		
 		JLabel lblchooseCourse = new JLabel("Choose Course");
 		lblchooseCourse.setFont(new Font("Source Sans Pro", Font.PLAIN, 14));
 		lblchooseCourse.setBounds(20, 91, 115, 26);
-		contentPane.add(lblchooseCourse);
+		p1.add(lblchooseCourse);
 		
 		JLabel nameError = new JLabel("");
 		nameError.setForeground(Color.RED);
 		nameError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		nameError.setBounds(412, 62, 123, 17);
-		getContentPane().add(nameError);
+		p1.add(nameError);
 		
 		JLabel descError = new JLabel("");
 		descError.setForeground(Color.RED);
 		descError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		descError.setBounds(461, 557, 123, 17);
-		getContentPane().add(descError);
+		p1.add(descError);
 		
 		JLabel idError = new JLabel("");
 		idError.setForeground(Color.RED);
 		idError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		idError.setBounds(412, 206, 123, 17);
-		getContentPane().add(idError);
+		p1.add(idError);
 		
 		JLabel stError = new JLabel("");
 		stError.setForeground(Color.RED);
 		stError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		stError.setBounds(474, 612, 121, 17);
-		getContentPane().add(stError);
+		p1.add(stError);
 		
 		JLabel ftError = new JLabel("");
 		ftError.setForeground(Color.RED);
 		ftError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		ftError.setBounds(371, 635, 92, 17);
-		getContentPane().add(ftError);
+		p1.add(ftError);
 		setBounds(100, 100, 642, 869);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(null);
+		p1.setLayout(null);
 		
 		JLabel lblEditCourse = new JLabel("Edit Course");
 		lblEditCourse.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblEditCourse.setBounds(221, 16, 165, 26);
-		getContentPane().add(lblEditCourse);
+		p1.add(lblEditCourse);
 		
 		JLabel lblNewLabel = new JLabel("Course Level");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel.setBounds(20, 206, 92, 26);
-		getContentPane().add(lblNewLabel);
+		p1.add(lblNewLabel);
 		
 		JLabel lblCourseName = new JLabel("Course Name");
 		lblCourseName.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCourseName.setBounds(20, 173, 92, 26);
-		getContentPane().add(lblCourseName);
+		p1.add(lblCourseName);
 		
 		JLabel lblCourseDescription = new JLabel("Course Description ");
 		lblCourseDescription.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCourseDescription.setBounds(21, 603, 119, 26);
-		getContentPane().add(lblCourseDescription);
+		p1.add(lblCourseDescription);
 		
 		JLabel lblCourseId = new JLabel("Course ID (00-99)");
 		lblCourseId.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCourseId.setBounds(21, 252, 119, 26);
-		getContentPane().add(lblCourseId);
+		p1.add(lblCourseId);
 		
 		JLabel lblInstructor = new JLabel("<html><p>Prerequisite \r\nCourses (Seperate courses with a comma)<p><html>");
 		lblInstructor.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblInstructor.setBounds(21, 347, 157, 51);
-		getContentPane().add(lblInstructor);
+		p1.add(lblInstructor);
 		
 		JLabel label = new JLabel("Instructor");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		label.setBounds(21, 299, 92, 26);
-		getContentPane().add(label);
+		p1.add(label);
 		
 		JLabel lblDaysThisCourse = new JLabel("<html><p>Days this Course will be offered<p><html>");
 		lblDaysThisCourse.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblDaysThisCourse.setBounds(21, 431, 102, 51);
-		getContentPane().add(lblDaysThisCourse);
+		p1.add(lblDaysThisCourse);
 		
 		courseName = new JTextField();
 		courseName.setEditable(false);
 		courseName.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		courseName.setColumns(10);
 		courseName.setBounds(196, 173, 186, 26);
-		getContentPane().add(courseName);
+		p1.add(courseName);
 		
 		courseLvl = new JTextField();
 		courseLvl.setEditable(false);
 		courseLvl.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		courseLvl.setColumns(10);
 		courseLvl.setBounds(196, 206, 72, 26);
-		getContentPane().add(courseLvl);
+		p1.add(courseLvl);
 		
 		courseID = new JTextField();
 		courseID.setEditable(false);
 		courseID.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		courseID.setColumns(10);
 		courseID.setBounds(196, 252, 186, 26);
-		contentPane.add(courseID);
+		p1.add(courseID);
 		
 		JLabel lblTimeslot = new JLabel("Time Slot");
 		lblTimeslot.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblTimeslot.setBounds(21, 503, 92, 26);
-		getContentPane().add(lblTimeslot);
+		p1.add(lblTimeslot);
 		
 		startTime = new JTextField();
 		startTime.setEditable(false);
 		startTime.setBounds(196, 503, 80, 32);
-		getContentPane().add(startTime);
+		p1.add(startTime);
 		startTime.setColumns(10);
 		
 		finishTime = new JTextField();
 		finishTime.setEditable(false);
 		finishTime.setColumns(10);
 		finishTime.setBounds(371, 503, 80, 32);
-		getContentPane().add(finishTime);
+		p1.add(finishTime);
 		
 		JLabel lblStartTime = new JLabel("Start Time");
 		lblStartTime.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblStartTime.setBounds(116, 503, 69, 26);
-		getContentPane().add(lblStartTime);
+		p1.add(lblStartTime);
 		
 		JLabel lblFinishTime = new JLabel("Finish Time");
 		lblFinishTime.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblFinishTime.setBounds(291, 503, 69, 26);
-		getContentPane().add(lblFinishTime);
+		p1.add(lblFinishTime);
 		
 		JLabel lblCourseCredits = new JLabel("Course Credits");
 		lblCourseCredits.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCourseCredits.setBounds(21, 556, 92, 26);
-		getContentPane().add(lblCourseCredits);
+		p1.add(lblCourseCredits);
 		
 		courseCredit = new JTextArea();
 		courseCredit.setEditable(false);
 		courseCredit.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		courseCredit.setBounds(265, 553, 72, 26);
-		getContentPane().add(courseCredit);
+		p1.add(courseCredit);
 		
 		coursePreReq = new JTextArea();
 		coursePreReq.setEditable(false);
 		coursePreReq.setLineWrap(true);
 		coursePreReq.setBounds(196, 345, 216, 65);
-		getContentPane().add(coursePreReq);
+		p1.add(coursePreReq);
 		
 		courseDesc = new JTextArea();
 		courseDesc.setEditable(false);
 		courseDesc.setLineWrap(true);
 		courseDesc.setBounds(183, 600, 244, 113);
-		getContentPane().add(courseDesc);
+		p1.add(courseDesc);
 		
 		ArrayList proGram = tool.getPrograms();
 		String [] programs = new String[proGram.size()];
@@ -231,13 +219,13 @@ public class editCourse extends JFrame {
 		courseInstructor = new JTextField();
 		courseInstructor.setEditable(false);
 		courseInstructor.setBounds(196, 296, 186, 27);
-		getContentPane().add(courseInstructor);
+		p1.add(courseInstructor);
 		courseInstructor.setColumns(10);
 		
 		daysOffered = new JTextArea();
 		daysOffered.setEditable(false);
 		daysOffered.setBounds(196, 429, 216, 51);
-		contentPane.add(daysOffered);
+		p1.add(daysOffered);
 		daysOffered.setColumns(10);
 		
 		programCourse = new JTextField();
@@ -245,12 +233,12 @@ public class editCourse extends JFrame {
 		programCourse.setEditable(false);
 		programCourse.setColumns(10);
 		programCourse.setBounds(196, 138, 186, 26);
-		contentPane.add(programCourse);
+		p1.add(programCourse);
 		
 		JLabel lblProgram = new JLabel("Program");
 		lblProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblProgram.setBounds(20, 135, 92, 26);
-		contentPane.add(lblProgram);
+		p1.add(lblProgram);
 		
 		
 		
@@ -337,7 +325,7 @@ public class editCourse extends JFrame {
 		});
 		btnEdit.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnEdit.setBounds(448, 94, 92, 25);
-		contentPane.add(btnEdit);
+		p1.add(btnEdit);
 		
 		JButton btnSaveCourse = new JButton("Commit Changes");
 		btnSaveCourse.setForeground(Color.BLACK);
@@ -405,20 +393,18 @@ public class editCourse extends JFrame {
 		});
 		btnSaveCourse.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnSaveCourse.setBounds(221, 731, 157, 35);
-		getContentPane().add(btnSaveCourse);
+		p1.add(btnSaveCourse);
 		
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.setForeground(Color.BLACK);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				menu = new mainMenuForm(user);
-				menu.setVisible(true);
+				
 			}
 		});
 		btnCancel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnCancel.setBounds(438, 21, 157, 35);
-		getContentPane().add(btnCancel);
+		p1.add(btnCancel);
 		
 		
 		
