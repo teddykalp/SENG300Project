@@ -72,7 +72,7 @@ public class AddProgram extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		// Program name label attributes
-		JLabel lblProgramName = new JLabel("<html>Course Title<br>\r\n (E.g. Computer Science)<html>");
+		JLabel lblProgramName = new JLabel("<html>Program Title<br>\r\n (E.g. Computer Science)<html>");
 		lblProgramName.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblProgramName.setBounds(250, 53, 225, 51);
 		contentPane.add(lblProgramName);
@@ -94,7 +94,7 @@ public class AddProgram extends JFrame {
 		// Takes user input for program description
 		// Attributes for text area
 		programDesc = new JTextArea();
-		programDesc.setFont(new Font("Times New Roman", Font.PLAIN, 11));
+		programDesc.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		JScrollPane progsDescScroll = new JScrollPane (programDesc, 
 				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		progsDescScroll.setBounds(525, 126, 238, 84);
@@ -210,7 +210,7 @@ public class AddProgram extends JFrame {
 		inputError.setBounds(525, 562, 223, 26);
 		contentPane.add(inputError);
 		
-		JLabel lblProgramCode = new JLabel("<html>Course Title (XXXX)<br>\r\n (E.g. CPSC)<html>");
+		JLabel lblProgramCode = new JLabel("<html>Program Code (XXXX)<br>\r\n (E.g. CPSC)<html>");
 		lblProgramCode.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblProgramCode.setBounds(250, 230, 146, 35);
 		contentPane.add(lblProgramCode);
