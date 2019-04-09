@@ -34,13 +34,13 @@ import java.awt.Color;
 * @version 	2.0
 */
 
-public class AddProgram extends JFrame {
+public class AddProgram extends JPanel {
 	// Class attributes
 	private JPanel contentPane;
 	private JTextArea programName;
 	private JTextArea programDesc;
 	private JLabel lblDepartment;
-	private mainMenuForm menu;
+	
 	private RWTools tool = new RWTools();
 	
 	/**
@@ -51,17 +51,10 @@ public class AddProgram extends JFrame {
 	 * AddProgram constructor that creates the frame and adds its components.
 	 * @param	user - staff user that is adding a course
 	 */
-	public AddProgram(String user) {
+	public AddProgram(JPanel panel) {
 		
 		// Closes window when the user exits the frame 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// Creates the window and set bounds
-		setBounds(100, 100, 621, 632);
-		contentPane = new JPanel();
-		contentPane.setBackground(new Color(255, 222, 173));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		contentPane = panel;
 		
 		// Program registration label attributes
 		JLabel lblNewLabel = new JLabel("Program Registration");
