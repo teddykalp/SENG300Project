@@ -264,7 +264,7 @@ public class CourseCalendar extends JFrame {
 		contentPane.add(list);
 		
 		// array used for displaying course attributes in text area
-		String[] courseTemplate = {"Course Code: ", "Instructor: ", "Prequisites: ", "Days Offered: ", "Start Time: ", 
+		String[] courseTemplate = {"Course Code: ", "Instructor: ", "Prerequisites: ", "Antirequisites: ", "Corequisites: ", "Days Offered: ", "Start Time: ", 
 									"Finish Time: ", "Course Credits: ", "Course Description: ", "Program: "};
 		
 		// event handler for when item in list is selected
