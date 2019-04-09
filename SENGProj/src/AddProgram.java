@@ -238,6 +238,9 @@ public class AddProgram extends JFrame {
 				{
 					inputError.setText("Please enter \"None\" or a required GPA");
 				}
+				else if(programCode.getText().isEmpty()){
+					inputError.setText("Please enter a valid code");
+				}
 				// If diploma program - writes diploma info to programDB.txt
 				else
 				{	

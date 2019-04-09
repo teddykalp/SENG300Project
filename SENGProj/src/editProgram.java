@@ -315,13 +315,15 @@ public class editProgram extends JFrame {
 						newType = "PROGRAM TYPE: " + programType.getText();	
 					}
 					
-					tool.editProgram(oldName, newName);
-					tool.editProgram(oldCode, newCode);
-					tool.editProgram(oldDesc, newDesc);
-					tool.editProgram(oldDepartment, newDepartment);
-					tool.editProgram(oldLvl, newLvl);
-					tool.editProgram(oldType, newType);
-					tool.editProgram(oldGPA, newGPA);
+					String db = "programDB/txt";
+					
+					tool.editDB(oldName, newName, db);
+					tool.editDB(oldCode, newCode, db);
+					tool.editDB(oldDesc, newDesc, db);
+					tool.editDB(oldDepartment, newDepartment, db);
+					tool.editDB(oldLvl, newLvl, db);
+					tool.editDB(oldType, newType, db);
+					tool.editDB(oldGPA, newGPA, db);
 					
 					// Returns user to main menu
 					menu = new mainMenuForm(user);

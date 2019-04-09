@@ -145,9 +145,11 @@ public class editDepartment extends JFrame {
 				newName = "DEPARTMENT NAME: " + departName.getText();
 				newDesc = "DEPARTMENT DESCRIPTION: "+ departDesc.getText();
 				newCode = "DEPARTMENT CODE: " + departCode.getText();
-				tool.editDepartment(oldName, newName);
-				tool.editDepartment(oldDesc, newDesc);
-				tool.editDepartment(oldCode, newCode);
+				String db = "departmentDB.txt";
+				
+				tool.editDB(oldName, newName, db);
+				tool.editDB(oldDesc, newDesc, db);
+				tool.editDB(oldCode, newCode, db);
 				
 				setVisible(false);
 				menu = new mainMenuForm(user);

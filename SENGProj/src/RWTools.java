@@ -169,7 +169,6 @@ public class RWTools {
 	 */
 	
 	public ArrayList getCourseName(String programCode){
-//		System.out.println("Program code: " + programCode);
 		ArrayList courses = new ArrayList<String>();
 		File file = new File("courseDB.txt");
 		try{
@@ -190,7 +189,6 @@ public class RWTools {
 			System.out.println("File not found");
 		}
 		
-//		System.out.println("getCourseName courses ArrayList: " + courses);
 		return courses;
 	}
 	
@@ -368,7 +366,7 @@ public class RWTools {
 				}
 			}
 		}catch(IOException E){
-			System.out.println("File not found");
+			System.out.println("FIle not found");
 		}
 		
 		
@@ -376,91 +374,7 @@ public class RWTools {
 	}
 	
 
-	public void editDepartment(String oldString, String newString)
-	    {
-	        File fileToBeModified = new File("departmentDB.txt");
-	        String oldContent = "";
-	        BufferedReader reader = null;
-	        FileWriter writer = null;
-	         
-	        try
-	        {
-	            reader = new BufferedReader(new FileReader(fileToBeModified));
-	             
-	            //Reading all the lines of input text file into oldContent
-	             
-	            String line = reader.readLine();
-	             
-	            while (line != null) 
-	            {
-	                oldContent = oldContent + line + System.lineSeparator();
-	                 
-	                line = reader.readLine();
-	            }
-	             
-	            //Replacing oldString with newString in the oldContent
-	             
-	            String newContent = oldContent.replace(oldString, newString);
-	             
-	            //Rewriting the input text file with newContent
-	             
-	            writer = new FileWriter(fileToBeModified);
-	             
-	            writer.write(newContent);
-	        }
-	        catch (IOException e)
-	        {
-	            e.printStackTrace();
-	        }
-	        finally
-	        {
-	            try
-	            {
-	                //Closing the resources
-	                 
-	                reader.close();
-	                 
-	                writer.close();
-	            } 
-	            catch (IOException e) 
-	            {
-	                e.printStackTrace();
-	            }
-	        }
-	    }
 	
-	/*
-	 * Get course names to display to 
-	 * users in GUI
-	 */
-	
-	public ArrayList getCoursesByProgram(String program)
-	{
-		ArrayList courses = new ArrayList<String>();
-		File file = new File("courseDB.txt");
-		try{
-			FileReader fr = new FileReader(file);
-			BufferedReader br = new BufferedReader(fr);
-			String line;
-
-			
-			
-			while((line = br.readLine()) != null){
-				if (line.contains(program)){
-					int index = line.indexOf(":");
-					courses.add(line.substring(index + 2));
-					}
-			}
-			br.close();
-			fr.close();
-		}
-		catch(IOException f)
-		{
-			System.out.println("File not found");
-		}
-		
-		return courses;
-	}
 	
 	/*
 	 * Get course names to display to 
@@ -499,8 +413,6 @@ public class RWTools {
 	
 	public ArrayList getCourseInfo(String course)
 	{
-//		System.out.println("course string" + course);
-		
 		ArrayList courseInfo = new ArrayList<String>();
 		File file = new File("courseDB.txt");
 		try{
@@ -546,8 +458,6 @@ public class RWTools {
 				String courseProgram = br.readLine();
 				int index7 = courseProgram.indexOf(":");
 				courseInfo.add(courseProgram.substring(index7 + 2));
-				
-//				System.out.println(courseInfo);
 				return courseInfo;
 			}
 		}
@@ -557,58 +467,7 @@ public class RWTools {
 		}
 		return null;
 	}
-	
-	
-	
-	
-	/*
-	 * Currently still has bugs, but
-	 * edits info of course
-	 */
-	public void editCourse(String oldString, String newString)
-    {
-        File fileToBeModified = new File("courseDB.txt");
-        String oldContent = "";
-        BufferedReader br = null;
-        FileWriter fw = null;
-         
-        try
-        {
-            br = new BufferedReader(new FileReader(fileToBeModified));
-            //Reading all the lines of input text file into oldContent
-            String line = br.readLine();
-             
-            while (line != null) 
-            {
-                oldContent = oldContent + line + System.lineSeparator();
-                line = br.readLine();
-            }
-             
-            //Replacing oldString with newString in the oldContent
-            String newContent = oldContent.replaceAll(oldString, newString);
-            
-            //Rewriting the input text file with newContent
-            fw = new FileWriter(fileToBeModified);
-            fw.write(newContent);
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-        finally
-        {
-            try
-            {
-                br.close();
-                fw.close();
-            } 
-            catch (IOException e) 
-            {
-                e.printStackTrace();
-            }
-        }
-    }
-	
+		
 	/* getProgramtInfo method is used to retrieve program info to display in GUI
 	 * @param	program
 	 * @exception	IOException for file handling
@@ -616,8 +475,6 @@ public class RWTools {
 	 */
 	
 	public ArrayList getProgramInfo(String program) {
-		
-//		System.out.println(program);
 		
 		ArrayList programInfo = new ArrayList<String>();
 		File file = new File("programDB.txt");
@@ -630,26 +487,21 @@ public class RWTools {
 					String programCode = br.readLine();
 					int index = programCode.indexOf(":");
 					programInfo.add(programCode.substring(index + 2));
-					
 					String programDesc = br.readLine();
 					int index1 = programDesc.indexOf(":");
 					programInfo.add(programDesc.substring(index1 + 2));
-					
 					String programDep = br.readLine();
 					int index2 = programDep.indexOf(":");
 					programInfo.add(programDep.substring(index2 + 2));
-					
 					String programLvl = br.readLine();
 					int index3 = programLvl.indexOf(":");
 					programInfo.add(programLvl.substring(index3 + 2));
-					
 					String programType = br.readLine();
 					int index4 = programType.indexOf(":");
 					programInfo.add(programType.substring(index4 + 2));
-					
 					String reqGPA = br.readLine();
 					int index5 = reqGPA.indexOf(":");
-					programInfo.add(reqGPA.substring(index5 + 2));
+					programInfo.add(reqGPA.substring(index5 +2));
 					return programInfo;
 				}
 			}
@@ -660,15 +512,13 @@ public class RWTools {
 		return null;
 	}
 	
-	
-
 	/*
 	 * Edits program info from user input in GUI
 	 */
 	
-	public void editProgram(String oldString, String newString)
+	public void editDB(String oldString, String newString, String filename)
     {
-        File fileToBeModified = new File("programDB.txt");
+        File fileToBeModified = new File(filename);
         String oldContent = "";
         BufferedReader reader = null;
         FileWriter writer = null;

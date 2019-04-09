@@ -126,7 +126,7 @@ public class CourseCalendar extends JFrame {
 		
 		// text areas for all classes for a given program
 		JTextArea txtrEnterCourses = new JTextArea();
-		txtrEnterCourses.setBounds(350, 454, 438, 343);
+		txtrEnterCourses.setBounds(353, 459, 438, 343);
 		txtrEnterCourses.setBackground(new Color(245, 245, 245));
 		txtrEnterCourses.setWrapStyleWord(true);
 		txtrEnterCourses.setLineWrap(true);
@@ -157,12 +157,12 @@ public class CourseCalendar extends JFrame {
 		
 		// program description label
 		JLabel lblProgramLvl = new JLabel("Program Level: ");
-		lblProgramLvl.setBounds(350, 280, 116, 23);
+		lblProgramLvl.setBounds(350, 239, 116, 23);
 		lblProgramLvl.setFont(new Font("Helvetica Neue", Font.BOLD, 14));
 		
 		// department label
 		JLabel lblProgType = new JLabel("Program Type: ");
-		lblProgType.setBounds(350, 312, 116, 32);
+		lblProgType.setBounds(350, 271, 116, 32);
 		lblProgType.setFont(new Font("Helvetica Neue", Font.BOLD, 14));
 		
 		// required gpa label
@@ -172,13 +172,13 @@ public class CourseCalendar extends JFrame {
 		
 		// sub-heading label
 		JLabel lblRequiredCourses = new JLabel("Required Courses");
-		lblRequiredCourses.setBounds(22, 380, 198, 24);
+		lblRequiredCourses.setBounds(25, 385, 198, 24);
 		lblRequiredCourses.setHorizontalAlignment(SwingConstants.LEFT);
 		lblRequiredCourses.setForeground(new Color(112, 128, 144));
 		lblRequiredCourses.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
 		
 		JSeparator separator_1 = new JSeparator();
-		separator_1.setBounds(15, 357, 850, 16);
+		separator_1.setBounds(15, 369, 850, 16);
 		
 		// Program description result
 		JLabel labelProgCodeResult = new JLabel("E.g. MATH");
@@ -195,13 +195,13 @@ public class CourseCalendar extends JFrame {
 		// Program Description Result
 		JLabel labelProgLvlResult = new JLabel("E.g. Bachelor's");
 		labelProgLvlResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
-		labelProgLvlResult.setBounds(463, 280, 190, 23);
+		labelProgLvlResult.setBounds(463, 239, 190, 23);
 		contentPane.add(labelProgLvlResult);
 		
 		// Program Type Result
 		JLabel labelProgTypeResult = new JLabel("Bachelor of Science");
 		labelProgTypeResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
-		labelProgTypeResult.setBounds(463, 311, 170, 34);
+		labelProgTypeResult.setBounds(463, 270, 170, 34);
 		contentPane.add(labelProgTypeResult);
 		
 		// GPA Result
@@ -213,13 +213,15 @@ public class CourseCalendar extends JFrame {
 		// Program Description label
 		JLabel lblProgramDescription = new JLabel("Program Description: ");
 		lblProgramDescription.setFont(new Font("Helvetica Neue", Font.BOLD, 14));
-		lblProgramDescription.setBounds(350, 239, 162, 28);
+		lblProgramDescription.setBounds(350, 314, 162, 28);
 		contentPane.add(lblProgramDescription);
 		
 		// Program Description result label
-		JLabel lblProgramDescriptionResult = new JLabel("This program is for...");
+		JTextArea lblProgramDescriptionResult = new JTextArea("This program is for...");
+		lblProgramDescriptionResult.setBackground(new Color(245, 245, 245));
+		lblProgramDescriptionResult.setLineWrap(true);
 		lblProgramDescriptionResult.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
-		lblProgramDescriptionResult.setBounds(503, 239, 349, 27);
+		lblProgramDescriptionResult.setBounds(504, 319, 349, 48);
 		contentPane.add(lblProgramDescriptionResult);
 		
 		// Selected Course label
@@ -227,7 +229,7 @@ public class CourseCalendar extends JFrame {
 		lblSelectedCourse.setHorizontalAlignment(SwingConstants.LEFT);
 		lblSelectedCourse.setForeground(new Color(112, 128, 144));
 		lblSelectedCourse.setFont(new Font("Helvetica Neue", Font.BOLD, 16));
-		lblSelectedCourse.setBounds(350, 411, 381, 31);
+		lblSelectedCourse.setBounds(353, 416, 381, 31);
 		contentPane.add(lblSelectedCourse);
 		
 		// Course detail label
@@ -235,7 +237,7 @@ public class CourseCalendar extends JFrame {
 		lblCourseDetails.setHorizontalAlignment(SwingConstants.LEFT);
 		lblCourseDetails.setForeground(new Color(112, 128, 144));
 		lblCourseDetails.setFont(new Font("Helvetica Neue", Font.BOLD, 20));
-		lblCourseDetails.setBounds(350, 380, 381, 31);
+		lblCourseDetails.setBounds(353, 385, 381, 31);
 		contentPane.add(lblCourseDetails);
 		
 		JSeparator separator_2 = new JSeparator();
@@ -248,7 +250,7 @@ public class CourseCalendar extends JFrame {
 		txtrNotexx.setBackground(new Color(245, 245, 245));
 		txtrNotexx.setFont(new Font("Helvetica Neue", Font.PLAIN, 12));
 		txtrNotexx.setText("Note: \n- 1XX = 1st year course, 2XX = 2nd year course\n- 3XX = 3rd year course, 4XX = 4th year course");
-		txtrNotexx.setBounds(24, 411, 278, 48);
+		txtrNotexx.setBounds(27, 416, 278, 48);
 		contentPane.add(txtrNotexx);
 		
 		// add course ArrayList to JList 
@@ -258,7 +260,7 @@ public class CourseCalendar extends JFrame {
 		list.setBackground(new Color(245, 245, 245));
 		list.setFont(new Font("Helvetica Neue", Font.PLAIN, 14));
 		model.addElement("");
-		list.setBounds(24, 469, 278, 342);
+		list.setBounds(27, 474, 278, 328);
 		contentPane.add(list);
 		
 		// array used for displaying course attributes in text area
