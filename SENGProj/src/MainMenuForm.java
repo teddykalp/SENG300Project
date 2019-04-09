@@ -42,7 +42,7 @@ public class MainMenuForm extends JPanel {
         
         //IMG
         JPanel mainmenubg = new JPanel();
-        ImageIcon pic = new ImageIcon("ImgLib/Mmf.png");
+        ImageIcon pic = img.mmfbg;
         mainmenubg.setSize(1000,1000);
         mainmenubg.add(new JLabel(pic));
         mainmenubg.setEnabled(true);

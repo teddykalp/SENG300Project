@@ -22,10 +22,11 @@ public class ImageLibrary
         
         //Forbackgrounds
          ImageIcon titlepage = new ImageIcon("ImgLib/Titlepage.png");
+         ImageIcon mmfbg = new ImageIcon("ImgLib/Mmf.png");
+         ImageIcon staffbg = new ImageIcon("ImgLib/Staffr.png");
          
          
-         
-         //setArrays 
+     
          
          
          
