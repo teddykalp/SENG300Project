@@ -266,24 +266,24 @@ class StaffRegister extends JPanel{
 			else{
 				// if the user is a department head
 				if(DH.isSelected()){
-					tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), userEmail.getText(), 
-							MailingAField.getText(), (String)comboDepartment.getSelectedItem(), "Department Head", phoneNumber.getText());
+					tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), MailField.getText(), 
+							MailingAField.getText(), (String)comboDepartment.getSelectedItem(), "Department Head", PhoneField.getText());
 					setVisible(false);
 					form = new LoginForm();
 					form.setVisible(true);
 				}
 				// if the user is an instructor
 				else if(I.isSelected()){
-					tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), userEmail.getText(), 
-							MailingAField.getText(), (String)comboDepartment.getSelectedItem(), "Instructor", phoneNumber.getText());
+					tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), MailField.getText(), 
+							MailingAField.getText(), (String)comboDepartment.getSelectedItem(), "Instructor", PhoneField.getText());
 					setVisible(false);
 					form = new LoginForm();
 					form.setVisible(true);
 				}
 				// if the user is a Teaching Assistant
 				else{
-					tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), userEmail.getText(), 
-							MailingAField.getText(), (String)comboDepartment.getSelectedItem(), "Teaching Assistant", phoneNumber.getText());
+					tool.writeToUser(userID.getText(), passWord.getText(), firstName.getText(), lastName.getText(), MailField.getText(), 
+							MailingAField.getText(), (String)comboDepartment.getSelectedItem(), "Teaching Assistant", PhoneField.getText());
 					setVisible(false);
 					form = new LoginForm();
 					form.setVisible(true);
@@ -318,4 +318,3 @@ class StaffRegister extends JPanel{
     
 }
    
-
