@@ -1,25 +1,23 @@
-DEPARTMENT NAME: Math
-DEPARTMENT DESCRIPTION: The study of creating art
-DEPARTMENT CODE: 10101
-	
-
-
-DEPARTMENT NAME: Art
-DEPARTMENT DESCRIPTION: This department is for artistic design
-DEPARTMENT CODE: 11111
-
-DEPARTMENT NAME: Botany
-DEPARTMENT DESCRIPTION: Anything that has anything to with plants belongs here
-DEPARTMENT CODE: 420420
-
-DEPARTMENT NAME: Chemistry
-DEPARTMENT DESCRIPTION: Atoms and stuff
-DEPARTMENT CODE: 91119
-
-DEPARTMENT NAME: Communication and Media
-DEPARTMENT DESCRIPTION: If you like to talk about movies, this is the department for you	
-DEPARTMENT CODE: 000011
+DEPARTMENT NAME: Civil Engineering
+DEPARTMENT DESCRIPTION: The Department of Civil Engineering focuses on learning how to design, build, and maintain structures.
+DEPARTMENT CODE: 10271
 
 DEPARTMENT NAME: Computer Science
-DEPARTMENT DESCRIPTION: Math and computers, what else is better
-DEPARTMENT CODE: 314151
+DEPARTMENT DESCRIPTION: The Department of Computer Science holds a wide range of programs and courses related to the use of computers.
+DEPARTMENT CODE: 21746
+
+DEPARTMENT NAME: History
+DEPARTMENT DESCRIPTION: The Department of History offers numerous curricula based on exploring the History of the world's societies.
+DEPARTMENT CODE: 11169
+
+DEPARTMENT NAME: Biology
+DEPARTMENT DESCRIPTION: The Department of Biology contains a myriad of fields that cover the study of living organisms.
+DEPARTMENT CODE: 42018
+
+DEPARTMENT NAME: Performing Arts
+DEPARTMENT DESCRIPTION: The Department of Performing Arts allows students to explore in the worlds of drama, dance, and music!	
+DEPARTMENT CODE: 68143
+
+DEPARTMENT NAME: Physics and Astronomy
+DEPARTMENT DESCRIPTION: The Department of Physics and Astronomy offers courses focusing on energy and matter that makes up the universe.
+DEPARTMENT CODE: 31415
