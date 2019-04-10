@@ -1,0 +1,46 @@
+
+
+
+FULL NAME: Teddy Kalp
+USER ID: tkalp
+Password: 123
+EMAIL ADDRESS: @
+MAILING ADDRESS: teddy.kalp@
+DEPARTMENT: Math
+STAFF TYPE: Instructor
+
+FULL NAME: sdfsf ASs
+USER ID: asdad
+Password: weq
+PHONE NUMBER: asd
+EMAIL ADDRESS: @
+MAILING ADDRESS: asd
+DEPARTMENT: Math
+STAFF TYPE: Teaching Assistant
+
+FULL NAME: test test
+USER ID: test
+Password: test
+PHONE NUMBER: 123
+EMAIL ADDRESS: @
+MAILING ADDRESS: 245
+DEPARTMENT: Math
+STAFF TYPE: Department Head
+
+FULL NAME: ohno ohno
+USER ID: ohno
+Password: ohno
+PHONE NUMBER: 321
+EMAIL ADDRESS: @
+MAILING ADDRESS: wdqewqerqwerqwrqwrqwr
+DEPARTMENT: Math
+STAFF TYPE: Teaching Assistant
+
+FULL NAME: hotdog hotdog
+USER ID: hotdog
+Password: hotdog
+PHONE NUMBER: 123
+EMAIL ADDRESS: @
+MAILING ADDRESS: da
+DEPARTMENT: Math
+STAFF TYPE: Department Head
