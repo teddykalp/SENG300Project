@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class CourseCalendar extends JPanel {
+public class CourseCalendar2 extends JPanel {
 
     private JPanel contentPane;
 
@@ -32,7 +32,7 @@ public class CourseCalendar extends JPanel {
     /**
      * Create the application
      */
-    public CourseCalendar(JPanel panel) {
+    public CourseCalendar2(JPanel panel) {
         
         JPanel image1 = new JPanel();
         ImageIcon pic = img.calendar;
@@ -55,7 +55,7 @@ public class CourseCalendar extends JPanel {
         btnGoBack.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                    CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-                                cardLayout.show(contentPane, "login");
+                                cardLayout.show(contentPane, "mmf");
             }
         });
         btnGoBack.setFont(new Font("Tahoma", Font.PLAIN, 13));

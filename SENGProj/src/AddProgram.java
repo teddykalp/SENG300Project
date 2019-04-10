@@ -55,6 +55,8 @@ public class AddProgram extends JPanel {
     
     private RWTools tool = new RWTools();
     
+    ImageLibrary img = new ImageLibrary();
+    
     /**
      * Launch the application.
      */
@@ -70,42 +72,57 @@ public class AddProgram extends JPanel {
         JPanel p1 = new JPanel(null) ;
          p1.setPreferredSize(new Dimension(1000,1000));
          contentPane = panel;
+          
+                  //IMG
+                JPanel editpbg = new JPanel();
+                ImageIcon pic = img.editpbg;
+                editpbg.setSize(1000,1000);
+                editpbg.add(new JLabel(pic));
+                editpbg.setEnabled(true);
+                editpbg.setVisible(true);  
+                
+         JLabel DView = new JLabel("Add Program");
+         DView.setFont(new Font("Tahoma", Font.BOLD, 30));
+         DView.setForeground(Color.WHITE);
+         DView.setBounds(410, 50, 500,50);
+        p1.add( DView);
         
-        // Program registration label attributes
-        PRLabel = new JLabel("Program Registration");
-        PRLabel.setFont(new Font("Tahoma", Font.BOLD | Font.BOLD, 18));
-        PRLabel.setBounds(185, 19, 214, 26);
-        p1.add(PRLabel);
+        JLabel lblNewLabel = new JLabel("What Program would you like to add?");
+        lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+        lblNewLabel.setForeground(Color.WHITE);
+        lblNewLabel.setBounds(300, 100, 500, 26);
+        p1.add(lblNewLabel);
         
+       
         // Program name label attributes
         PNLabel = new JLabel("Program Name");
         PNLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        PNLabel.setBounds(21, 66, 92, 26);
+        PNLabel.setBounds(300, 150, 92, 26);
         p1.add(PNLabel);
         
         // Program description label attributes
         PDLabel = new JLabel("Program Description");
         PDLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        PDLabel.setBounds(21, 119, 131, 26);
+        PDLabel.setBounds(300, 200, 131, 26);
         p1.add(PDLabel);
         
         
         // Department label attributes
         DePLabel = new JLabel("Department");
         DePLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        DePLabel.setBounds(21, 275, 131, 26);
+        DePLabel.setBounds(300, 300, 131, 26);
         p1.add(DePLabel);
         
         // Level of Program label Attributes
         LoPLabel = new JLabel("Level of Program");
         LoPLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        LoPLabel.setBounds(21, 330, 131, 26);
+        LoPLabel.setBounds(300, 350, 131, 26);
         p1.add(LoPLabel);
         
         // Type of Program label attributes
         ToPLabel = new JLabel("Type of Program");
         ToPLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        ToPLabel.setBounds(21, 377, 131, 26);
+        ToPLabel.setBounds(300, 400, 131, 26);
         p1.add(ToPLabel);
         
         inputError = new JLabel("");
@@ -117,20 +134,20 @@ public class AddProgram extends JPanel {
         
         PCLabel = new JLabel("Program Code (XXXX)");
         PCLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        PCLabel.setBounds(21, 216, 146, 26);
+        PCLabel.setBounds(300,450, 146, 26);
         p1.add(PCLabel);
         
                 // Required GPA label attributes
         RGLabel = new JLabel("Required GPA (If Any)");
         RGLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        RGLabel.setBounds(21, 424, 146, 26);
+        RGLabel.setBounds(300, 500, 146, 26);
         p1.add(RGLabel);
         
         // Takes user input for program name
         // Attributes for text area
         programName = new JTextArea();
         programName.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        programName.setBounds(185, 66, 186, 27);
+        programName.setBounds(500, 150, 186, 27);
         p1.add(programName);
        
         
@@ -138,7 +155,7 @@ public class AddProgram extends JPanel {
         // Attributes for text area
         programDesc = new JTextArea();
         programDesc.setFont(new Font("Tahoma", Font.PLAIN, 11));
-        programDesc.setBounds(185, 114, 238, 84);
+        programDesc.setBounds(500,200, 238, 84);
         programDesc.setLineWrap(true);
         p1.add(programDesc);
   
@@ -148,7 +165,7 @@ public class AddProgram extends JPanel {
         ProgramCBox = new JComboBox();
         ProgramCBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
         ProgramCBox.setModel(new DefaultComboBoxModel(new String[] {"None", "Bachelor's", "Master's", "PhD"}));
-        ProgramCBox.setBounds(185, 325, 186, 26);
+        ProgramCBox.setBounds(500, 350, 186, 26);
         ProgramCBox.setEnabled(true);
         p1.add(ProgramCBox);
         
@@ -158,7 +175,7 @@ public class AddProgram extends JPanel {
          PTCBox = new JComboBox();
          PTCBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
          PTCBox.setModel(new DefaultComboBoxModel(new String[] {"None", "Science", "Arts", "Other"}));
-         PTCBox.setBounds(185, 372, 186, 26);
+         PTCBox.setBounds(500, 400, 186, 26);
          PTCBox.setEnabled(true);
         p1.add( PTCBox);
         
@@ -166,8 +183,8 @@ public class AddProgram extends JPanel {
         
         // Checkbox for specifying diploma program
         DPCheckBox = new JCheckBox("Diploma Program");
-        DPCheckBox.setBackground(new Color(255, 222, 173));
-        DPCheckBox.setBounds(185, 482, 179, 35);
+        DPCheckBox.setBackground(new Color(173, 173, 173));
+        DPCheckBox.setBounds(500, 600, 179, 35);
         DPCheckBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
         DPCheckBox.addActionListener(new ActionListener() {
             /**
@@ -197,20 +214,21 @@ public class AddProgram extends JPanel {
         // Takes user input for requiredGPA
         JTextArea reqGPA = new JTextArea();
         reqGPA.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        reqGPA.setBounds(185, 423, 186, 26);
+        reqGPA.setBounds(500, 500, 186, 26);
         p1.add(reqGPA);
         
         // Go Back button returns user to main menu
         JButton btnNewButton = new JButton("Go Back");
-        btnNewButton.setFont(new Font("Calibri", Font.BOLD, 21));
-        btnNewButton.setBackground(new Color(176, 196, 222));
+        btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+     
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 CardLayout card = (CardLayout) contentPane.getLayout();
                     card.show(contentPane, "mmf");
             }
         });
-        btnNewButton.setBounds(433, 10, 141, 35);
+        btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        btnNewButton.setBounds(850, 10, 100, 25);
         p1.add(btnNewButton);
         
         ArrayList arr = tool.getDepartment();
@@ -221,7 +239,7 @@ public class AddProgram extends JPanel {
         
         JComboBox comboDepartment = new JComboBox();
         comboDepartment.setModel(new DefaultComboBoxModel(departments));
-        comboDepartment.setBounds(185, 275, 193, 27);
+        comboDepartment.setBounds(500, 300, 193, 27);
         p1.add(comboDepartment);
         
         
@@ -229,13 +247,13 @@ public class AddProgram extends JPanel {
         JTextArea programCode = new JTextArea();
         programCode.setFont(new Font("Tahoma", Font.PLAIN, 13));
         programCode.setColumns(10);
-        programCode.setBounds(185, 219, 186, 27);
+        programCode.setBounds(500, 450, 186, 27);
         p1.add(programCode);
         
         // Submit button
         JButton submitBtn = new JButton("Submit");
-        submitBtn.setBackground(new Color(176, 196, 222));
-        submitBtn.setFont(new Font("Candara", Font.BOLD, 21));
+       
+        submitBtn.setFont(new Font("Tahoma", Font.BOLD, 21));
         submitBtn.addActionListener(new ActionListener() {
             /**
             * actionPerformed handles submit button
@@ -278,9 +296,9 @@ public class AddProgram extends JPanel {
                 }
             }
         });
-        submitBtn.setBounds(422, 505, 141, 35);
+        submitBtn.setBounds(500, 600, 141, 35);
         p1.add(submitBtn);
-        
+        p1.add(editpbg);
         contentPane.add(p1);
         add(p1);
         

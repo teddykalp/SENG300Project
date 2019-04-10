@@ -106,7 +106,7 @@ public class EditDepartment extends JPanel {
         
         JComboBox comboDepartment = new JComboBox();
         comboDepartment.setModel(new DefaultComboBoxModel(departments));
-        comboDepartment.setBounds(400, 200, 100, 25);
+        comboDepartment.setBounds(300, 200, 300, 25);
         p1.add(comboDepartment);
         
         
@@ -139,8 +139,8 @@ public class EditDepartment extends JPanel {
                 cardLayout.show(contentPane, "mmf");
             }
         });
-        btnCancel.setFont(new Font("Tahoma", Font.BOLD, 15));
-        btnCancel.setBounds(800, 50, 100, 25);
+         btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        btnCancel.setBounds(850, 10, 100, 25);
         p1.add(btnCancel);
         
         JButton editButton = new JButton("Edit");
@@ -157,7 +157,7 @@ public class EditDepartment extends JPanel {
             }
         });
         editButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-        editButton.setBounds(550, 200, 100, 25);
+        editButton.setBounds(630, 200, 100, 25);
         p1.add(editButton);
         
         JButton commitChanges = new JButton("Commit Changes");

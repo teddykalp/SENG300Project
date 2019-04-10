@@ -27,6 +27,8 @@ public class ImageLibrary
          ImageIcon addcbg = new ImageIcon("ImgLib/Course.png");
          ImageIcon calendar = new ImageIcon("ImgLib/Calender.png");
          ImageIcon editdbg = new ImageIcon("ImgLib/EditDepartment.png");
+         ImageIcon editcbg = new ImageIcon("ImgLib/EditCourse.png");
+         ImageIcon editpbg = new ImageIcon("ImgLib/EditProgram.png");
          
      
          

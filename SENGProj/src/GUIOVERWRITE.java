@@ -34,6 +34,7 @@ public class GUIOVERWRITE
    private StaffRegister sr;
    private MainMenuForm mmf;
    private CourseCalendar cc;
+    private CourseCalendar2 cc2;
    private AddProgram ap;
    private EditCourse ec;
    private EditDepartment ed;
@@ -80,6 +81,7 @@ public class GUIOVERWRITE
        mmf = new MainMenuForm(contentPane);
        ac = new AddCourse(contentPane);
        cc = new CourseCalendar(contentPane);
+        cc2 = new CourseCalendar2(contentPane);
        ap = new AddProgram(contentPane);
        ec = new EditCourse(contentPane);
        ed = new EditDepartment(contentPane);
@@ -104,6 +106,8 @@ public class GUIOVERWRITE
        contentPane.add(pd,"pd");
        contentPane.add(ed,"ed");
        contentPane.add(ad,"ad");
+       contentPane.add(ep,"ep");
+        contentPane.add(cc2,"cc2");
        
        
        

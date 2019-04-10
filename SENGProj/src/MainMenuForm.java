@@ -51,7 +51,7 @@ public class MainMenuForm extends JPanel {
         mainmenubg.setVisible(true);  
         
         //Labels 
-       Welcome = new JLabel("Welcome, ");
+       Welcome = new JLabel("Welcome");
         Welcome.setForeground(Color.WHITE);
         Welcome.setFont(new Font("Tahoma", Font.BOLD, 30));
         Welcome.setBounds(25, 50, 250, 50);
@@ -67,7 +67,7 @@ public class MainMenuForm extends JPanel {
         ViewCourse.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
             CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-                    cardLayout.show(contentPane, "lo");
+                    cardLayout.show(contentPane, "cc2");
             }
         });
         ViewCourse.setBackground(Color.WHITE);

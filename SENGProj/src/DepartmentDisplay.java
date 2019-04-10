@@ -49,6 +49,7 @@ public class DepartmentDisplay extends JPanel {
     
     private JButton btnView;
     private JButton btnReturn;
+    ImageLibrary img = new ImageLibrary();
     
     /**
      * departmentDisplay constructor that creates the frame and adds its components.
@@ -59,11 +60,15 @@ public class DepartmentDisplay extends JPanel {
         p1.setPreferredSize(new Dimension(1000,1000));
         contentPane = panel;
         
-        // View department label and attributes
-        lblViewDepartment = new JLabel("View Department");
-        lblViewDepartment.setFont(new Font("Sylfaen", Font.BOLD, 21));
-        lblViewDepartment.setBounds(300, 0, 187, 26);
-        p1.add(lblViewDepartment);
+          //IMG
+                JPanel editdbg = new JPanel();
+                ImageIcon pic = img.editdbg;
+                editdbg.setSize(1000,1000);
+                editdbg.add(new JLabel(pic));
+                editdbg.setEnabled(true);
+                editdbg.setVisible(true);  
+        
+       
         
         // Gets list of departments available
         ArrayList arr = tool.getDepartment();
@@ -72,40 +77,51 @@ public class DepartmentDisplay extends JPanel {
             departments[x] = (String) arr.get(x);
         }
         
+        JLabel DView = new JLabel("View Department");
+                 DView.setFont(new Font("Tahoma", Font.BOLD, 30));
+                 DView.setForeground(Color.WHITE);
+                 DView.setBounds(410, 50, 500,50);
+                p1.add( DView);
+                
+                JLabel lblNewLabel = new JLabel("What Department would you like to see?");
+                lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+                lblNewLabel.setForeground(Color.WHITE);
+                lblNewLabel.setBounds(300, 100, 500, 26);
+                p1.add(lblNewLabel);
         
         // Shows list of departments available to be selected from
         departmentBox = new JComboBox();
         departmentBox.setModel(new DefaultComboBoxModel(departments));
-        departmentBox.setBounds(250, 74, 235, 32);
+        departmentBox.setBounds(500, 150, 235, 32);
         p1.add(departmentBox);
         
         // Department text area and attributes
         departmentD = new JTextArea();
         departmentD.setEditable(false);
-        departmentD.setBounds(51, 146, 245, 86);
+        departmentD.setBounds(500, 200, 245, 86);
         p1.add(departmentD);
         
         // Choose department label and attributes
         lblChooseDepartment = new JLabel("Choose Department");
-        lblChooseDepartment.setFont(new Font("Sylfaen", Font.PLAIN, 18));
-        lblChooseDepartment.setBounds(51, 47, 201, 26);
+        lblChooseDepartment.setFont(new Font("Tahoma", Font.BOLD, 18));
+        lblChooseDepartment.setBounds(300, 150, 201, 26);
         p1.add(lblChooseDepartment);
         
         // Department description label and attributes
         lblDescription = new JLabel("Description");
-        lblDescription.setFont(new Font("Sylfaen", Font.PLAIN, 18));
-        lblDescription.setBounds(51, 118, 201, 26);
+        lblDescription.setFont(new Font("Tahoma", Font.BOLD, 18));
+        lblDescription.setBounds(300, 200, 201, 26);
         p1.add(lblDescription);
         
         // Department code label and attributes
         lblCode = new JLabel("Code");
-        lblCode.setFont(new Font("Sylfaen", Font.PLAIN, 18));
-        lblCode.setBounds(51, 241, 201, 26);
+        lblCode.setFont(new Font("Tahoma", Font.PLAIN, 18));
+        lblCode.setBounds(300, 300, 201, 26);
         p1.add(lblCode);
         
         departmentCode = new JTextArea();
         departmentCode.setEditable(false);
-        departmentCode.setBounds(51, 268, 245, 26);
+        departmentCode.setBounds(500,300, 245, 26);
         p1.add(departmentCode);
         
         btnView = new JButton("View");
@@ -124,9 +140,9 @@ public class DepartmentDisplay extends JPanel {
                 
             }
         });
-        btnView.setBackground(new Color(173, 255, 47));
-        btnView.setFont(new Font("Sylfaen", Font.BOLD, 21));
-        btnView.setBounds(397, 241, 141, 35);
+        
+        btnView.setFont(new Font("Tahoma", Font.BOLD, 21));
+        btnView.setBounds(600, 350, 141, 35);
         p1.add(btnView);
         
         // Go Back button returns user to main menu
@@ -137,10 +153,12 @@ public class DepartmentDisplay extends JPanel {
                             cardLayout.show(contentPane, "mmf");
             }
         });
-        btnReturn.setBackground(new Color(255, 105, 180));
-        btnReturn.setFont(new Font("Sylfaen", Font.BOLD, 21));
-        btnReturn.setBounds(397, 52, 141, 35);
+     
+        btnReturn.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        btnReturn.setBounds(850, 10, 100, 25);
+         
         p1.add(btnReturn);
+        p1.add(editdbg);
         
         contentPane.add(p1);
         add(p1);

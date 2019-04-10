@@ -47,12 +47,21 @@ public class EditCourse extends JPanel {
     private String newName, newLvl, newID, newProgram, newInstructor, newPreReq, newCode, newDays,
     newStart, newFinish, newCredit, newDesc;
     
-    
+    ImageLibrary img = new ImageLibrary();
     
     public EditCourse(JPanel panel) {
         JPanel p1 = new JPanel(null);
         p1.setPreferredSize(new Dimension(1000,1000));
         contentPane = panel;
+        
+        
+          //IMG
+        JPanel editcbg = new JPanel();
+        ImageIcon pic = img.editcbg;
+       editcbg.setSize(1000,1000);
+       editcbg.add(new JLabel(pic));
+       editcbg.setEnabled(true);
+       editcbg.setVisible(true);  
         
         ArrayList coursesL = tool.getCourses();
         String [] courses = new String[coursesL.size()];
@@ -60,155 +69,163 @@ public class EditCourse extends JPanel {
             courses[x] = (String)coursesL.get(x);
         }
         
+        JLabel CView = new JLabel("Edit Course");
+         CView.setFont(new Font("Tahoma", Font.BOLD, 30));
+         CView.setForeground(Color.WHITE);
+         CView.setBounds(410, 20, 500,50);
+        p1.add( CView);
+        
+        JLabel lblNewLabel = new JLabel("Which Course would you like to edit?");
+        lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+        lblNewLabel.setForeground(Color.WHITE);
+        lblNewLabel.setBounds(300, 65, 500, 26);
+        p1.add(lblNewLabel);
+        
         JComboBox coursesSelect = new JComboBox();
         coursesSelect.setModel(new DefaultComboBoxModel(courses));
-        coursesSelect.setBounds(196, 92, 216, 25);
+        coursesSelect.setBounds(500, 150, 216, 25);
         p1.add(coursesSelect);
         
         JLabel lblchooseCourse = new JLabel("Choose Course");
         lblchooseCourse.setFont(new Font("Source Sans Pro", Font.PLAIN, 14));
-        lblchooseCourse.setBounds(20, 91, 115, 26);
+        lblchooseCourse.setBounds(300, 150, 115, 26);
         p1.add(lblchooseCourse);
         
         JLabel nameError = new JLabel("");
         nameError.setForeground(Color.RED);
         nameError.setFont(new Font("Tahoma", Font.PLAIN, 10));
-        nameError.setBounds(412, 62, 123, 17);
+        nameError.setBounds(600, 200, 123, 17);
         p1.add(nameError);
         
         JLabel descError = new JLabel("");
         descError.setForeground(Color.RED);
         descError.setFont(new Font("Tahoma", Font.PLAIN, 10));
-        descError.setBounds(461, 557, 123, 17);
+        descError.setBounds(600, 700, 123, 17);
         p1.add(descError);
         
         JLabel idError = new JLabel("");
         idError.setForeground(Color.RED);
         idError.setFont(new Font("Tahoma", Font.PLAIN, 10));
-        idError.setBounds(412, 206, 123, 17);
+        idError.setBounds(600, 300, 123, 17);
         p1.add(idError);
         
         JLabel stError = new JLabel("");
         stError.setForeground(Color.RED);
         stError.setFont(new Font("Tahoma", Font.PLAIN, 10));
-        stError.setBounds(474, 612, 121, 17);
+        stError.setBounds(600, 700, 121, 17);
         p1.add(stError);
         
         JLabel ftError = new JLabel("");
         ftError.setForeground(Color.RED);
         ftError.setFont(new Font("Tahoma", Font.PLAIN, 10));
-        ftError.setBounds(371, 635, 92, 17);
+        ftError.setBounds(600, 750, 92, 17);
         p1.add(ftError);
         
-        JLabel lblEditCourse = new JLabel("Edit Course");
-        lblEditCourse.setFont(new Font("Times New Roman", Font.BOLD, 19));
-        lblEditCourse.setBounds(221, 16, 165, 26);
-        p1.add(lblEditCourse);
         
-        JLabel lblNewLabel = new JLabel("Course Level");
+        lblNewLabel = new JLabel("Course Level");
         lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblNewLabel.setBounds(20, 206, 92, 26);
+        lblNewLabel.setBounds(300, 200, 92, 26);
         p1.add(lblNewLabel);
         
         JLabel lblCourseName = new JLabel("Course Name");
         lblCourseName.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblCourseName.setBounds(20, 173, 92, 26);
+        lblCourseName.setBounds(300, 300, 92, 26);
         p1.add(lblCourseName);
         
         JLabel lblCourseDescription = new JLabel("Course Description ");
         lblCourseDescription.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblCourseDescription.setBounds(21, 603, 119, 26);
+        lblCourseDescription.setBounds(300, 700, 119, 26);
         p1.add(lblCourseDescription);
         
         JLabel lblCourseId = new JLabel("Course ID (00-99)");
         lblCourseId.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblCourseId.setBounds(21, 252, 119, 26);
+        lblCourseId.setBounds(300, 350, 119, 26);
         p1.add(lblCourseId);
         
         JLabel lblInstructor = new JLabel("<html><p>Prerequisite \r\nCourses (Seperate courses with a comma)<p><html>");
         lblInstructor.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblInstructor.setBounds(21, 347, 157, 51);
+        lblInstructor.setBounds(300, 450, 157, 51);
         p1.add(lblInstructor);
         
         JLabel label = new JLabel("Instructor");
         label.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        label.setBounds(21, 299, 92, 26);
+        label.setBounds(300, 400, 92, 26);
         p1.add(label);
         
         JLabel lblDaysThisCourse = new JLabel("<html><p>Days this Course will be offered<p><html>");
         lblDaysThisCourse.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblDaysThisCourse.setBounds(21, 431, 102, 51);
+        lblDaysThisCourse.setBounds(300, 530, 102, 51);
         p1.add(lblDaysThisCourse);
         
         courseName = new JTextField();
         courseName.setEditable(false);
         courseName.setFont(new Font("Tahoma", Font.PLAIN, 13));
         courseName.setColumns(10);
-        courseName.setBounds(196, 173, 186, 26);
+        courseName.setBounds(500, 300, 186, 26);
         p1.add(courseName);
         
         courseLvl = new JTextField();
         courseLvl.setEditable(false);
         courseLvl.setFont(new Font("Tahoma", Font.PLAIN, 16));
         courseLvl.setColumns(10);
-        courseLvl.setBounds(196, 206, 72, 26);
+        courseLvl.setBounds(500, 200, 72, 26);
         p1.add(courseLvl);
         
         courseID = new JTextField();
         courseID.setEditable(false);
         courseID.setFont(new Font("Tahoma", Font.PLAIN, 16));
         courseID.setColumns(10);
-        courseID.setBounds(196, 252, 186, 26);
+        courseID.setBounds(500, 350, 186, 26);
         p1.add(courseID);
         
         JLabel lblTimeslot = new JLabel("Time Slot");
         lblTimeslot.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblTimeslot.setBounds(21, 503, 92, 26);
+        lblTimeslot.setBounds(300, 600, 92, 26);
         p1.add(lblTimeslot);
         
         startTime = new JTextField();
         startTime.setEditable(false);
-        startTime.setBounds(196, 503, 80, 32);
+        startTime.setBounds(600, 600, 80, 32);
         p1.add(startTime);
         startTime.setColumns(10);
         
         finishTime = new JTextField();
         finishTime.setEditable(false);
         finishTime.setColumns(10);
-        finishTime.setBounds(371, 503, 80, 32);
+        finishTime.setBounds(800, 600, 80, 32);
         p1.add(finishTime);
         
         JLabel lblStartTime = new JLabel("Start Time");
         lblStartTime.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblStartTime.setBounds(116, 503, 69, 26);
+        lblStartTime.setBounds(500, 600, 69, 26);
         p1.add(lblStartTime);
         
         JLabel lblFinishTime = new JLabel("Finish Time");
         lblFinishTime.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblFinishTime.setBounds(291, 503, 69, 26);
+        lblFinishTime.setBounds(700, 600, 69, 26);
         p1.add(lblFinishTime);
         
         JLabel lblCourseCredits = new JLabel("Course Credits");
         lblCourseCredits.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblCourseCredits.setBounds(21, 556, 92, 26);
+        lblCourseCredits.setBounds(300, 650, 92, 26);
         p1.add(lblCourseCredits);
         
         courseCredit = new JTextArea();
         courseCredit.setEditable(false);
         courseCredit.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        courseCredit.setBounds(265, 553, 72, 26);
+        courseCredit.setBounds(500, 650, 72, 26);
         p1.add(courseCredit);
         
         coursePreReq = new JTextArea();
         coursePreReq.setEditable(false);
         coursePreReq.setLineWrap(true);
-        coursePreReq.setBounds(196, 345, 216, 65);
+        coursePreReq.setBounds(500, 450, 216, 65);
         p1.add(coursePreReq);
         
         courseDesc = new JTextArea();
         courseDesc.setEditable(false);
         courseDesc.setLineWrap(true);
-        courseDesc.setBounds(183, 600, 244, 113);
+        courseDesc.setBounds(500, 700, 244, 113);
         p1.add(courseDesc);
         
         ArrayList proGram = tool.getPrograms();
@@ -219,13 +236,13 @@ public class EditCourse extends JPanel {
         
         courseInstructor = new JTextField();
         courseInstructor.setEditable(false);
-        courseInstructor.setBounds(196, 296, 186, 27);
+        courseInstructor.setBounds(500, 400, 186, 27);
         p1.add(courseInstructor);
         courseInstructor.setColumns(10);
         
         daysOffered = new JTextArea();
         daysOffered.setEditable(false);
-        daysOffered.setBounds(196, 429, 216, 51);
+        daysOffered.setBounds(500, 530, 216, 51);
         p1.add(daysOffered);
         daysOffered.setColumns(10);
         
@@ -233,12 +250,12 @@ public class EditCourse extends JPanel {
         programCourse.setFont(new Font("Tahoma", Font.PLAIN, 13));
         programCourse.setEditable(false);
         programCourse.setColumns(10);
-        programCourse.setBounds(196, 138, 186, 26);
+        programCourse.setBounds(500, 240, 186, 26);
         p1.add(programCourse);
         
         JLabel lblProgram = new JLabel("Program");
         lblProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        lblProgram.setBounds(20, 135, 92, 26);
+        lblProgram.setBounds(300, 240, 92, 26);
         p1.add(lblProgram);
         
         
@@ -325,7 +342,7 @@ public class EditCourse extends JPanel {
             }
         });
         btnEdit.setFont(new Font("Tahoma", Font.PLAIN, 15));
-        btnEdit.setBounds(448, 94, 92, 25);
+        btnEdit.setBounds(750,150, 100, 25);
         p1.add(btnEdit);
         
         JButton btnSaveCourse = new JButton("Commit Changes");
@@ -391,10 +408,10 @@ public class EditCourse extends JPanel {
                 }
         });
         btnSaveCourse.setFont(new Font("Tahoma", Font.BOLD, 15));
-        btnSaveCourse.setBounds(221, 731, 157, 35);
+        btnSaveCourse.setBounds(500, 830, 300, 35);
         p1.add(btnSaveCourse);
         
-        JButton btnCancel = new JButton("Cancel");
+        JButton btnCancel = new JButton("Go Back");
         btnCancel.setForeground(Color.BLACK);
         btnCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -402,11 +419,11 @@ public class EditCourse extends JPanel {
                         card.show(contentPane, "mmf");
             }
         });
-        btnCancel.setFont(new Font("Tahoma", Font.BOLD, 15));
-        btnCancel.setBounds(438, 21, 157, 35);
+        btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+        btnCancel.setBounds(850, 10, 100, 25);
         p1.add(btnCancel);
         
-        
+        p1.add(editcbg);
         
         contentPane.add(p1);
         add(p1);

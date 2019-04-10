@@ -33,8 +33,8 @@ public class AddDepartment extends JPanel {
 	private String name;
 	private RWTools tool = new RWTools();
 	
-	private JLabel lblNewLabel;
-	private JLabel lblNewLabel_1; 
+	private JLabel NRLabel;
+	private JLabel DPLabel; 
 	private JLabel lblDepartmentDescription;
 	private JLabel lblDepartmentCode;
 	private JLabel label_2; 
@@ -46,7 +46,7 @@ public class AddDepartment extends JPanel {
 	/**
 	 * Launch the application.
 	 */
-	
+	    ImageLibrary img = new ImageLibrary();
 
 	/**
 	 * departForm constructor that creates the frame and adds its components.
@@ -58,55 +58,65 @@ public class AddDepartment extends JPanel {
 		p1.setPreferredSize(new Dimension(1000,1000));
 		contentPane = panel;
 		
-		lblNewLabel = new JLabel("Register Department");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 19));
-		lblNewLabel.setBounds(209, 66, 190, 31);
-		p1.add(lblNewLabel);
+		  //IMG
+                JPanel editdbg = new JPanel();
+                ImageIcon pic = img.editdbg;
+                editdbg.setSize(1000,1000);
+                editdbg.add(new JLabel(pic));
+                editdbg.setEnabled(true);
+                editdbg.setVisible(true);  
+                
+		NRLabel = new JLabel("Add a New Department");
+		NRLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
+		NRLabel.setForeground(Color.WHITE);
+		NRLabel.setBounds(400, 20, 500,50);
+		p1.add(NRLabel);
+		JLabel lblNewLabel = new JLabel("What Department would you like to add?");
+                lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
+                lblNewLabel.setForeground(Color.WHITE);
+                lblNewLabel.setBounds(300, 100, 500, 26);
+                p1.add(lblNewLabel);
 		
-		lblNewLabel_1 = new JLabel("Department Name");
-		lblNewLabel_1.setFont(new Font("Noto Serif", Font.PLAIN, 14));
-		lblNewLabel_1.setBounds(10, 145, 131, 22);
-		p1.add(lblNewLabel_1);
+		DPLabel= new JLabel("Department Name");
+		DPLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		DPLabel.setBounds(300, 150, 131, 22);
+		p1.add(DPLabel);
 		
 		lblDepartmentDescription = new JLabel("<html><p>Department Description<p><html>");
-		lblDepartmentDescription.setFont(new Font("Noto Serif", Font.PLAIN, 14));
-		lblDepartmentDescription.setBounds(10, 219, 131, 39);
+		lblDepartmentDescription.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblDepartmentDescription.setBounds(300, 200, 131, 39);
 		p1.add(lblDepartmentDescription);
 		
 		lblDepartmentCode = new JLabel("Department Code");
-		lblDepartmentCode.setFont(new Font("Noto Serif", Font.PLAIN, 14));
-		lblDepartmentCode.setBounds(10, 346, 131, 22);
+		lblDepartmentCode.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblDepartmentCode.setBounds(300, 350, 131, 22);
 		p1.add(lblDepartmentCode);
-		
-		label_2 = new JLabel("");
-		label_2.setFont(new Font("Noto Serif", Font.PLAIN, 14));
-		label_2.setBounds(10, 417, 131, 22);
-		p1.add(label_2);
 		
 		departDescription = new JTextArea();
 		departDescription.setLineWrap(true);
-		departDescription.setBounds(196, 204, 267, 103);
+		departDescription.setBounds(500, 200, 267, 103);
 		p1.add(departDescription);
 		
 		departName = new JTextField();
-		departName.setBounds(192, 147, 271, 20);
+		departName.setBounds(500, 150, 271, 20);
 		p1.add(departName);
-		departName.setColumns(10);
+		
 	
 		departCode = new JTextField();
-		departCode.setBounds(196, 348, 267, 20);
+		departCode.setBounds(500, 350, 267, 20);
 		p1.add(departCode);
 		departCode.setColumns(10);
 
 		dError = new JLabel("");
 		dError.setForeground(Color.RED);
-		dError.setBounds(196, 405, 180, 15);
-		dError.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		dError.setBounds(600, 400, 180, 15);
+		dError.setFont(new Font("Tahoma", Font.BOLD, 10));
 		p1.add(dError);
 		
 		btnNewButton = new JButton("Add Department");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton.setBounds(439, 408, 156, 31);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton.setBounds(500, 400, 200, 50);
 		btnNewButton.addActionListener(new ActionListener() {
 			/**
 			* actionListener for Add Department button
@@ -141,12 +151,13 @@ public class AddDepartment extends JPanel {
                                 cardLayout.show(contentPane, "mmf");
 				}
 		});
-		button.setForeground(Color.RED);
-		button.setFont(new Font("Tahoma", Font.BOLD, 15));
-		button.setBackground(Color.DARK_GRAY);
-		button.setBounds(458, 21, 157, 35);
-		p1.add(button);
+	
+		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		
+		button.setBounds(850, 10, 100, 25);
+        
+		p1.add(button);
+		p1.add(editdbg);
 		contentPane.add(p1);
 		add(p1);
 		
