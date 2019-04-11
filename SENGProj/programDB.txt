@@ -1,4 +1,4 @@
-PROGRAM NAME: BEng in Civil Engineering
+PROGRAM NAME: Civil Engineering
 PROGRAM CODE: ENCI
 PROGRAM DESCRIPTION: A program focusing on the indepth study and application of Civil Engineering.
 DEPARTMENT: Civil Engineering
@@ -87,7 +87,7 @@ PROGRAM TYPE: Arts
 Required GPA: None
 
 PROGRAM NAME: MMus in Performance
-PROGRAM CODE: MUSI
+PROGRAM CODE: MMPF
 PROGRAM DESCRIPTION: A program based on the advanced continuation of students' endeavors in musical performance.
 DEPARTMENT: Performing Arts
 PROGRAM LEVEL: Master's
@@ -102,10 +102,10 @@ PROGRAM LEVEL: Bachelor's
 PROGRAM TYPE: Science
 Required GPA: 2.7
 
-PROGRAM NAME: PhD in Astrophysics
+PROGRAM NAME: Astrophysics
 PROGRAM CODE: ASTR
-PROGRAM DESCRIPTION: A program dedicated to achieving a doctorate in the discipline of the study of the physics of the universe.
+PROGRAM DESCRIPTION: A program dedicated to the discipline of the study of the physics of the universe.
 DEPARTMENT: Physics and Astronomy
-PROGRAM LEVEL: PhD
+PROGRAM LEVEL: Bachelor's
 PROGRAM TYPE: Science
-Required GPA: 3.3
+Required GPA: 2.7
