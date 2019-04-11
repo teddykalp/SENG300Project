@@ -62,14 +62,6 @@ PROGRAM LEVEL: Bachelor's
 PROGRAM TYPE: Science
 Required GPA: 3.0
 
-PROGRAM NAME: Biological Science
-PROGRAM CODE: BSCI
-PROGRAM DESCRIPTION: A program tailored to allow students to focus on biological aspects not covered by other programs.
-DEPARTMENT: Biology
-PROGRAM LEVEL: Bachelor's
-PROGRAM TYPE: Science
-Required GPA: 2.8
-
 PROGRAM NAME: Zoology
 PROGRAM CODE: ZOOL
 PROGRAM DESCRIPTION: A program focused on animals and their structure, mechanism, and relationships within the animal world.
