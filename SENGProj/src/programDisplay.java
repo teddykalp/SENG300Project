@@ -1,3 +1,4 @@
+// import libraries
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -16,9 +17,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
+// programDisplay displays all existing programs in the db to the user 
 public class programDisplay extends JPanel {
-
+	// class attributes 
 	private JPanel contentPane;
 	private JTextArea programName, programDesc, reqGPA, programLvl, programType;
 	private JComboBox comboDepartment, comboProgramBox;
@@ -65,6 +66,7 @@ public class programDisplay extends JPanel {
 				comboProgramBox.setBounds(185, 64, 193, 26);
 				p1.add(comboProgramBox);
 				
+				// choose program label 
 				lblChooseProgram = new JLabel("Choose Program");
 				lblChooseProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				lblChooseProgram.setBounds(21, 63, 113, 26);
@@ -146,11 +148,13 @@ public class programDisplay extends JPanel {
 				lblRequiredGpa.setBounds(21, 443, 146, 26);
 				p1.add(lblRequiredGpa);
 				
+				// required gpa text area
 				reqGPA = new JTextArea();
 				reqGPA.setEditable(false);
 				reqGPA.setBounds(185, 443, 186, 26);
 				p1.add(reqGPA);
 				
+				// dept description text area 
 				departDesc = new JTextArea();
 				departDesc.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 				departDesc.setEnabled(true);
@@ -158,11 +162,13 @@ public class programDisplay extends JPanel {
 				departDesc.setBounds(185, 305, 186, 26);
 				p1.add(departDesc);
 				
+				// program code label
 				lblCode = new JLabel("Program Code (XXXX)");
 				lblCode.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				lblCode.setBounds(21, 258, 146, 26);
 				p1.add(lblCode);
 				
+				// program code text area
 				programCode = new JTextArea();
 				programCode.setFont(new Font("Times New Roman", Font.PLAIN, 11));
 				programCode.setEnabled(true);
@@ -170,6 +176,7 @@ public class programDisplay extends JPanel {
 				programCode.setBounds(185, 258, 186, 26);
 				p1.add(programCode);
 				
+				// view button that will display the selected program and all its details to the user
 				btnView = new JButton("View");
 				btnView.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -194,6 +201,7 @@ public class programDisplay extends JPanel {
 				btnView.setBounds(421, 461, 141, 35);
 				p1.add(btnView);
 				
+				// cancel button that takes the user back to the main menu 
 				buttonCancel = new JButton("Cancel");
 				buttonCancel.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent arg0) {
