@@ -183,19 +183,19 @@ public class ProgramDisplay extends JPanel {
                 departDesc.setFont(new Font("Tahoma", Font.PLAIN, 11));
                 departDesc.setEnabled(true);
                 departDesc.setEditable(false);
-                departDesc.setBounds(500, 250, 186, 26);
+                departDesc.setBounds(500, 400, 186, 26);
                 p1.add(departDesc);
                 
                 lblCode = new JLabel("Program Code (XXXX)");
                 lblCode.setFont(new Font("Tahoma", Font.PLAIN, 14));
-                lblCode.setBounds(300, 400, 146, 26);
+                lblCode.setBounds(300, 350, 146, 26);
                 p1.add(lblCode);
                 
                 programCode = new JTextArea();
                 programCode.setFont(new Font("Tahoma", Font.PLAIN, 11));
                 programCode.setEnabled(true);
                 programCode.setEditable(false);
-                programCode.setBounds(500, 400, 186, 26);
+                programCode.setBounds(500, 350, 186, 26);
                 p1.add(programCode);
                 
                 btnView = new JButton("View");
