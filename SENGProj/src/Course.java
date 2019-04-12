@@ -39,7 +39,7 @@ public class Course {
 	* @param	description	gets course description
 	* @return 	N/A
 	*/
-	
+	// course class with attributes
 	public Course(String name, int level, int id, Program program, String instructor, String prerequisite, String daysOffered,
 			String timeSlot, double credits, String description)
 	{
