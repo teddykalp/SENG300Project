@@ -1,4 +1,4 @@
-
+// import libraries 
 import java.awt.EventQueue;
 
 import java.awt.*;
@@ -20,7 +20,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
+// displays the student version of course, department and program information
 public class CourseCalendar2 extends JPanel {
 
     private JPanel contentPane;
@@ -42,7 +42,7 @@ public class CourseCalendar2 extends JPanel {
         image1.setVisible(true);
     
     
-    
+        // add panel for elements 
         JPanel p1 = new JPanel(null) ;
                  p1.setPreferredSize(new Dimension(1000,1000));
                 contentPane= panel;
