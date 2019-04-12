@@ -1,5 +1,4 @@
-
-
+// import libraries
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -25,7 +24,7 @@ import java.util.ArrayList;
 
 class StaffRegister extends JPanel{
     
-    
+    	// class attributes
         private JButton back;
         private JPanel contentPane;
         
@@ -86,56 +85,67 @@ class StaffRegister extends JPanel{
         staffbg.setVisible(true);
         
         //Labels 
+	// info label
         JLabel lblNewLabel = new JLabel("Please Enter Your Information Below");
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
         lblNewLabel.setBounds(300, 300, 1000,100);
         p1.add(lblNewLabel);
         
+	// first name label
         FNLabel = new JLabel("First Name");
         FNLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         FNLabel.setBounds(150,350,200,100);
         p1.add(FNLabel);
         
+	// last name label
         LNLabel = new JLabel("Last Name");
         LNLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         LNLabel.setBounds(150,400,200,100);
         p1.add(LNLabel);
         
+	// phone label
         PhLabel = new JLabel("Phone Number");
         PhLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         PhLabel.setBounds(150,450,200,100);
         p1.add(PhLabel);
         
+	// email label
         ELabel = new JLabel("Email Address");
         ELabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         ELabel.setBounds(150,500,200,100);
         p1.add(ELabel);
         
+	// address label
         MLabel = new JLabel("Mailing Address");
         MLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         MLabel.setBounds(150,550,200,100);
         p1.add(MLabel);
         
+	// dept label
         DPLabel = new JLabel("Department");
         DPLabel .setFont(new Font("Tahoma", Font.BOLD, 18));
         DPLabel .setBounds(150,600,200,100);
         p1.add(DPLabel);
         
+	// staff type label   
         SfLabel = new JLabel("Staff Type");
         SfLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         SfLabel.setBounds(150,620,200,100);
         p1.add(SfLabel);
         
+	// user ID label
         UIDLabel = new JLabel("User ID");
         UIDLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         UIDLabel.setBounds(150,700,200,100);
         p1.add(UIDLabel);
         
+	// password label
         PassLabel = new JLabel("Password");
         PassLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
         PassLabel.setBounds(150,750,200,100);
         p1.add(PassLabel);
         
+	// confirm password label
         ConPass = new JLabel("Confirm Password");
         ConPass.setFont(new Font("Tahoma", Font.BOLD, 18));
         ConPass.setBounds(150,800,200,100);
@@ -143,41 +153,49 @@ class StaffRegister extends JPanel{
         
         
         //TextFields here 
+	// first name text field
         firstName = new JTextField();
         firstName.setBounds(400,380,200,25);
         p1.add(firstName);
         firstName.setColumns(10);
         
+	// last name text field 
         lastName = new JTextField();
         lastName.setColumns(10);
         lastName.setBounds(400,430,200,25);
         p1.add(lastName);
         
+	// phone text field 
         PhoneField = new JTextField();
         PhoneField.setColumns(10);
         PhoneField.setBounds(400,480,200,25);
         p1.add(PhoneField);
         
+	// address text field 
         MailField = new JTextField();
         MailField.setColumns(10);
         MailField.setBounds(400,530,200,25);
         p1.add(MailField);
         
+	// address text field 
         MailingAField = new JTextField();
         MailingAField.setColumns(10);
         MailingAField.setBounds(400,580,200,25);
         p1.add(MailingAField);
       
+	// user id text field 
         userID = new JTextField();
        
         userID.setBounds(400,750,200,25);
         p1.add(userID);
         
+	// pass text field 
         passWord = new JTextField();
         passWord.setColumns(10);
         passWord.setBounds(400,790,200,25);
         p1.add(passWord);
         
+	// confirm pass text field 
         confirmPass = new JTextField();
         confirmPass.setColumns(10);
         confirmPass.setBounds(400,840,200,25);
@@ -187,13 +205,14 @@ class StaffRegister extends JPanel{
         
         
         //ComboBox
+	// drop down menu of all existing depts 
         ArrayList arr = tool.getDepartment();
 		String [] departments = new String[arr.size()];
     		for (int x = 0; x < departments.length; x++){
     			departments[x] = (String) arr.get(x);
     }
       
-              
+       // dept field combo box       
        DepartmentField = new JComboBox();  
        DepartmentField.setModel(new DefaultComboBoxModel(departments));
        DepartmentField.setBounds(400,630,200,25);
@@ -201,24 +220,27 @@ class StaffRegister extends JPanel{
         
         
         //Buttons here 
-        
+        // buttons for staff type
+	// dept head
         DH = new JRadioButton("Department Head");
         DH.setFont(new Font("Tahoma", Font.PLAIN, 15));
         DH.setBounds(200, 690, 150, 30);
         p1.add(DH);
         
+	// ta 
         TA = new JRadioButton("Teaching Assistant");
         TA.setFont(new Font("Tahoma", Font.PLAIN, 15));
         TA.setBounds(400, 690, 150, 30);
         p1.add(TA);
         
+	// instructor
         I = new JRadioButton("Instructor");
         I.setFont(new Font("Tahoma", Font.PLAIN, 15));
         I.setBounds(600, 690, 150, 30);
         p1.add(I);
         
      
-        
+        // label for error handling 
         JLabel inputError = new JLabel("");
        inputError.setForeground(new Color(255, 0, 0));
        inputError.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -228,7 +250,8 @@ class StaffRegister extends JPanel{
         
        
 
-      //back is a Button that takes you the the MainMenu JPanel using an ActionListener and a subsequent ActionEvent        //construct components
+      //back is a Button that takes you the the MainMenu JPanel using an ActionListener and a subsequent ActionEvent        
+	//construct components
         back = new JButton ("Back to MainMenu");
         back.setBounds(250,900,231,48);
         back.setFont(new Font("Tahoma", Font.BOLD, 15));        
@@ -243,6 +266,7 @@ class StaffRegister extends JPanel{
             }
         });
        
+	// add stadd button that writes new entry into staff db 
         AddStaff = new JButton("Add Staff");
     AddStaff.addActionListener(new ActionListener() {
         public void actionPerformed(ActionEvent arg0) {
@@ -337,7 +361,7 @@ class StaffRegister extends JPanel{
     AddStaff.setBounds(600,900,230,50);
     p1.add(AddStaff);
     
-     
+     // add to panel 
        p1.add(back);
        p1.add(staffbg);
       
