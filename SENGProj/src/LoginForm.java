@@ -170,7 +170,7 @@ public class LoginForm extends JFrame{
 		studentBtn.setBackground(new Color(255, 204, 204));
 		
 		
-		
+		// label that tells user to enter login credentials 
 		JLabel lblPleaseEnterYour = new JLabel("Please Enter your UserID and Password");
 		lblPleaseEnterYour.setBounds(186, 85, 250, 18);
 		lblPleaseEnterYour.setFont(new Font("Segoe UI Black", Font.PLAIN, 13));
