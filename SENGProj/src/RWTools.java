@@ -271,9 +271,12 @@ public class RWTools {
 		String line;
 		while ((line = br.readLine()) != null){
 			if (line.contains("DEPARTMENT NAME: " + department)){
+				// dept description
 				String departmentDesc = br.readLine();
 				int index = departmentDesc.indexOf(":");
 				departInfo.add(departmentDesc.substring(index + 2));
+				
+				// dept code 
 				String departmentCode = br.readLine();
 				int index1 = departmentCode.indexOf(":");
 				departInfo.add(departmentCode.substring(index1 + 2));
@@ -424,26 +427,32 @@ public class RWTools {
 		String line;
 		while ((line = br.readLine()) != null){
 			if (line.contains("COURSE NAME: " + course)){
+				// course code
 				String courseCode = br.readLine();
 				int index = courseCode.indexOf(":");
 				courseInfo.add(courseCode.substring(index + 2));
 				
+				// course instructor
 				String courseInstr = br.readLine();
 				int index1 = courseInstr.indexOf(":");
 				courseInfo.add(courseInstr.substring(index1 + 2));
 				
+				// prereq courses
 				String prereqCourses = br.readLine();
 				int index2 = prereqCourses.indexOf(":");
 				courseInfo.add(prereqCourses.substring(index2 + 2));
 				
+				// anti-req courses
 				String antireqCourses = br.readLine();
 				int index3 = antireqCourses.indexOf(":");
 				courseInfo.add(antireqCourses.substring(index3 + 2));
 				
+				// co-req courses
 				String coreqCourses = br.readLine();
 				int index4 = coreqCourses.indexOf(":");
 				courseInfo.add(coreqCourses.substring(index4 + 2));
 				
+				// offered days 
 				String offeredDays = br.readLine();
 				String next = br.readLine();
 				ArrayList<String> daysOffered = new ArrayList<String>();
@@ -461,18 +470,22 @@ public class RWTools {
 				int index5 = next.indexOf(":");
 				courseInfo.add(next.substring(index5 + 2));
 				
+				// end time
 				String endTime = br.readLine();
 				int index6 = endTime.indexOf(":");
 				courseInfo.add(endTime.substring(index6 + 2));
 				
+				// course credits
 				String courseCreds = br.readLine();
 				int index7 = courseCreds.indexOf(":");
 				courseInfo.add(courseCreds.substring(index7 +2));
 				
+				// course description 
 				String courseDescr = br.readLine();
 				int index8 = courseDescr.indexOf(":");
 				courseInfo.add(courseDescr.substring(index8 + 2));
 				
+				// course program 
 				String courseProgram = br.readLine();
 				int index9 = courseProgram.indexOf(":");
 				courseInfo.add(courseProgram.substring(index9 + 2));
@@ -502,24 +515,36 @@ public class RWTools {
 			String line;
 			while ((line = br.readLine()) != null) {
 				if (line.contains("PROGRAM NAME: " + program)) {
+					// program code
 					String programCode = br.readLine();
 					int index = programCode.indexOf(":");
 					programInfo.add(programCode.substring(index + 2));
+					
+					// program description
 					String programDesc = br.readLine();
 					int index1 = programDesc.indexOf(":");
 					programInfo.add(programDesc.substring(index1 + 2));
+					
+					// program dept
 					String programDep = br.readLine();
 					int index2 = programDep.indexOf(":");
 					programInfo.add(programDep.substring(index2 + 2));
+					
+					// program level
 					String programLvl = br.readLine();
 					int index3 = programLvl.indexOf(":");
 					programInfo.add(programLvl.substring(index3 + 2));
+					
+					// program type
 					String programType = br.readLine();
 					int index4 = programType.indexOf(":");
 					programInfo.add(programType.substring(index4 + 2));
+					
+					// required gpa
 					String reqGPA = br.readLine();
 					int index5 = reqGPA.indexOf(":");
 					programInfo.add(reqGPA.substring(index5 +2));
+					
 					return programInfo;
 				}
 			}
