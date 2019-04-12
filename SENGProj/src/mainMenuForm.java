@@ -1,3 +1,4 @@
+// import libraries
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -14,9 +15,9 @@ import java.awt.Panel;
 import javax.swing.JPanel;
 
 
-
+// mainMenuForm displays all navigation buttons for the staff user 
 public class mainMenuForm extends JFrame {
-
+	// class attributes 
 	private LoginForm login;
 	private AddProgram programAdd;
 	private AddCourse courseAdd;
@@ -58,7 +59,7 @@ public class mainMenuForm extends JFrame {
 		this.user = user;
 	}
 	
-	
+	// initialize method sets up UI and has event handling for user activity 
 	private void initialize() {
 		setTitle("Program");
 		setBounds(100, 100, 637, 646);
@@ -66,7 +67,7 @@ public class mainMenuForm extends JFrame {
 		getContentPane().setLayout(null);
 		
 		
-		
+		// message label
 		JLabel lblMessage = new JLabel("Which Action Would you like to perform?");
 		lblMessage.setBackground(Color.RED);
 		lblMessage.setForeground(new Color(255, 0, 0));
@@ -74,6 +75,7 @@ public class mainMenuForm extends JFrame {
 		lblMessage.setBounds(87, 64, 446, 26);
 		getContentPane().add(lblMessage);
 		
+		// add course button that will take the user to the add course page if clicked 
 		JButton btnAddCourse = new JButton("Add Course");
 		btnAddCourse.setForeground(new Color(0, 0, 0));
 		btnAddCourse.addActionListener(new ActionListener() {
@@ -88,6 +90,7 @@ public class mainMenuForm extends JFrame {
 		btnAddCourse.setBounds(217, 119, 141, 35);
 		getContentPane().add(btnAddCourse);
 		
+		// edit course button that will take the user to the edit course page if clicked 
 		JButton btnEditCourse = new JButton("Edit Course");
 		btnEditCourse.setForeground(Color.WHITE);
 		btnEditCourse.setBackground(new Color(0, 0, 0));
@@ -102,6 +105,7 @@ public class mainMenuForm extends JFrame {
 		btnEditCourse.setBounds(217, 183, 141, 35);
 		getContentPane().add(btnEditCourse);
 		
+		// view dept button that will take the user to the view dept page if clicked 
 		JButton btnViewDepartment = new JButton("View Department");
 		btnViewDepartment.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -116,6 +120,7 @@ public class mainMenuForm extends JFrame {
 		btnViewDepartment.setBounds(395, 246, 161, 32);
 		getContentPane().add(btnViewDepartment);
 		
+		// view program button that will take the user to the view program page if selected 
 		JButton btnViewProgram = new JButton("View Program");
 		btnViewProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -131,6 +136,7 @@ public class mainMenuForm extends JFrame {
 		btnViewProgram.setBounds(35, 244, 141, 35);
 		getContentPane().add(btnViewProgram);
 		
+		// logout button that exits the menu and takes the user to the login page 
 		JButton btnLogout = new JButton("Logout");
 		btnLogout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -144,6 +150,7 @@ public class mainMenuForm extends JFrame {
 		btnLogout.setBounds(217, 310, 141, 35);
 		getContentPane().add(btnLogout);
 		
+		// label for passion bug img
 		JLabel lblNewLabel_1 = new JLabel(" ");
 		Image img = new ImageIcon(this.getClass().getResource("/passion-bug.jpg")).getImage();
 		img = img.getScaledInstance(180, 170, 0);
@@ -151,6 +158,7 @@ public class mainMenuForm extends JFrame {
 		lblNewLabel_1.setBounds(395, 415, 192, 131);
 		getContentPane().add(lblNewLabel_1);
 		
+		// add program button that takes the user to the add program page if clicked 
 		JButton btnNewButton = new JButton("Add Program");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -165,6 +173,7 @@ public class mainMenuForm extends JFrame {
 		btnNewButton.setBounds(35, 119, 141, 35);
 		getContentPane().add(btnNewButton);
 		
+		// add department button that takes the user to the add dept page if clicked 
 		JButton btnNewButton_1 = new JButton("Add Department");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -180,6 +189,7 @@ public class mainMenuForm extends JFrame {
 		btnNewButton_1.setBounds(395, 122, 161, 32);
 		getContentPane().add(btnNewButton_1);
 		
+		// edit program button that takes the user to the edit program button if clicked
 		JButton btnEditProgram = new JButton("Edit Program");
 		btnEditProgram.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -194,6 +204,7 @@ public class mainMenuForm extends JFrame {
 		btnEditProgram.setBounds(35, 183, 141, 35);
 		getContentPane().add(btnEditProgram);
 		
+		// edit dept button that takes the user to the edit department page if clicked 
 		JButton btnEditDepartment = new JButton("Edit Department");
 		btnEditDepartment.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -208,18 +219,20 @@ public class mainMenuForm extends JFrame {
 		btnEditDepartment.setBounds(395, 181, 161, 32);
 		getContentPane().add(btnEditDepartment);
 		
-		
+		// welcome label that is customized to user logged in
 		JLabel lblNewLabel = new JLabel("Welcome " + this.user);
 		lblNewLabel.setForeground(Color.RED);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(10, 0, 141, 26);
 		getContentPane().add(lblNewLabel);
 		
+		// add panel to screen 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 228, 225));
 		panel.setBounds(0, 54, 611, 44);
 		getContentPane().add(panel);
 		
+		// view course button that takes the user to the view course page if selected 
 		JButton btnViewCourse = new JButton("View Course");
 		btnViewCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
