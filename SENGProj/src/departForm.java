@@ -60,21 +60,25 @@ public class departForm extends JPanel {
 		p1.setPreferredSize(new Dimension(1000,1000));
 		contentPane = panel;
 		
+		// register dept label
 		lblNewLabel = new JLabel("Register Department");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 19));
 		lblNewLabel.setBounds(209, 66, 190, 31);
 		p1.add(lblNewLabel);
 		
+		// dept name label
 		lblNewLabel_1 = new JLabel("Department Name");
 		lblNewLabel_1.setFont(new Font("Noto Serif", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(10, 145, 131, 22);
 		p1.add(lblNewLabel_1);
 		
+		// dept description label
 		lblDepartmentDescription = new JLabel("<html><p>Department Description<p><html>");
 		lblDepartmentDescription.setFont(new Font("Noto Serif", Font.PLAIN, 14));
 		lblDepartmentDescription.setBounds(10, 219, 131, 39);
 		p1.add(lblDepartmentDescription);
 		
+		// dept code label
 		lblDepartmentCode = new JLabel("Department Code");
 		lblDepartmentCode.setFont(new Font("Noto Serif", Font.PLAIN, 14));
 		lblDepartmentCode.setBounds(10, 346, 131, 22);
@@ -85,27 +89,32 @@ public class departForm extends JPanel {
 		label_2.setBounds(10, 417, 131, 22);
 		p1.add(label_2);
 		
+		// dept description text area
 		departDescription = new JTextArea();
 		departDescription.setLineWrap(true);
 		departDescription.setBounds(196, 204, 267, 103);
 		p1.add(departDescription);
 		
+		// dept name text field 
 		departName = new JTextField();
 		departName.setBounds(192, 147, 271, 20);
 		p1.add(departName);
 		departName.setColumns(10);
 	
+		// dept code text field 
 		departCode = new JTextField();
 		departCode.setBounds(196, 348, 267, 20);
 		p1.add(departCode);
 		departCode.setColumns(10);
-
+		
+		// dept error label	
 		dError = new JLabel("");
 		dError.setForeground(Color.RED);
 		dError.setBounds(196, 405, 180, 15);
 		dError.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		p1.add(dError);
 		
+		// add dept button that will add new dept to dept db
 		btnNewButton = new JButton("Add Department");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton.setBounds(439, 408, 156, 31);
