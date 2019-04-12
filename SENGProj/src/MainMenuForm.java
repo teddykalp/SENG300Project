@@ -1,5 +1,4 @@
-
-
+// import libraries
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -14,13 +13,11 @@ import javax.imageio.ImageIO;
 import java.awt.BorderLayout;
 
 
-
+// class that shows the main menu navigation for staff
 public class MainMenuForm extends JPanel {
+        // class attributes 
         private JPanel contentPane;
-        ImageLibrary img = new ImageLibrary();
-
-  
-    
+        ImageLibrary img = new ImageLibrary();    
      
         private JLabel option;
         private JLabel Welcome;
@@ -36,6 +33,7 @@ public class MainMenuForm extends JPanel {
         private JButton EditP;
         private JButton EditD;
      
+    // connstructor that sets up UI and adds all fields 
     public MainMenuForm(JPanel panel) {
         JPanel p1 = new JPanel(null) ;
         p1.setPreferredSize(new Dimension(1000,1000));
@@ -51,18 +49,21 @@ public class MainMenuForm extends JPanel {
         mainmenubg.setVisible(true);  
         
         //Labels 
+        // welcome label
        Welcome = new JLabel("Welcome");
         Welcome.setForeground(Color.WHITE);
         Welcome.setFont(new Font("Tahoma", Font.BOLD, 30));
         Welcome.setBounds(25, 50, 250, 50);
         
+         // welcome label 
         option = new JLabel("Which Action Would you like to perform?");
         option.setBackground(Color.WHITE);
         option.setFont(new Font("Tahoma", Font.PLAIN, 15));
         option.setBounds(25, 80, 500, 50);
         
             
-            //Buttons
+        // VIEW
+        // view course button that takes you to view course form
         ViewCourse = new JButton("View Course");
         ViewCourse.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -75,7 +76,7 @@ public class MainMenuForm extends JPanel {
         ViewCourse.setBounds(100, 250, 200, 50);   
             
             
-        
+        // view program button that takes you to view program form 
         ViewProgram = new JButton("View Program");
         ViewProgram.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -89,7 +90,7 @@ public class MainMenuForm extends JPanel {
         ViewProgram.setFont(new Font("Tahoma", Font.BOLD, 14));
         ViewProgram.setBounds(100, 350, 200, 50 );
         
-        
+        // view dept button that takes you to view department form 
         ViewDepartment = new JButton("View Department");
         ViewDepartment.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -102,6 +103,8 @@ public class MainMenuForm extends JPanel {
         ViewDepartment.setFont(new Font("Tahoma", Font.BOLD, 14));
         ViewDepartment.setBounds(100, 450, 200, 50);
         
+        // ADD
+        // add course button that takes user to add course page
         AddCourse = new JButton("Add Course");
         AddCourse.setForeground(Color.WHITE);
         AddCourse.setBackground(new Color(0, 0, 0));
@@ -114,6 +117,7 @@ public class MainMenuForm extends JPanel {
          AddCourse.setFont(new Font("Tahoma", Font.BOLD, 14));
         AddCourse.setBounds(400, 250, 200, 50);
         
+        // add program button that takes user to add program page
         AddProgram = new JButton("Add Program");
         AddProgram.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -126,6 +130,7 @@ public class MainMenuForm extends JPanel {
         AddProgram.setFont(new Font("Tahoma", Font.BOLD, 14));
         AddProgram.setBounds(400, 350, 200, 50);
         
+        // add dept button that takes the user to the add dept page
         AddDepartment= new JButton("Add Department");
         AddDepartment.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -138,7 +143,8 @@ public class MainMenuForm extends JPanel {
         AddDepartment.setFont(new Font("Tahoma", Font.BOLD, 14));
         AddDepartment.setBounds(400, 450, 200, 50);
         
-        
+        // EDIT
+        // edit course button that takes the user to the edit course page
         EditCourse = new JButton("Edit Course");
         EditCourse.setForeground(Color.BLACK);
         EditCourse.setBackground(new Color(255,255,255));
@@ -151,7 +157,7 @@ public class MainMenuForm extends JPanel {
         });
         EditCourse.setBounds(700, 250, 200, 50);
         
-        
+        // edit program button that takes the user to the edit program page
         EditP = new JButton("Edit Program");
         EditP.setForeground(Color.WHITE);
         EditP.setBackground(new Color(0,0,0));
@@ -164,7 +170,7 @@ public class MainMenuForm extends JPanel {
             }
         });
         
-        
+        // edit dept button that takes the user to the edit dept page 
         EditD = new JButton("Edit Department");
         EditD.setForeground(new Color(0, 0, 0));
         EditD.setBackground(new Color(255, 255, 255));
@@ -177,7 +183,8 @@ public class MainMenuForm extends JPanel {
             }
         });
         
-        
+            
+        // logout button that takes the user back to the login screen
         Logout = new JButton("Logout");
         Logout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -189,7 +196,7 @@ public class MainMenuForm extends JPanel {
         Logout.setBackground(new Color(255, 255, 255));
         Logout.setBounds(750, 100, 200, 50);
 
-        
+        // add contents to panel 
         p1.add(Welcome);
         p1.add(option);
         
@@ -204,9 +211,7 @@ public class MainMenuForm extends JPanel {
         p1.add(EditD);
         p1.add(ViewCourse);
         
-        
         p1.add(mainmenubg);
-        
         
          contentPane.add(p1);
          add(p1);
