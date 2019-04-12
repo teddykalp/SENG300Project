@@ -27,7 +27,7 @@ import java.awt.Dimension;
 */
 
 public class courseDisplay extends JPanel {
-
+	// class attributes 
 	private JPanel contentPane;
 	private JComboBox programsSelect;
 	
@@ -66,15 +66,18 @@ public class courseDisplay extends JPanel {
 		programsSelect.setBounds(44, 81, 216, 32);
 		p1.add(programsSelect);
 		
+		// choose program label
 		lblchooseProgram = new JLabel("Choose Program");
 		lblchooseProgram.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
 		lblchooseProgram.setBounds(44, 46, 182, 26);
 		p1.add(lblchooseProgram);
 		
+		// scroll bar for all programs 
 		scrollPane = new JScrollPane();
 		scrollPane.setBounds(21, 156, 279, 237);
 		p1.add(scrollPane);
 		
+		// course display text area 
 		courseDisplay = new JTextArea();
 		scrollPane.setViewportView(courseDisplay);
 		courseDisplay.setEditable(false);
@@ -97,6 +100,7 @@ public class courseDisplay extends JPanel {
 		btnView.setBounds(366, 217, 141, 35);
 		p1.add(btnView);
 		
+		// go back button that will take the user back to the main menu 
 		btnReturn = new JButton("Go Back");
 		btnReturn.setBackground(new Color(255, 105, 180));
 		btnReturn.addActionListener(new ActionListener() {
@@ -108,11 +112,13 @@ public class courseDisplay extends JPanel {
 		btnReturn.setBounds(366, 42, 141, 35);
 		p1.add(btnReturn);
 		
+		// courses offered label
 		programCourses = new JLabel("Courses Offered");
 		programCourses.setFont(new Font("Source Sans Pro", Font.PLAIN, 21));
 		programCourses.setBounds(44, 120, 182, 26);
 		p1.add(programCourses);
 		
+		// view courses label
 		lblNewLabel = new JLabel("View Courses by Program");
 		lblNewLabel.setFont(new Font("Sitka Banner", Font.BOLD, 21));
 		lblNewLabel.setBounds(116, -1, 254, 26);
