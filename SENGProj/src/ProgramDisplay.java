@@ -1,3 +1,4 @@
+// import libaries
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -27,9 +28,9 @@ import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
+// class displays existing programs in program db to user 
 public class ProgramDisplay extends JPanel {
-
+    // class attributes
     private JPanel contentPane;
     private JTextArea programName, programDesc, reqGPA, programLvl, programType;
     private JComboBox comboDepartment, comboProgramBox;
@@ -86,18 +87,21 @@ public class ProgramDisplay extends JPanel {
                 comboProgramBox.setBounds(500, 150, 200, 25);
                 p1.add(comboProgramBox);
                 
+                // program view label
                 JLabel DView = new JLabel("View Program");
                  DView.setFont(new Font("Tahoma", Font.BOLD, 30));
                  DView.setForeground(Color.WHITE);
                  DView.setBounds(410, 50, 500,50);
                 p1.add( DView);
                 
+                // program message label
                 JLabel lblNewLabel = new JLabel("What Program would you like to see?");
                 lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
                 lblNewLabel.setForeground(Color.WHITE);
                 lblNewLabel.setBounds(300, 100, 500, 26);
                 p1.add(lblNewLabel);
-                        
+                
+                // choose program label
                 lblChooseProgram = new JLabel("Choose Program");
                 lblChooseProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 lblChooseProgram.setBounds(300, 150, 113, 26);
@@ -174,11 +178,13 @@ public class ProgramDisplay extends JPanel {
                 lblRequiredGpa.setBounds(300, 550, 146, 26);
                 p1.add(lblRequiredGpa);
                 
+                // required gpa text area
                 reqGPA = new JTextArea();
                 reqGPA.setEditable(false);
                 reqGPA.setBounds(500, 550, 186, 26);
                 p1.add(reqGPA);
                 
+                // dept description text area
                 departDesc = new JTextArea();
                 departDesc.setFont(new Font("Tahoma", Font.PLAIN, 11));
                 departDesc.setEnabled(true);
@@ -186,11 +192,13 @@ public class ProgramDisplay extends JPanel {
                 departDesc.setBounds(500, 400, 186, 26);
                 p1.add(departDesc);
                 
+                // programm code example label
                 lblCode = new JLabel("Program Code (XXXX)");
                 lblCode.setFont(new Font("Tahoma", Font.PLAIN, 14));
                 lblCode.setBounds(300, 350, 146, 26);
                 p1.add(lblCode);
                 
+                // program code text area
                 programCode = new JTextArea();
                 programCode.setFont(new Font("Tahoma", Font.PLAIN, 11));
                 programCode.setEnabled(true);
@@ -198,6 +206,8 @@ public class ProgramDisplay extends JPanel {
                 programCode.setBounds(500, 350, 186, 26);
                 p1.add(programCode);
                 
+                // view button
+                // this button will display selected program info to the user 
                 btnView = new JButton("View");
                 btnView.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
@@ -222,6 +232,7 @@ public class ProgramDisplay extends JPanel {
                 btnView.setBounds(500, 600, 141, 35);
                 p1.add(btnView);
                 
+                // go back button that will take the user back to main menu
                 buttonCancel = new JButton("Go back");
                 buttonCancel.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent arg0) {
