@@ -1,3 +1,4 @@
+// import libraries 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -28,7 +29,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
-
+// EditProgram allows the user to select an existing program in the DB and modify its fields 
 public class EditProgram extends JPanel {
 
     // Class attributes
@@ -80,6 +81,7 @@ public class EditProgram extends JPanel {
         comboProgramBox.setBounds(500, 150, 193, 26);
         p1.add(comboProgramBox);
         
+        // choose program label
         JLabel lblChooseProgram = new JLabel("Choose Program");
         lblChooseProgram.setFont(new Font("Tahoma", Font.PLAIN, 14));
         lblChooseProgram.setBounds(300, 150, 113, 26);
@@ -92,6 +94,7 @@ public class EditProgram extends JPanel {
          CView.setBounds(410, 20, 500,50);
         p1.add( CView);
         
+        // message label
         JLabel lblNewLabel = new JLabel("Which Program would you like to edit?");
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
         lblNewLabel.setForeground(Color.WHITE);
@@ -218,6 +221,7 @@ public class EditProgram extends JPanel {
         comboDepartment.setBounds(500, 400, 193, 27);
         p1.add(comboDepartment);
         
+        // input error handling label
         JLabel inputError = new JLabel("");
         inputError.setForeground(Color.RED);
         inputError.setBackground(Color.RED);
@@ -225,6 +229,7 @@ public class EditProgram extends JPanel {
         inputError.setBounds(500,700, 223, 26);
         p1.add(inputError);
         
+        // program code hint label
         JLabel lblProgramCode = new JLabel("Program Code (XXXX)");
         lblProgramCode.setFont(new Font("Tahoma", Font.PLAIN, 14));
         lblProgramCode.setBounds(300, 360, 146, 26);
@@ -260,7 +265,7 @@ public class EditProgram extends JPanel {
                 
                 
                 
-                
+                // gets program information and sets text to new information
                 ArrayList programInfo = tool.getProgramInfo((String)comboProgramBox.getSelectedItem());
                 programName.setText((String)comboProgramBox.getSelectedItem());
                 programCode.setText((String)programInfo.get(0));
@@ -302,7 +307,7 @@ public class EditProgram extends JPanel {
         btnEdit.setFont(new Font("Tahoma", Font.PLAIN, 15));
         p1.add(btnEdit);
         
-        // Save button
+        // Save button that will overwrite existing program in db with new information 
         JButton btnSaveProgram = new JButton("Commit Changes");
         btnSaveProgram.addActionListener(new ActionListener() {
             /**
