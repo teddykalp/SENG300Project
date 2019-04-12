@@ -423,6 +423,16 @@ public class AddCourse extends JPanel {
                         // Returns user to main menu
                             CardLayout cardLayout = (CardLayout) contentPane.getLayout();
                             cardLayout.show(contentPane, "mmf");
+                            courseName.setText("");
+                            courseID.setText("");
+                            courseInstructor.setText("");
+                            courseDesc.setText("");
+                            antiReqs.setText("");
+                            coReqs.setText("");
+                            preReqs.setText("");
+                            startTime.setText("");
+                            finishTime.setText("");
+
                     }
                 }
         });
@@ -437,10 +447,19 @@ public class AddCourse extends JPanel {
             public void actionPerformed(ActionEvent e) {
                  CardLayout cardLayout = (CardLayout) contentPane.getLayout();
                             cardLayout.show(contentPane, "mmf");
+                             courseName.setText("");
+                            courseID.setText("");
+                            courseInstructor.setText("");
+                            courseDesc.setText("");
+                            antiReqs.setText("");
+                            coReqs.setText("");
+                            preReqs.setText("");
+                            startTime.setText("");
+                            finishTime.setText("");
             }
         });
         back.setFont(new Font("Tahoma", Font.BOLD, 15));
-        back.setBounds(250,900,231,48);
+        back.setBounds(850, 10, 100, 25);
         p1.add(back);
         
         p1.add(editcbg2);

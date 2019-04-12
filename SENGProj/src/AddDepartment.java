@@ -69,7 +69,7 @@ public class AddDepartment extends JPanel {
 		NRLabel = new JLabel("Add a New Department");
 		NRLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
 		NRLabel.setForeground(Color.WHITE);
-		NRLabel.setBounds(400, 20, 500,50);
+		NRLabel.setBounds(410, 50, 500,50);
 		p1.add(NRLabel);
 		JLabel lblNewLabel = new JLabel("What Department would you like to add?");
                 lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -97,6 +97,7 @@ public class AddDepartment extends JPanel {
 		departDescription.setLineWrap(true);
 		departDescription.setBounds(500, 200, 267, 103);
 		p1.add(departDescription);
+		
 		
 		departName = new JTextField();
 		departName.setBounds(500, 150, 271, 20);
@@ -136,6 +137,11 @@ public class AddDepartment extends JPanel {
 							departCode.getText());
 					
 					// returns user to main menu
+					CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+                                        cardLayout.show(contentPane, "mmf");
+                                        departDescription.setText(" ");
+                                        departName.setText("");
+                                        departCode.setText("");
 					
 				}
 				
@@ -149,6 +155,9 @@ public class AddDepartment extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				CardLayout cardLayout = (CardLayout) contentPane.getLayout();
                                 cardLayout.show(contentPane, "mmf");
+                                departDescription.setText(" ");
+                                departName.setText("");
+                                departCode.setText("");
 				}
 		});
 	

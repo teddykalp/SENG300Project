@@ -179,6 +179,16 @@ public class AddProgram extends JPanel {
          PTCBox.setEnabled(true);
         p1.add( PTCBox);
         
+              
+        
+        
+        JTextArea programCode = new JTextArea();
+        programCode.setFont(new Font("Tahoma", Font.PLAIN, 13));
+        programCode.setColumns(10);
+        programCode.setBounds(500, 450, 186, 27);
+        p1.add(programCode);
+        
+        
 
         
         // Checkbox for specifying diploma program
@@ -225,6 +235,11 @@ public class AddProgram extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 CardLayout card = (CardLayout) contentPane.getLayout();
                     card.show(contentPane, "mmf");
+                    programName.setText("");
+                    programDesc.setText("");
+                    reqGPA.setText("");
+                    programCode.setText("");
+                    
             }
         });
         btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -241,15 +256,7 @@ public class AddProgram extends JPanel {
         comboDepartment.setModel(new DefaultComboBoxModel(departments));
         comboDepartment.setBounds(500, 300, 193, 27);
         p1.add(comboDepartment);
-        
-        
-        
-        JTextArea programCode = new JTextArea();
-        programCode.setFont(new Font("Tahoma", Font.PLAIN, 13));
-        programCode.setColumns(10);
-        programCode.setBounds(500, 450, 186, 27);
-        p1.add(programCode);
-        
+  
         // Submit button
         JButton submitBtn = new JButton("Submit");
        
@@ -292,6 +299,10 @@ public class AddProgram extends JPanel {
                     // Returns user to main menu
                     CardLayout card = (CardLayout) contentPane.getLayout();
                     card.show(contentPane, "mmf");
+                      programName.setText("");
+                    programDesc.setText("");
+                    reqGPA.setText("");
+                    programCode.setText("");
                     
                 }
             }
