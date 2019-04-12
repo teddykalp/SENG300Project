@@ -1,4 +1,4 @@
-
+// import libraries 
 import java.awt.EventQueue;
 
 import java.awt.*;
@@ -41,8 +41,8 @@ public class CourseCalendar extends JPanel {
         image1.setEnabled(true);
         image1.setVisible(true);
     
-    
-    
+        
+        // set panel for all elements 
         JPanel p1 = new JPanel(null) ;
                  p1.setPreferredSize(new Dimension(1000,1000));
                 contentPane= panel;
