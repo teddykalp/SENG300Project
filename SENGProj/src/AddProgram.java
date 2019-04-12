@@ -52,7 +52,6 @@ public class AddProgram extends JPanel {
     private JCheckBox DPCheckBox;
     
     //RWTools
-    
     private RWTools tool = new RWTools();
     
     ImageLibrary img = new ImageLibrary();
@@ -137,7 +136,7 @@ public class AddProgram extends JPanel {
         PCLabel.setBounds(300,450, 146, 26);
         p1.add(PCLabel);
         
-                // Required GPA label attributes
+        // Required GPA label attributes
         RGLabel = new JLabel("Required GPA (If Any)");
         RGLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
         RGLabel.setBounds(300, 500, 146, 26);
@@ -181,7 +180,7 @@ public class AddProgram extends JPanel {
         
               
         
-        
+        // text area for program code 
         JTextArea programCode = new JTextArea();
         programCode.setFont(new Font("Tahoma", Font.PLAIN, 13));
         programCode.setColumns(10);
@@ -230,7 +229,6 @@ public class AddProgram extends JPanel {
         // Go Back button returns user to main menu
         JButton btnNewButton = new JButton("Go Back");
         btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-     
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 CardLayout card = (CardLayout) contentPane.getLayout();
