@@ -66,6 +66,8 @@ public class AddDepartment extends JPanel {
                 editdbg.setEnabled(true);
                 editdbg.setVisible(true);  
                 
+		// Labels for users specifying data that needs to be entered into fields
+		// for department 
 		NRLabel = new JLabel("Add a New Department");
 		NRLabel.setFont(new Font("Tahoma", Font.BOLD, 25));
 		NRLabel.setForeground(Color.WHITE);
@@ -115,6 +117,7 @@ public class AddDepartment extends JPanel {
 		dError.setFont(new Font("Tahoma", Font.BOLD, 10));
 		p1.add(dError);
 		
+		// button that adds new department information to the department DB
 		btnNewButton = new JButton("Add Department");
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton.setBounds(500, 400, 200, 50);
@@ -165,6 +168,7 @@ public class AddDepartment extends JPanel {
 		
 		button.setBounds(850, 10, 100, 25);
         
+		// add button to pane
 		p1.add(button);
 		p1.add(editdbg);
 		contentPane.add(p1);
