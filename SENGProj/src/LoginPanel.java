@@ -1,4 +1,4 @@
-
+// import libraries 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -12,18 +12,17 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import java.awt.BorderLayout;
 
-class LoginPanel extends JPanel{                 
+// loginpanel that displays login screen
+class LoginPanel extends JPanel{         
+    // class attributes 
     JPanel p1 = new JPanel(null) ;       
      private JPanel contentPane;
-  
-    
     private RWTools tool = new RWTools();
     
     ImageLibrary img = new ImageLibrary();
     private JButton nuButton;
     private JButton stuButton;
     private JButton login;    
-
     
     private JLabel UserID;
     private JLabel Pass;
@@ -32,13 +31,16 @@ class LoginPanel extends JPanel{
     private JFrame frame;
     private JLabel loginError = new JLabel("");
     
-    public LoginPanel(JPanel panel){        
+    // Login Panel constructor that sets up UI 
+    public LoginPanel(JPanel panel){    
+        // set panel up to preferred size
         JPanel p1 = new JPanel(null) ;
         p1.setPreferredSize(new Dimension(1000,1000));
         contentPane = panel;
         
         p1.setPreferredSize(new Dimension(1000,1000));
-       
+        
+        // add images to panel
         JPanel image1 = new JPanel();
         ImageIcon pic = img.titlepage;
         image1.setSize(1000,1000);
@@ -46,21 +48,22 @@ class LoginPanel extends JPanel{
         image1.setEnabled(true);
         image1.setVisible(true);
        
-    
+        // label for error handling
         loginError.setForeground(Color.RED);
         loginError.setFont(new Font("Tahoma", Font.BOLD, 15));
         loginError.setBounds(350, 425,300, 200);
         
         
         
-        
-        //Labels here 
+
+        // userid label
         UserID = new JLabel("UserID");
         UserID.setBounds(300,370, 171,57);        
         UserID.setEnabled(true);
         UserID.setFont(new Font("Tahoma", Font.BOLD, 20));
         UserID.setVisible(true);
-                
+        
+        // password label
         Pass = new JLabel("Password");
         Pass.setBounds(300, 440, 171,57);        
         Pass.setEnabled(true);
@@ -68,13 +71,16 @@ class LoginPanel extends JPanel{
         Pass.setVisible(true);
         
         //TextFields
+        // password text field
         passfield = new JPasswordField();
         passfield.setBounds(420, 450, 170,35);
         
+        // user text field
         userfield = new JTextField();
         userfield.setBounds(420, 380, 170,35);
         userfield.setColumns(10);
     
+        // login button that verifies users login credentials and opens to main menu page
         login = new JButton("Login");
         login.setBounds(420,550,170,50);
         login.setForeground(Color.BLACK);
@@ -84,9 +90,11 @@ class LoginPanel extends JPanel{
         login.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 String entry = new String(passfield.getPassword());
+                // checks if password was not entered 
                 if (userfield.getText().isEmpty()){
                     loginError.setText("Please enter valid username/password");
                 }
+                // checks if field is empty
                 if (entry.isEmpty()){
                     loginError.setText("Please enter valid username/password");
                 }
@@ -99,13 +107,15 @@ class LoginPanel extends JPanel{
         });
         
             
-            
+        // button for new staff that need to register
+        // will take you to staff registration form
         nuButton = new JButton("New Faculty?");
         nuButton.setBounds(240,550,170,50);
         nuButton.setForeground(Color.BLACK);
         nuButton.setFont(new Font("Tahoma", Font.BOLD,18));
         nuButton.setEnabled(true);
         nuButton.setVisible(true);
+        // event handler for button to take to new staff page 
         nuButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent arg0) {
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
@@ -113,12 +123,14 @@ class LoginPanel extends JPanel{
             }
         });
         
+        // button for student/read only version
         stuButton = new JButton("Student?");
         stuButton.setBounds(600,550,170,50);
         stuButton.setForeground(Color.BLACK);
         stuButton.setFont(new Font("Tahoma", Font.BOLD,18));
         stuButton.setEnabled(true);
         stuButton.setVisible(true);
+        // event handler that takes the student to the course calendar
         stuButton.addActionListener(new ActionListener()
         { 
             public void actionPerformed(ActionEvent event)
@@ -127,6 +139,8 @@ class LoginPanel extends JPanel{
                 cardLayout.show(contentPane, "cc");
             }
         });
+        
+        // add elements to panel 
         p1.add(image1);
         p1.add(login);
         p1.add(UserID);
