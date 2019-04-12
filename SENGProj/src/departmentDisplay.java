@@ -99,11 +99,13 @@ public class departmentDisplay extends JPanel {
 		lblCode.setBounds(51, 241, 201, 26);
 		p1.add(lblCode);
 		
+		// dept code label that cannot be modified 
 		departmentCode = new JTextArea();
 		departmentCode.setEditable(false);
 		departmentCode.setBounds(51, 268, 245, 26);
 		p1.add(departmentCode);
 		
+		// view button that will display selected department information to user 
 		btnView = new JButton("View");
 		btnView.addActionListener(new ActionListener() {
 			/**
